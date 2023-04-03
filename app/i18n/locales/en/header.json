@@ -1,0 +1,15 @@
+{
+  "about_us": "About Us",
+  "contact_us": "Contact Us",
+  "home": "Home",
+  "login": "Login",
+  "logout": "Logout",
+  "register": "Register",
+  "search": "Search",
+  "search_placeholder": "Search for products",
+  "coffee": "Coffee",
+  "service": "Service",
+  "products": "Products",
+  "blog": "Blog",
+  "branch": "Branch"
+}
