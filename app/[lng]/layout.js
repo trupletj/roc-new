@@ -1,8 +1,11 @@
 import "@/styles/globals.css";
-import Providers from "./Providers";
-import Header from "@/app/[lng]/components/Header";
+import localFont from "next/font/local";
+
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
+
+import Providers from "./Providers";
+import Header from "@/app/[lng]/components/Header";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -13,10 +16,19 @@ export const metadata = {
   description: "Root of coffea",
 };
 
+const poppins = localFont({
+  src: [
+    {
+      path: "../../public/fonts/NoirPro-Regular.ttf",
+    },
+  ],
+  variable: "--font-poppins",
+});
+
 export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body>
+      <body className={`${poppins.variable} font-sans`}>
         <Providers>
           <Header lng={lng} />
           {children}

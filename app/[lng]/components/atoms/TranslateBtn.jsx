@@ -1,9 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Trans } from "react-i18next/TransWithoutContext";
-import { languages } from "../../i18n/settings";
-import { useTranslation } from "../../i18n";
+import { languages } from "../../../i18n/settings";
 import Arrow from "@/app/[lng]/components/atoms/icons/Arrow";
 
 export const TranslateBtn = ({ lng }) => {
