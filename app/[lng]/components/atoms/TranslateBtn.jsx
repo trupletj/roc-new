@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { languages } from "../../../i18n/settings";
 import Arrow from "@/app/[lng]/components/atoms/icons/Arrow";
 
+
 export const TranslateBtn = ({ lng }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +46,7 @@ export const TranslateBtn = ({ lng }) => {
                       */}
         {isOpen && (
           <div
-            className="absolute right-0 z-10  w-24 origin-top-right  bg-[#DFDDD7] focus:outline-none"
+            className="absolute right-0 z-10   origin-top-right  bg-[#DFDDD7] focus:outline-none"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="menu-button"
@@ -61,7 +62,7 @@ export const TranslateBtn = ({ lng }) => {
                 id="menu-item-0"
                 onClick={() => setIsOpen(false)}
               >
-                Монгол
+                MN
               </Link>
               <Link
                 href={`/en`}
@@ -71,7 +72,7 @@ export const TranslateBtn = ({ lng }) => {
                 id="menu-item-1"
                 onClick={() => setIsOpen(false)}
               >
-                English
+                EN
               </Link>
             </div>
           </div>

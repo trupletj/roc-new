@@ -4,7 +4,12 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["localhost", "res.cloudinary.com", "picsum.photos"],
+    domains: [
+      "localhost",
+      "res.cloudinary.com",
+      "picsum.photos",
+      "cdn.shopify.com",
+    ],
   },
 };
 

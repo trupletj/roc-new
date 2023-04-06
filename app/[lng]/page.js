@@ -1,12 +1,9 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import { useTranslation } from "../i18n";
 import DarkModeBtn from "@/app/[lng]/components/atoms/DarkModeBtn";
 import Carousel from "./components/moleculs/carousel";
 import Divider from "./components/atoms/Divider";
 import CoffeeList from "./components/HomeComponents/CoffeeList";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng);
