@@ -24,7 +24,7 @@ async function Header({ lng }) {
             <li className="ml-10">
               <DarkModeBtn />
             </li>
-            <li className="ml-10">
+            <li className="ml-[30px]">
               <TranslateBtn lng={lng} />
             </li>
           </ul>
@@ -50,7 +50,6 @@ async function Header({ lng }) {
         </div>
       </section>
       <Navigations lng={lng} />
-      <div className="w-full max-w-[1640px] mx-auto h-[1px] border-t-0 bg-black dark:bg-white opacity-100 "></div>
     </div>
   );
 }

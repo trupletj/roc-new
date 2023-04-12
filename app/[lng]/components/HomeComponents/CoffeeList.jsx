@@ -1,21 +1,22 @@
 import Image from "next/image";
 import React from "react";
+import SectionHeader from "../moleculs/SectionHeader";
 
 const data = [
   {
-    name: "Brazil mogonia",
+    name: "Brazil 1",
     img: "https://picsum.photos/900/300?random=11",
   },
   {
-    name: "Brazil mogonia",
+    name: "Brazil 2",
     img: "https://picsum.photos/700/700?random=12",
   },
   {
-    name: "Brazil mogonia",
+    name: "Brazil 3",
     img: "https://picsum.photos/300/900?random=13",
   },
   {
-    name: "Brazil mogonia",
+    name: "Brazil 4",
     img: "https://picsum.photos/500/600?random=14",
   },
 ];
@@ -23,9 +24,7 @@ const data = [
 function CoffeeList() {
   return (
     <div className="container mx-auto ">
-      <div className="flex flex-row justify-between ">
-        <h1>Coffee Roc Blends</h1> <button>Buh coffee uzeh</button>
-      </div>
+      <SectionHeader title="Кофе - ROC Blends" buttonTitle="Бүх Кофег Үзэх" />
       <div>
         <ul className="grid grid-cols-4 gap-4">
           {data.map((item) => (
