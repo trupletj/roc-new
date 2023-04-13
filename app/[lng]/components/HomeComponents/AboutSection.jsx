@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import SectionHeader from "../moleculs/SectionHeader";
+import Link from "next/link";
 
 function AboutSection() {
   return (
@@ -15,7 +16,13 @@ function AboutSection() {
               fill
               style={{ objectFit: "cover" }}
             />
+            <div className="absolute bottom-0 left-0 h-100">
+              <h1>head</h1>
+              <p>True to each and every bean since 2016.</p>
+              <Link className="" href="/"></Link>
+            </div>
           </div>
+
           <div className="col-span-1 w-full h-full relative">
             <Image
               src="https://picsum.photos/1920/1300?random=11"

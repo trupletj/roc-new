@@ -3,7 +3,6 @@ import React, { Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client.js";
-import { Menu, Transition } from "@headlessui/react";
 
 import Arrow from "../atoms/icons/Arrow";
 
@@ -19,7 +18,7 @@ const DataNav = [
       {
         title: "coffee_category",
         links: [
-          { name: "all_coffee", link: "/test" },
+          { name: "all_coffee", link: "/shop" },
           { name: "coffee_bean", link: "/test" },
           { name: "cold_brew", link: "/test" },
         ],
@@ -27,16 +26,16 @@ const DataNav = [
       {
         title: "coffee_type",
         links: [
-          { name: "blend", link: "/mn/test" },
-          { name: "single", link: "/mn/test" },
-          { name: "origin", link: "/mn/test" },
+          { name: "blend", link: "/test" },
+          { name: "single", link: "/test" },
+          { name: "origin", link: "/test" },
         ],
       },
       {
         title: "other",
         links: [
-          { name: "hario_v60", link: "/mn/test" },
-          { name: "world_of_coffea", link: "/mn/test" },
+          { name: "hario_v60", link: "/test" },
+          { name: "world_of_coffea", link: "/test" },
         ],
       },
     ],
@@ -72,8 +71,8 @@ function Navigations({ lng }) {
 const Subnav = ({ item, lng, pathName }) => {
   const { t } = useTranslation(lng, "header");
   return (
-    <div className="group h-[60px] flex items-center">
-      <li
+    <li className="group h-[60px] flex items-center">
+      <div
         key={item.name}
         className={
           pathName === `/${lng}${item.link}`
@@ -85,7 +84,7 @@ const Subnav = ({ item, lng, pathName }) => {
         <span className="ml-[5px]">
           <Arrow />
         </span>
-      </li>
+      </div>
       {item.sub && (
         <div className="absolute right-0 z-10 top-[60px] w-full origin-top-right  focus:outline-none bg-white dark:bg-[#191919] hidden group-hover:block">
           <div className="w-full max-w-[1640px] mx-auto h-[1px] border-t-0 bg-black dark:bg-white opacity-100 "></div>
@@ -99,11 +98,7 @@ const Subnav = ({ item, lng, pathName }) => {
                   </h1>
                   <ul key={sub.title} className="flex flex-col">
                     {sub.links.map((link) => (
-                      <li
-                        key={link.name}
-                        className="flex flex-row "
-                        onClick={() => setOpen(false)}
-                      >
+                      <li key={link.name} className="flex flex-row ">
                         <Link href={`/${lng}${link.link}`}>{link.name}</Link>
                       </li>
                     ))}
@@ -113,7 +108,7 @@ const Subnav = ({ item, lng, pathName }) => {
           </ul>
         </div>
       )}
-    </div>
+    </li>
   );
 };
 

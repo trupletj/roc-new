@@ -30,7 +30,7 @@ const poppins = localFont({
 export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={`${poppins.variable} font-sans `}>
+      <body className={`${poppins.variable} font-sans`}>
         <Providers>
           <Header lng={lng} />
           {children}
