@@ -96,7 +96,7 @@ const Subnav = ({ item, lng, pathName }) => {
           <ul className="flex flex-cols container mx-auto pt-[20px] pb-[80px]">
             {item.sub &&
               item.sub.map((sub) => (
-                <li className="mr-[80px]">
+                <li className="mr-[80px]" key={sub.title}>
                   <h1 className="text-[#F0B450] uppercase mb-[15px]">
                     {sub.title}
                   </h1>
