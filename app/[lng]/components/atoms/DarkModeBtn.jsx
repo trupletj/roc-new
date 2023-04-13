@@ -7,7 +7,7 @@ import Arrow from "./icons/Arrow";
 function DarkModeBtn() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme("dark");
   useEffect(() => {
     setMounted(true);
   }, []);
