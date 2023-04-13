@@ -6,7 +6,7 @@ function AboutSection() {
   return (
     <section>
       <div className="container mx-auto ">
-        <SectionHeader title={"title"} buttonTitle={"titil"} />
+        <SectionHeader title={"Root of Cofffea"} />
         <div className="grid grid-cols-2 gap-4 aspect-square ">
           <div className="col-span-2 h-full bg-red-200 w-full relative">
             <Image

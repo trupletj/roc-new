@@ -21,9 +21,9 @@ const data = [
   },
 ];
 
-function CoffeeList() {
+function InstagramFeed() {
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto mb-10">
       <SectionHeader title="Кофе - ROC Blends" buttonTitle="Бүх Кофег Үзэх" />
       <div>
         <ul className="grid grid-cols-4 gap-4">
@@ -40,4 +40,4 @@ function CoffeeList() {
   );
 }
 
-export default CoffeeList;
+export default InstagramFeed;

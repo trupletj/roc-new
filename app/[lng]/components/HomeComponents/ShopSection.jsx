@@ -32,8 +32,8 @@ function ShopSection() {
         <ul className="grid grid-cols-4 gap-4">
           {data.map((item) => (
             <li key={item.name}>
-              <div className="w-full aspect-square overflow-hidden bg-white flex items-center justify-center">
-                <Image src={item.img} width={330} height={330} />
+              <div className="w-full aspect-square relative">
+                <Image src={item.img} fill style={{ objectFit: "cover" }} />
               </div>
             </li>
           ))}

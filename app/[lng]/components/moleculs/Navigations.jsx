@@ -49,7 +49,6 @@ const DataNav = [
 function Navigations({ lng }) {
   const { t } = useTranslation(lng, "header");
   const pathName = usePathname();
-  console.log("router params------>", pathName);
 
   return (
     <>
@@ -61,7 +60,7 @@ function Navigations({ lng }) {
               <Subnav key={i} item={item} lng={lng} pathName={pathName} />
             ))}
           </ul>
-          <div>
+          <div className="uppercase">
             <Link href={`/${lng}/contact`}>{t("contact_us")}</Link>
           </div>
         </div>
@@ -72,8 +71,6 @@ function Navigations({ lng }) {
 
 const Subnav = ({ item, lng, pathName }) => {
   const { t } = useTranslation(lng, "header");
-  console.log(item, lng, pathName);
-  console.log(item.name);
   return (
     <div className="group h-[60px] flex items-center">
       <li
@@ -104,7 +101,7 @@ const Subnav = ({ item, lng, pathName }) => {
                     {sub.links.map((link) => (
                       <li
                         key={link.name}
-                        className="flex flex-row"
+                        className="flex flex-row "
                         onClick={() => setOpen(false)}
                       >
                         <Link href={`/${lng}${link.link}`}>{link.name}</Link>

@@ -5,7 +5,7 @@ function ClientRegister({ lng }) {
     <div className="w-full bg-[#ECEBE7] text-[#080505]">
       <div className="container mx-auto flex py-[30px]">
         <div className="w-1/2 flex flex-col">
-          <div className="text-[32px] mb-[20px]">roc.mn - d burtguuleh</div>
+          <div className="text-[32px] mb-[20px]">Холбоотой байя</div>
           <div className="lg:mr-[50px]">
             Шинэ салбар, шинээр ирсэн бараа бүтээгдэхүүний мэдээллийг хүлээн
             авах, урьдчилсан захиалга хийх, сонирхолтой нээлт, онцгой санал,

@@ -6,7 +6,7 @@ import Image from "next/image";
 import "swiper/swiper.min.css";
 
 const images = [
-  { src: "https://picsum.photos/5600/3200?random=1", key: 1 },
+  { src: "https://picsum.photos/3200/1200?random=1", key: 1 },
   { src: "https://picsum.photos/1920/1080?random=2", key: 2 },
   { src: "https://picsum.photos/800/300?random=3", key: 3 },
   { src: "https://picsum.photos/950/900?random=4", key: 4 },
