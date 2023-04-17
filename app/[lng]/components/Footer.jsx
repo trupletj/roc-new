@@ -12,7 +12,9 @@ function Footer() {
             <LogoWithText />
           </div>
         </div>
-        <Divider my="10px" />
+        <div
+          className={`my-[10px] w-full max-w-[1640px] mx-auto h-[1px] border-t-0 bg-black  dark:bg-white opacity-100 `}
+        />
         <section className="flex justify-between">
           <div className="flex flex-col lg:flex-row justify-between items-center ">
             <div className="flex flex-col">

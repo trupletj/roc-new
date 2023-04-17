@@ -3,7 +3,6 @@ import { useTranslation } from "@/app/i18n";
 
 import DarkModeBtn from "@/app/[lng]/components/atoms/DarkModeBtn";
 import { TranslateBtn } from "@/app/[lng]/components/atoms/TranslateBtn";
-import Divider from "./atoms/Divider";
 import Logo from "./atoms/Logo";
 import Search from "./atoms/icons/Search";
 import User from "./atoms/icons/User";
