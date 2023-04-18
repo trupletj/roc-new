@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
+import Basket from './Basket'
 import { Disclosure } from "@headlessui/react";
-import { VscChevronUp, VscChevronDown } from "react-icons/vsc";
+import { VscChevronUp, VscChevronDown,VscChromeClose } from "react-icons/vsc";
 function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const api_domain = "https://api.app-roc.com/";
 
@@ -45,6 +45,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
   }, [items, types]);
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
+      <Basket />
       <div className="lg:block">
         {!category_loading &&
           categories?.record?.length > 0 &&
