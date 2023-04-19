@@ -86,9 +86,9 @@ async function Header({ lng }) {
           <div className="container mx-auto  flex flex-row justify-between  text-[#080505]">
             <p>Сайн уу, ROC-д тавтай морил </p>
             <ul className="flex flex-row">
-              <li className="ml-10">
+              {/* <li className="ml-10">
                 <DarkModeBtn />
-              </li>
+              </li> */}
               <li className="ml-[30px]">
                 <TranslateBtn lng={lng} />
               </li>
