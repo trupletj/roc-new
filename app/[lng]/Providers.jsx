@@ -1,9 +1,19 @@
 "use client";
 import { ThemeProvider } from "next-themes";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import GlobalContext from "./context/GlobalContext";
 
 function Providers({ children }) {
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
+  const [openBasket, setOpenBasket] = useState(false);
+
+  useEffect(() => {
+    console.log("mounted");
+  }, []);
+  return (
+    <GlobalContext.Provider value={{ openBasket, setOpenBasket }}>
+      <ThemeProvider attribute="class">{children}</ThemeProvider>
+    </GlobalContext.Provider>
+  );
 }
 
 export default Providers;
