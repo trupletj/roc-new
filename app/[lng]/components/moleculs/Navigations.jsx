@@ -55,14 +55,17 @@ const Subnav = ({ item, lng, pathName }) => {
               item.sub.map((sub, i) => (
                 <li className="mr-[80px]" key={i}>
                   {sub.title && (
-                    <h1 className="text-[#F0B450] uppercase mb-[15px]">
+                    <h1 className="text-[#F0B450] uppercase mb-[15px] text-2xl">
                       {sub.title}
                     </h1>
                   )}
                   <ul key={sub.title} className="flex flex-col">
                     {sub.links.map((link) => (
-                      <li key={link.name} className="flex flex-row ">
-                        <Link href={`/${lng}${link.link}`}>{link.name}</Link>
+                      <li
+                        key={link.name}
+                        className="flex flex-row uppercase text-2xl my-2.5"
+                      >
+                        <Link href={`/${lng}${link.link}`}>{t(link.name)}</Link>
                       </li>
                     ))}
                   </ul>

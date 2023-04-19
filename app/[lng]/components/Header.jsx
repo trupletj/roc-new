@@ -11,11 +11,21 @@ import Navigations from "./moleculs/Navigations";
 import MobileNav from "./moleculs/MobileNav";
 import Burger from "./atoms/icons/Burger";
 import Basket from "./Shop/Basket";
+import ModalLogin from "./moleculs/ModalLogin";
 
 const DataNav = [
   {
     name: "about_us",
-    link: "",
+    sub: [
+      {
+        links: [
+          { name: "history", link: "/shop" },
+          { name: "team", link: "/test" },
+          { name: "how_we_roast", link: "/test" },
+          { name: "partners_sourcing", link: "/test" },
+        ],
+      },
+    ],
   },
   {
     name: "coffee",
@@ -73,7 +83,7 @@ async function Header({ lng }) {
         <section
           className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
         >
-          <div className="container mx-auto  flex flex-row justify-between  text-[#080505] ">
+          <div className="container mx-auto  flex flex-row justify-between  text-[#080505]">
             <p>Сайн уу, ROC-д тавтай морил </p>
             <ul className="flex flex-row">
               <li className="ml-10">
@@ -86,7 +96,7 @@ async function Header({ lng }) {
           </div>
         </section>
         <section className="w-full relative">
-          <div className="container mx-auto flex flex-row items-center px-10 lg:px-0 h-[80px]">
+          <div className="container mx-auto flex flex-row items-center px-10  h-[80px]">
             <div className="w-1/4">
               <div className=" lg:hidden">
                 <Burger />
@@ -111,6 +121,7 @@ async function Header({ lng }) {
         <Navigations DataNav={DataNav} lng={lng} />
       </div>
       <MobileNav DataNav={DataNav} lng={lng} />
+      <ModalLogin />
       <Basket />
     </>
   );

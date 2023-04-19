@@ -11,5 +11,9 @@
   "service": "Service",
   "shop": "Shop",
   "blog": "Blog",
-  "branch": "Branch"
+  "branch": "Branch",
+  "history": "History",
+  "team": "Team",
+  "how_we_roast": "How We Roast",
+  "partners_sourcing": "Partners & Sourcing"
 }
