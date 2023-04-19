@@ -10,6 +10,7 @@ import ShopBag from "./atoms/icons/ShopBag";
 import Navigations from "./moleculs/Navigations";
 import MobileNav from "./moleculs/MobileNav";
 import Burger from "./atoms/icons/Burger";
+import Basket from "./Shop/Basket";
 
 const DataNav = [
   {
@@ -110,6 +111,7 @@ async function Header({ lng }) {
         <Navigations DataNav={DataNav} lng={lng} />
       </div>
       <MobileNav DataNav={DataNav} lng={lng} />
+      <Basket />
     </>
   );
 }

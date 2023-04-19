@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
-import Basket from './Basket'
+import Basket from "./Basket";
 import { Disclosure } from "@headlessui/react";
-import { VscChevronUp, VscChevronDown,VscChromeClose } from "react-icons/vsc";
+import { VscChevronUp, VscChevronDown, VscChromeClose } from "react-icons/vsc";
+import GlobalContext from "../../context/GlobalContext";
 function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const api_domain = "https://api.app-roc.com/";
 
@@ -11,6 +12,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const { types, type_loading, type_error } = TypeData;
   const { categories, category_loading, category_error } = CategoryData;
 
+  const { openBasket, setOpenBasket } = useContext(GlobalContext);
   const [filteredTypes, setFilteredTypes] = React.useState({});
   const [selectedTypes, setSelectedTypes] = React.useState({});
   const [selectedTypeHelper, setSelectedTypeHelper] = React.useState("");
@@ -45,7 +47,6 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
   }, [items, types]);
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
-      <Basket />
       <div className="lg:block">
         {!category_loading &&
           categories?.record?.length > 0 &&
@@ -126,9 +127,11 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                 return null;
               }
               return (
-                <a
+                <div
                   key={`product-item-${product.id}`}
-                  href="/"
+                  onClick={() => {
+                    setOpenBasket(true);
+                  }}
                   className="group"
                 >
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7 items-center">
@@ -149,7 +152,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                       style: "decimal",
                     }) + "₮"}
                   </p>
-                </a>
+                </div>
               );
             })}
           </div>
