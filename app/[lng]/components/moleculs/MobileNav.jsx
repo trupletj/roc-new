@@ -13,6 +13,7 @@ import Cross from "../atoms/icons/Cross";
 import Divider from "../atoms/Divider";
 import Link from "next/link";
 import Arrow from "../atoms/icons/Arrow";
+import { MobileFooterBottom, MobileFooterTop } from "../Footer";
 
 function MobileNav({ lng, DataNav }) {
   const [open, setOpen] = useState(false);
@@ -36,9 +37,6 @@ function MobileNav({ lng, DataNav }) {
             <Logo />
           </div>
           <ul className="w-1/4 flex flex-row justify-end items-center">
-            <li className="mr-[30px] hidden lg:block">
-              <Search />
-            </li>
             <li className="mr-[30px]">
               <User />
             </li>
@@ -89,7 +87,7 @@ function MobileNav({ lng, DataNav }) {
             />
           </div>
 
-          <ul className="px-10 w-full flex flex-col  items-center ">
+          <ul className="px-10 w-full flex flex-col  items-center mb-10">
             {DataNav.map((item, index) => (
               <Subnav key={index} item={item} lng={lng} />
             ))}
@@ -100,20 +98,10 @@ function MobileNav({ lng, DataNav }) {
               className={`my-0 w-full h-px  bg-black  dark:bg-white opacity-100 `}
             />
           </ul>
-          <div className="w-full flex flex-row justify-between px-10 py-5">
-            <ul className="w-1/2">
-              <li className="py-2">Бидний тухай</li>
-              <li className="py-2">Бидний түүх</li>
-              <li className="py-2">Бүтээгдэхүүн</li>
-              <li className="py-2">Үйлчилгээ</li>
-            </ul>
-            <ul className="w-1/2">
-              <li className="py-2">ROC-д ажиллах</li>
-              <li className="py-2">Хаяг, байршил</li>
-              <li className="py-2">Блог</li>
-            </ul>
-          </div>
-          <footer className="w-full h-[120px] bg-red-100 sticky bottom-0"></footer>
+          <MobileFooterTop />
+          <footer className="w-full  bg-red-100 sticky bottom-0">
+            <MobileFooterBottom lng={lng} />
+          </footer>
         </section>
       )}
     </div>

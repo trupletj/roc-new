@@ -2,27 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-   body {
-       @apply dark:bg-[#191919] bg-white
-   }
+@layer base {
+  body {
+    @apply dark:bg-[#191919] bg-white;
+  }
 }
- .swiper-pagination {
-          width: 100% !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          display: flex;
-          flex-direction: row;
-        }
-        .swiper-pagination-bullet {
-          margin: 0 !important;
-          padding: 0 !important;
-          border-radius: 0;
-          width: 25%;
-          height: 10px;
-          opacity: 1;
-          background: #393636;
-        }
-        .swiper-pagination-bullet-active {
-          background: #f0b450;
-        }
+.swiper-pagination {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: row;
+}
+.swiper-pagination-bullet {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0;
+  width: 25%;
+  height: 10px;
+  opacity: 1;
+  background: #393636;
+}
+.swiper-pagination-bullet-active {
+  background: #f0b450;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f0b450;
+}

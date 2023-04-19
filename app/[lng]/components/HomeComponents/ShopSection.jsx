@@ -32,7 +32,7 @@ function ShopSection() {
         title="Tанд санал болгох бүтээгдэхүүн"
         buttonTitle="Дэлгүүрээр Зочлох"
       />
-      <div className="w-full overflow-x-scroll pb-2">
+      <div className="w-full overflow-x-auto pb-2">
         <ul className="grid grid-cols-4 gap-4 min-w-[640px]">
           {data.map((item) => (
             <li className="w-full" key={item.name}>

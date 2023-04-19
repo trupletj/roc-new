@@ -18,22 +18,39 @@ export const metadata = {
   description: "Root of coffea",
 };
 
-const poppins = localFont({
+const noirnormal = localFont({
   src: [
     {
       path: "../../public/fonts/NoirPro-Regular.ttf",
+      style: "normal",
     },
+  ],
+  display: "swap",
+  variable: "--font-noir-normal",
+});
+const noirbold = localFont({
+  src: [
+    {
+      path: "../../public/fonts/NoirPro-Bold.ttf",
+    },
+  ],
+  variable: "--font-noir-bold",
+});
+const noirlight = localFont({
+  src: [
     {
       path: "../../public/fonts/NoirPro-Light.ttf",
     },
   ],
-  variable: "--font-poppins",
+  variable: "--font-noir-light",
 });
 
 export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={`${poppins.variable} font-sans`}>
+      <body
+        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} font-light`}
+      >
         <Providers>
           <Header lng={lng} />
           {children}

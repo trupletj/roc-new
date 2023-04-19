@@ -15,7 +15,7 @@ export default async function Home({ params: { lng } }) {
     <main>
       <Carousel />
       <Divider />
-      <CoffeeList />
+      <CoffeeList lng={lng} />
       <Divider />
       <AboutSection />
       <Divider />
