@@ -23,6 +23,9 @@ const poppins = localFont({
     {
       path: "../../public/fonts/NoirPro-Regular.ttf",
     },
+    {
+      path: "../../public/fonts/NoirPro-Light.ttf",
+    },
   ],
   variable: "--font-poppins",
 });

@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="w-full">
       <div className="container mx-auto">
-        <div className="flex justify-center">
+        <div className="lg:flex justify-center hidden">
           <div className="w-[150px] h-[150px]">
             <LogoWithText />
           </div>

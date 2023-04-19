@@ -6,53 +6,14 @@ import { useTranslation } from "@/app/i18n/client.js";
 
 import Arrow from "../atoms/icons/Arrow";
 
-const DataNav = [
-  {
-    name: "about_us",
-    link: "",
-  },
-  {
-    name: "coffee",
-    link: "/coffee",
-    sub: [
-      {
-        title: "coffee_category",
-        links: [
-          { name: "all_coffee", link: "/shop" },
-          { name: "coffee_bean", link: "/test" },
-          { name: "cold_brew", link: "/test" },
-        ],
-      },
-      {
-        title: "coffee_type",
-        links: [
-          { name: "blend", link: "/test" },
-          { name: "single", link: "/test" },
-          { name: "origin", link: "/test" },
-        ],
-      },
-      {
-        title: "other",
-        links: [
-          { name: "hario_v60", link: "/test" },
-          { name: "world_of_coffea", link: "/test" },
-        ],
-      },
-    ],
-  },
-  { name: "products", link: "/products" },
-  { name: "service", link: "/service" },
-  { name: "branch", link: "/branch" },
-];
-
-function Navigations({ lng }) {
+function Navigations({ lng, DataNav }) {
   const { t } = useTranslation(lng, "header");
   const pathName = usePathname();
 
   return (
     <>
       <section className={`w-full text-base  relative hidden lg:block`}>
-        <div className="w-full max-w-[1640px] mx-auto h-[1px] border-t-0 bg-black  dark:bg-white opacity-100 " />
+        <div className="w-full max-w-[1640px] mx-auto h-px border-t-0 bg-black  dark:bg-white opacity-100 " />
         <div className="container  mx-auto flex flex-row justify-between items-center">
           <ul className="flex flex-row">
             {DataNav.map((item, i) => (
@@ -91,11 +52,13 @@ const Subnav = ({ item, lng, pathName }) => {
 
           <ul className="flex flex-cols container mx-auto pt-[20px] pb-[80px]">
             {item.sub &&
-              item.sub.map((sub) => (
-                <li className="mr-[80px]" key={sub.title}>
-                  <h1 className="text-[#F0B450] uppercase mb-[15px]">
-                    {sub.title}
-                  </h1>
+              item.sub.map((sub, i) => (
+                <li className="mr-[80px]" key={i}>
+                  {sub.title && (
+                    <h1 className="text-[#F0B450] uppercase mb-[15px]">
+                      {sub.title}
+                    </h1>
+                  )}
                   <ul key={sub.title} className="flex flex-col">
                     {sub.links.map((link) => (
                       <li key={link.name} className="flex flex-row ">

@@ -9,53 +9,108 @@ import User from "./atoms/icons/User";
 import ShopBag from "./atoms/icons/ShopBag";
 import Navigations from "./moleculs/Navigations";
 import MobileNav from "./moleculs/MobileNav";
+import Burger from "./atoms/icons/Burger";
+
+const DataNav = [
+  {
+    name: "about_us",
+    link: "",
+  },
+  {
+    name: "coffee",
+    sub: [
+      {
+        title: "coffee_category",
+        links: [
+          { name: "all_coffee", link: "/shop" },
+          { name: "coffee_bean", link: "/test" },
+          { name: "cold_brew", link: "/test" },
+        ],
+      },
+      {
+        title: "coffee_type",
+        links: [
+          { name: "blend", link: "/test" },
+          { name: "single", link: "/test" },
+          { name: "origin", link: "/test" },
+        ],
+      },
+      {
+        title: "other",
+        links: [
+          { name: "hario_v60", link: "/test" },
+          { name: "world_of_coffea", link: "/test" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "shop",
+    sub: [
+      {
+        links: [
+          { name: "all_coffee", link: "/shop" },
+          { name: "coffee_bean", link: "/test" },
+          { name: "cold_brew", link: "/test" },
+        ],
+      },
+    ],
+  },
+
+  { name: "service", link: "/service" },
+  { name: "branch", link: "/branch" },
+];
 
 async function Header({ lng }) {
   const { t } = await useTranslation(lng, "header");
 
   return (
-    <div
-      className={`font-sans text-base leading-5 w-full flex flex-col items-center`}
-    >
-      <section
-        className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
+    <>
+      <div
+        className={`font-sans text-base leading-5 w-full lg:flex flex-col items-center hidden `}
       >
-        <div className="container mx-auto  flex flex-row justify-between  text-[#080505] ">
-          <p>Сайн уу, ROC-д тавтай морил </p>
-          <ul className="flex flex-row">
-            <li className="ml-10">
-              <DarkModeBtn />
-            </li>
-            <li className="ml-[30px]">
-              <TranslateBtn lng={lng} />
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section className="w-full relative">
-        <div className="container mx-auto flex flex-row items-center  h-[80px]">
-          <div className="w-1/4">
-            <div className=" lg:hidden">burger</div>
+        <section
+          className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
+        >
+          <div className="container mx-auto  flex flex-row justify-between  text-[#080505] ">
+            <p>Сайн уу, ROC-д тавтай морил </p>
+            <ul className="flex flex-row">
+              <li className="ml-10">
+                <DarkModeBtn />
+              </li>
+              <li className="ml-[30px]">
+                <TranslateBtn lng={lng} />
+              </li>
+            </ul>
           </div>
-          <div className="dark:text-white my-2 w-1/2 flex justify-center">
-            <Logo />
+        </section>
+        <section className="w-full relative">
+          <div className="container mx-auto flex flex-row items-center px-10 lg:px-0 h-[80px]">
+            <div className="w-1/4">
+              <div className=" lg:hidden">
+                <Burger />
+              </div>
+            </div>
+            <div className="dark:text-white my-2 w-1/2 flex justify-center">
+              <Logo />
+            </div>
+            <ul className="w-1/4 flex flex-row justify-end items-center">
+              <li className="mr-[30px] hidden lg:block">
+                <Search />
+              </li>
+              <li className="mr-[30px]">
+                <User />
+              </li>
+              <li>
+                <ShopBag />
+              </li>
+            </ul>
           </div>
-          <ul className="w-1/4 flex flex-row justify-end items-center">
-            <li className="mr-[30px] hidden lg:block">
-              <Search />
-            </li>
-            <li className="mr-[30px]">
-              <User />
-            </li>
-            <li>
-              <ShopBag />
-            </li>
-          </ul>
-        </div>
-      </section>
-      <Navigations lng={lng} />
-      <MobileNav />
-    </div>
+        </section>
+        <Navigations DataNav={DataNav} lng={lng} />
+      </div>
+      <MobileNav DataNav={DataNav} lng={lng} />
+    </>
   );
 }
 
