@@ -5,6 +5,14 @@ const nextConfig = {
     appDir: true,
   },
   images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '192.168.10.214',
+        port: '8000',
+        pathname: '/storage/**',
+      },
+    ],
     domains: [
       "localhost",
       "api.app-roc.com",

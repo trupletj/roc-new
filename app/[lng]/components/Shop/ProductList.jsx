@@ -6,13 +6,13 @@ import { Disclosure } from "@headlessui/react";
 import { VscChevronUp, VscChevronDown, VscChromeClose } from "react-icons/vsc";
 import GlobalContext from "../../context/GlobalContext";
 function ProductList({ params, ItemData, TypeData, CategoryData }) {
-  const api_domain = "https://api.app-roc.com/";
+  // const api_domain = "https://api.app-roc.com/";
 
   const { items, isLoading, isError } = ItemData;
   const { types, type_loading, type_error } = TypeData;
   const { categories, category_loading, category_error } = CategoryData;
 
-  const { openBasket, setOpenBasket } = useContext(GlobalContext);
+  const { openBasket, setOpenBasket , api_domain } = useContext(GlobalContext);
   const [filteredTypes, setFilteredTypes] = React.useState({});
   const [selectedTypes, setSelectedTypes] = React.useState({});
   const [selectedTypeHelper, setSelectedTypeHelper] = React.useState("");
