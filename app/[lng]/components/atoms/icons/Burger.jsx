@@ -12,7 +12,7 @@ function Burger() {
         id="Group_474"
         data-name="Group 474"
         transform="translate(-8150 -71)"
-        fill="#fff"
+        fill="currentColor"
       >
         <rect
           id="Rectangle_49"

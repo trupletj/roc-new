@@ -12,7 +12,6 @@ function Branches() {
           <div className="col-span-3 h-full bg-red-200 w-full relative">
             <Image
               src="https://picsum.photos/600/300?random=11"
-              alt="123"
               fill
               style={{ objectFit: "cover" }}
             />

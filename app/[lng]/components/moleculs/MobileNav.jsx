@@ -17,6 +17,7 @@ import { MobileFooterBottom, MobileFooterTop } from "../Footer";
 
 function MobileNav({ lng, DataNav }) {
   const [open, setOpen] = useState(false);
+  const [childOpenIndex, setChildOpenIndex] = useState(-1);
   const { t } = useTranslation(lng, "header");
 
   return (
@@ -52,7 +53,9 @@ function MobileNav({ lng, DataNav }) {
             <div className="w-1/4">
               <div
                 className=" lg:hidden cursor-pointer"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false);
+                }}
               >
                 <Cross />
               </div>
@@ -89,7 +92,14 @@ function MobileNav({ lng, DataNav }) {
 
           <ul className="px-10 w-full flex flex-col  items-center mb-10">
             {DataNav.map((item, index) => (
-              <Subnav key={index} item={item} lng={lng} />
+              <Subnav
+                key={index}
+                currentIndex={index}
+                childOpenIndex={childOpenIndex}
+                setChildOpenIndex={setChildOpenIndex}
+                item={item}
+                lng={lng}
+              />
             ))}
             <li className="w-full py-5 uppercase">
               <Link href={`/${lng}/contact`}>{t("contact_us")}</Link>
@@ -108,14 +118,24 @@ function MobileNav({ lng, DataNav }) {
   );
 }
 
-const Subnav = ({ item, lng }) => {
+const Subnav = ({
+  currentIndex,
+  item,
+  lng,
+  childOpenIndex,
+  setChildOpenIndex,
+}) => {
   const { t } = useTranslation(lng, "header");
-  const [open, setOpen] = useState(false);
   return (
     <li className="flex flex-col items-center  w-full ">
       <div
         key={item.name}
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          setChildOpenIndex((val) => {
+            if (currentIndex == val) return -1;
+            return currentIndex;
+          });
+        }}
         className="w-full flex flex-row items-center justify-between py-5"
       >
         <span className="uppercase">{t(item.name)}</span>
@@ -126,7 +146,7 @@ const Subnav = ({ item, lng }) => {
       <div
         className={`my-0 w-full h-px  bg-black  dark:bg-white opacity-100 `}
       />
-      {item.sub && open && (
+      {item.sub && childOpenIndex == currentIndex && (
         <ul className="w-full flex flex-col  py-5 bg-white dark:bg-[#191919]">
           {item.sub &&
             item.sub.map((sub, i) => (
