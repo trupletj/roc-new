@@ -22,7 +22,7 @@ function MobileNav({ lng, DataNav }) {
 
   return (
     <div
-      className={`font-sans text-base leading-5 w-full flex flex-col items-center lg:hidden`}
+      className={`font-sans text-base leading-5 w-full flex flex-col items-center lg:hidden bg-[#080505] text-white`}
     >
       <section className="w-full relative">
         <div className="container mx-auto flex flex-row items-center px-10 lg:px-0 h-[80px]">

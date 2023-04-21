@@ -67,7 +67,7 @@ const mobileViewData = [
 function Footer({ lng }) {
   return (
     <>
-      <footer className="w-full hidden lg:block">
+      <footer className="w-full hidden lg:block bg-[#080505] text-white">
         <div className="container mx-auto">
           <div className="lg:flex justify-center hidden">
             <div className="w-[150px] h-[150px]">
@@ -115,7 +115,7 @@ function Footer({ lng }) {
           </section>
         </div>
       </footer>
-      <footer className="lg:hidden">
+      <footer className="lg:hidden bg-[#080505] text-white">
         <div className="container mx-auto">
           <section className="flex flex-col justify-between mt-10">
             <MobileFooterTop />

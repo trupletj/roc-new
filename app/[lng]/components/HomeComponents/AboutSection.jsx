@@ -22,7 +22,7 @@ function AboutSection() {
               <h1 className="font-bold text-xl">Our story</h1>
               <p className="my-4">True to each and every bean since 2016.</p>
               <Link
-                className="py-2 px-3 lg:block hidden bg-white text-[#080505] "
+                className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
                 href="/"
               >
                 Цааш унших
@@ -39,7 +39,7 @@ function AboutSection() {
               <h1 className="font-bold text-xl">Our story</h1>
               <p className="my-4">True to each and every bean since 2016.</p>
               <Link
-                className="py-2 px-3 lg:block hidden bg-white text-[#080505] "
+                className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
                 href="/"
               >
                 Цааш унших
@@ -55,7 +55,7 @@ function AboutSection() {
               <h1 className="font-bold text-xl">Our story</h1>
               <p className="my-4">True to each and every bean since 2016.</p>
               <Link
-                className="py-2 px-3 lg:block hidden bg-white text-[#080505] "
+                className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
                 href="/"
               >
                 Цааш унших

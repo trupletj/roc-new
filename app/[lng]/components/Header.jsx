@@ -78,7 +78,7 @@ async function Header({ lng }) {
   return (
     <>
       <div
-        className={`font-sans text-base leading-5 w-full lg:flex flex-col items-center hidden `}
+        className={`font-sans text-base leading-5 w-full lg:flex flex-col items-center hidden bg-[#080505] text-white`}
       >
         <section
           className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
