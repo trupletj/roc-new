@@ -44,12 +44,19 @@ const noirlight = localFont({
   ],
   variable: "--font-noir-light",
 });
-
+const noirmedium = localFont({
+  src: [
+    {
+      path: "../../public/fonts/NoirPro-Medium.ttf",
+    },
+  ],
+  variable: "--font-noir-medium",
+});
 export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
       <body
-        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} font-light`}
+        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} font-light`}
       >
         <Providers>
           <Header lng={lng} />

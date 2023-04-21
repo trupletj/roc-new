@@ -26,6 +26,7 @@ module.exports = {
         normal: ["var(--font-noir-normal)"],
         bold: ["var(--font-noir-bold)"],
         light: ["var(--font-noir-light)"],
+        medium: ["var(--font-noir-medium)"],
       },
     },
   },
