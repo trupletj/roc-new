@@ -3,7 +3,7 @@ import { Fragment, useState, createContext, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import { VscChromeClose } from "react-icons/vsc";
-import GlobalContext from "../../context/GlobalContext";
+import GlobalContext from "@/app/[lng]/context/GlobalContext";
 const products = [
   {
     id: 1,

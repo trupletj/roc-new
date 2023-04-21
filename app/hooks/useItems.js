@@ -17,6 +17,7 @@ const objectToQueryString = (obj) => {
   }
   return str.join("&");
 };
+
 export function useItems(req) {
   let str = objectToQueryString(req.data);
   let url = req.url;
@@ -24,8 +25,13 @@ export function useItems(req) {
     url = url + "?" + str;
   }
   let error = false;
+  // const response = await fetch(api_path, {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(data),
+  // });
   const data = use(
-    fetch(req.url, {
+    fetch(url, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -35,6 +41,7 @@ export function useItems(req) {
       })
   );
 
+  console.log(url)
   return {
     items: data,
     isLoading: !data,

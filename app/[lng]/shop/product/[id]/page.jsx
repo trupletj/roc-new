@@ -1,32 +1,24 @@
 import React from "react";
 import { useItems, api_domain_global } from "@/app/hooks/useItems";
+import ProductDetail from "@/app/[lng]/components/Shop/ProductDetails";
 
-import ProductList from "@/app/[lng]/components/Shop/ProductList";
 export const metadata = {
-  title: "Shop Products",
+  title: "Product detail",
 };
 
 function ShopPage({ params }) {
+  const { id } = params;
   const api_domain = process.env.API_DOMAIN;
   const { items, isLoading, isError } = useItems({
     url: `${api_domain}client/good/list`,
     data: {
       select:
         "id,name,sort_order,is_active,type_id,parent_good_id,price,size_id,image_path",
-      relations: ["type:id,name", "category:id,name", "size:id,name"],
+      type_id: id,
+      relations: ["size:id,name"],
     },
   });
 
-  const {
-    items: categories,
-    isLoading: category_loading,
-    isError: category_error,
-  } = useItems({
-    url: `${api_domain}client/goodGategories/list`,
-    data: {
-      select: "*",
-    },
-  });
   const {
     items: types,
     isLoading: type_loading,
@@ -35,13 +27,14 @@ function ShopPage({ params }) {
     url: `${api_domain}client/goodTypes/list`,
     data: {
       select: "*",
+      id: id,
+      relations: ["category:id,name"],
     },
   });
   return (
     <div className="container mx-auto">
-      <ProductList
+      <ProductDetail
         ItemData={{ items, isLoading, isError }}
-        CategoryData={{ categories, category_loading, category_error }}
         TypeData={{ types, type_loading, type_error }}
         params={params}
       />
