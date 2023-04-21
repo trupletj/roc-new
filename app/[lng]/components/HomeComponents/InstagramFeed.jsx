@@ -23,7 +23,7 @@ const data = [
 
 function InstagramFeed() {
   return (
-    <div className="container mx-auto mb-10 hidden lg:block my-10">
+    <div className="container mx-auto mb-10 hidden lg:block my-10 text-white">
       <h1 className="w-full text-center lg:text-3xl font-light text-base mb-5">
         #ROC_CAFFEINE_BAR
       </h1>

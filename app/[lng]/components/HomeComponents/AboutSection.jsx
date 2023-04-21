@@ -12,7 +12,7 @@ function AboutSection() {
       <div className="container mx-auto px-5 my-10">
         <SectionHeader title={"Root of Coffea"} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 aspect-[1/3] lg:aspect-square ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 aspect-[1/3] lg:aspect-square text-white">
           <Link
             href="/"
             className="grid-span-1 lg:col-span-2 aspect-square lg:aspect-auto relative "

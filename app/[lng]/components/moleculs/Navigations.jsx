@@ -13,7 +13,7 @@ function Navigations({ lng, DataNav }) {
   return (
     <>
       <section className={`w-full text-base  relative hidden lg:block`}>
-        <div className="w-full max-w-[1640px] mx-auto h-px border-t-0 bg-black  dark:bg-white opacity-100 " />
+        <div className="w-full max-w-[1640px] mx-auto h-px border-t-0 bg-white opacity-100 " />
         <div className="container  mx-auto flex flex-row justify-between items-center">
           <ul className="flex flex-row">
             {DataNav.map((item, i) => (
@@ -48,7 +48,7 @@ const Subnav = ({ item, lng, pathName }) => {
       </div>
       {item.sub && (
         <div className="absolute right-0 z-10 top-[60px] w-full origin-top-right  focus:outline-none bg-white dark:bg-[#191919] hidden group-hover:block transition transform duration-300 ease-in-out">
-          <div className="w-full max-w-[1640px] mx-auto h-[1px] border-t-0 bg-black dark:bg-white opacity-100 "></div>
+          <div className="w-full max-w-[1640px] mx-auto h-[1px] border-t-0 bg-white opacity-100 "></div>
 
           <ul className="flex flex-cols container mx-auto pt-[20px] pb-[80px]">
             {item.sub &&

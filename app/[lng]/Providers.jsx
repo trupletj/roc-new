@@ -1,5 +1,4 @@
 "use client";
-import { ThemeProvider } from "next-themes";
 import React, { useEffect, useState } from "react";
 import GlobalContext from "./context/GlobalContext";
 
@@ -25,7 +24,7 @@ function Providers({ children }) {
         setCard,
       }}
     >
-      <ThemeProvider attribute="class">{children}</ThemeProvider>
+      {children}
     </GlobalContext.Provider>
   );
 }

@@ -30,7 +30,7 @@ function CoffeeList({ lng }) {
     <div className="container mx-auto my-10 px-5">
       <SectionHeader title="Кофе - ROC Blends" buttonTitle="Бүгдийг үзэх" />
       <div className="w-full overflow-x-auto pb-2">
-        <ul className="grid grid-cols-4 gap-4 min-w-[640px]">
+        <ul className="grid grid-cols-4 gap-4 min-w-[640px] text-white">
           {data.map((item) => (
             <li className="w-full relativ " key={item.name}>
               <div className="w-full aspect-square relative group">

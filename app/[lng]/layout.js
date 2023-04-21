@@ -7,7 +7,6 @@ import { languages } from "../i18n/settings";
 import Providers from "./Providers";
 import Header from "@/app/[lng]/components/Header";
 import Footer from "./components/Footer";
-import ClientRegister from "./components/ClientRegister";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
