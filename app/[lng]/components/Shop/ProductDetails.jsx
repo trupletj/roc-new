@@ -41,7 +41,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
     });
   }, []);
   return (
-    <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6">
+    <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6 text-gray-900">
       <div className="lg:col-span-3 flex">
         <div>
           {items.record &&
@@ -58,7 +58,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
               );
             })}
         </div>
-        <div>
+        <div className="">
           {productType?.main_image && (
             <Image
               src={api_domain + productType.main_image}
@@ -73,7 +73,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
       </div>
 
       <div className="lg:col-span-3">
-        <div className="flex flex-row  text-gray-500  ">
+        <div className="flex flex-row items-start text-sm text-gray-500  ">
           <span>Шоп</span>
           <span className="mx-1">-</span>
           <span>{productType?.category?.name}</span>
@@ -81,10 +81,12 @@ function ProductDetail({ params, ItemData, TypeData }) {
 
           <span className="text-[#F0B450]">{productType?.name} </span>
         </div>
-        <div className="space-y-2">
-          <p>{lng == "en" ? productType.name : productType.mn_name}</p>
+        <div className="space-y-2 flex flex-col items-start">
+          <p className="text-2xl font-normal mt-2">
+            {lng == "en" ? productType.name : productType.mn_name}
+          </p>
           {!selectedItem && (
-            <p className="text-[#F0B450]">
+            <p className="text-[#F0B450] text-xl font-normal">
               {minPrice?.toLocaleString("en-US", {
                 style: "decimal",
               })}
@@ -103,24 +105,47 @@ function ProductDetail({ params, ItemData, TypeData }) {
               {"₮"}
             </p>
           )}
-          <p>
+          <p className="text-3xl text-[#6B6969] font-normal mt-2">
+            Chocolate, Nuts, Fruits
+          </p>
+          <p className="pb-5">
             {lng === "en"
               ? productType.description
               : productType.mn_description}
           </p>
-          <div className="flex gap-1">
+          <h1 className="font-normal">Кофены төрөл</h1>
+          <div className="grid grid-cols-2">
+            <label
+              htmlFor={1}
+              className={`col-span-1 cursor-pointer select-none mr-3 px-9  border border-[#080505] bg-[${
+                true ? "#080505" : "#ffffff"
+              }] p-2 text-center  ${true ? "text-white" : "text-black "} `}
+            >
+              Үрлэн кофе
+            </label>
+            <label
+              htmlFor={1}
+              className={`col-span-1 cursor-pointer select-none mr-3 px-9 border border-[#080505]  bg-[${
+                false ? "#080505" : "#ffffff"
+              }] p-2 text-center  ${false ? "text-white" : "text-black "} `}
+            >
+              Нунтаг - Эспрессо
+            </label>
+          </div>
+          <h1 className="font-normal">Хэмжээ</h1>
+          <div className="grid-cols-2 grid gap-1">
             {items?.record.map((item) => {
               return (
                 <label
                   htmlFor={1}
-                  className={`block cursor-pointer select-none  bg-[${
+                  className={`col-span-1 cursor-pointer select-none px-9 border border-[#080505] bg-[${
                     selectedItem && selectedItem.id == item.id
-                      ? "#F0B450"
-                      : "#080505"
+                      ? "#080505"
+                      : "FFFFFF"
                   }] p-2 text-center  ${
                     selectedItem && selectedItem.id == item.id
-                      ? "text-black"
-                      : "text-white "
+                      ? "text-white"
+                      : "text-black "
                   } `}
                   onClick={() => {
                     setSelectedItem((val) => {
@@ -135,9 +160,9 @@ function ProductDetail({ params, ItemData, TypeData }) {
           </div>
 
           {selectedItem && (
-            <div className="flex gap-1 ">
-              <div className="flex items-center">
-                <span>
+            <div className="grid grid-cols-5 gap-5 w-full pt-10">
+              <div className="flex items-center justify-between ">
+                <span className="flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -153,10 +178,12 @@ function ProductDetail({ params, ItemData, TypeData }) {
                     ></path>
                   </svg>
                 </span>
-                <span className="py-px px-3 mx-1 text-base font-normal">
-                  {card[selectedItem.id]?.quantity || 1}
+                <span className="flex items-center justify-center text-xl font-normal">
+                  {(card[selectedItem.id]?.quantity || 1) <= 9
+                    ? "0" + (card[selectedItem.id]?.quantity || 1)
+                    : card[selectedItem.id]?.quantity || 1}
                 </span>
-                <span>
+                <span className="flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -181,8 +208,11 @@ function ProductDetail({ params, ItemData, TypeData }) {
                   </svg>
                 </span>
               </div>
+              <button className="bg-[#F0B450] text-white py-1 px-3 col-span-2">
+                {t("buy_now")}
+              </button>
               <button
-                className="bg-[#F0B450] text-white py-1 px-3"
+                className="bg-[#080505] text-white py-2 px-3 col-span-2"
                 onClick={() => {
                   setCard((val) => {
                     const localCard = localStorage.getItem("card");

@@ -32,12 +32,14 @@ function ShopPage({ params }) {
     },
   });
   return (
-    <div className="container mx-auto">
-      <ProductDetail
-        ItemData={{ items, isLoading, isError }}
-        TypeData={{ types, type_loading, type_error }}
-        params={params}
-      />
+    <div className="w-full bg-white">
+      <div className="container py-12">
+        <ProductDetail
+          ItemData={{ items, isLoading, isError }}
+          TypeData={{ types, type_loading, type_error }}
+          params={params}
+        />
+      </div>
     </div>
   );
 }
