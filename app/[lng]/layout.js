@@ -61,7 +61,6 @@ export default function RootLayout({ children, params: { lng } }) {
         <Providers>
           <Header lng={lng} />
           {children}
-          <ClientRegister lng={lng} />
           <Footer lng={lng} />
         </Providers>
       </body>

@@ -7,6 +7,7 @@ import ShopSection from "./components/HomeComponents/ShopSection";
 import AboutSection from "./components/HomeComponents/AboutSection";
 import Branches from "./components/HomeComponents/Branches";
 import InstagramFeed from "./components/HomeComponents/InstagramFeed";
+import ClientRegister from "./components/ClientRegister";
 
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng);
@@ -23,6 +24,7 @@ export default async function Home({ params: { lng } }) {
       <Branches />
       <Divider />
       <InstagramFeed />
+      <ClientRegister lng={lng} />
     </main>
   );
 }
