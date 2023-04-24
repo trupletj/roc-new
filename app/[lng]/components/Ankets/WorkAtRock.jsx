@@ -16,10 +16,10 @@ function WorkAtRock() {
           <p>
             One likes what one likes, therefore it is important for us to find
             out what our customers prefer. We try our best to roast our coffee
-            according to our clients’ taste.
+            according to our clients taste.
           </p>
           <div className="w-full aspect-video relative">
-            <Image fill src={anket1} style={{ objectFit: "cover" }} />
+            <Image alt="sds" fill src={anket1} style={{ objectFit: "cover" }} />
           </div>
           <p>
             For your application for listed jobs to be considered, you must
@@ -29,12 +29,12 @@ function WorkAtRock() {
             but ours too.
           </p>
           <p>
-            We’re an ambitious company with an incredible team of people so we
+            Were an ambitious company with an incredible team of people so we
             need to know if you are going to join us, what you are going to
-            bring to the team, more than just ‘do the job’.
+            bring to the team, more than just
           </p>
           <p>
-            If you're interested in a role at ROC, please email your CV and
+            If youre interested in a role at ROC, please email your CV and
             covering letter to{" "}
             <Link href="/" className="text-[#6B6969]">
               info@roc.mn
@@ -44,10 +44,15 @@ function WorkAtRock() {
         <div className="grid grid-cols-3 gap-4 ">
           <div className="flex flex-col justify-between space-y-4 col-span-1 my-4">
             <div className="w-full relative aspect-video">
-              <Image fill style={{ objectFit: "cover" }} src={anket1} />
+              <Image
+                alt="sds"
+                fill
+                style={{ objectFit: "cover" }}
+                src={anket1}
+              />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
@@ -58,10 +63,15 @@ function WorkAtRock() {
           </div>
           <div className="flex flex-col justify-between space-y-4 col-span-1">
             <div className="w-full relative aspect-video">
-              <Image fill style={{ objectFit: "cover" }} src={anket1} />
+              <Image
+                alt="sds"
+                fill
+                style={{ objectFit: "cover" }}
+                src={anket1}
+              />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
@@ -72,10 +82,15 @@ function WorkAtRock() {
           </div>
           <div className="flex flex-col justify-between space-y-4 col-span-1">
             <div className="w-full relative aspect-video">
-              <Image fill style={{ objectFit: "cover" }} src={anket1} />
+              <Image
+                alt="sds"
+                fill
+                style={{ objectFit: "cover" }}
+                src={anket1}
+              />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
@@ -86,10 +101,15 @@ function WorkAtRock() {
           </div>
           <div className="flex flex-col justify-between space-y-4 col-span-1">
             <div className="w-full relative aspect-video">
-              <Image fill style={{ objectFit: "cover" }} src={anket1} />
+              <Image
+                alt="sds"
+                fill
+                style={{ objectFit: "cover" }}
+                src={anket1}
+              />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
