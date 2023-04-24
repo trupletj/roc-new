@@ -41,10 +41,18 @@ const Subnav = ({ item, lng, pathName }) => {
             : "flex flex-row items-center justify-center mr-[50px] cursor-pointer  "
         }
       >
-        <span className="uppercase">{t(item.name)}</span>
-        <span className="ml-[5px]">
-          <Arrow />
-        </span>
+        {item.link && (
+          <Link href={`/${lng}${item.link}`}>
+            <span className="uppercase">{t(item.name)}</span>
+          </Link>
+        )}
+        {!item.link && <span className="uppercase">{t(item.name)}</span>}
+
+        {item.sub && (
+          <span className="ml-[5px]">
+            <Arrow />
+          </span>
+        )}
       </div>
       {item.sub && (
         <div className="absolute right-0 z-10 top-[60px] w-full origin-top-right  focus:outline-none bg-[#080505] hidden group-hover:block transition transform duration-300 ease-in-out">
