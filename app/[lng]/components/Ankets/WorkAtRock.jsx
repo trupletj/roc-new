@@ -34,7 +34,7 @@ function WorkAtRock() {
             bring to the team, more than just
           </p>
           <p>
-            If you're interested in a role at ROC, please email your CV and
+            If youre interested in a role at ROC, please email your CV and
             covering letter to{" "}
             <Link href="/" className="text-[#6B6969]">
               info@roc.mn
@@ -52,7 +52,7 @@ function WorkAtRock() {
               />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
@@ -71,7 +71,7 @@ function WorkAtRock() {
               />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
@@ -90,7 +90,7 @@ function WorkAtRock() {
               />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
@@ -109,7 +109,7 @@ function WorkAtRock() {
               />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
-            <h1 className="text-2xl font-normal">Live: Barista</h1>
+            <h1 className="text-2xl font-normal">Live Barista</h1>
             <p className="">
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
