@@ -16,7 +16,7 @@ function WorkAtRock() {
           <p>
             One likes what one likes, therefore it is important for us to find
             out what our customers prefer. We try our best to roast our coffee
-            according to our clients’ taste.
+            according to our clients taste.
           </p>
           <div className="w-full aspect-video relative">
             <Image alt="sds" fill src={anket1} style={{ objectFit: "cover" }} />
@@ -29,9 +29,9 @@ function WorkAtRock() {
             but ours too.
           </p>
           <p>
-            We’re an ambitious company with an incredible team of people so we
+            Were an ambitious company with an incredible team of people so we
             need to know if you are going to join us, what you are going to
-            bring to the team, more than just ‘do the job’.
+            bring to the team, more than just
           </p>
           <p>
             If you're interested in a role at ROC, please email your CV and
