@@ -17,7 +17,12 @@ function WorkAtRock() {
             according to our clients’ taste.
           </p>
           <div className="w-full aspect-video relative">
-            <Image fill src={anket1} style={{ objectFit: "cover" }} />
+            <Image
+              alt="dfsf"
+              fill
+              src={anket1}
+              style={{ objectFit: "cover" }}
+            />
           </div>
           <p>
             For your application for listed jobs to be considered, you must
@@ -53,7 +58,12 @@ function WorkAtRock() {
         <div className="grid grid-cols-3 gap-5 mt-20">
           <div className="flex flex-col justify-between  col-span-1 ">
             <div className="w-full relative aspect-video">
-              <Image fill style={{ objectFit: "cover" }} src={anket1} />
+              <Image
+                alt="ss"
+                fill
+                style={{ objectFit: "cover" }}
+                src={anket1}
+              />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
             <h1 className="text-2xl font-normal">Live: Barista</h1>
@@ -67,7 +77,12 @@ function WorkAtRock() {
           </div>
           <div className="flex flex-col justify-between space-y-4 col-span-1">
             <div className="w-full relative aspect-video">
-              <Image fill style={{ objectFit: "cover" }} src={anket1} />
+              <Image
+                alt="ssd"
+                fill
+                style={{ objectFit: "cover" }}
+                src={anket1}
+              />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
             <h1 className="text-2xl font-normal">Live: Barista</h1>
@@ -81,7 +96,12 @@ function WorkAtRock() {
           </div>
           <div className="flex flex-col justify-between space-y-4 col-span-1">
             <div className="w-full relative aspect-video">
-              <Image fill style={{ objectFit: "cover" }} src={anket1} />
+              <Image
+                alt="dsfsd"
+                fill
+                style={{ objectFit: "cover" }}
+                src={anket1}
+              />
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
             <h1 className="text-2xl font-normal">Live: Barista</h1>
