@@ -51,7 +51,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
       types?.record.length > 0
     )
       setFilteredItems(
-        items.record.filter((item) => selectedTypes[item.type_id] == true)
+        items.record.filter((item) => selectedTypes[item.type_id] === true)
       );
   }, [items, types, selectedTypeHelper]);
 
@@ -93,7 +93,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                   <Disclosure.Panel className="pt-6">
                     <div className="space-y-4">
                       {types?.record
-                        .filter((item) => item.category_id == category.id)
+                        .filter((item) => item.category_id === category.id)
                         .map((current) => {
                           if (current) {
                             return (
@@ -148,7 +148,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
         {!isLoading && items?.record.length > 1 && (
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 py-3">
             {filteredItems.map((product) => {
-              if (product.id == 56) {
+              if (product.id === 56) {
                 return null;
               }
               return (

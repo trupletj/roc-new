@@ -64,7 +64,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                   height="100"
                   style={{ objectFit: "cover" }}
                   className={`self-center mx-auto cursor-pointer border my-1 ${
-                    selectedItem.id == product.id
+                    selectedItem.id === product.id
                       ? "border-[#F0B450]"
                       : "border-gray-500"
                   }`}
@@ -102,7 +102,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
         </div>
         <div className="space-y-2 flex flex-col items-start">
           <p className="text-2xl font-normal mt-2">
-            {lng == "en" ? productType.name : productType.mn_name}
+            {lng === "en" ? productType.name : productType.mn_name}
           </p>
           {!selectedItem && (
             <p className="text-[#F0B450] text-xl font-normal">
@@ -150,11 +150,11 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                       });
                     }}
                     className={`col-span-1 cursor-pointer select-none mr-3  border ${
-                      selectedGrind == grinder.id
+                      selectedGrind === grinder.id
                         ? "border-[#F0B450]"
                         : "border-black"
                     }   bg-white  p-2 text-center  text-[${
-                      selectedGrind == grinder.id ? "#F0B450" : "black"
+                      selectedGrind === grinder.id ? "#F0B450" : "black"
                     }]`}
                   >
                     <div className="flex flex-col justify-between">
@@ -167,7 +167,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                         className="self-center mx-auto"
                       />
                       <p className="align-bottom">
-                        {lng == "en" ? grinder.name : grinder.mn_name}
+                        {lng === "en" ? grinder.name : grinder.mn_name}
                       </p>
                     </div>
                   </div>
@@ -190,11 +190,11 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                   key={i}
                   htmlFor={1}
                   className={`col-span-1 cursor-pointer select-none px-9 border border-[#080505] bg-[${
-                    selectedItem && selectedItem.id == item.id
+                    selectedItem && selectedItem.id === item.id
                       ? "#080505"
                       : "FFFFFF"
                   }] p-2 text-center  ${
-                    selectedItem && selectedItem.id == item.id
+                    selectedItem && selectedItem.id === item.id
                       ? "text-white"
                       : "text-black "
                   } `}
