@@ -5,9 +5,12 @@ import { Disclosure } from "@headlessui/react";
 import { VscChevronUp, VscChevronDown, VscChromeClose } from "react-icons/vsc";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 import Link from "next/link";
+import { useTranslation } from "@/app/i18n/client";
 import ShopBag from "../atoms/icons/ShopBag";
 function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const { lng } = params;
+
+  const { t: headerT } = useTranslation(lng, "header");
   const { items, isLoading, isError } = ItemData;
   const { types, type_loading, type_error } = TypeData;
   const { categories, category_loading, category_error } = CategoryData;
@@ -15,6 +18,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const { apiDomain } = useContext(GlobalContext);
 
   const [selectedTypes, setSelectedTypes] = React.useState({});
+  const [selectedCategories, setSelectedCategories] = React.useState({});
   const [filteredItems, setFilteredItems] = React.useState([]);
   const [selectedTypeHelper, setSelectedTypeHelper] = React.useState("");
   React.useEffect(() => {
@@ -23,6 +27,14 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
         const helper = val;
         helper[item.id] = true;
         setSelectedTypeHelper(JSON.stringify(helper));
+        return helper;
+      });
+    });
+
+    categories.record.map((item, index) => {
+      setSelectedCategories((val) => {
+        let helper = { ...val };
+        helper[item.id] = index > 1 ? false : true;
         return helper;
       });
     });
@@ -51,6 +63,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
           categories?.record.map((category) => (
             <Disclosure
               as="div"
+              defaultOpen={true}
               key={`filter-category-key-for-${category.id}`}
               className="border-b border-gray-200 py-6"
             >
@@ -59,7 +72,8 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                   <h3 className="-my-3 flow-root">
                     <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
                       <span className="font-medium text-gray-900">
-                        {category.name}
+                        {category.name}{" "}
+                        {selectedCategories[category.id] ? "open" : "close"}
                       </span>
                       <span className="ml-6 flex items-center">
                         {open ? (
@@ -125,9 +139,14 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
 
       <div className="lg:col-span-4">
         <h2 className="sr-only">Products</h2>
-        {isLoading && <p> loading</p>}
+        <div className="flex flex-row container py-2 text-gray-500 border-b border-b-gray-900">
+          <span>{headerT("home")}</span>
+          <span className="mx-1">-</span>
+          <span className="text-[#F0B450]">{headerT("shop")}</span>
+        </div>
+        {isLoading && <p> loading.. </p>}
         {!isLoading && items?.record.length > 1 && (
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 py-3">
             {filteredItems.map((product) => {
               if (product.id == 56) {
                 return null;

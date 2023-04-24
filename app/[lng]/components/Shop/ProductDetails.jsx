@@ -4,14 +4,17 @@ import Image from "next/image";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 import { useTranslation } from "@/app/i18n/client";
 
-function ProductDetail({ params, ItemData, TypeData }) {
+function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
   const { lng } = params;
   const { items, isLoading } = ItemData;
+  const { grinders, grinderLoading } = GrinderData;
   const { types } = TypeData;
   const { t } = useTranslation();
 
   const [selectedItem, setSelectedItem] = useState(false);
+  const [selectedGrind, setSelectedGrind] = useState(3);
   const [productType, setProductType] = useState(false);
+  const [itemsCount, setItemsCount] = useState({});
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
@@ -23,6 +26,14 @@ function ProductDetail({ params, ItemData, TypeData }) {
       setProductType(types?.record[0]);
     }
     items?.record.map((item) => {
+      if (!selectedItem) {
+        setSelectedItem(item);
+      }
+      setItemsCount((val) => {
+        let helper = { ...val };
+        helper[item.id] = 1;
+        return helper;
+      });
       setMinPrice((val) => {
         if (val === 0 || item.price <= val) {
           return item.price;
@@ -52,16 +63,25 @@ function ProductDetail({ params, ItemData, TypeData }) {
                   width="100"
                   height="100"
                   style={{ objectFit: "cover" }}
-                  className="self-center mx-auto"
+                  className={`self-center mx-auto cursor-pointer border my-1 ${
+                    selectedItem.id == product.id
+                      ? "border-[#F0B450]"
+                      : "border-gray-500"
+                  }`}
+                  onClick={() => {
+                    setSelectedItem((val) => {
+                      return product;
+                    });
+                  }}
                 ></Image>
               );
             })}
         </div>
         <div className="">
-          {productType?.main_image && (
+          {selectedItem?.image_path && (
             <Image
-              src={apiDomain + productType.main_image}
-              alt={productType.name || "123"}
+              src={apiDomain + selectedItem.image_path}
+              alt={selectedItem.name || "123"}
               width="500"
               height="500"
               style={{ objectFit: "cover" }}
@@ -97,40 +117,71 @@ function ProductDetail({ params, ItemData, TypeData }) {
             </p>
           )}
           {selectedItem && (
-            <p className="text-[#F0B450]">
+            <p className="text-[#F0B450] text-2xl font-normal">
               {selectedItem?.price.toLocaleString("en-US", {
                 style: "decimal",
               })}
               {"₮"}
             </p>
           )}
-          <p className="text-3xl text-[#6B6969] font-normal mt-2">
+          {/* <p className="text-3xl text-[#6B6969] font-normal mt-2">
             Chocolate, Nuts, Fruits
-          </p>
+          </p> */}
           <p className="pb-5">
             {lng === "en"
-              ? productType.description
-              : productType.mn_description}
+              ? productType.description || "-"
+              : productType.mn_description || "-"}
           </p>
-          <h1 className="font-normal">Кофены төрөл</h1>
-          <div className="grid grid-cols-2">
-            <label
-              htmlFor={1}
-              className={`col-span-1 cursor-pointer select-none mr-3 px-9  border border-[#080505] bg-[${
-                true ? "#080505" : "#ffffff"
-              }] p-2 text-center  ${true ? "text-white" : "text-black "} `}
-            >
-              Үрлэн кофе
-            </label>
-            <label
+          <h1 className="font-normal">{t("grinder_type")}</h1>
+
+          <div className="grid grid-cols-2"></div>
+
+          {!grinderLoading && (
+            <div className={`grid grid-cols-4 gap-2`}>
+              {grinders?.record
+                .sort((a, b) => a.level - b.level)
+                .map((grinder) => (
+                  <div
+                    key={`grinder-key-${grinder.id}`}
+                    htmlFor={1}
+                    onClick={() => {
+                      setSelectedGrind((val) => {
+                        return grinder.id;
+                      });
+                    }}
+                    className={`col-span-1 cursor-pointer select-none mr-3  border ${
+                      selectedGrind == grinder.id
+                        ? "border-[#F0B450]"
+                        : "border-black"
+                    }   bg-white  p-2 text-center  text-[${
+                      selectedGrind == grinder.id ? "#F0B450" : "black"
+                    }]`}
+                  >
+                    <div className="flex flex-col justify-between">
+                      <Image
+                        src={apiDomain + grinder.image_path}
+                        alt={grinder.name || "123"}
+                        width="70"
+                        height="70"
+                        style={{ objectFit: "contain" }}
+                        className="self-center mx-auto"
+                      />
+                      <p className="align-bottom">
+                        {lng == "en" ? grinder.name : grinder.mn_name}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+          {/* <label
               htmlFor={1}
               className={`col-span-1 cursor-pointer select-none mr-3 px-9 border border-[#080505]  bg-[${
                 false ? "#080505" : "#ffffff"
               }] p-2 text-center  ${false ? "text-white" : "text-black "} `}
             >
               Нунтаг - Эспрессо
-            </label>
-          </div>
+            </label> */}
           <h1 className="font-normal">Хэмжээ</h1>
           <div className="grid-cols-2 grid gap-1">
             {items?.record.map((item, i) => {
@@ -158,11 +209,22 @@ function ProductDetail({ params, ItemData, TypeData }) {
               );
             })}
           </div>
-
           {selectedItem && (
             <div className="grid grid-cols-5 gap-5 w-full pt-10">
               <div className="flex items-center justify-between ">
-                <span className="flex items-center justify-center">
+                <span
+                  className="flex items-center justify-center cursor-pointer"
+                  onClick={() => {
+                    setItemsCount((val) => {
+                      let helper = { ...val };
+                      helper[selectedItem.id] += -1;
+                      if (helper[selectedItem.id] < 1) {
+                        helper[selectedItem.id] = 1;
+                      }
+                      return helper;
+                    });
+                  }}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -179,11 +241,21 @@ function ProductDetail({ params, ItemData, TypeData }) {
                   </svg>
                 </span>
                 <span className="flex items-center justify-center text-xl font-normal">
-                  {(card[selectedItem.id]?.quantity || 1) <= 9
+                  {/* {(card[selectedItem.id]?.quantity || 1) <= 9
                     ? "0" + (card[selectedItem.id]?.quantity || 1)
-                    : card[selectedItem.id]?.quantity || 1}
+                    : card[selectedItem.id]?.quantity || 1} */}
+                  {itemsCount[selectedItem.id]}
                 </span>
-                <span className="flex items-center justify-center">
+                <span
+                  className="flex items-center justify-center cursor-pointer min-h-[25px]"
+                  onClick={() => {
+                    setItemsCount((val) => {
+                      let helper = { ...val };
+                      helper[selectedItem.id] += 1;
+                      return helper;
+                    });
+                  }}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -208,27 +280,33 @@ function ProductDetail({ params, ItemData, TypeData }) {
                   </svg>
                 </span>
               </div>
-              <button className="bg-[#F0B450] text-white py-1 px-3 col-span-2">
+              {/* <button className="bg-[#F0B450] text-white py-1 px-3 col-span-2">
                 {t("buy_now")}
-              </button>
+              </button> */}
               <button
-                className="bg-[#080505] text-white py-2 px-3 col-span-2"
+                className="bg-[#080505] text-white py-2 px-3 col-span-2 min-h-[25px]"
                 onClick={() => {
                   setCard((val) => {
                     const localCard = localStorage.getItem("card");
                     let helper = localCard ? JSON.parse(localCard) : val;
+
                     if (!helper[selectedItem.id])
                       helper[selectedItem.id] = {
                         ...selectedItem,
                         ["quantity"]: 1,
                       };
                     else {
-                      helper[selectedItem.id].quantity += 1;
+                      helper[selectedItem.id].quantity +=
+                        itemsCount[selectedItem.id];
                     }
-                    console.log(helper);
+                    if (helper[selectedItem.id].quantity === NaN) {
+                      helper[selectedItem.id].quantity = 1;
+                    }
                     localStorage.setItem("card", JSON.stringify(helper));
                     return helper;
                   });
+
+                  setOpenBasket(true);
                 }}
               >
                 {t("add_to_cart")}

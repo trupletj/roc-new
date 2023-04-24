@@ -1,5 +1,12 @@
 {
   "about": "About Us!",
   "add_to_cart": "Add to cart",
-  "buy_now": "Buy Now"
+  "buy_now": "Buy Now",
+  "grinder_type": "Grinder type",
+  "whole_bean": "Whole bean",
+  "shopping_cart": "Shopping cart",
+  "subtotal": "Subtotal",
+  "checkout": "Check out",
+  "delete_item": "Are your sure deleting item from cart",
+  "grind": "Grind"
 }
