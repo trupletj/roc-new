@@ -7,7 +7,8 @@ function Providers({ children }) {
   const [openLogin, setOpenLogin] = useState(false);
   const [card, setCard] = useState({});
   // const api_domain = process.env.IMAGE_DOMAIN || 'http://192.168.10.214:8000';
-  const api_domain = process.env.IMAGE_DOMAIN || "https://api.app-roc.com";
+  // const api_domain = process.env.IMAGE_DOMAIN || "https://api.app-roc.com";
+  const api_domain = "https://api.app-roc.com";
 
   useEffect(() => {
     console.log("mounted");
