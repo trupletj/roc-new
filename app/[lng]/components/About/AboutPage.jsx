@@ -73,7 +73,12 @@ function AboutPage() {
                     </p>
                   </div>
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -82,7 +87,12 @@ function AboutPage() {
               <div className="flex flex-col">
                 <div className="flex flex-row items-center space-x-16">
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                   <div className="w-5/12  text-xl">
                     <p className="mb-5 ">
@@ -107,7 +117,12 @@ function AboutPage() {
                 <div className="flex flex-row items-center space-x-5">
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       Our roasting factory, Probat G75 © Lumos Studia
@@ -115,7 +130,12 @@ function AboutPage() {
                   </div>
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       ROC Team, 2022 © Baljma Ganbold
@@ -192,7 +212,12 @@ function AboutPage() {
                     </p>
                   </div>
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -201,7 +226,12 @@ function AboutPage() {
               <div className="flex flex-col">
                 <div className="flex flex-row items-center space-x-16">
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                   <div className="w-5/12  text-xl">
                     <p className="mb-5 ">
@@ -226,7 +256,12 @@ function AboutPage() {
                 <div className="flex flex-row items-center space-x-5">
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       Our roasting factory, Probat G75 © Lumos Studia
@@ -234,7 +269,12 @@ function AboutPage() {
                   </div>
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       ROC Team, 2022 © Baljma Ganbold
@@ -311,7 +351,12 @@ function AboutPage() {
                     </p>
                   </div>
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -320,7 +365,12 @@ function AboutPage() {
               <div className="flex flex-col">
                 <div className="flex flex-row items-center space-x-16">
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                   <div className="w-5/12  text-xl">
                     <p className="mb-5 ">
@@ -345,7 +395,12 @@ function AboutPage() {
                 <div className="flex flex-row items-center space-x-5">
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       Our roasting factory, Probat G75 © Lumos Studia
@@ -353,7 +408,12 @@ function AboutPage() {
                   </div>
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       ROC Team, 2022 © Baljma Ganbold
@@ -430,7 +490,12 @@ function AboutPage() {
                     </p>
                   </div>
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -439,7 +504,12 @@ function AboutPage() {
               <div className="flex flex-col">
                 <div className="flex flex-row items-center space-x-16">
                   <div className="w-7/12 relative aspect-square">
-                    <Image src={image1} fill style={{ objectFit: "cover" }} />
+                    <Image
+                      alt="sds"
+                      src={image1}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
                   <div className="w-5/12  text-xl">
                     <p className="mb-5 ">
@@ -464,7 +534,12 @@ function AboutPage() {
                 <div className="flex flex-row items-center space-x-5">
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       Our roasting factory, Probat G75 © Lumos Studia
@@ -472,7 +547,12 @@ function AboutPage() {
                   </div>
                   <div className="w-1/2 ">
                     <div className="relative aspect-square w-full">
-                      <Image src={image1} fill style={{ objectFit: "cover" }} />
+                      <Image
+                        alt="sds"
+                        src={image1}
+                        fill
+                        style={{ objectFit: "cover" }}
+                      />
                     </div>
                     <h1 className="text-center mt-2">
                       ROC Team, 2022 © Baljma Ganbold
