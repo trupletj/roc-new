@@ -17,7 +17,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
   const [productType, setProductType] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
-  const { openBasket, setOpenBasket, api_domain, card, setCard } =
+  const { openBasket, setOpenBasket, apiDomain, card, setCard } =
     useContext(GlobalContext);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
             items.record.map((product) => {
               return (
                 <Image
-                  src={api_domain + product.image_path}
+                  src={apiDomain + product.image_path}
                   alt={product.name || "123"}
                   width="100"
                   height="100"
@@ -61,7 +61,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
         <div className="">
           {productType?.main_image && (
             <Image
-              src={api_domain + productType.main_image}
+              src={apiDomain + productType.main_image}
               alt={productType.name || "123"}
               width="500"
               height="500"

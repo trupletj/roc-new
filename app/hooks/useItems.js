@@ -18,6 +18,8 @@ const objectToQueryString = (obj) => {
   return str.join("&");
 };
 
+
+export const apiDomain = 'https://api.app-roc.com/'
 export function useItems(req) {
   let str = objectToQueryString(req.data);
   let url = req.url;

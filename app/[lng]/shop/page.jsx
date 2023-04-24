@@ -7,9 +7,9 @@ export const metadata = {
 };
 
 function ShopPage({ params }) {
-  const api_domain = process.env.API_DOMAIN;
+  const apiDomain = process.env.API_DOMAIN;
   const { items, isLoading, isError } = useItems({
-    url: `${api_domain}client/good/list`,
+    url: `${apiDomain}client/good/list`,
     data: {
       select:
         "id,name,sort_order,is_active,type_id,parent_good_id,price,size_id,image_path",
@@ -22,7 +22,7 @@ function ShopPage({ params }) {
     isLoading: category_loading,
     isError: category_error,
   } = useItems({
-    url: `${api_domain}client/goodGategories/list`,
+    url: `${apiDomain}client/goodGategories/list`,
     data: {
       select: "*",
     },
@@ -32,7 +32,7 @@ function ShopPage({ params }) {
     isLoading: type_loading,
     isError: type_error,
   } = useItems({
-    url: `${api_domain}client/goodTypes/list`,
+    url: `${apiDomain}client/goodTypes/list`,
     data: {
       select: "*",
     },

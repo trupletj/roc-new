@@ -1,7 +1,5 @@
 import React from "react";
 import { useTranslation } from "@/app/i18n";
-
-import DarkModeBtn from "@/app/[lng]/components/atoms/DarkModeBtn";
 import { TranslateBtn } from "@/app/[lng]/components/atoms/TranslateBtn";
 import Logo from "./atoms/Logo";
 import Search from "./atoms/icons/Search";
@@ -12,7 +10,6 @@ import MobileNav from "./moleculs/MobileNav";
 import Burger from "./atoms/icons/Burger";
 import Basket from "./Shop/Basket";
 import ModalLogin from "./moleculs/ModalLogin";
-
 const DataNav = [
   {
     name: "about_us",

@@ -13,7 +13,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const { types, type_loading, type_error } = TypeData;
   const { categories, category_loading, category_error } = CategoryData;
 
-  const { openBasket, setOpenBasket, api_domain } = useContext(GlobalContext);
+  const { openBasket, setOpenBasket, apiDomain } = useContext(GlobalContext);
 
   const [selectedTypes, setSelectedTypes] = React.useState({});
   const [filteredItems, setFilteredItems] = React.useState([]);
@@ -136,14 +136,11 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
               return (
                 <div
                   key={`product-item-${product.id}`}
-                  onClick={() => {
-                    setOpenBasket(true);
-                  }}
                   className="group cursor-pointer"
                 >
                   <div className="aspect-square relative group">
                     <Image
-                      src={api_domain + product.image_path}
+                      src={apiDomain + product.image_path}
                       alt={product.name || "123"}
                       width="300"
                       height="300"

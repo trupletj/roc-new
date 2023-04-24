@@ -1,5 +1,5 @@
 import React from "react";
-import { useItems, api_domain_global } from "@/app/hooks/useItems";
+import { useItems, apiDomain } from "@/app/hooks/useItems";
 import ProductDetail from "@/app/[lng]/components/Shop/ProductDetails";
 
 export const metadata = {
@@ -8,9 +8,9 @@ export const metadata = {
 
 function ShopPage({ params }) {
   const { id } = params;
-  const api_domain = process.env.API_DOMAIN;
+  const apiDomain = process.env.API_DOMAIN;
   const { items, isLoading, isError } = useItems({
-    url: `${api_domain}client/good/list`,
+    url: `${apiDomain}client/good/list`,
     data: {
       select:
         "id,name,sort_order,is_active,type_id,parent_good_id,price,size_id,image_path",
@@ -24,7 +24,7 @@ function ShopPage({ params }) {
     isLoading: type_loading,
     isError: type_error,
   } = useItems({
-    url: `${api_domain}client/goodTypes/list`,
+    url: `${apiDomain}client/goodTypes/list`,
     data: {
       select: "*",
       id: id,
