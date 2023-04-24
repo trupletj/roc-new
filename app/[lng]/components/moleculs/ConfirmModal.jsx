@@ -81,8 +81,8 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal }) => {
                         </button>
                       </Dialog.Title>
                       <div className="flex flex-wrap">
-                        <div className="w-1/3">qr</div>
-                        <div className="w-2/3 flex flex-col p-5">
+                        <div className="md:w-1/3">qr</div>
+                        <div className="md:w-2/3 flex flex-col p-5">
                           <h1 className="mb-2">Дансаар шилжүүлэх</h1>
                           <div className="grid grid-cols-2 gap-2 w-full text-xs my-3">
                             <button className="flex items-center px-2 py-2 border bg-[#080505] text-white">
