@@ -10,59 +10,24 @@ import MobileNav from "./moleculs/MobileNav";
 import Burger from "./atoms/icons/Burger";
 import Basket from "./Shop/Basket";
 import ModalLogin from "./moleculs/ModalLogin";
+import Link from "next/link";
 const DataNav = [
   {
     name: "about_us",
     sub: [
       {
         links: [
-          { name: "history", link: "/shop" },
-          { name: "team", link: "/test" },
-          { name: "how_we_roast", link: "/test" },
-          { name: "partners_sourcing", link: "/test" },
-        ],
-      },
-    ],
-  },
-  {
-    name: "coffee",
-    sub: [
-      {
-        title: "coffee_category",
-        links: [
-          { name: "all_coffee", link: "/shop" },
-          { name: "coffee_bean", link: "/test" },
-          { name: "cold_brew", link: "/test" },
-        ],
-      },
-      {
-        title: "coffee_type",
-        links: [
-          { name: "blend", link: "/test" },
-          { name: "single", link: "/test" },
-          { name: "origin", link: "/test" },
-        ],
-      },
-      {
-        title: "other",
-        links: [
-          { name: "hario_v60", link: "/test" },
-          { name: "world_of_coffea", link: "/test" },
+          { name: "history", link: "/about" },
+          { name: "team", link: "/about" },
+          { name: "how_we_roast", link: "/about" },
+          { name: "partners_sourcing", link: "/about" },
         ],
       },
     ],
   },
   {
     name: "shop",
-    sub: [
-      {
-        links: [
-          { name: "all_coffee", link: "/shop" },
-          { name: "coffee_bean", link: "/test" },
-          { name: "cold_brew", link: "/test" },
-        ],
-      },
-    ],
+    link: "/shop",
   },
 
   { name: "service", link: "/service" },
@@ -100,7 +65,9 @@ async function Header({ lng }) {
               </div>
             </div>
             <div className="dark:text-white my-2 w-1/2 flex justify-center">
-              <Logo />
+              <Link href={`/${lng}`}>
+                <Logo />
+              </Link>
             </div>
             <ul className="w-1/4 flex flex-row justify-end items-center">
               <li className="mr-[30px] hidden lg:block">
