@@ -31,12 +31,25 @@ function ShopPage({ params }) {
       relations: ["category:id,name"],
     },
   });
+  const {
+    items: grinders,
+    isLoading: grinderLoading,
+    isError: grinderError,
+  } = useItems({
+    url: `${apiDomain}client/grinder/list`,
+    data: {
+      select: "*",
+      id: id,
+      relations: ["category:id,name"],
+    },
+  });
   return (
     <div className="w-full bg-white">
       <div className="container py-12">
         <ProductDetail
           ItemData={{ items, isLoading, isError }}
           TypeData={{ types, type_loading, type_error }}
+          GrinderData={{ grinders, grinderLoading, grinderError }}
           params={params}
         />
       </div>
