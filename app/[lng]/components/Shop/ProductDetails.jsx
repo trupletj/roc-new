@@ -1,16 +1,13 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
-import { Disclosure } from "@headlessui/react";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
-import Link from "next/link";
-import ShopBag from "../atoms/icons/ShopBag";
 import { useTranslation } from "@/app/i18n/client";
 
 function ProductDetail({ params, ItemData, TypeData }) {
-  const { lng, good } = params;
-  const { items, isLoading, isError } = ItemData;
-  const { types, type_loading, type_error } = TypeData;
+  const { lng } = params;
+  const { items, isLoading } = ItemData;
+  const { types } = TypeData;
   const { t } = useTranslation();
 
   const [selectedItem, setSelectedItem] = useState(false);
@@ -24,7 +21,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
     if (types?.record[0]) {
       setProductType(types?.record[0]);
     }
-    items.record.map((item) => {
+    items?.record.map((item) => {
       setMinPrice((val) => {
         if (val === 0 || item.price <= val) {
           return item.price;
@@ -44,8 +41,8 @@ function ProductDetail({ params, ItemData, TypeData }) {
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6 text-gray-900">
       <div className="lg:col-span-3 flex">
         <div>
-          {items.record &&
-            items.record.map((product) => {
+          {!isLoading &&
+            items?.record?.map((product) => {
               return (
                 <Image
                   src={apiDomain + product.image_path}

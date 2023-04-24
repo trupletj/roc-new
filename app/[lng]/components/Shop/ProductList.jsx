@@ -1,7 +1,6 @@
 "use client";
 import React, { useContext } from "react";
 import Image from "next/image";
-import Basket from "./Basket";
 import { Disclosure } from "@headlessui/react";
 import { VscChevronUp, VscChevronDown, VscChromeClose } from "react-icons/vsc";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
@@ -13,7 +12,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const { types, type_loading, type_error } = TypeData;
   const { categories, category_loading, category_error } = CategoryData;
 
-  const { openBasket, setOpenBasket, apiDomain } = useContext(GlobalContext);
+  const { apiDomain } = useContext(GlobalContext);
 
   const [selectedTypes, setSelectedTypes] = React.useState({});
   const [filteredItems, setFilteredItems] = React.useState([]);
