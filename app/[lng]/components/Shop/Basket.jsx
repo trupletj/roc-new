@@ -262,7 +262,7 @@ function Basket({ lng }) {
                       </div>
                       <div className="mt-6">
                         <Link
-                          href={`/${lng}/shop/checkout`}
+                          href={`/${lng}/checkout`}
                           className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-normal text-white "
                         >
                           {t("checkout")}

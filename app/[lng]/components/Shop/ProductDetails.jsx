@@ -117,7 +117,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
             </p>
           )}
           {selectedItem && (
-            <p className="text-[#F0B450]">
+            <p className="text-[#F0B450] text-2xl font-normal">
               {selectedItem?.price.toLocaleString("en-US", {
                 style: "decimal",
               })}
@@ -129,8 +129,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
           </p> */}
           <p className="pb-5">
             {lng === "en"
-              ? productType.description
-              : productType.mn_description}
+              ? productType.description || "-"
+              : productType.mn_description || "-"}
           </p>
           <h1 className="font-normal">{t("grinder_type")}</h1>
 
