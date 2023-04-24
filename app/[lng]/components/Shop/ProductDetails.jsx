@@ -42,9 +42,10 @@ function ProductDetail({ params, ItemData, TypeData }) {
       <div className="lg:col-span-3 flex">
         <div>
           {!isLoading &&
-            items?.record?.map((product) => {
+            items?.record?.map((product, i) => {
               return (
                 <Image
+                  key={i}
                   src={apiDomain + product.image_path}
                   alt={product.name || "123"}
                   width="100"
@@ -131,9 +132,10 @@ function ProductDetail({ params, ItemData, TypeData }) {
           </div>
           <h1 className="font-normal">Хэмжээ</h1>
           <div className="grid-cols-2 grid gap-1">
-            {items?.record.map((item) => {
+            {items?.record.map((item, i) => {
               return (
                 <label
+                  key={i}
                   htmlFor={1}
                   className={`col-span-1 cursor-pointer select-none px-9 border border-[#080505] bg-[${
                     selectedItem && selectedItem.id == item.id
