@@ -14,6 +14,7 @@ function ProductDetail({ params, ItemData, TypeData }) {
   const [productType, setProductType] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
+
   const { openBasket, setOpenBasket, apiDomain, card, setCard } =
     useContext(GlobalContext);
 

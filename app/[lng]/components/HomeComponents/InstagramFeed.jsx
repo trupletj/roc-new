@@ -1,23 +1,26 @@
 import Image from "next/image";
+import insta1 from "@/public/assets/insta1.png";
+import insta2 from "@/public/assets/insta2.png";
+import insta3 from "@/public/assets/insta3.png";
+import insta4 from "@/public/assets/insta4.png";
 import React from "react";
-import SectionHeader from "../moleculs/SectionHeader";
 
 const data = [
   {
     name: "Brazil 1",
-    img: "https://picsum.photos/900/300?random=11",
+    img: insta1,
   },
   {
     name: "Brazil 2",
-    img: "https://picsum.photos/700/700?random=12",
+    img: insta2,
   },
   {
     name: "Brazil 3",
-    img: "https://picsum.photos/300/900?random=13",
+    img: insta3,
   },
   {
     name: "Brazil 4",
-    img: "https://picsum.photos/500/600?random=14",
+    img: insta4,
   },
 ];
 
