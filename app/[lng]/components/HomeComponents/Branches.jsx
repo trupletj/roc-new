@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import branch1 from "@/public/assets/branch1.png";
+import branch2 from "@/public/assets/branch2.png";
 import SectionHeader from "../moleculs/SectionHeader";
 import Link from "next/link";
 
@@ -10,11 +12,7 @@ function Branches() {
         <SectionHeader title={"Салбарууд"} buttonTitle={"Бүх салбарууд"} />
         <div className="grid grid-cols-4  aspect-[3/1] ">
           <div className="col-span-3 h-full bg-red-200 w-full relative">
-            <Image
-              src="https://picsum.photos/600/300?random=11"
-              fill
-              style={{ objectFit: "cover" }}
-            />
+            <Image src={branch1} fill style={{ objectFit: "cover" }} />
           </div>
           <div className="col-span-1 w-full h-full flex flex-col  justify-between py-10 px-10 bg-[#393636] text-white">
             <h1 className="text-[32px]">ROC Drink Bar</h1>
@@ -87,7 +85,7 @@ function Branches() {
           </div>
           <div className="col-span-3 w-full h-full relative">
             <Image
-              src="https://picsum.photos/900/300?random=11"
+              src={branch2}
               alt="123"
               fill
               style={{ objectFit: "cover" }}

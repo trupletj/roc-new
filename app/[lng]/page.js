@@ -19,7 +19,7 @@ export default async function Home({ params: { lng } }) {
       <Divider />
       <AboutSection />
       <Divider />
-      <ShopSection />
+      <ShopSection lng={lng} />
       <Divider />
       <Branches />
       <Divider />
