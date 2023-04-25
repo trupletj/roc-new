@@ -19,7 +19,11 @@ function NewAnket() {
       <div className="grid grid-cols-2 gap-4">
         <div
           onClick={() => setSelectIndex(0)}
-          className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505] cursor-pointer"
+          className={`col-span-1 py-2 text-center border border-[#080505] cursor-pointer ${
+            selectIndex === 0
+              ? "bg-[#080505] text-white"
+              : "bg-white text-[#080505]"
+          }`}
         >
           Ажлын байрны дэлгэрэнгүй
         </div>
@@ -539,24 +543,24 @@ function NewAnket() {
                   </div>
                 </div>
               </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div
+                  onClick={() => setSelectIndex(1)}
+                  className="col-span-1 py-2 text-center border border-[#080505] bg-white cursor-pointer"
+                >
+                  Буцах
+                </div>
+                <div
+                  onClick={() => setSelectIndex(0)}
+                  className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505] cursor-pointer"
+                >
+                  Анкет илгээх
+                </div>
+              </div>
             </div>
           </form>
         </div>
       )}
-      <div className="grid grid-cols-2 gap-4">
-        <div
-          onClick={() => setSelectIndex(1)}
-          className="col-span-1 py-2 text-center border border-[#080505] bg-white cursor-pointer"
-        >
-          Буцах
-        </div>
-        <div
-          onClick={() => setSelectIndex(0)}
-          className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505] cursor-pointer"
-        >
-          Анкет илгээх
-        </div>
-      </div>
     </div>
   );
 }
