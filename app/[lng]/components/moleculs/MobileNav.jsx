@@ -48,8 +48,8 @@ function MobileNav({ lng, DataNav }) {
         </div>
       </section>
       {open && (
-        <section className="fixed z-10 top-0 bottom-0 left-0 right-0 bg-white dark:bg-[#191919] overflow-scroll">
-          <div className="container mx-auto flex flex-row items-center px-10 lg:px-0 h-[80px] sticky top-0 bg-white dark:bg-[#191919]">
+        <section className="fixed z-10 top-0 bottom-0 left-0 right-0 bg-[#191919] overflow-scroll">
+          <div className="container mx-auto flex flex-row items-center px-10 lg:px-0 h-[80px] sticky top-0 bg-[#191919]">
             <div className="w-1/4">
               <div
                 className=" lg:hidden cursor-pointer"
@@ -85,9 +85,7 @@ function MobileNav({ lng, DataNav }) {
                 type="text"
               />
             </div>
-            <div
-              className={`my-0 w-full h-px  bg-black  dark:bg-white opacity-100 `}
-            />
+            <div className={`my-0 w-full h-px  bg-white opacity-100 `} />
           </div>
 
           <ul className="px-10 w-full flex flex-col  items-center mb-10">
@@ -105,11 +103,12 @@ function MobileNav({ lng, DataNav }) {
               <Link href={`/${lng}/contact`}>{t("contact_us")}</Link>
             </li>
             <div
-              className={`my-0 w-full h-px  bg-black  dark:bg-white opacity-100 `}
+              className={`my-0 w-full h-px  
+              bg-white opacity-100 `}
             />
           </ul>
           <MobileFooterTop />
-          <footer className="w-full  bg-red-100 sticky bottom-0">
+          <footer className="w-full sticky bottom-0">
             <MobileFooterBottom lng={lng} />
           </footer>
         </section>
@@ -143,11 +142,9 @@ const Subnav = ({
           <Arrow />
         </span>
       </div>
-      <div
-        className={`my-0 w-full h-px  bg-black  dark:bg-white opacity-100 `}
-      />
+      <div className={`my-0 w-full h-px  bg-white opacity-100 `} />
       {item.sub && childOpenIndex == currentIndex && (
-        <ul className="w-full flex flex-col  py-5 bg-white dark:bg-[#191919]">
+        <ul className="w-full flex flex-col  py-5 bg-[#191919]">
           {item.sub &&
             item.sub.map((sub, i) => (
               <li className="flex flex-col w-full py-5" key={i}>
