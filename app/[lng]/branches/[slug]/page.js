@@ -8,8 +8,8 @@ import SectionHeader from "../../components/moleculs/SectionHeader";
 
 function page() {
   return (
-    <div className="w-full bg-[#080505] text-white py-20">
-      <div className="container flex flex-col items-center space-y-5">
+    <div className="w-full bg-[#080505] text-white py-10">
+      <div className="container flex flex-col items-center space-y-10">
         <div className="w-full aspect-[5/3] relative ">
           <Image src={image} fill style={{ objectFit: "cover" }} />
         </div>
