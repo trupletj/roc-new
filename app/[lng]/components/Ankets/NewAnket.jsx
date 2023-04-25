@@ -12,7 +12,9 @@ function NewAnket() {
     formState: { errors },
   } = useForm();
   const [selectIndex, setSelectIndex] = useState(0);
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div className="max-w-[900px] mx-auto py-10">
       <h1 className="uppercase text-3xl font-medium mb-10">HEAD TO COFFEE</h1>
@@ -32,7 +34,7 @@ function NewAnket() {
       </div>
       {selectIndex === 0 && <div className="">text</div>}
       {selectIndex === 1 && (
-        <div onClick={() => setSelectIndex(0)} className="w-full my-10">
+        <div className="w-full my-10">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex items-start space-x-4 "
@@ -539,24 +541,24 @@ function NewAnket() {
                   </div>
                 </div>
               </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div
+                  onClick={() => setSelectIndex(1)}
+                  className="col-span-1 py-2 text-center border border-[#080505] bg-white cursor-pointer"
+                >
+                  Буцах
+                </div>
+                <div
+                  onClick={() => setSelectIndex(0)}
+                  className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505] cursor-pointer"
+                >
+                  Анкет илгээх
+                </div>
+              </div>
             </div>
           </form>
         </div>
       )}
-      <div className="grid grid-cols-2 gap-4">
-        <div
-          onClick={() => setSelectIndex(1)}
-          className="col-span-1 py-2 text-center border border-[#080505] bg-white cursor-pointer"
-        >
-          Буцах
-        </div>
-        <div
-          onClick={() => setSelectIndex(0)}
-          className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505] cursor-pointer"
-        >
-          Анкет илгээх
-        </div>
-      </div>
     </div>
   );
 }

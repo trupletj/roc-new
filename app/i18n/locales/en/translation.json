@@ -8,5 +8,7 @@
   "subtotal": "Subtotal",
   "checkout": "Check out",
   "delete_item": "Are your sure deleting item from cart",
+  "empty_cart": "Your cart is empty",
+  "additional_information": "Additional information",
   "grind": "Grind"
 }
