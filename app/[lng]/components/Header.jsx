@@ -31,7 +31,21 @@ const DataNav = [
   },
 
   { name: "service", link: "/service" },
-  { name: "branch", link: "/branch" },
+  {
+    name: "branch",
+    sub: [
+      {
+        links: [
+          { name: "THE ROASTERY", link: "/branches" },
+          { name: "ROC BUDDHA VISTA", link: "/branches" },
+          { name: "ROC UNITED NATIONS", link: "/branches" },
+          { name: "ROC FOUNTAIN", link: "/branches" },
+          { name: "ROC MPM BUILDING", link: "/branches" },
+          { name: "ROC CHOIJIN SUITES", link: "/branches" },
+        ],
+      },
+    ],
+  },
 ];
 
 async function Header({ lng }) {
