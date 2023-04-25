@@ -11,22 +11,28 @@ function NewAnket() {
     watch,
     formState: { errors },
   } = useForm();
-  const [selectIndex, setSelectIndex] = useState(1);
+  const [selectIndex, setSelectIndex] = useState(0);
   const onSubmit = (data) => console.log(data);
   return (
-    <div className="max-w-[900px] mx-auto">
-      <h1 className="uppercase text-2xl font-medium">HEAD TO COFFEE</h1>
+    <div className="max-w-[900px] mx-auto py-10">
+      <h1 className="uppercase text-3xl font-medium mb-10">HEAD TO COFFEE</h1>
       <div className="grid grid-cols-2 gap-4">
-        <div className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505]">
+        <div
+          onClick={() => setSelectIndex(0)}
+          className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505] cursor-pointer"
+        >
           Ажлын байрны дэлгэрэнгүй
         </div>
-        <div className="col-span-1 py-2 text-center border border-[#080505] bg-white">
-          Ажлын байрны дэлгэрэнгүй
+        <div
+          onClick={() => setSelectIndex(1)}
+          className="col-span-1 py-2 text-center border border-[#080505] bg-white cursor-pointer"
+        >
+          Анкет бөглөх
         </div>
       </div>
       {selectIndex === 0 && <div className="">text</div>}
       {selectIndex === 1 && (
-        <div className="w-full">
+        <div onClick={() => setSelectIndex(0)} className="w-full my-10">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex items-start space-x-4 "
@@ -34,16 +40,15 @@ function NewAnket() {
             <div className="space-y-12 w-full">
               <div className="w-full">
                 <h2 className="text-xl text-gray-900 uppercase ">
-                  Захиалагчын мэдээлэл
+                  Ерөнхий мэдээлэл
                 </h2>
 
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
+                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
                   <div className="sm:col-span-3">
                     <label
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      <span className="text-red-500 mr-2">*</span>
                       Нэр
                     </label>
                     <div className="mt-2">
@@ -70,7 +75,6 @@ function NewAnket() {
                       htmlFor="lastName "
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      <span className="text-red-500 mr-2">*</span>
                       Овог
                     </label>
                     <div className="mt-2">
@@ -97,11 +101,10 @@ function NewAnket() {
 
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="first-name"
+                      htmlFor="registerNumber"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      <span className="text-red-500 mr-2">*</span>
-                      Утасны дугаар
+                      Регистрийн дугаар
                     </label>
                     <div className="mt-2">
                       <input
@@ -116,7 +119,7 @@ function NewAnket() {
                         className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
                       />
                     </div>
-                    {errors.phone && (
+                    {errors.registerNumber && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
                         <h1 className="text-white text-sm">
                           Утансны дугаараа оруулна уу
@@ -126,17 +129,125 @@ function NewAnket() {
                   </div>
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="first-name"
+                      htmlFor="registerNumber"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      <span className="text-red-500 mr-2">*</span>
-                      Имэйл хаяг
+                      Төрсөн огноо
                     </label>
                     <div className="mt-2">
                       <input
                         placeholder="text"
                         type="text"
-                        {...register("email", { required: true })}
+                        {...register("birthDate", { required: true })}
+                        name="birthDate"
+                        id="birthDate"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                      />
+                    </div>
+                    {errors.birthDate && (
+                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                        <h1 className="text-white text-sm">
+                          Төрсөн огноо оруулна уу
+                        </h1>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="sm:col-span-6">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      Хүйс
+                    </label>
+                    <div className="grid  grid-cols-3 gap-2 mt-2">
+                      <div>
+                        <input
+                          placeholder="text"
+                          {...register("sex", { required: true })}
+                          value={"Эрэгтэй"}
+                          type="radio"
+                          name="option"
+                          id={1}
+                          className="peer hidden"
+                        />
+                        <label
+                          htmlFor={1}
+                          className="block cursor-pointer select-none  bg-[#080505] p-2 text-center peer-checked:bg-[#F0B450]  text-white"
+                        >
+                          Эрэгтэй
+                        </label>
+                      </div>
+                      <div>
+                        <input
+                          placeholder="text"
+                          {...register("sex", { required: true })}
+                          type="radio"
+                          name="option"
+                          id={2}
+                          value="female"
+                          className="peer hidden"
+                        />
+                        <label
+                          htmlFor={2}
+                          className="block cursor-pointer select-none  bg-[#080505] p-2 text-center peer-checked:bg-[#F0B450]  text-white"
+                        >
+                          Эмэгтэй
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full">
+                <h2 className="text-xl text-gray-900 uppercase ">
+                  холбоо барих мэдээлэл
+                </h2>
+
+                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      Утасны дугаар
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        placeholder="text"
+                        type="text"
+                        {...register("phonteNumber", {
+                          required: true,
+                          maxLength: 20,
+                        })}
+                        name="phonteNumber"
+                        id="phonteNumber"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white px-3"
+                      />
+                    </div>
+                    {errors.phonteNumber && (
+                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                        <h1 className="text-white text-sm">
+                          Утасны дугаар оруулна уу
+                        </h1>
+                      </div>
+                    )}
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="lastName "
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      И-мэйл хаяг
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        placeholder="text"
+                        type="text"
+                        {...register("email", {
+                          required: true,
+                          maxLength: 20,
+                        })}
                         name="email"
                         id="email"
                         className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
@@ -144,106 +255,57 @@ function NewAnket() {
                     </div>
                     {errors.email && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">
-                          Утансны дугаараа оруулна уу
-                        </h1>
+                        <h1 className="text-white text-sm">email оруулна уу</h1>
                       </div>
                     )}
                   </div>
+                  <div className="sm:col-span-6">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-base font-normal leading-6 text-gray-900"
+                    >
+                      Оршин суугаа хаяг
+                    </label>
+                    <div className="mt-2">
+                      <textarea
+                        {...register("deliveryAddressFull")}
+                        rows={4}
+                        type="text"
+                        name="first-name"
+                        id="first-name"
+                        placeholder="Та хаягаа зөв дэлгэрэнгүй, тодорхой оруулна уу"
+                        className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full">
+                <h2 className="text-xl text-gray-900 uppercase ">
+                  Ажиллахаар төлөвлөж бүй ажлын байр
+                </h2>
 
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="first-name"
-                      className="block text-base font-light leading-6 text-gray-900"
-                    >
-                      <span className="text-red-500 mr-2">*</span>
-                      Нэр
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        placeholder="text"
-                        {...register("deliveryFirstName", { required: true })}
-                        type="text"
-                        name="deliveryFirstName"
-                        id="deliveryFirstName"
-                        className="block w-full px-3  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
-                      />
-                    </div>
-                    {errors.deliveryFirstName && (
-                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">Заавал бөглөх</h1>
-                      </div>
-                    )}
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="first-name"
-                      className="block text-base font-light leading-6 text-gray-900"
-                    >
-                      <span className="text-red-500 mr-2">*</span>
-                      Овог
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        placeholder="text"
-                        {...register("deliveryLasttName", { required: true })}
-                        type="text"
-                        name="deliveryLasttName"
-                        id="deliveryLasttName"
-                        className="block w-full px-3  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
-                      />
-                    </div>
-                    {errors.deliveryLasttName && (
-                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">Заавал бөглөх</h1>
-                      </div>
-                    )}
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="first-name"
-                      className="block text-base font-light leading-6 text-gray-900"
-                    >
-                      <span className="text-red-500 mr-2">*</span>
-                      Утасны дугаар
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        placeholder="text"
-                        {...register("deliveryPhone", { required: true })}
-                        type="text"
-                        name="deliveryPhone"
-                        id="deliveryPhone"
-                        className="block w-full  px-3 border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
-                      />
-                    </div>
-                    {errors.deliveryPhone && (
-                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">Заавал бөглөх</h1>
-                      </div>
-                    )}
-                  </div>
+                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
                   <div className="sm:col-span-3">
                     <label
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      <span className="text-red-500 mr-2">*</span>
-                      Хот
+                      Ажлын байр
                     </label>
                     <div className="mt-2">
                       <select
-                        {...register("deliveryCity", { required: true })}
+                        {...register("jobPosition", { required: true })}
                         type="select"
                         className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
                       >
                         <option disabled selected hidden>
-                          Хот/аймаг сонгоно уу
+                          сонгоно уу
                         </option>
                         <option value={1}>Сонгох 1</option>
                         <option value={2}>Сонгох 2</option>
                       </select>
-                      {errors.deliveryCity && (
+                      {errors.deliveryDistrict && (
                         <div className="mt-4 w-full bg-red-500 py-2 px-5">
                           <h1 className="text-white text-sm">Заавал бөглөх</h1>
                         </div>
@@ -252,11 +314,37 @@ function NewAnket() {
                   </div>
                   <div className="sm:col-span-3">
                     <label
+                      htmlFor="lastName "
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      Цалингийн хүлээлт
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        placeholder="000,000,000₮"
+                        type="number"
+                        {...register("email", {
+                          required: true,
+                          maxLength: 20,
+                        })}
+                        name="email"
+                        id="email"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                      />
+                    </div>
+                    {errors.email && (
+                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <label
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      <span className="text-red-500 mr-2">*</span>
-                      Дүүрэг
+                      Ажиллах төрөл
                     </label>
                     <div className="mt-2">
                       <select
@@ -277,85 +365,177 @@ function NewAnket() {
                       )}
                     </div>
                   </div>
+                </div>
+              </div>
+              <div className="w-full">
+                <h2 className="text-xl text-gray-900 uppercase ">Боловсрол</h2>
 
-                  <div className="sm:col-span-6">
+                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
+                  <div className="sm:col-span-3">
                     <label
                       htmlFor="first-name"
-                      className="block text-base font-normal leading-6 text-gray-900"
+                      className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Дэлгэрэнгүй хаяг
+                      Боловсролын зэрэг
                     </label>
                     <div className="mt-2">
-                      <textarea
-                        {...register("deliveryAddressFull")}
-                        rows={4}
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        placeholder="Та хаягаа зөв дэлгэрэнгүй, тодорхой оруулна уу"
+                      <select
+                        {...register("jobPosition", { required: true })}
+                        type="select"
                         className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
+                      >
+                        <option disabled selected hidden>
+                          сонгоно уу
+                        </option>
+                        <option value={1}>Сонгох 1</option>
+                        <option value={2}>Сонгох 2</option>
+                      </select>
+                      {errors.deliveryDistrict && (
+                        <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                          <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="lastName "
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      Эзэмшсэн мэргэжил
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        placeholder="Эзэмшсэн мэргэжил"
+                        type="text"
+                        {...register("email", {
+                          required: true,
+                          maxLength: 20,
+                        })}
+                        name="email"
+                        id="email"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
                       />
                     </div>
+                    {errors.email && (
+                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                      </div>
+                    )}
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="lastName "
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      Сургуулийн нэр
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        placeholder="Эзэмшсэн мэргэжил"
+                        type="text"
+                        {...register("email", {
+                          required: true,
+                          maxLength: 20,
+                        })}
+                        name="email"
+                        id="email"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                      />
+                    </div>
+                    {errors.email && (
+                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                      </div>
+                    )}
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="lastName "
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      Улс
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        placeholder="Эзэмшсэн мэргэжил"
+                        type="text"
+                        {...register("email", {
+                          required: true,
+                          maxLength: 20,
+                        })}
+                        name="email"
+                        id="email"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                      />
+                    </div>
+                    {errors.email && (
+                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
               <div className="w-full">
-                <h2 className="text-2xl  text-gray-900 uppercase font-normal">
-                  Нэмэлт анхааруулга
+                <h2 className="text-xl text-gray-900 uppercase ">
+                  CV, Resume хавсаргах
                 </h2>
-                <div className="sm:col-span-6 mt-5">
-                  <div className="grid  grid-cols-2 gap-2 " x-data="app">
-                    <div>
-                      <input
-                        placeholder="text"
-                        {...register("additionalInfo")}
-                        value={"Хүргэлтийн өмнө залгах"}
-                        type="checkbox"
-                        name="option"
-                        id={11}
-                        className="peer hidden"
-                      />
-                      <label
-                        htmlFor={11}
-                        className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
+
+                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
+                  <h1 className="text-[#6B6969] col-span-6">
+                    PDF, Doc, Docx өргөтгөлтэй файлууд боломжтой
+                  </h1>
+                  <div className="col-span-6 flex">
+                    <button className="flex w-1/12 aspect-square items-center justify-center border border-[#080505]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={20}
+                        height={20}
+                        viewBox="0 0 20 20"
                       >
-                        Хүргэлтийн өмнө залгах
-                      </label>
-                    </div>
-                    <div>
-                      <input
-                        placeholder="text"
-                        value={"Оройн цагаар хүргэх"}
-                        {...register("additionalInfo")}
-                        type="checkbox"
-                        name="option"
-                        id={21}
-                        className="peer hidden"
-                      />
-                      <label
-                        htmlFor={21}
-                        className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
-                      >
-                        Оройн цагаар хүргэх
-                      </label>
-                    </div>
-                    <div>
-                      <input
-                        placeholder="text"
-                        value={"Нялх хүүхэдтэй"}
-                        {...register("additionalInfo")}
-                        type="checkbox"
-                        name="option"
-                        id={31}
-                        className="peer hidden"
-                      />
-                      <label
-                        htmlFor={31}
-                        className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
-                      >
-                        Нялх хүүхэдтэй
-                      </label>
-                    </div>
+                        <g
+                          id="Group_760"
+                          data-name="Group 760"
+                          transform="translate(-318.5 -2087.5)"
+                        >
+                          <line
+                            id="Line_16"
+                            data-name="Line 16"
+                            y2={20}
+                            transform="translate(328.5 2087.5)"
+                            fill="none"
+                            stroke="#080505"
+                            strokeWidth="1.5"
+                          />
+                          <line
+                            id="Line_17"
+                            data-name="Line 17"
+                            x1={20}
+                            transform="translate(318.5 2097.5)"
+                            fill="none"
+                            stroke="#080505"
+                            strokeWidth="1.5"
+                          />
+                        </g>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full">
+                <h2 className="text-xl text-gray-900 uppercase ">
+                  Cover letter
+                </h2>
+
+                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
+                  <div className="full col-span-6">
+                    <textarea
+                      rows={20}
+                      type="text"
+                      className="w-full"
+                      placeholder="text here"
+                    />
                   </div>
                 </div>
               </div>
@@ -363,6 +543,20 @@ function NewAnket() {
           </form>
         </div>
       )}
+      <div className="grid grid-cols-2 gap-4">
+        <div
+          onClick={() => setSelectIndex(1)}
+          className="col-span-1 py-2 text-center border border-[#080505] bg-white cursor-pointer"
+        >
+          Буцах
+        </div>
+        <div
+          onClick={() => setSelectIndex(0)}
+          className="col-span-1 py-2 text-center bg-[#080505] text-white border border-[#080505] cursor-pointer"
+        >
+          Анкет илгээх
+        </div>
+      </div>
     </div>
   );
 }

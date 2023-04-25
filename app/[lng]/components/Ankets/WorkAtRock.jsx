@@ -35,7 +35,7 @@ function WorkAtRock() {
           </p>
           <p>
             If youre interested in a role at ROC, please email your CV and
-            covering letter to{" "}
+            covering letter to
             <Link href="/" className="text-[#6B6969]">
               info@roc.mn
             </Link>
