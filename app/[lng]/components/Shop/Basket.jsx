@@ -19,6 +19,7 @@ function Basket({ lng }) {
 
   const [products, setProdcts] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
+  const [openInformation, setOpenInformation] = useState(false);
 
   const setSubTotal = (current_products) => {
     let _price = 0;
@@ -69,14 +70,14 @@ function Basket({ lng }) {
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                      <div className="flex items-start justify-between">
+                      <div className="flex items-start justify-between border-b border-gray-700 border-x-0 border-t-0 pb-3">
                         <Dialog.Title className="text-lg font-medium text-gray-900">
                           {t("shopping_cart")}
                         </Dialog.Title>
-                        <div className="ml-3 flex h-7 items-center">
+                        <div className="flex items-center">
                           <button
                             type="button"
-                            className="-m-2 p-2 text-gray-400 hover:text-gray-500 bg-black"
+                            className=" p-2 text-gray-400 hover:text-gray-500 bg-black"
                             onClick={() => setOpenBasket(false)}
                           >
                             <VscChromeClose
@@ -246,12 +247,18 @@ function Basket({ lng }) {
                               );
                             })}
                           </ul>
+                          {(!products ||
+                            Object.keys(products).length === 0) && (
+                            <p className="text-center  text-lg mt-2">
+                              {t("empty_cart")}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
 
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                      <div className="flex justify-between text-base font-medium text-black-800">
+                      <div className="flex justify-between text-base font-medium text-black-800 border-b pb-3">
                         <p>{t("subtotal")}</p>
                         <p>
                           {totalPrice?.toLocaleString("en-US", {
@@ -259,6 +266,81 @@ function Basket({ lng }) {
                           })}
                           {"₮"}
                         </p>
+                      </div>
+                      <div className="flex flex-col justify-between text-base font-base text-black-800 mt-3">
+                        <div
+                          onClick={() =>
+                            setOpenInformation((val) => {
+                              return !val;
+                            })
+                          }
+                          className="flex justify-between items-center col-span-6 text-gray-900 cursor-pointer"
+                        >
+                          <h1>{t("additional_information")}</h1>
+                          {openInformation ? (
+                            <span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={18}
+                                height={18}
+                                viewBox="0 0 18 18"
+                              >
+                                <g
+                                  id="Group_682"
+                                  data-name="Group 682"
+                                  transform="translate(-760.5 -627.5)"
+                                >
+                                  <path
+                                    id="Path_148"
+                                    data-name="Path 148"
+                                    d="M0,0V18"
+                                    transform="translate(778.5 636.5) rotate(90)"
+                                    fill="none"
+                                    stroke="#201d1d"
+                                    strokeWidth="1.5"
+                                  />
+                                  <path
+                                    id="Path_149"
+                                    data-name="Path 149"
+                                    d="M0,0V18"
+                                    transform="translate(769.5 645.5) rotate(180)"
+                                    fill="none"
+                                    stroke="#201d1d"
+                                    strokeWidth="1.5"
+                                  />
+                                </g>
+                              </svg>
+                            </span>
+                          ) : (
+                            <span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={18}
+                                height="1.5"
+                                viewBox="0 0 18 1.5"
+                              >
+                                <g
+                                  id="Group_683"
+                                  data-name="Group 683"
+                                  transform="translate(-760.5 -635.75)"
+                                >
+                                  <path
+                                    id="Path_148"
+                                    data-name="Path 148"
+                                    d="M0,0V18"
+                                    transform="translate(778.5 636.5) rotate(90)"
+                                    fill="none"
+                                    stroke="#201d1d"
+                                    strokeWidth="1.5"
+                                  />
+                                </g>
+                              </svg>
+                            </span>
+                          )}
+                        </div>
+                        {openInformation && (
+                          <div className="sm:col-span-3">asdasd</div>
+                        )}
                       </div>
                       <div className="mt-6">
                         <Link

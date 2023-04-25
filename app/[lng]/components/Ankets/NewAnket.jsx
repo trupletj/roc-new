@@ -12,7 +12,9 @@ function NewAnket() {
     formState: { errors },
   } = useForm();
   const [selectIndex, setSelectIndex] = useState(0);
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div className="max-w-[900px] mx-auto py-10">
       <h1 className="uppercase text-3xl font-medium mb-10">HEAD TO COFFEE</h1>
@@ -36,7 +38,7 @@ function NewAnket() {
       </div>
       {selectIndex === 0 && <div className="">text</div>}
       {selectIndex === 1 && (
-        <div onClick={() => setSelectIndex(0)} className="w-full my-10">
+        <div className="w-full my-10">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex items-start space-x-4 "
