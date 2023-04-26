@@ -18,7 +18,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
-  const { openBasket, setOpenBasket, apiDomain, card, setCard } =
+  const { openBasket, setOpenBasket, mediaDomain, card, setCard } =
     useContext(GlobalContext);
 
   useEffect(() => {
@@ -51,14 +51,14 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
   }, []);
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6 text-gray-900">
-      <div className="lg:col-span-3 flex">
-        <div>
+      <div className="lg:col-span-3 grid grid-rows-4 md:grid-cols-4  aspect-video">
+        <div className="row-span-1 md:col-span-1 flex md:flex-col pr-3  overflow-auto">
           {!isLoading &&
             items?.record?.map((product, i) => {
               return (
                 <Image
                   key={i}
-                  src={apiDomain + product.image_path}
+                  src={mediaDomain + product.image_path}
                   alt={product.name || "123"}
                   width="100"
                   height="100"
@@ -77,10 +77,10 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               );
             })}
         </div>
-        <div className="">
+        <div className="col-span-3">
           {selectedItem?.image_path && (
             <Image
-              src={apiDomain + selectedItem.image_path}
+              src={mediaDomain + selectedItem.image_path}
               alt={selectedItem.name || "123"}
               width="500"
               height="500"
@@ -132,47 +132,51 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               ? productType.description || "-"
               : productType.mn_description || "-"}
           </p>
-          <h1 className="font-normal">{t("grinder_type")}</h1>
+          {productType?.category_id == 2 && (
+            <>
+              <h1 className="font-normal">{t("grinder_type")}</h1>
 
-          <div className="grid grid-cols-2"></div>
+              <div className="grid grid-cols-2"></div>
 
-          {!grinderLoading && (
-            <div className={`grid grid-cols-4 gap-2`}>
-              {grinders?.record
-                .sort((a, b) => a.level - b.level)
-                .map((grinder) => (
-                  <div
-                    key={`grinder-key-${grinder.id}`}
-                    htmlFor={1}
-                    onClick={() => {
-                      setSelectedGrind((val) => {
-                        return grinder.id;
-                      });
-                    }}
-                    className={`col-span-1 cursor-pointer select-none mr-3  border ${
-                      selectedGrind === grinder.id
-                        ? "border-[#F0B450]"
-                        : "border-black"
-                    }   bg-white  p-2 text-center  text-[${
-                      selectedGrind === grinder.id ? "#F0B450" : "black"
-                    }]`}
-                  >
-                    <div className="flex flex-col justify-between">
-                      <Image
-                        src={apiDomain + grinder.image_path}
-                        alt={grinder.name || "123"}
-                        width="70"
-                        height="70"
-                        style={{ objectFit: "contain" }}
-                        className="self-center mx-auto"
-                      />
-                      <p className="align-bottom">
-                        {lng === "en" ? grinder.name : grinder.mn_name}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-            </div>
+              {!grinderLoading && (
+                <div className={`grid grid-cols-4 gap-2`}>
+                  {grinders?.record
+                    .sort((a, b) => a.level - b.level)
+                    .map((grinder) => (
+                      <div
+                        key={`grinder-key-${grinder.id}`}
+                        htmlFor={1}
+                        onClick={() => {
+                          setSelectedGrind((val) => {
+                            return grinder.id;
+                          });
+                        }}
+                        className={`col-span-1 cursor-pointer select-none mr-3  border ${
+                          selectedGrind === grinder.id
+                            ? "border-[#F0B450]"
+                            : "border-black"
+                        }   bg-white  p-2 text-center  text-[${
+                          selectedGrind === grinder.id ? "#F0B450" : "black"
+                        }]`}
+                      >
+                        <div className="flex flex-col justify-between">
+                          <Image
+                            src={mediaDomain + grinder.image_path}
+                            alt={grinder.name || "123"}
+                            width="70"
+                            height="70"
+                            style={{ objectFit: "contain" }}
+                            className="self-center mx-auto"
+                          />
+                          <p className="align-bottom">
+                            {lng === "en" ? grinder.name : grinder.mn_name}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </>
           )}
           {/* <label
               htmlFor={1}
@@ -183,7 +187,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               Нунтаг - Эспрессо
             </label> */}
           <h1 className="font-normal">Хэмжээ</h1>
-          <div className="grid-cols-2 grid gap-1">
+          <div className="grid-cols-4 grid gap-1">
             {items?.record.map((item, i) => {
               return (
                 <label

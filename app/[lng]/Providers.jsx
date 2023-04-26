@@ -6,7 +6,7 @@ function Providers({ children }) {
   const [openBasket, setOpenBasket] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [card, setCard] = useState({});
-  const apiDomain = "https://api.app-roc.com";
+  const mediaDomain = "https://api.app-roc.com";
 
   useEffect(() => {
     console.log("mounted");
@@ -18,7 +18,7 @@ function Providers({ children }) {
         setOpenBasket,
         openLogin,
         setOpenLogin,
-        apiDomain,
+        mediaDomain,
         card,
         setCard,
       }}

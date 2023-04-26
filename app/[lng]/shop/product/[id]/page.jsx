@@ -8,7 +8,6 @@ export const metadata = {
 
 function ShopPage({ params }) {
   const { id } = params;
-  // const apiDomain = process.env.API_DOMAIN;
   const { items, isLoading, isError } = useItems({
     url: `${apiDomain}client/good/list`,
     data: {

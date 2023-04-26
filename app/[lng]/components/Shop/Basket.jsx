@@ -14,7 +14,7 @@ import { useTranslation } from "@/app/i18n/client";
 import Link from "next/link";
 
 function Basket({ lng }) {
-  const { openBasket, setOpenBasket, apiDomain } = useContext(GlobalContext);
+  const { openBasket, setOpenBasket, mediaDomain } = useContext(GlobalContext);
   const { t } = useTranslation();
 
   const [products, setProdcts] = useState({});
@@ -100,7 +100,7 @@ function Basket({ lng }) {
                                 <li key={product.id} className="flex py-6">
                                   <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                     <img
-                                      src={apiDomain + product.image_path}
+                                      src={mediaDomain + product.image_path}
                                       alt={product.name}
                                       className="h-full w-full object-cover object-center"
                                     />
@@ -346,6 +346,9 @@ function Basket({ lng }) {
                         <Link
                           href={`/${lng}/checkout`}
                           className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-normal text-white "
+                          onClick={() => {
+                            setOpenBasket(false);
+                          }}
                         >
                           {t("checkout")}
                         </Link>
