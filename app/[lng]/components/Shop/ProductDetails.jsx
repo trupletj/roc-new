@@ -50,44 +50,44 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
     });
   }, []);
   return (
-    <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6 text-gray-900">
-      <div className="lg:col-span-3 grid grid-rows-4 md:grid-cols-4  aspect-video">
-        <div className="row-span-1 md:col-span-1 flex md:flex-col pr-3  overflow-auto">
-          {!isLoading &&
-            items?.record?.map((product, i) => {
-              return (
-                <Image
-                  key={i}
-                  src={mediaDomain + product.image_path}
-                  alt={product.name || "123"}
-                  width="100"
-                  height="100"
-                  style={{ objectFit: "cover" }}
-                  className={`self-center mx-auto cursor-pointer border my-1 ${
-                    selectedItem.id === product.id
-                      ? "border-[#F0B450]"
-                      : "border-gray-500"
-                  }`}
-                  onClick={() => {
-                    setSelectedItem((val) => {
-                      return product;
-                    });
-                  }}
-                ></Image>
-              );
-            })}
-        </div>
-        <div className="col-span-3">
+    <div className="grid grid-cols-1 gap-8  lg:grid-cols-6 text-gray-900 ">
+      <div className="lg:col-span-3  grid grid-rows-6 md:gap-x-2 md:grid-rows-1 md:grid-cols-6 md:aspect-[6/5]">
+        <div className="md:col-span-5 row-span-5 aspect-square relative  md:order-2">
           {selectedItem?.image_path && (
             <Image
               src={mediaDomain + selectedItem.image_path}
               alt={selectedItem.name || "123"}
-              width="500"
-              height="500"
+              fill
               style={{ objectFit: "cover" }}
               className="self-center mx-auto"
-            ></Image>
+            />
           )}
+        </div>
+        <div className="col-span-1 row-span-1 flex md:block md:overflow-y-scroll  md:overflow-x-hidden overflow-y-hidden md:order-1  md:space-y-2 space-x-2 md:space-x-0 px-2 pb-2 ">
+          {!isLoading &&
+            items?.record?.map((product, i) => {
+              return (
+                <div className="relative aspect-square w-full">
+                  <Image
+                    key={i}
+                    src={apiDomain + product.image_path}
+                    alt={product.name || "123"}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className={`cursor-pointer border  ${
+                      selectedItem.id === product.id
+                        ? "border-[#F0B450]"
+                        : "border-gray-500"
+                    }`}
+                    onClick={() => {
+                      setSelectedItem((val) => {
+                        return product;
+                      });
+                    }}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
 
@@ -136,10 +136,10 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
             <>
               <h1 className="font-normal">{t("grinder_type")}</h1>
 
-              <div className="grid grid-cols-2"></div>
-
               {!grinderLoading && (
-                <div className={`grid grid-cols-4 gap-2`}>
+                <div
+                  className={`grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 w-full gap-2`}
+                >
                   {grinders?.record
                     .sort((a, b) => a.level - b.level)
                     .map((grinder) => (
@@ -151,27 +151,25 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                             return grinder.id;
                           });
                         }}
-                        className={`col-span-1 cursor-pointer select-none mr-3  border ${
+                        className={`col-span-1 cursor-pointer select-none grid grid-cols-2 grid-rows-2 border ${
                           selectedGrind === grinder.id
                             ? "border-[#F0B450]"
                             : "border-black"
-                        }   bg-white  p-2 text-center  text-[${
+                        }   bg-white text-center  text-[${
                           selectedGrind === grinder.id ? "#F0B450" : "black"
                         }]`}
                       >
-                        <div className="flex flex-col justify-between">
+                        <div className="col-span-2 row-span-2 aspect-square relative m-2">
                           <Image
-                            src={mediaDomain + grinder.image_path}
+                            src={apiDomain + grinder.image_path}
                             alt={grinder.name || "123"}
-                            width="70"
-                            height="70"
+                            fill
                             style={{ objectFit: "contain" }}
-                            className="self-center mx-auto"
                           />
-                          <p className="align-bottom">
-                            {lng === "en" ? grinder.name : grinder.mn_name}
-                          </p>
                         </div>
+                        <p className="col-span-2 row-span-1 flex items-center justify-center">
+                          {lng === "en" ? grinder.name : grinder.mn_name}
+                        </p>
                       </div>
                     ))}
                 </div>
