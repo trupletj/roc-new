@@ -6,7 +6,8 @@ function Providers({ children }) {
   const [openBasket, setOpenBasket] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [card, setCard] = useState({});
-  const mediaDomain = "https://api.app-roc.com";
+  // const mediaDomain = "https://api.app-roc.com";
+  const mediaDomain = "http://192.168.10.214:8000";
 
   useEffect(() => {
     console.log("mounted");

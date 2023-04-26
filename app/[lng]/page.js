@@ -17,13 +17,13 @@ export default async function Home({ params: { lng } }) {
       <Divider />
       <CoffeeList lng={lng} />
       <Divider />
-      <AboutSection />
+      <AboutSection lng={lng} />
       <Divider />
       <ShopSection lng={lng} />
       <Divider />
-      <Branches />
+      <Branches lng={lng} />
       <Divider />
-      <InstagramFeed />
+      <InstagramFeed lng={lng} />
       <ClientRegister lng={lng} />
     </main>
   );

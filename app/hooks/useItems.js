@@ -19,7 +19,8 @@ const objectToQueryString = (obj) => {
 };
 
 
-export const apiDomain = 'https://api.app-roc.com/'
+// export const apiDomain = 'https://api.app-roc.com/'
+export const apiDomain = 'http://192.168.10.214:8000/'
 export function useItems(req) {
   let str = objectToQueryString(req.data);
   let url = req.url;

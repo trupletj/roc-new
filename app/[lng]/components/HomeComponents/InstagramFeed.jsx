@@ -30,6 +30,7 @@ function InstagramFeed() {
       <h1 className="w-full text-center lg:text-3xl font-light text-base mb-5">
         #ROC_CAFFEINE_BAR
       </h1>
+      
       <div>
         <ul className="grid grid-cols-4 gap-4">
           {data.map((item) => (
