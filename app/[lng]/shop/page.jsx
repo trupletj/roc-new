@@ -1,5 +1,5 @@
 import React from "react";
-import { useItems, api_domain_global } from "@/app/hooks/useItems";
+import { useItems, apiDomain } from "@/app/hooks/useItems";
 
 import ProductList from "@/app/[lng]/components/Shop/ProductList";
 export const metadata = {
@@ -7,7 +7,6 @@ export const metadata = {
 };
 
 function ShopPage({ params }) {
-  const apiDomain = process.env.API_DOMAIN;
   const { items, isLoading, isError } = useItems({
     url: `${apiDomain}client/good/list`,
     data: {

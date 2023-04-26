@@ -15,7 +15,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
   const { types, type_loading, type_error } = TypeData;
   const { categories, category_loading, category_error } = CategoryData;
 
-  const { apiDomain } = useContext(GlobalContext);
+  const { mediaDomain } = useContext(GlobalContext);
 
   const [selectedTypes, setSelectedTypes] = React.useState({});
   const [selectedCategories, setSelectedCategories] = React.useState({});
@@ -157,7 +157,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                 >
                   <div className="aspect-square relative group">
                     <Image
-                      src={apiDomain + product.image_path}
+                      src={mediaDomain + product.image_path}
                       alt={product.name || "123"}
                       width="300"
                       height="300"

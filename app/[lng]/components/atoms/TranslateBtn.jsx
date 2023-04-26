@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { languages } from "../../../i18n/settings";
 import Arrow from "@/app/[lng]/components/atoms/icons/Arrow";
 
-
 export const TranslateBtn = ({ lng }) => {
   const [isOpen, setIsOpen] = useState(false);
 
