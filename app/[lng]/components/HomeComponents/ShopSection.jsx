@@ -14,14 +14,14 @@ function ShopSection({ lng }) {
   });
   return (
     <div className="container mx-auto my-10 px-5">
-      <SectionHeader
-        lng={lng}
-        title="Tанд санал болгох бүтээгдэхүүн"
-        buttonTitle="Бүгдийг үзэх"
-        href={`/${lng}/shop`}
-      />
       {!isLoading && !isError && (
         <>
+          <SectionHeader
+            lng={lng}
+            title="Tанд санал болгох бүтээгдэхүүн"
+            buttonTitle="Бүгдийг үзэх"
+            href={`/${lng}/shop`}
+          />
           <div className="w-full overflow-x-auto pb-2">
             <ul className="grid grid-cols-4 gap-4 min-w-[640px]">
               {items.record.map((item) => (

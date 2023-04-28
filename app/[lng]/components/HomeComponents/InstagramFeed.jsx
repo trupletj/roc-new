@@ -30,13 +30,13 @@ function InstagramFeed() {
       <h1 className="w-full text-center lg:text-3xl font-light text-base mb-5">
         #ROC_CAFFEINE_BAR
       </h1>
-      
+
       <div>
         <ul className="grid grid-cols-4 gap-4">
           {data.map((item) => (
             <li key={item.name}>
               <div className="w-full aspect-square relative">
-                <Image src={item.img} fill style={{ objectFit: "cover" }} />
+                <Image src={item.img} alt={'qe'} fill style={{ objectFit: "cover" }} />
               </div>
             </li>
           ))}

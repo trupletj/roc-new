@@ -12,6 +12,12 @@ const nextConfig = {
         port: '8000',
         pathname: '/storage/**',
       },
+      {
+        protocol: 'http',
+        hostname: '192.168.0.68',
+        port: '8000',
+        pathname: '/storage/**',
+      },
     ],
     domains: [
       "localhost",
