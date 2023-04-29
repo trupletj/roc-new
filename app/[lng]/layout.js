@@ -55,7 +55,7 @@ export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
       <body
-        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} font-light`}
+        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable}`}
       >
         <Providers>
           <Header lng={lng} />
