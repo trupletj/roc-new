@@ -11,7 +11,7 @@ function page() {
     <div className="w-full bg-[#080505] text-white py-10">
       <div className="container flex flex-col items-center space-y-10">
         <div className="w-full aspect-[5/3] relative ">
-          <Image src={image} fill style={{ objectFit: "cover" }} />
+          <Image alt="123" src={image} fill style={{ objectFit: "cover" }} />
         </div>
         <h1 className="text-3xl">ROC Drink Bar, Fountain</h1>
         <ul className="flex flex-row space-x-5 text-base font-light justify-center">
@@ -46,10 +46,10 @@ function page() {
         </div>
         <div className="w-full grid grid-cols-2 gap-4">
           <div className="aspect-square col-span-1 w-full relative">
-            <Image src={image} fill style={{ objectFit: "cover" }} />
+            <Image alt="123" src={image} fill style={{ objectFit: "cover" }} />
           </div>
           <div className="aspect-square col-span-1 w-full relative">
-            <Image src={image} fill style={{ objectFit: "cover" }} />
+            <Image alt="123" src={image} fill style={{ objectFit: "cover" }} />
           </div>
         </div>
         <div className="max-w-[900px] mx-auto space-y-5 pt-10 w-full pb-20">
@@ -88,20 +88,30 @@ function page() {
             </div>
           </div>
           <div className="aspect-[7/3]  w-full relative">
-            <Image src={map} fill style={{ objectFit: "cover" }} />
+            <Image alt="123" src={map} fill style={{ objectFit: "cover" }} />
           </div>
         </div>
         <SectionHeader title="Бусад салбарууд" buttonTitle="Бүгдийг үзэх" />
         <div className="grid grid-cols-3 gap-4 w-full">
           <div className="space-y-5">
             <div className="aspect-square  w-full relative">
-              <Image src={image} fill style={{ objectFit: "cover" }} />
+              <Image
+                alt="123"
+                src={image}
+                fill
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <h1 className="text-2xl">ROC Restaurant, Buddha Vista</h1>
           </div>
           <div className="space-y-5">
             <div className="aspect-square  w-full relative">
-              <Image src={image} fill style={{ objectFit: "cover" }} />
+              <Image
+                alt="123"
+                src={image}
+                fill
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <h1 className="text-2xl">
               ROC UN, West of United Nations building
@@ -109,7 +119,12 @@ function page() {
           </div>
           <div className="space-y-5">
             <div className="aspect-square  w-full relative">
-              <Image src={image} fill style={{ objectFit: "cover" }} />
+              <Image
+                alt="123"
+                src={image}
+                fill
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <h1 className="text-2xl">ROC Restaurant, Buddha Vista</h1>
           </div>
