@@ -6,7 +6,7 @@ function Providers({ children }) {
   const [openBasket, setOpenBasket] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [card, setCard] = useState({});
-  const mediaDomain = "https://api.roc.mn";
+  const mediaDomain = "https://www.api.roc.mn";
   // const mediaDomain = "http://192.168.0.68:8000";
 
   useEffect(() => {
