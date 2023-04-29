@@ -7,7 +7,9 @@ import ShopBag from "../atoms/icons/ShopBag";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 import { apiDomain, useItems } from "@/app/hooks/useItems";
 
+import { useTranslation } from "@/app/i18n/client";
 function ShopSection({ lng }) {
+  const { t } = useTranslation();
   const { mediaDomain } = useContext(GlobalContext);
   const { items, isLoading, isError } = useItems({
     url: `${apiDomain}client/good/top`,
@@ -18,8 +20,8 @@ function ShopSection({ lng }) {
         <>
           <SectionHeader
             lng={lng}
-            title="Tанд санал болгох бүтээгдэхүүн"
-            buttonTitle="Бүгдийг үзэх"
+            title={t("recomended_products")}
+            buttonTitle={t("read_more")}
             href={`/${lng}/shop`}
           />
           <div className="w-full overflow-x-auto pb-2">
@@ -28,7 +30,12 @@ function ShopSection({ lng }) {
                 <li className="w-full relativ " key={item.good.id}>
                   <div className="w-full aspect-square relative group">
                     <Image
-                      src={mediaDomain + item.good.image_path}
+                      src={
+                        mediaDomain +
+                        (item.main_image
+                          ? item.main_image
+                          : item.good.image_path)
+                      }
                       alt={item.good.name || "123"}
                       fill
                       style={{ objectFit: "cover" }}
@@ -44,11 +51,13 @@ function ShopSection({ lng }) {
                         href={`/${lng}/shop/product/${item.good.type_id}`}
                         className="absolute w-full left-0 bottom-0 p-2 bg-black  group-hover:block hidden text-center text-white"
                       >
-                        Дэлгэрэнгүй
+                        {t("view")}
                       </Link>
                     </div>
                   </div>
-                  <h1 className="w-full text-center py-3">{item.good.name}</h1>
+                  <h1 className="w-full text-center py-3 text-white">
+                    {item.name}
+                  </h1>
                 </li>
               ))}
             </ul>

@@ -51,11 +51,13 @@ function CoffeeList({ lng }) {
                         href={`/${lng}/shop/product/${item.good.type_id}`}
                         className="absolute w-full left-0 bottom-0 p-2 bg-black  group-hover:block hidden text-center text-white"
                       >
-                        Дэлгэрэнгүй
+                        {t("view")}
                       </Link>
                     </div>
                   </div>
-                  <h1 className="w-full text-center py-3">{item.name}</h1>
+                  <h1 className="w-full text-center py-3 text-white">
+                    {item.name}
+                  </h1>
                 </li>
               ))}
             </ul>

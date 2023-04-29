@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import SectionHeader from "../moleculs/SectionHeader";
-import image1 from "@/public/assets/image1.png";
-import image2 from "@/public/assets/image2.png";
-import image3 from "@/public/assets/image3.png";
+import image1 from "@/public/assets/home/our_story.png";
+import image2 from "@/public/assets/home/how_we_roast.png";
+import image3 from "@/public/assets/home/partners_and_sources.png";
 import Link from "next/link";
 
 import { useTranslation } from "@/app/i18n";
