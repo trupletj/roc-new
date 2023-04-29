@@ -12,7 +12,7 @@ import ClientRegister from "./components/ClientRegister";
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng);
   return (
-    <main>
+    <main className="w-full bg-[#080505] tex-white">
       <Carousel />
       <Divider />
       <CoffeeList lng={lng} />
