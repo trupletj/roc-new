@@ -60,7 +60,7 @@ async function Header({ lng }) {
           className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
         >
           <div className="container mx-auto  flex flex-row justify-between  text-[#080505]">
-            <p>Сайн уу, ROC-д тавтай морил </p>
+            <p>{t("hello")} </p>
             <ul className="flex flex-row">
               {/* <li className="ml-10">
                 <DarkModeBtn />
