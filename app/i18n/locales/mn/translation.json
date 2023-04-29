@@ -10,5 +10,14 @@
   "delete_item": "Бүтээгдхүүнийг сагснаас хасах гэж байна!",
   "empty_cart": "Таны сагс хоосон байна",
   "additional_information": "Нэмэлт анхааруулга",
-  "grind": "Бутлах"
+  "grind": "Бутлах",
+  "coffee_list": "Кофены үр",
+  "read_more": "Бүгдийг үзэх",
+  "our_story": "Бидний түүх",
+  "our_story_description": "Six years ago we started as a local coffee shop and coffee roaster with a Probatone 5.",
+  "who_we_are": "Who we are",
+  "how_we_roast": "How we roast",
+  "how_we_roast_description": "We only use world-class professional coffee equipment. Our roastery is exclusively equipped with Probat roasting machineries.",
+  "partners_sourcing": "Partners sourcing",
+  "partners_sourcing_description": "As a country that doesn’t produce green coffee beans, maintaining our fresh “crop-to-cup” principle comes with a certain set of challenges."
 }

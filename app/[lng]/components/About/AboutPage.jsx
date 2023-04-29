@@ -2,8 +2,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import image1 from "@/public/assets/hero1.png";
+import { useTranslation } from "@/app/i18n/client";
 
 function AboutPage() {
+  const { t } = useTranslation();
   const [cindex, setCindex] = useState(0);
   const [openIndex, setOpenIndex] = useState(0);
   return (
@@ -14,7 +16,7 @@ function AboutPage() {
             onClick={() => setOpenIndex(0)}
             className="flex justify-between text-2xl py-5 items-center uppercase"
           >
-            <h1>History</h1>
+            <h1>{t("our_story")}</h1>
             <span>
               {openIndex === 0 ? (
                 <svg

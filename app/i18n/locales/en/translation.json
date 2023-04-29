@@ -1,5 +1,5 @@
 {
-  "about": "About Us!",
+  "about": "About Us",
   "add_to_cart": "Add to cart",
   "buy_now": "Buy Now",
   "grinder_type": "Grinder type",
@@ -10,5 +10,14 @@
   "delete_item": "Are your sure deleting item from cart",
   "empty_cart": "Your cart is empty",
   "additional_information": "Additional information",
-  "grind": "Grind"
+  "grind": "Grind",
+  "coffee_list": "Beans",
+  "read_more": "Read more",
+  "our_story": "Our story",
+  "our_story_description": "Six years ago we started as a local coffee shop and coffee roaster with a Probatone 5.",
+  "who_we_are": "Who we are",
+  "how_we_roast": "How we roast",
+  "how_we_roast_description": "We only use world-class professional coffee equipment. Our roastery is exclusively equipped with Probat roasting machineries.",
+  "partners_sourcing": "Partners sourcing",
+  "partners_sourcing_description": "As a country that doesn’t produce green coffee beans, maintaining our fresh “crop-to-cup” principle comes with a certain set of challenges."
 }

@@ -17,10 +17,10 @@ const DataNav = [
     sub: [
       {
         links: [
-          { name: "history", link: "/about" },
-          { name: "team", link: "/about" },
-          { name: "how_we_roast", link: "/about" },
-          { name: "partners_sourcing", link: "/about" },
+          { name: "our_story", link: "/about?page=our_story" },
+          { name: "who_we_are", link: "/about?page=who_we_are" },
+          { name: "how_we_roast", link: "/about?page=how_we_roast" },
+          { name: "partners_sourcing", link: "/about?page=partners_sourcing" },
         ],
       },
     ],

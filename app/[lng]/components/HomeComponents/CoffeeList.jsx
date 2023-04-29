@@ -7,18 +7,21 @@ import ShopBag from "../atoms/icons/ShopBag";
 import { apiDomain, useItems } from "@/app/hooks/useItems";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 
+import { useTranslation } from "@/app/i18n/client";
+
 function CoffeeList({ lng }) {
   const { mediaDomain } = useContext(GlobalContext);
   const { items, isLoading, isError } = useItems({
     url: `${apiDomain}client/good/top?parent=2`,
   });
+  const { t } = useTranslation();
   return (
     <div className="container mx-auto my-10 px-5">
       {!isLoading && !isError && (
         <>
           <SectionHeader
-            title="Кофе - ROC Blends"
-            buttonTitle="Бүгдийг үзэх"
+            title={t("coffee_list")}
+            buttonTitle={t("read_more")}
             href={`/${lng}/shop`}
           />
           <div className="w-full overflow-x-auto pb-2">
@@ -27,7 +30,12 @@ function CoffeeList({ lng }) {
                 <li className="w-full relativ " key={item.good.id}>
                   <div className="w-full aspect-square relative group">
                     <Image
-                      src={mediaDomain + item.good.image_path}
+                      src={
+                        mediaDomain +
+                        (item.main_image
+                          ? item.main_image
+                          : item.good.image_path)
+                      }
                       alt={item.good.name || "123"}
                       fill
                       style={{ objectFit: "cover" }}
@@ -47,7 +55,7 @@ function CoffeeList({ lng }) {
                       </Link>
                     </div>
                   </div>
-                  <h1 className="w-full text-center py-3">{item.good.name}</h1>
+                  <h1 className="w-full text-center py-3">{item.name}</h1>
                 </li>
               ))}
             </ul>
