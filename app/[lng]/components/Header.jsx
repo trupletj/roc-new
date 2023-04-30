@@ -48,12 +48,12 @@ const DataNav = [
     sub: [
       {
         links: [
-          { name: "THE ROASTERY", link: "/branches" },
-          { name: "ROC BUDDHA VISTA", link: "/branches" },
-          { name: "ROC UNITED NATIONS", link: "/branches" },
-          { name: "ROC FOUNTAIN", link: "/branches" },
-          { name: "ROC MPM BUILDING", link: "/branches" },
-          { name: "ROC CHOIJIN SUITES", link: "/branches" },
+          { name: "THE ROASTERY", link: "/branches/roastery" },
+          { name: "ROC BUDDHA VISTA", link: "/branches/buddha" },
+          { name: "ROC UNITED NATIONS", link: "/branches/un" },
+          { name: "ROC FOUNTAIN", link: "/branches/fountain" },
+          { name: "ROC MPM BUILDING", link: "/branches/mpm" },
+          { name: "ROC CHOIJIN SUITES", link: "/branches/choijin" },
         ],
       },
     ],

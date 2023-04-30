@@ -1,19 +1,31 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import image1 from "@/public/assets/hero1.png";
-function Services() {
+import whole_sale_image from "@/public/assets/services/whole_supply.jpg";
+import catering_image from "@/public/assets/services/catering.jpg";
+import distributioin_image from "@/public/assets/services/maintainces.jpg";
+import roasting_image from "@/public/assets/services/roasting_to_taste.jpg";
+import { useTranslation } from "@/app/i18n/client";
+import Link from "next/link";
+function Services({ lng }) {
   const [cindex, setCindex] = useState(0);
   const [openIndex, setOpenIndex] = useState(0);
+  const { t: service_catering } = useTranslation(lng, "service_catering");
+  const { t: service_distribution } = useTranslation(
+    lng,
+    "service_distribution"
+  );
+  const { t: service_roast } = useTranslation(lng, "service_roast");
+  const { t: service_whole_sale } = useTranslation(lng, "service_whole_sale");
   return (
     <ul className="mb-10 pb-20">
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() => setOpenIndex(0)}
-            className="flex justify-between text-2xl py-5 items-center uppercase"
+            onClick={() => setOpenIndex((val) => (val == 0 ? -1 : 0))}
+            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
-            <h1>ROASTING TO A TASTE</h1>
+            <h1>{service_roast("name")}</h1>
             <span>
               {openIndex === 0 ? (
                 <svg
@@ -58,29 +70,32 @@ function Services() {
                 <div className="flex flex-row items-center space-x-16">
                   <div className="w-7/12 relative aspect-square">
                     <Image
-                      alt="sds"
-                      src={image1}
+                      alt="roasting"
+                      src={roasting_image}
                       fill
                       style={{ objectFit: "cover" }}
                     />
                   </div>
                   <div className="w-5/12">
-                    <h1 className="text-6xl font-normal mb-5">Coffee Truck</h1>
-                    <p className="text-xl">
-                      Our catering and coffee truck service offers a unique and
-                      convenient way to enjoy delicious coffee and food at any
-                      event. With our coffee truck and experienced baristas, we
-                      bring the cafe experience to you, whether it's a corporate
-                      event, private party, or outdoor festival. Our menu
-                      features a wide variety of specialty coffee drinks made
-                      with the freshest, highest-quality beans and ingredients.
-                      We also offer a range of delicious food options, from
-                      light bites to full meals, to suit any occasion. Our team
-                      is dedicated to providing exceptional service and ensuring
-                      that every customer has a memorable experience. Book our
-                      catering and coffee truck for your next event and treat
-                      your guests to the ultimate coffee and food experience.
-                    </p>
+                    <div className="text-xl font-semibold">
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: service_roast("main_text"),
+                        }}
+                      ></p>
+                    </div>
+                    <form className="w-full mt-6 max-w-[560px]">
+                      <div className="flex flex-row bg-white items-center  w-full border border-black justify-between">
+                        <input
+                          className="text-black bg-white border-none px-[20px] outline-0"
+                          type="text"
+                          placeholder="Email"
+                        />
+                        <button className="bg-black text-white py-3 px-5">
+                          {service_roast("btn_name")}
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -91,10 +106,10 @@ function Services() {
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() => setOpenIndex(1)}
-            className="flex justify-between text-2xl py-5 items-center uppercase"
+            onClick={() => setOpenIndex((val) => (val == 1 ? -1 : 1))}
+            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
-            <h1>WHOLESALE</h1>
+            <h1>{service_whole_sale("name")}</h1>
             <span>
               {openIndex === 1 ? (
                 <svg
@@ -139,29 +154,32 @@ function Services() {
                 <div className="flex flex-row items-center space-x-16">
                   <div className="w-7/12 relative aspect-square">
                     <Image
-                      alt="sds"
-                      src={image1}
+                      alt="whole sale"
+                      src={whole_sale_image}
                       fill
                       style={{ objectFit: "cover" }}
                     />
                   </div>
                   <div className="w-5/12">
-                    <h1 className="text-6xl font-normal mb-5">Coffee Truck</h1>
-                    <p className="text-xl">
-                      Our catering and coffee truck service offers a unique and
-                      convenient way to enjoy delicious coffee and food at any
-                      event. With our coffee truck and experienced baristas, we
-                      bring the cafe experience to you, whether it's a corporate
-                      event, private party, or outdoor festival. Our menu
-                      features a wide variety of specialty coffee drinks made
-                      with the freshest, highest-quality beans and ingredients.
-                      We also offer a range of delicious food options, from
-                      light bites to full meals, to suit any occasion. Our team
-                      is dedicated to providing exceptional service and ensuring
-                      that every customer has a memorable experience. Book our
-                      catering and coffee truck for your next event and treat
-                      your guests to the ultimate coffee and food experience.
-                    </p>
+                    <div className="text-xl font-semibold">
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: service_whole_sale("main_text"),
+                        }}
+                      ></p>
+                    </div>
+                    <form className="w-full mt-6 max-w-[560px]">
+                      <div className="flex flex-row bg-white items-center  w-full border border-black justify-between">
+                        <input
+                          className="text-black bg-white border-none px-[20px] outline-0"
+                          type="text"
+                          placeholder="Email"
+                        />
+                        <button className="bg-black text-white py-3 px-5">
+                          {service_whole_sale("btn_name")}
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -172,10 +190,10 @@ function Services() {
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() => setOpenIndex(2)}
-            className="flex justify-between text-2xl py-5 items-center uppercase"
+            onClick={() => setOpenIndex((val) => (val === 2 ? -1 : 2))}
+            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
-            <h1>CATERING & COFFEE TRUCK</h1>
+            <h1>{service_catering("name")}</h1>
             <span>
               {openIndex === 2 ? (
                 <svg
@@ -221,28 +239,27 @@ function Services() {
                   <div className="w-7/12 relative aspect-square">
                     <Image
                       alt="sds"
-                      src={image1}
+                      src={catering_image}
                       fill
                       style={{ objectFit: "cover" }}
                     />
                   </div>
                   <div className="w-5/12">
-                    <h1 className="text-6xl font-normal mb-5">Coffee Truck</h1>
-                    <p className="text-xl">
-                      Our catering and coffee truck service offers a unique and
-                      convenient way to enjoy delicious coffee and food at any
-                      event. With our coffee truck and experienced baristas, we
-                      bring the cafe experience to you, whether it's a corporate
-                      event, private party, or outdoor festival. Our menu
-                      features a wide variety of specialty coffee drinks made
-                      with the freshest, highest-quality beans and ingredients.
-                      We also offer a range of delicious food options, from
-                      light bites to full meals, to suit any occasion. Our team
-                      is dedicated to providing exceptional service and ensuring
-                      that every customer has a memorable experience. Book our
-                      catering and coffee truck for your next event and treat
-                      your guests to the ultimate coffee and food experience.
-                    </p>
+                    <div className="text-xl font-semibold">
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: service_catering("main_text"),
+                        }}
+                      ></p>
+                    </div>
+                    <div className="flex">
+                      <Link
+                        className="px-5 py-3 my-1 mx-auto bg-black text-white text-sm uppercase"
+                        href="#"
+                      >
+                        {service_catering("btn_name")}
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -253,10 +270,10 @@ function Services() {
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() => setOpenIndex(3)}
-            className="flex justify-between text-2xl py-5 items-center uppercase"
+            onClick={() => setOpenIndex((val) => (val === 3 ? -1 : 3))}
+            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
-            <h1>DISTRIBUTION & MAINTANENCE</h1>
+            <h1>{service_distribution("name")}</h1>
             <span>
               {openIndex === 3 ? (
                 <svg
@@ -302,28 +319,28 @@ function Services() {
                   <div className="w-7/12 relative aspect-square">
                     <Image
                       alt="sds"
-                      src={image1}
+                      src={distributioin_image}
                       fill
                       style={{ objectFit: "cover" }}
                     />
                   </div>
                   <div className="w-5/12">
-                    <h1 className="text-6xl font-normal mb-5">Coffee Truck</h1>
-                    <p className="text-xl">
-                      Our catering and coffee truck service offers a unique and
-                      convenient way to enjoy delicious coffee and food at any
-                      event. With our coffee truck and experienced baristas, we
-                      bring the cafe experience to you, whether it's a corporate
-                      event, private party, or outdoor festival. Our menu
-                      features a wide variety of specialty coffee drinks made
-                      with the freshest, highest-quality beans and ingredients.
-                      We also offer a range of delicious food options, from
-                      light bites to full meals, to suit any occasion. Our team
-                      is dedicated to providing exceptional service and ensuring
-                      that every customer has a memorable experience. Book our
-                      catering and coffee truck for your next event and treat
-                      your guests to the ultimate coffee and food experience.
-                    </p>
+                    <div className="text-xl font-semibold">
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: service_distribution("main_text"),
+                        }}
+                      ></p>
+                    </div>
+
+                    <div className="flex">
+                      <Link
+                        className="px-8 py-3  mt-3 mx-auto bg-black text-white text-sm uppercase"
+                        href={`/${lng}/shop`}
+                      >
+                        {service_distribution("btn_name")}
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import BranchesMainPage from "../components/Branches/BranchesMainPage";
 
-function page() {
+function page({ params: { lng } }) {
   return (
     <div className="w-full bg-white">
-      <BranchesMainPage />
+      <BranchesMainPage lng={lng} />
     </div>
   );
 }

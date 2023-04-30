@@ -1,5 +1,10 @@
 {
-  "name": "ROC Choijin",
-  "descrip": "Our ROC Choijin branch is located at the heart of the business district in Ulaanbaatar and is able to cater to both sit-in or take-away for our customers.",
-  "branch_one_location": "R.O.C. Choijin, 1st Floor, Choijin Suites, Sukhbaatar District, Ulaanbaatar, Mongolia."
+  "name": "ROC BUDDHA VISTA",
+  "main_text": "The Roc Buddha branch was launched in 2021, introducing a distinct concept that blends the qualities of a restaurant with a specific emphasis on mornings. <br/><br/> Within our branch, you will encounter our remarkable La Marzocco KB90 espresso machine, expertly operated by our skilled baristas who are passionately committed to creating the ultimate coffee experience. <br/><br/> Furthermore, our main kitchen, known as Roc Buddha's Kitchen, proudly stands as the largest and most well-equipped kitchen within the ROC. Our primary focus lies in offering an exceptional breakfast menu that has earned a reputation as one of the finest in town.",
+  "image_1": "/assets/branches/buddha_page_1.png",
+  "image_2": "/assets/branches/buddha_page_2.png",
+  "phone": "Phone: +976 7721 3333",
+  "address": "Address: R.O.C. Restaurant, 1st Floor, Buddha Vista, Khan-Uul District, Ulaanbaatar, Mongolia",
+  "work_hours": "Everyday: 07:00 - 20:00",
+  "map": "https://www.google.com/maps/dir//VWP6%2BPCP+ROC+Caffeine+bar,+%D0%A3%D0%BB%D0%B0%D0%B0%D0%BD%D0%B1%D0%B0%D0%B0%D1%82%D0%B0%D1%80/@47.8868026,106.9106911,18.83z/data=!4m8!4m7!1m0!1m5!1m1!1s0x5d969390f64ca3d5:0x8fceb99ed98664fb!2m2!1d106.9109995!2d47.8868854"
 }
