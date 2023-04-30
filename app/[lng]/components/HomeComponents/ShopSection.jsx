@@ -8,6 +8,8 @@ import GlobalContext from "@/app/[lng]/context/GlobalContext";
 import { apiDomain, useItems } from "@/app/hooks/useItems";
 
 import { useTranslation } from "@/app/i18n/client";
+import ArrowR from "../atoms/ArrowR";
+
 function ShopSection({ lng }) {
   const { t } = useTranslation();
   const { mediaDomain } = useContext(GlobalContext);
@@ -62,6 +64,12 @@ function ShopSection({ lng }) {
               ))}
             </ul>
           </div>
+          <Link
+            href={`/${lng}/shop`}
+            className="text-white flex items-center my-5 md:hidden"
+          >
+            <span className="mr-4"> {t("read_more")}</span> <ArrowR />
+          </Link>{" "}
         </>
       )}
     </div>

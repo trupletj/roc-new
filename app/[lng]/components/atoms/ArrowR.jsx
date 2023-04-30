@@ -24,7 +24,7 @@ function ArrowR() {
             d="M5991,1207l8.259,8-8.259,8"
             transform="translate(-5975.259 -1207)"
             fill="none"
-            stroke="#080505"
+            stroke="currentColor"
             strokeWidth="1.5"
           />
           <path
@@ -33,7 +33,7 @@ function ArrowR() {
             d="M5978.5,1244h-24"
             transform="translate(-5954.5 -1236)"
             fill="none"
-            stroke="#080505"
+            stroke="currentColor"
             strokeWidth="1.5"
           />
         </g>

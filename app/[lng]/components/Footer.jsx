@@ -116,12 +116,12 @@ function Footer({ lng }) {
         </div>
       </footer>
       <footer className="lg:hidden bg-[#080505] text-white">
-        <div className="container mx-auto">
-          <section className="flex flex-col justify-between mt-10">
+        <div className=" max-w-[500px] mx-auto">
+          <section className="flex flex-col justify-between pt-10">
             <MobileFooterTop />
-            <MobileFooterBottom lng={lng} />
           </section>
         </div>
+        <MobileFooterBottom lng={lng} />
       </footer>
     </>
   );
@@ -129,32 +129,37 @@ function Footer({ lng }) {
 
 export function MobileFooterBottom({ lng }) {
   return (
-    <div className="flex flex-col w-full bg-[#393636] py-10">
-      <span className="flex px-10 justify-between">
-        <p className="mb-5">+ 976 7721 3333</p>
-        <p className="mb-5">info@roc.mn</p>
-      </span>
-      <ul className="flex mb-5 justify-around px-20">
-        <li className="">
-          <FB />
-        </li>
-        <li>
-          <Insta />
-        </li>
-        <li>
-          <LinkedIn />
-        </li>
-        <li>
-          <TW />
-        </li>
-      </ul>
-      <div className="flex w-full justify-center font-light">
-        <Link href={"/mn"} className={lng === "mn" ? "font-bold" : ""}>
-          МОН
-        </Link>
-        <Link href={"/en"} className={lng === "en" ? "font-bold ml-2" : "ml-2"}>
-          ENG
-        </Link>
+    <div className=" w-full bg-[#393636] ">
+      <div className="max-w-[500px] mx-auto flex flex-col py-10">
+        <span className="flex px-10 justify-between">
+          <p className="mb-5">+ 976 7721 3333</p>
+          <p className="mb-5">info@roc.mn</p>
+        </span>
+        <ul className="flex mb-5 justify-around px-20">
+          <li className="">
+            <FB />
+          </li>
+          <li>
+            <Insta />
+          </li>
+          <li>
+            <LinkedIn />
+          </li>
+          <li>
+            <TW />
+          </li>
+        </ul>
+        <div className="flex w-full justify-center font-light">
+          <Link href={"/mn"} className={lng === "mn" ? "font-bold" : ""}>
+            МОН
+          </Link>
+          <Link
+            href={"/en"}
+            className={lng === "en" ? "font-bold ml-2" : "ml-2"}
+          >
+            ENG
+          </Link>
+        </div>
       </div>
     </div>
   );
