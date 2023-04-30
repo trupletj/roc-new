@@ -34,7 +34,7 @@ function BranchesMainPage() {
           <Link href="/">ROC CHOIJIN</Link>
         </li>
       </ul>
-      <section className="w-full text-xl font-medium">
+      <section className="w-full text-lg">
         <div className="grid grid-cols-1 aspect-square md:aspect-[3/1] md:grid-cols-3 gap-4  mb-20">
           <div className="col-span-1 relative h-full">
             <div className="relative h-full">
@@ -85,7 +85,7 @@ function BranchesMainPage() {
               <Image src={branches6} fill style={{ objectFit: "cover" }} />
             </div>
             <p className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
-              ROC Restaurant, Buddha Vista
+              ROC Digital, MPM Building
             </p>
           </div>
         </div>
