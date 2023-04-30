@@ -137,9 +137,9 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                   <h1 className="font-normal">{t("grinder_type")}</h1>
 
                   {!grinderLoading && (
-                    <div className="grid  grid-cols-3  ">
+                    <div className="grid  grid-cols-4  ">
                       <div
-                        className={` col-span-3 md:col-span-2  grid  grid-cols-4  w-full gap-2`}
+                        className={` col-span-4 md:col-span-3  grid  grid-cols-4  w-full gap-2`}
                       >
                         {grinders?.record
                           .sort((a, b) => a.level - b.level)
@@ -162,7 +162,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                                   : "black"
                               }]`}
                             >
-                              <div className="col-span-2 row-span-2  p-5">
+                              <div className="col-span-2 row-span-2  p-2">
                                 <div className=" aspect-square w-full relative">
                                   <Image
                                     src={mediaDomain + grinder.image_path}
