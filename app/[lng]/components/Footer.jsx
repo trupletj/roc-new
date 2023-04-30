@@ -6,40 +6,37 @@ import FB from "./atoms/icons/FB";
 import Insta from "./atoms/icons/Insta";
 import LinkedIn from "./atoms/icons/LinkedIn";
 import TW from "./atoms/icons/TW";
+import { useTranslation } from "@/app/i18n";
 
 const data = [
   {
     title: "ROC",
     links: [
-      { name: "Бидний Тухай", link: "/" },
-      { name: "Бидний Түүх", link: "/" },
-      { name: "Sustainability", link: "/" },
-      { name: "Ажлын Байр", link: "/" },
+      { name: "our_story", link: "/about?page=our_story" },
+      { name: "who_we_are", link: "/about?page=who_we_are" },
+      { name: "how_we_roast", link: "/about?page=how_we_roast" },
+      { name: "partners_sourcing", link: "/about?page=partners_sourcing" },
     ],
   },
 
   {
-    title: "Бүтээгдэхүүн",
+    title: "shop",
     links: [
       {
-        name: "Кофе",
-        link: "/",
+        name: "beans",
+        link: `/shop`,
       },
-      { name: "Кофе Subscription", link: "/" },
-      { name: "Тоног төхөөрөмж", link: "/" },
-      { name: "Мерчендайз", link: "/" },
+      { name: "espresso_machines", link: `/shop` },
+      { name: "merchendies", link: `/shop` },
     ],
   },
   {
-    title: "Үйлчилгээ",
+    title: "services",
     links: [
-      { name: "Roasting", link: "/" },
-      { name: "Катеринг, Кофе Тэрэг", link: "/" },
-      { name: "түгээлт ба засвар үйлчилгээ", link: "/" },
-      { name: "Хангамж", link: "/" },
-      { name: "Бөөний Худалдаа", link: "/" },
-      { name: "Бариста сургалт", link: "/" },
-      { name: "Кофе Нэрэх Сургалт", link: "/" },
+      { name: "roasting", link: "/" },
+      { name: "whole_sale", link: "/" },
+      { name: "catering", link: "/" },
+      { name: "distrubution", link: "/" },
     ],
   },
 ];
@@ -64,7 +61,8 @@ const mobileViewData = [
     ],
   },
 ];
-function Footer({ lng }) {
+async function Footer({ lng }) {
+  const { t } = await useTranslation(lng, "header");
   return (
     <>
       <footer className="w-full hidden lg:block bg-[#080505] text-white">
@@ -81,10 +79,12 @@ function Footer({ lng }) {
             <div className="flex flex-col lg:flex-row justify-between items-start w-1/2">
               {data.map((item, i) => (
                 <div className="flex flex-col " key={i}>
-                  <h1 className="text-[#F0B450]  mb-5">{item.title}</h1>
+                  <h1 className="text-[#F0B450] uppercase mb-5">
+                    {t(item.title)}
+                  </h1>
                   {item.links.map((link, i) => (
                     <Link href={link.link} key={i} className="mb-5">
-                      {link.name}
+                      {t(link.name)}
                     </Link>
                   ))}
                 </div>
