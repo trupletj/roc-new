@@ -34,19 +34,60 @@ function BranchesMainPage() {
           <Link href="/">ROC CHOIJIN</Link>
         </li>
       </ul>
-      <section className="w-full text-lg">
-        <div className="grid grid-cols-1 aspect-square md:aspect-[3/1] md:grid-cols-3 gap-4 bg-red-100">
-          <div className="col-span-1 relative">
-            <div className="relative h-96 w-96">
+      <section className="w-full text-xl font-medium">
+        <div className="grid grid-cols-1 aspect-square md:aspect-[3/1] md:grid-cols-3 gap-4  mb-20">
+          <div className="col-span-1 relative h-full">
+            <div className="relative h-full">
               <Image src={branches1} fill style={{ objectFit: "cover" }} />
             </div>
-            <p>sfsdf</p>
+            <p className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+              The Roastery
+            </p>
           </div>
-          {/* <div className="md:col-span-2 col-span-1">
-            <div className="relative h-full">
+          <div className="md:col-span-2 col-span-1 relative h-full">
+            <div className="relative h-full ">
               <Image src={branches2} fill style={{ objectFit: "cover" }} />
             </div>
-          </div> */}
+            <p className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
+              ROC Restaurant, Buddha Vista
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 aspect-square md:aspect-[3/1] md:grid-cols-3 gap-4  mb-20">
+          <div className="md:col-span-2 col-span-1 relative h-full">
+            <div className="relative h-full ">
+              <Image src={branches3} fill style={{ objectFit: "cover" }} />
+            </div>
+            <p className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
+              ROC #2, West of United Nations building
+            </p>
+          </div>
+          <div className="col-span-1 relative h-full">
+            <div className="relative h-full">
+              <Image src={branches4} fill style={{ objectFit: "cover" }} />
+            </div>
+            <p className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+              ROC Drink Bar, Foutain
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 aspect-square md:aspect-[3/1] md:grid-cols-3 gap-4  mb-20">
+          <div className="col-span-1 relative h-full">
+            <div className="relative h-full">
+              <Image src={branches5} fill style={{ objectFit: "cover" }} />
+            </div>
+            <p className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+              ROC Digital, MPM Building
+            </p>
+          </div>
+          <div className="md:col-span-2 col-span-1 relative h-full">
+            <div className="relative h-full ">
+              <Image src={branches6} fill style={{ objectFit: "cover" }} />
+            </div>
+            <p className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
+              ROC Restaurant, Buddha Vista
+            </p>
+          </div>
         </div>
       </section>
     </div>

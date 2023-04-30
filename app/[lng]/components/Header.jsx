@@ -30,7 +30,19 @@ const DataNav = [
     link: "/shop",
   },
 
-  { name: "service", link: "/service" },
+  {
+    name: "service",
+    sub: [
+      {
+        links: [
+          { name: "ROASTING TO A TASTE", link: "/services" },
+          { name: "WHOLESALE", link: "/services" },
+          { name: "CATERING & COFFEE TRUCK", link: "/services" },
+          { name: "DISTRIBUTION & MAINTANENCE", link: "/services" },
+        ],
+      },
+    ],
+  },
   {
     name: "branch",
     sub: [
