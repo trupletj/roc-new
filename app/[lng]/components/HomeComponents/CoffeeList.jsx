@@ -8,6 +8,7 @@ import { apiDomain, useItems } from "@/app/hooks/useItems";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 
 import { useTranslation } from "@/app/i18n/client";
+import ArrowR from "../atoms/ArrowR";
 
 function CoffeeList({ lng }) {
   const { mediaDomain } = useContext(GlobalContext);
@@ -62,6 +63,12 @@ function CoffeeList({ lng }) {
               ))}
             </ul>
           </div>
+          <Link
+            href={`/${lng}/shop`}
+            className="text-white flex items-center my-5 md:hidden"
+          >
+            <span className="mr-4"> {t("read_more")}</span> <ArrowR />
+          </Link>
         </>
       )}
     </div>
