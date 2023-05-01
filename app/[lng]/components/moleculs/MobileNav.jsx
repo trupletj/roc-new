@@ -29,14 +29,20 @@ function MobileNav({ lng, DataNav }) {
           <div className="w-1/4">
             <div
               className=" lg:hidden cursor-pointer"
-              onClick={() => setOpen(true)}
+              onClick={(val) => {
+                setOpen(true);
+                console.log(val);
+              }}
             >
               <Burger />
             </div>
           </div>
-          <div className="dark:text-white my-2 w-1/2 flex justify-center">
+          <Link
+            href="/"
+            className="dark:text-white my-2 w-1/2 flex justify-center"
+          >
             <Logo />
-          </div>
+          </Link>
           <ul className="w-1/4 flex flex-row justify-end items-center">
             <li className="mr-[30px]">
               <User />
@@ -47,7 +53,7 @@ function MobileNav({ lng, DataNav }) {
           </ul>
         </div>
       </section>
-      {!open && (
+      {open && (
         <section className="fixed z-10 top-0 bottom-0 left-0 right-0 bg-[#191919] overflow-scroll">
           <div className="container mx-auto flex flex-row items-center px-10 lg:px-0 h-[80px] sticky top-0 bg-[#191919]">
             <div className="w-1/4">
@@ -60,9 +66,12 @@ function MobileNav({ lng, DataNav }) {
                 <Cross />
               </div>
             </div>
-            <div className="dark:text-white my-2 w-1/2 flex justify-center">
+            <Link
+              href={"/"}
+              className="dark:text-white my-2 w-1/2 flex justify-center"
+            >
               <Logo />
-            </div>
+            </Link>
             <ul className="w-1/4 flex flex-row justify-end items-center">
               {/* <li className="mr-[30px] hidden lg:block">
                 <Search />
@@ -97,6 +106,7 @@ function MobileNav({ lng, DataNav }) {
                 setChildOpenIndex={setChildOpenIndex}
                 item={item}
                 lng={lng}
+                setOpen={setOpen}
               />
             ))}
             <li className="w-full py-5 uppercase">
@@ -123,25 +133,42 @@ const Subnav = ({
   lng,
   childOpenIndex,
   setChildOpenIndex,
+  setOpen,
 }) => {
   const { t } = useTranslation(lng, "header");
   return (
     <li className="flex flex-col items-center  w-full ">
-      <div
-        key={item.name}
-        onClick={() => {
-          setChildOpenIndex((val) => {
-            if (currentIndex == val) return -1;
-            return currentIndex;
-          });
-        }}
-        className="w-full flex flex-row items-center justify-between py-5"
-      >
-        <span className="uppercase">{t(item.name)}</span>
-        <span className="ml-[5px]">
-          <Arrow />
-        </span>
-      </div>
+      {item.sub ? (
+        <div
+          key={item.name}
+          onClick={() => {
+            setChildOpenIndex((val) => {
+              if (currentIndex == val) return -1;
+              return currentIndex;
+            });
+          }}
+          className="w-full flex flex-row items-center justify-between py-5"
+        >
+          <span className="uppercase">{t(item.name)}</span>
+
+          <span className="ml-[5px]">
+            <Arrow />
+          </span>
+        </div>
+      ) : (
+        <div
+          key={item.name}
+          className="w-full flex flex-row items-center justify-between py-5"
+        >
+          <Link
+            href={item.link}
+            className="uppercase"
+            onClick={() => setOpen(false)}
+          >
+            {t(item.name)}
+          </Link>
+        </div>
+      )}
       <div className={`my-0 w-full h-px  bg-white opacity-100 `} />
       {item.sub && childOpenIndex == currentIndex && (
         <ul className="w-full flex flex-col  py-5 bg-[#191919]">
@@ -150,13 +177,18 @@ const Subnav = ({
               <li className="flex flex-col w-full py-5" key={i}>
                 {sub.title && (
                   <h1 className="text-[#F0B450] uppercase mb-[5px]">
-                    {sub.title}
+                    {t(sub.title)}
                   </h1>
                 )}
                 <ul className="flex flex-col">
                   {sub.links.map((link) => (
                     <li key={link.name} className="flex py-3">
-                      <Link href={`/${lng}${link.link}`}>{link.name}</Link>
+                      <Link
+                        href={`/${lng}${link.link}`}
+                        onClick={() => setOpen(false)}
+                      >
+                        {t(link.name)}
+                      </Link>
                     </li>
                   ))}
                 </ul>
