@@ -52,51 +52,6 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
     <div className="grid grid-cols-1 gap-8  lg:grid-cols-6 text-gray-900 ">
       {!isLoading && !grinderLoading && (
         <>
-          <div className="lg:col-span-3  grid grid-rows-6 md:gap-x-2 md:grid-rows-1 md:grid-cols-6 md:aspect-[6/5]">
-            <div className="md:col-span-5 row-span-5 aspect-square relative  md:order-2">
-              {!isLoading && selectedItem?.image_path && (
-                <Image
-                  src={mediaDomain + selectedItem.image_path}
-                  alt={selectedItem.name || "About Picture"}
-                  fill
-                  sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                  style={{ objectFit: "cover" }}
-                  className="self-center mx-auto"
-                />
-              )}
-            </div>
-            <div className="col-span-1 row-span-1 flex md:block md:overflow-y-auto  md:overflow-x-hidden overflow-y-hidden md:order-1  md:space-y-2 space-x-2 md:space-x-0 px-2 pb-2 ">
-              {!isLoading &&
-                items?.record?.map((product, i) => {
-                  return (
-                    <div className="relative aspect-square w-full" key={i}>
-                      <Image
-                        src={mediaDomain + product.image_path}
-                        alt={product.name || "About Picture"}
-                        fill
-                        sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                        style={{ objectFit: "cover" }}
-                        className={`cursor-pointer border  ${
-                          selectedItem.id === product.id
-                            ? "border-[#F0B450]"
-                            : "border-gray-500"
-                        }`}
-                        onClick={() => {
-                          setSelectedItem((val) => {
-                            return product;
-                          });
-                        }}
-                      />
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-
           <div className="lg:col-span-3">
             <div className="flex flex-row items-start text-sm text-gray-500  ">
               <span>Шоп</span>
