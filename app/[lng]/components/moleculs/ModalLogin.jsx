@@ -95,7 +95,7 @@ const ModalLogin = () => {
                             Нэвтрэх
                           </button>
 
-                          <p className="my-5 text-center">
+                          <div className="my-5 text-center">
                             Хэрвээ шинэ хэрэглэгч бол{" "}
                             <span
                               className="text-[#F0B450] underline cursor-pointer"
@@ -103,7 +103,7 @@ const ModalLogin = () => {
                             >
                               Бүртгүүлэх
                             </span>
-                          </p>
+                          </div>
                         </div>
                       )}
                       {!isLogin && !codeSent && (

@@ -52,9 +52,9 @@ async function BranchesMainPage({ lng }) {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <p className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
               {roastery("name")}
-            </p>
+            </div>
           </div>
           <div className="md:col-span-2 col-span-1 relative h-full">
             <div className="relative h-full ">
@@ -65,9 +65,9 @@ async function BranchesMainPage({ lng }) {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <p className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
               {buddha("name")}
-            </p>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-1 aspect-square md:aspect-[3/1] md:grid-cols-3 gap-4  mb-20">
@@ -80,9 +80,9 @@ async function BranchesMainPage({ lng }) {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <p className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
               {fountain("name")}
-            </p>
+            </div>
           </div>
           <div className="col-span-1 relative h-full">
             <div className="relative h-full">
@@ -93,9 +93,9 @@ async function BranchesMainPage({ lng }) {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <p className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
               {un("name")}
-            </p>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-1 aspect-square md:aspect-[3/1] md:grid-cols-3 gap-4  mb-20">
@@ -108,9 +108,9 @@ async function BranchesMainPage({ lng }) {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <p className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
               {mpm("name")}
-            </p>
+            </div>
           </div>
           <div className="md:col-span-2 col-span-1 relative h-full">
             <div className="relative h-full ">
@@ -121,9 +121,9 @@ async function BranchesMainPage({ lng }) {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <p className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full flex items-center">
               {choijin("name")}
-            </p>
+            </div>
           </div>
         </div>
       </section>

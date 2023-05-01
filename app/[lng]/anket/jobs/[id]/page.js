@@ -36,13 +36,15 @@ function WorkAtRock() {
             need to know if you are going to join us, what you are going to
             bring to the team, more than just do the job.
           </p>
-          <p>
-            If youre interested in a role at ROC, please email your CV and
-            covering letter to{" "}
+          <div>
+            <p>
+              If youre interested in a role at ROC, please email your CV and
+              covering letter to{" "}
+            </p>
             <Link href="/" className="text-[#6B6969]">
               info@roc.mn
             </Link>
-          </p>
+          </div>
         </div>
         <div className="max-w-[900px] mx-auto mt-10">
           <h1 className="my-3 text-2xl font-medium">HOW TO APPLY:</h1>
@@ -67,7 +69,7 @@ function WorkAtRock() {
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
             <h1 className="text-2xl font-normal">Live: Barista</h1>
-            <p className="">
+            <p>
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
             </p>
@@ -86,7 +88,7 @@ function WorkAtRock() {
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
             <h1 className="text-2xl font-normal">Live: Barista</h1>
-            <p className="">
+            <p>
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
             </p>
@@ -105,7 +107,7 @@ function WorkAtRock() {
             </div>
             <span className="text-sm text-[#6B6969]"> April 23, 2024</span>
             <h1 className="text-2xl font-normal">Live: Barista</h1>
-            <p className="">
+            <p>
               We are always delighted to hear from inspiring people with a
               passion for speciality coffee who wish to join our team.
             </p>

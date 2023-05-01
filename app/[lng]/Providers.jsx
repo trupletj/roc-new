@@ -9,9 +9,6 @@ function Providers({ children }) {
   const mediaDomain = "https://www.api.roc.mn";
   // const mediaDomain = "http://192.168.0.68:8000";
 
-  useEffect(() => {
-    console.log("mounted");
-  }, []);
   return (
     <GlobalContext.Provider
       value={{

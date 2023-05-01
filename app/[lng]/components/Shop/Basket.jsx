@@ -116,7 +116,7 @@ function Basket({ lng }) {
                                             {product.name}
                                           </Link>
                                         </h3>
-                                        <p className="ml-4">
+                                        <div className="ml-4">
                                           <VscChromeClose
                                             className="h-5 w-5 cursor-pointer"
                                             aria-hidden="true"
@@ -143,7 +143,7 @@ function Basket({ lng }) {
                                               }
                                             }}
                                           />
-                                        </p>
+                                        </div>
                                       </div>
                                       {/* <p className="mt-1 text-sm text-gray-500">
                                         {product.color}

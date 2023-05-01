@@ -47,7 +47,7 @@ function MobileNav({ lng, DataNav }) {
           </ul>
         </div>
       </section>
-      {open && (
+      {!open && (
         <section className="fixed z-10 top-0 bottom-0 left-0 right-0 bg-[#191919] overflow-scroll">
           <div className="container mx-auto flex flex-row items-center px-10 lg:px-0 h-[80px] sticky top-0 bg-[#191919]">
             <div className="w-1/4">
@@ -64,9 +64,9 @@ function MobileNav({ lng, DataNav }) {
               <Logo />
             </div>
             <ul className="w-1/4 flex flex-row justify-end items-center">
-              <li className="mr-[30px] hidden lg:block">
+              {/* <li className="mr-[30px] hidden lg:block">
                 <Search />
-              </li>
+              </li> */}
               <li className="mr-[30px]">
                 <User />
               </li>
@@ -77,15 +77,15 @@ function MobileNav({ lng, DataNav }) {
           </div>
           <Divider />
           <div className="px-10 w-full flex flex-col items-center">
-            <div className="flex py-5 items-center w-full">
+            {/* <div className="flex py-5 items-center w-full">
               <Search />
               <input
                 className="h-[40px] text-sm ml-2 w-full outline-none appearance-none bg-transparent "
                 placeholder="Кофе, кофены төрөл, хэрэгсэл..."
                 type="text"
               />
-            </div>
-            <div className={`my-0 w-full h-px  bg-white opacity-100 `} />
+            </div> */}
+            {/* <div className={`my-0 w-full h-px  bg-white opacity-100 `} /> */}
           </div>
 
           <ul className="px-10 w-full flex flex-col  items-center mb-10">

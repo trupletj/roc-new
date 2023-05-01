@@ -33,13 +33,13 @@ function Main({ lng }) {
             need to know if you are going to join us, what you are going to
             bring to the team, more than just
           </p>
-          <p>
+          <div>
             If youre interested in a role at ROC, please email your CV and
             covering letter to
             <Link href="/" className="text-[#6B6969]">
               info@roc.mn
             </Link>
-          </p>
+          </div>
         </div>
       </div>
       {availablePositions?.length > 0 && <WorkAtRock />}

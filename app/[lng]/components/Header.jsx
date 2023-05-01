@@ -96,9 +96,9 @@ async function Header({ lng }) {
               </Link>
             </div>
             <ul className="w-1/4 flex flex-row justify-end items-center">
-              <li className="mr-[30px] hidden lg:block">
+              {/* <li className="mr-[30px] hidden lg:block">
                 <Search />
-              </li>
+              </li> */}
               <li className="mr-[30px]">
                 <User />
               </li>
