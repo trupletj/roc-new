@@ -21,7 +21,7 @@ function Navigations({ lng, DataNav }) {
             ))}
           </ul>
           <div className="uppercase">
-            <Link href={`/${lng}/contact`}>{t("contact_us")}</Link>
+            <Link href={`/${lng}`}>{t("contact_us")}</Link>
           </div>
         </div>
       </section>

@@ -17,6 +17,9 @@ function WorkAtRock() {
               <Image
                 alt="sds"
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
                 src={anket1}
               />
@@ -36,6 +39,9 @@ function WorkAtRock() {
               <Image
                 alt="sds"
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
                 src={anket1}
               />
@@ -55,6 +61,9 @@ function WorkAtRock() {
               <Image
                 alt="sds"
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
                 src={anket1}
               />
@@ -74,6 +83,9 @@ function WorkAtRock() {
               <Image
                 alt="sds"
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
                 src={anket1}
               />

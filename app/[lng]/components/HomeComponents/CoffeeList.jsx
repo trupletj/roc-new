@@ -37,7 +37,7 @@ function CoffeeList({ lng }) {
                           ? item.main_image
                           : item.good.image_path)
                       }
-                      alt={item.good.name || "123"}
+                      alt={item.good.name || "About Picture"}
                       fill
                       style={{ objectFit: "cover" }}
                     />

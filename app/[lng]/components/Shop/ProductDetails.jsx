@@ -57,8 +57,11 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               {!isLoading && selectedItem?.image_path && (
                 <Image
                   src={mediaDomain + selectedItem.image_path}
-                  alt={selectedItem.name || "123"}
+                  alt={selectedItem.name || "About Picture"}
                   fill
+                  sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                   style={{ objectFit: "cover" }}
                   className="self-center mx-auto"
                 />
@@ -71,8 +74,11 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                     <div className="relative aspect-square w-full" key={i}>
                       <Image
                         src={mediaDomain + product.image_path}
-                        alt={product.name || "123"}
+                        alt={product.name || "About Picture"}
                         fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                         style={{ objectFit: "cover" }}
                         className={`cursor-pointer border  ${
                           selectedItem.id === product.id
@@ -166,8 +172,11 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                                 <div className=" aspect-square w-full relative">
                                   <Image
                                     src={mediaDomain + grinder.image_path}
-                                    alt={grinder.name || "123"}
+                                    alt={grinder.name || "About Picture"}
                                     fill
+                                    sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                                     style={{ objectFit: "contain" }}
                                   />
                                 </div>

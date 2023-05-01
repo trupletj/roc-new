@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 function ShopBag({ color }) {
   const { setOpenBasket } = useContext(GlobalContext);
   return (
-    <span
+    <div
       className="cursor-pointer"
       onClick={() => {
         setOpenBasket(true);
@@ -24,7 +24,7 @@ function ShopBag({ color }) {
           fill={color || "currentColor"}
         />
       </svg>
-    </span>
+    </div>
   );
 }
 

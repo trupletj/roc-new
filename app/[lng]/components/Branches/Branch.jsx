@@ -33,6 +33,9 @@ async function Branch({ lng, slug }) {
               alt="123"
               src={main_images[slug]}
               fill
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
               style={{ objectFit: "cover" }}
             />
           )}
@@ -65,6 +68,9 @@ async function Branch({ lng, slug }) {
               alt="123"
               src={t("image_1")}
               fill
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
               style={{ objectFit: "cover" }}
             />
           </div>
@@ -73,6 +79,9 @@ async function Branch({ lng, slug }) {
               alt="123"
               src={t("image_2")}
               fill
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
               style={{ objectFit: "cover" }}
             />
           </div>

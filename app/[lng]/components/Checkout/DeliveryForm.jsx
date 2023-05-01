@@ -143,7 +143,7 @@ function DeliveryForm() {
                   >
                     <h1>И-Баримт албан байгууллагаар авах</h1>
                     {isRegisterOn ? (
-                      <span>
+                      <div>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width={18}
@@ -175,9 +175,9 @@ function DeliveryForm() {
                             />
                           </g>
                         </svg>
-                      </span>
+                      </div>
                     ) : (
-                      <span>
+                      <div>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width={18}
@@ -200,7 +200,7 @@ function DeliveryForm() {
                             />
                           </g>
                         </svg>
-                      </span>
+                      </div>
                     )}
                   </div>
                   {isRegisterOn && (

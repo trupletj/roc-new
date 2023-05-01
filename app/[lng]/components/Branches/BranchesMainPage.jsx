@@ -49,6 +49,9 @@ async function BranchesMainPage({ lng }) {
                 alt="roastery"
                 src={roastery_image}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -62,6 +65,9 @@ async function BranchesMainPage({ lng }) {
                 alt="buddha"
                 src={buddha_image}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -77,6 +83,9 @@ async function BranchesMainPage({ lng }) {
                 alt="fountain"
                 src={fountain_image}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -90,6 +99,9 @@ async function BranchesMainPage({ lng }) {
                 alt="un"
                 src={un_image}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -105,6 +117,9 @@ async function BranchesMainPage({ lng }) {
                 alt="mpm"
                 src={mpm_image}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -118,6 +133,9 @@ async function BranchesMainPage({ lng }) {
                 alt="choijin"
                 src={choijin_image}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 style={{ objectFit: "cover" }}
               />
             </div>

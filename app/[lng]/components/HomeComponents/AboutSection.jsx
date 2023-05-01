@@ -18,7 +18,12 @@ async function AboutSection({ lng }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 aspect-[1/3] lg:aspect-square text-white">
           <div className="grid-span-1 lg:col-span-2 aspect-square lg:aspect-auto relative ">
-            <Image src={image1} alt="123" fill style={{ objectFit: "cover" }} />
+            <Image
+              src={image1}
+              alt="About Picture"
+              fill
+              style={{ objectFit: "cover" }}
+            />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5">
               <h1 className="font-bold text-xl">{t("our_story")}</h1>
               <p className="my-4">{t("our_story_description")}</p>
@@ -32,7 +37,15 @@ async function AboutSection({ lng }) {
           </div>
 
           <div className="col-span-1 aspect-square lg:aspect-auto relative">
-            <Image src={image2} alt="123" fill style={{ objectFit: "cover" }} />
+            <Image
+              src={image2}
+              alt="About Picture"
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5 ">
               <h1 className="font-bold text-xl">{t("how_we_roast")}</h1>
               <p className="my-4">{t("how_we_roast_description")}</p>
@@ -45,7 +58,15 @@ async function AboutSection({ lng }) {
             </div>
           </div>
           <div className="col-span-1 aspect-square lg:aspect-auto relative">
-            <Image src={image3} alt="123" fill style={{ objectFit: "cover" }} />
+            <Image
+              src={image3}
+              alt="About Picture"
+              fill
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+              style={{ objectFit: "cover" }}
+            />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5">
               <h1 className="font-bold text-xl">{t("partners_sourcing")}</h1>
               <p className="my-4">{t("partners_sourcing_description")}</p>

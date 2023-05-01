@@ -110,7 +110,7 @@ function MobileNav({ lng, DataNav }) {
               />
             ))}
             <li className="w-full py-5 uppercase">
-              <Link href={`/${lng}/contact`}>{t("contact_us")}</Link>
+              <Link href={`/${lng}`}>{t("contact_us")}</Link>
             </li>
             <div
               className={`my-0 w-full h-px  

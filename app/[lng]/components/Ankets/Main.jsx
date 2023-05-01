@@ -19,7 +19,15 @@ function Main({ lng }) {
             according to our clients taste.
           </p>
           <div className="w-full aspect-video relative">
-            <Image alt="sds" fill src={anket1} style={{ objectFit: "cover" }} />
+            <Image
+              alt="sds"
+              fill
+              src={anket1}
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            />
           </div>
           <p>
             For your application for listed jobs to be considered, you must

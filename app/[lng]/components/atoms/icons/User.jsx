@@ -5,7 +5,7 @@ import GlobalContext from "@/app/[lng]/context/GlobalContext";
 function User() {
   const { openLogin, setOpenLogin } = useContext(GlobalContext);
   return (
-    <span className=" cursor-pointer " onClick={() => setOpenLogin(true)}>
+    <div className=" cursor-pointer " onClick={() => setOpenLogin(true)}>
       <svg
         id="Group_5"
         data-name="Group 5"
@@ -35,7 +35,7 @@ function User() {
           />
         </g>
       </svg>
-    </span>
+    </div>
   );
 }
 

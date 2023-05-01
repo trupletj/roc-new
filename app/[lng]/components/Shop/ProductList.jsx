@@ -74,7 +74,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                       <span className="font-medium text-gray-900">
                         {category.name}
                       </span>
-                      <span className="ml-6 flex items-center">
+                      <div className="ml-6 flex items-center">
                         {open ? (
                           <VscChevronDown
                             className="h-5 w-5"
@@ -86,7 +86,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                             aria-hidden="true"
                           />
                         )}
-                      </span>
+                      </div>
                     </Disclosure.Button>
                   </h3>
                   <Disclosure.Panel className="pt-6">
@@ -158,7 +158,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                   <div className="aspect-square relative group">
                     <Image
                       src={mediaDomain + product.image_path}
-                      alt={product.name || "123"}
+                      alt={product.name || "About Picture"}
                       width="300"
                       height="300"
                       style={{ objectFit: "cover" }}

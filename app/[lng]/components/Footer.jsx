@@ -131,10 +131,10 @@ export function MobileFooterBottom({ lng }) {
   return (
     <div className=" w-full bg-[#393636] ">
       <div className="max-w-[500px] mx-auto flex flex-col py-10">
-        <span className="flex px-10 justify-between">
+        <div className="flex px-10 justify-between">
           <p className="mb-5">+ 976 7721 3333</p>
           <p className="mb-5">info@roc.mn</p>
-        </span>
+        </div>
         <ul className="flex mb-5 justify-around px-20">
           <li className="">
             <FB />

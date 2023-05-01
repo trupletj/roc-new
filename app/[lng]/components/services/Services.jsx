@@ -26,7 +26,7 @@ function Services({ lng }) {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_roast("name")}</h1>
-            <span>
+            <div>
               {openIndex === 0 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ function Services({ lng }) {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
@@ -110,7 +110,7 @@ function Services({ lng }) {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_whole_sale("name")}</h1>
-            <span>
+            <div>
               {openIndex === 1 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +146,7 @@ function Services({ lng }) {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 1 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
@@ -194,7 +194,7 @@ function Services({ lng }) {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_catering("name")}</h1>
-            <span>
+            <div>
               {openIndex === 2 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -230,7 +230,7 @@ function Services({ lng }) {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 2 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
@@ -274,7 +274,7 @@ function Services({ lng }) {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_distribution("name")}</h1>
-            <span>
+            <div>
               {openIndex === 3 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -310,7 +310,7 @@ function Services({ lng }) {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 3 ? "block" : "hidden"}>
             <div className="w-full  mb-10">

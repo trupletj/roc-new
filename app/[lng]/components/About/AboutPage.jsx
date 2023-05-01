@@ -30,7 +30,7 @@ function AboutPage() {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{t("our_story")}</h1>
-            <span>
+            <div>
               {openIndex === 0 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ function AboutPage() {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
@@ -92,6 +92,9 @@ function AboutPage() {
                       alt="story"
                       src={story1}
                       fill
+                      sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -106,6 +109,9 @@ function AboutPage() {
                       alt="story"
                       src={story2}
                       fill
+                      sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -136,6 +142,9 @@ function AboutPage() {
                         alt="sds"
                         src={story3}
                         fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                         style={{ objectFit: "cover" }}
                       />
                     </div>
@@ -149,6 +158,9 @@ function AboutPage() {
                         alt="sds"
                         src={story4}
                         fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                         style={{ objectFit: "cover" }}
                       />
                     </div>
@@ -173,7 +185,7 @@ function AboutPage() {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{t("who_we_are")}</h1>
-            <span>
+            <div>
               {openIndex === 1 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +221,7 @@ function AboutPage() {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 1 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
@@ -226,6 +238,9 @@ function AboutPage() {
                       alt="sds"
                       src={weare}
                       fill
+                      sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                       style={{ objectFit: "contain" }}
                     />
                   </div>
@@ -259,7 +274,7 @@ function AboutPage() {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>HOW WE ROAST</h1>
-            <span>
+            <div>
               {openIndex === 2 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -295,7 +310,7 @@ function AboutPage() {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 2 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
@@ -320,6 +335,9 @@ function AboutPage() {
                       alt="roast"
                       src={roast1}
                       fill
+                      sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -335,6 +353,9 @@ function AboutPage() {
                         alt="roast"
                         src={roast2}
                         fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                         style={{ objectFit: "cover" }}
                       />
                     </div>
@@ -348,6 +369,9 @@ function AboutPage() {
                         alt="roast"
                         src={roast3}
                         fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                         style={{ objectFit: "cover" }}
                       />
                     </div>
@@ -372,7 +396,7 @@ function AboutPage() {
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>PARTNERS & SOURCING</h1>
-            <span>
+            <div>
               {openIndex === 3 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -408,7 +432,7 @@ function AboutPage() {
                   />
                 </svg>
               )}
-            </span>
+            </div>
           </div>
           <div className={openIndex === 3 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
@@ -437,6 +461,9 @@ function AboutPage() {
                       alt="man"
                       src={man}
                       fill
+                      sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                       style={{ objectFit: "contain" }}
                     />
                   </div>

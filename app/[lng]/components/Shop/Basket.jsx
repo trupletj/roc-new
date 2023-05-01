@@ -161,7 +161,7 @@ function Basket({ lng }) {
                                         {"₮"}
                                       </p>
                                       <div className="font-thin text-lg text-white bg-black flex content-center items-center py-1">
-                                        <span
+                                        <div
                                           className="border border-r-white border-y-0 border-l-0 px-1 cursor-pointer"
                                           onClick={() => {
                                             setProdcts((val) => {
@@ -201,11 +201,11 @@ function Basket({ lng }) {
                                             className="h-5 w-5  text-white"
                                             aria-hidden="true"
                                           />
-                                        </span>
+                                        </div>
                                         <span className=" px-2 min-w-[35px] text-center">
                                           {product.quantity}
                                         </span>
-                                        <span
+                                        <div
                                           className="border border-l-white border-y-0 border-r-0 px-1 cursor-pointer"
                                           onClick={() => {
                                             setProdcts((val) => {
@@ -239,7 +239,7 @@ function Basket({ lng }) {
                                             className="h-5 w-5 text-white"
                                             aria-hidden="true"
                                           />
-                                        </span>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -278,7 +278,7 @@ function Basket({ lng }) {
                         >
                           <h1>{t("additional_information")}</h1>
                           {openInformation ? (
-                            <span>
+                            <div>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={18}
@@ -310,9 +310,9 @@ function Basket({ lng }) {
                                   />
                                 </g>
                               </svg>
-                            </span>
+                            </div>
                           ) : (
-                            <span>
+                            <div>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={18}
@@ -335,7 +335,7 @@ function Basket({ lng }) {
                                   />
                                 </g>
                               </svg>
-                            </span>
+                            </div>
                           )}
                         </div>
                         {openInformation && (

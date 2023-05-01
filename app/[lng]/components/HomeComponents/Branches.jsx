@@ -20,7 +20,7 @@ async function Branches({ lng }) {
           <div className="col-span-7 h-full bg-red-200 w-full relative">
             <Image
               src={branch1}
-              alt="123"
+              alt="About Picture"
               fill
               style={{ objectFit: "cover" }}
             />
@@ -87,7 +87,7 @@ async function Branches({ lng }) {
           <div className="col-span-7 w-full h-full relative">
             <Image
               src={branch2}
-              alt="123"
+              alt="About Picture"
               fill
               style={{ objectFit: "cover" }}
             />

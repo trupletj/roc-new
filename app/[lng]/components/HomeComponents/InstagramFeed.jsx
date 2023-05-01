@@ -36,7 +36,15 @@ function InstagramFeed() {
           {data.map((item) => (
             <li key={item.name}>
               <div className="w-full aspect-square relative">
-                <Image src={item.img} alt={'qe'} fill style={{ objectFit: "cover" }} />
+                <Image
+                  src={item.img}
+                  alt={"About Picture"}
+                  fill
+                  sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
             </li>
           ))}

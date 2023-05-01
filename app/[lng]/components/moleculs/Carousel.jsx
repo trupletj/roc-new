@@ -30,8 +30,9 @@ function Carousel() {
           <Image
             fill
             src={image.src}
-            alt="123"
+            alt="About Picture"
             style={{ objectFit: "cover" }}
+            priority
           />
         </SwiperSlide>
       ))}
