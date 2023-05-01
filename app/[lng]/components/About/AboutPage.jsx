@@ -17,16 +17,22 @@ function AboutPage() {
   const { t } = useTranslation();
   const [cindex, setCindex] = useState(0);
   const [openIndex, setOpenIndex] = useState(0);
+  const isBrowser = () => typeof window !== "undefined";
+  const scrollToTop = () => {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <ul>
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() =>
+            onClick={() => {
               setOpenIndex((val) => {
                 return val != 0 ? 0 : -1;
-              })
-            }
+              });
+              scrollToTop();
+            }}
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{t("our_story")}</h1>
@@ -71,12 +77,12 @@ function AboutPage() {
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-1 md:w-5/12">
-                    <h1 className="text-6xl font-medium mb-5">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
+                  <div className=" w-full md:w-5/12">
+                    <h1 className="text-6xl font-medium mb-5 text-center md:text-left">
                       True to each and every bean since 2016
                     </h1>
-                    <p className="text-2xl font-semibold">
+                    <p className="text-2xl font-semibold text-center md:text-left">
                       Six years ago we started as a local coffee shop and coffee
                       roaster with a Probatone 5. Our mission is to build a cozy
                       coffee community. We focused on practicing and
@@ -87,7 +93,7 @@ function AboutPage() {
                       expanded along with demand.
                     </p>
                   </div>
-                  <div className="w-7/12 relative aspect-square">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="story"
                       src={story1}
@@ -103,8 +109,8 @@ function AboutPage() {
             </div>
             <div className="w-full mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-7/12 relative aspect-square">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
+                  <div className=" w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="story"
                       src={story2}
@@ -115,7 +121,7 @@ function AboutPage() {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="w-5/12  text-2xl font-semibold">
+                  <div className="w-full md:w-5/12  text-2xl font-semibold">
                     <p className="mb-5 ">
                       After three years of firm focus, we had created and
                       developed our second branch in 2019. The vision remained
@@ -177,11 +183,12 @@ function AboutPage() {
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() =>
+            onClick={() => {
               setOpenIndex((val) => {
                 return val != 1 ? 1 : -1;
-              })
-            }
+              });
+              scrollToTop();
+            }}
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{t("who_we_are")}</h1>
@@ -226,14 +233,14 @@ function AboutPage() {
           <div className={openIndex === 1 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-5/12">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
+                  <div className="w-full md:w-5/12">
                     <h1 className="text-6xl font-medium mb-5">
                       As the leading specialty coffee producing company in
                       Mongolia, our key members are baristas and roasters.
                     </h1>
                   </div>
-                  <div className="w-7/12 relative aspect-square">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="sds"
                       src={weare}
@@ -266,11 +273,12 @@ function AboutPage() {
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() =>
+            onClick={() => {
               setOpenIndex((val) => {
                 return val != 2 ? 2 : -1;
-              })
-            }
+              });
+              scrollToTop();
+            }}
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>HOW WE ROAST</h1>
@@ -315,8 +323,8 @@ function AboutPage() {
           <div className={openIndex === 2 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-5/12">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
+                  <div className="w-full md:w-5/12">
                     <h1 className="text-6xl font-medium mb-5">
                       We only use world-class professional coffee equipment
                     </h1>
@@ -330,7 +338,7 @@ function AboutPage() {
                       highest skilled and uphold the utmost discipline.
                     </p>
                   </div>
-                  <div className="w-7/12 relative aspect-square">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="roast"
                       src={roast1}
@@ -388,11 +396,12 @@ function AboutPage() {
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
-            onClick={() =>
+            onClick={() => {
               setOpenIndex((val) => {
                 return val != 3 ? 3 : -1;
-              })
-            }
+              });
+              scrollToTop();
+            }}
             className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>PARTNERS & SOURCING</h1>
@@ -437,8 +446,8 @@ function AboutPage() {
           <div className={openIndex === 3 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-5/12">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
+                  <div className="w-full md:w-5/12">
                     <h1 className="text-6xl font-medium mb-5">
                       Bean roadmap to Mongolia
                     </h1>
@@ -456,7 +465,7 @@ function AboutPage() {
                       true to each and every bean
                     </p>
                   </div>
-                  <div className="w-7/12 relative aspect-square">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="man"
                       src={man}

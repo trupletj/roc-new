@@ -2,8 +2,6 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-import map from "@/public/assets/map.png";
-import SectionHeader from "../../components/moleculs/SectionHeader";
 import { useTranslation } from "@/app/i18n";
 
 import roastery_image from "@/public/assets/branches/roastery.png";
