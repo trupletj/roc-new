@@ -29,7 +29,7 @@ function DetailsAdditional({ lng, productType }) {
       {productType?.type_details &&
         productType.type_details.map((type_detail) => {
           return (
-            <li className=" last:border-none">
+            <li className=" border-t first:border-none ">
               <div>
                 <div
                   onClick={() => {
@@ -87,7 +87,7 @@ function DetailsAdditional({ lng, productType }) {
                 <div
                   className={openIndex === type_detail.id ? "block" : "hidden"}
                 >
-                  <div className="w-full">
+                  <div className="w-full pb-4">
                     <ul className="flex flex-col space-y-3 ">
                       {productType?.type_detail_columns &&
                         productType.type_detail_columns
