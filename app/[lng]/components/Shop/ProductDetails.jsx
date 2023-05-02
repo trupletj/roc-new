@@ -333,15 +333,15 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               )}
             </div>
           </div>
-          <div className="lg:col-span-3 hidden md:block aspect-square">
-            {/* {productType.session_image && (
+          <div className="lg:col-span-3 hidden md:block relative aspect-square">
+            {productType.session_image && (
               <Image
                 src={mediaDomain + productType.session_image}
                 alt={selectedItem.name || "About Picture"}
                 fill
-                style={{ objectFit: "fill" }}
+                style={{ objectFit: "contain" }}
               />
-            )} */}
+            )}
           </div>
           <div className="lg:col-span-3">
             {productType && (
