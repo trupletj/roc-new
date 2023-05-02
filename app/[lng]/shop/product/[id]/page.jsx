@@ -27,7 +27,7 @@ function ShopPage({ params }) {
     data: {
       select: "*",
       id: id,
-      relations: ["category:id,name"],
+      relations: ["category:id,name","type_details","type_detail_columns"],
     },
   });
   const {
