@@ -333,7 +333,12 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               )}
             </div>
           </div>
-          <div className="lg:col-span-3 hidden md:block relative aspect-square">
+
+          <div
+            className={`lg:col-span-3 hidden md:block relative ${
+              productType.session_image ? "aspect-square" : ""
+            }`}
+          >
             {productType.session_image && (
               <Image
                 src={mediaDomain + productType.session_image}
