@@ -44,7 +44,7 @@ function Basket({ lng }) {
           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
             <img
               src={mediaDomain + product.image_path}
-              alt={lng == "en" ? product.name : product.mn_name}
+              alt={product.name}
               className="h-full w-full object-cover object-center"
             />
           </div>
@@ -54,7 +54,7 @@ function Basket({ lng }) {
               <div className="flex justify-between text-base font-medium text-black-800">
                 <h3>
                   <Link href={`/${lng}/shop/product/${product.type_id}`}>
-                    {lng == "en" ? product.name : product.mn_name}
+                    {product.name}
                   </Link>
                 </h3>
                 <div className="ml-4">
