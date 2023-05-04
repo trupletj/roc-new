@@ -88,7 +88,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               {!isLoading &&
                 items?.record?.map((product, i) => {
                   return (
-                    <div className="relative aspect-square w-full" key={i}>
+                    <div className="relative aspect-square w-full" key={"additional-image-changer-item-"+i}>
                       <Image
                         src={mediaDomain + product.image_path}
                         alt={product.name || "About Picture"}
