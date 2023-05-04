@@ -19,6 +19,7 @@ const objectToQueryString = (obj) => {
 };
 
 export const apiDomain = "https://www.api.roc.mn/";
+export const mediaDomain = "https://www.api.roc.mn";
 // export const apiDomain = 'http://192.168.0.68:8000/'
 export function useItems(req) {
   let str = objectToQueryString(req.data);

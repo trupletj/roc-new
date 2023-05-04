@@ -1,18 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React from "react";
 import SectionHeader from "../moleculs/SectionHeader";
-import ShopBag from "../atoms/icons/ShopBag";
-import GlobalContext from "@/app/[lng]/context/GlobalContext";
-import { apiDomain, useItems } from "@/app/hooks/useItems";
+import ShopBagOnly from "../atoms/icons/ShopBagOnly";
+import { apiDomain, useItems, mediaDomain } from "@/app/hooks/useItems";
 
 import { useTranslation } from "@/app/i18n/client";
 import ArrowR from "../atoms/ArrowR";
 
 function ShopSection({ lng }) {
   const { t } = useTranslation();
-  const { mediaDomain } = useContext(GlobalContext);
   const { items, isLoading, isError } = useItems({
     url: `${apiDomain}client/good/top`,
   });
@@ -29,7 +27,10 @@ function ShopSection({ lng }) {
           <div className="w-full overflow-x-auto pb-2">
             <ul className="grid grid-cols-4 gap-4 min-w-[640px]">
               {items.record.map((item) => (
-                <li className="w-full relativ " key={item.good.id}>
+                <li
+                  className="w-full relativ "
+                  key={"shop-sesction" + item.good.id}
+                >
                   <div className="w-full aspect-square relative group">
                     <Image
                       src={
@@ -47,7 +48,7 @@ function ShopSection({ lng }) {
                         href={`/${lng}/shop/product/${item.good.type_id}`}
                         className="absolute right-0 top-0 p-2 bg-black  group-hover:block hidden text-white"
                       >
-                        <ShopBag />
+                        <ShopBagOnly />
                       </Link>
                       <Link
                         href={`/${lng}/shop/product/${item.good.type_id}`}

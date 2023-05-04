@@ -1,18 +1,9 @@
 "use client";
-import GlobalContext from "@/app/[lng]/context/GlobalContext";
-import React, { useContext } from "react";
+import React from "react";
 
-function ShopBag({ color }) {
-  const { setOpenBasket } = useContext(GlobalContext);
+function ShopBagOnly({ color }) {
   return (
-    <div
-      className="cursor-pointer"
-      onClick={() => {
-        setOpenBasket((val) => {
-          return !val;
-        });
-      }}
-    >
+    <span className="cursor-pointer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18.905"
@@ -26,8 +17,8 @@ function ShopBag({ color }) {
           fill={color || "currentColor"}
         />
       </svg>
-    </div>
+    </span>
   );
 }
 
-export default ShopBag;
+export default ShopBagOnly;
