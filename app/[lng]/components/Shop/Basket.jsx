@@ -24,9 +24,174 @@ function Basket({ lng }) {
   const setSubTotal = (current_products) => {
     let _price = 0;
     Object.keys(current_products).map((key) => {
+      if (current_products[key].grinders) {
+        let currentQuantity = 0;
+        Object.keys(current_products[key].grinders).map((g_key) => {
+          currentQuantity += current_products[key].grinders[g_key].quantity;
+        });
+        current_products[key].quantity = currentQuantity;
+      }
       _price += current_products[key].quantity * current_products[key].price;
     });
     return _price || 0;
+  };
+
+  const ProductItem = ({ product, grinder }) => {
+    const { t } = useTranslation(lng, "header");
+    return (
+      <>
+        <li key={product.id} className="flex py-6">
+          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+            <img
+              src={mediaDomain + product.image_path}
+              alt={lng == "en" ? product.name : product.mn_name}
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+
+          <div className="ml-4 flex flex-1 flex-col">
+            <div>
+              <div className="flex justify-between text-base font-medium text-black-800">
+                <h3>
+                  <Link href={`/${lng}/shop/product/${product.type_id}`}>
+                    {lng == "en" ? product.name : product.mn_name}
+                  </Link>
+                </h3>
+                <div className="ml-4">
+                  <VscChromeClose
+                    className="h-5 w-5 cursor-pointer"
+                    aria-hidden="true"
+                    onClick={() => {
+                      if (confirm(t("delete_item"))) {
+                        setProdcts((val) => {
+                          const localCard = localStorage.getItem("card");
+                          let helper = localCard ? JSON.parse(localCard) : val;
+
+                          if (!grinder) {
+                            delete helper[product.id];
+                            localStorage.setItem(
+                              "card",
+                              JSON.stringify(helper)
+                            );
+                          } else {
+                            helper[product.id].quantity -=
+                              helper[product.id].grinders[grinder.id].quantity;
+                            delete helper[product.id].grinders[grinder.id];
+                            localStorage.setItem(
+                              "card",
+                              JSON.stringify(helper)
+                            );
+                          }
+                          setTotalPrice((val) => {
+                            return setSubTotal(helper);
+                          });
+                          return helper;
+                        });
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+              {/* <p className="mt-1 text-sm text-gray-500">
+      {product.color}
+    </p> */}
+            </div>
+            <p className="text-black-600 min-h-[12px]">
+              {grinder && (lng == "en" ? grinder.name : grinder.mn_name)}
+            </p>
+            <div className="flex   justify-between text-base font-light text-black-700">
+              <p className="text-lg">
+                {product.price?.toLocaleString("en-US", {
+                  style: "decimal",
+                })}
+                {"₮"}
+              </p>
+              <div className="font-thin text-lg text-white bg-black flex content-center items-center py-1">
+                <div
+                  className="border border-r-white border-y-0 border-l-0 px-1 cursor-pointer"
+                  onClick={() => {
+                    setProdcts((val) => {
+                      const localCard = localStorage.getItem("card");
+                      let helper = localCard ? JSON.parse(localCard) : val;
+                      if (!helper[product.id])
+                        helper[product.id] = {
+                          ...product,
+                          ["quantity"]: 1,
+                        };
+                      else {
+                        helper[product.id].quantity -= 1;
+                      }
+                      if (helper[product.id].quantity < 1) {
+                        helper[product.id].quantity = 1;
+                      }
+
+                      if (grinder) {
+                        let old_quantity =
+                          helper[product.id].grinders[grinder.id].quantity;
+                        helper[product.id].grinders[grinder.id].quantity -= 1;
+
+                        if (
+                          helper[product.id].grinders[grinder.id].quantity < 1
+                        ) {
+                          // helper[product.id].quantity += 1;
+                          helper[product.id].grinders[grinder.id].quantity = 1;
+                        }
+                      }
+
+                      localStorage.setItem("card", JSON.stringify(helper));
+
+                      setTotalPrice((val) => {
+                        return setSubTotal(helper);
+                      });
+                      return helper;
+                    });
+                  }}
+                >
+                  <VscChevronDown
+                    className="h-5 w-5  text-white"
+                    aria-hidden="true"
+                  />
+                </div>
+                <span className=" px-2 min-w-[35px] text-center">
+                  {!grinder ? product.quantity : grinder.quantity}
+                </span>
+                <div
+                  className="border border-l-white border-y-0 border-r-0 px-1 cursor-pointer"
+                  onClick={() => {
+                    setProdcts((val) => {
+                      const localCard = localStorage.getItem("card");
+                      let helper = localCard ? JSON.parse(localCard) : val;
+                      if (!helper[product.id])
+                        helper[product.id] = {
+                          ...product,
+                          ["quantity"]: 1,
+                        };
+                      else {
+                        helper[product.id].quantity += 1;
+                      }
+
+                      if (grinder) {
+                        helper[product.id].grinders[grinder.id].quantity += 1;
+                      }
+                      localStorage.setItem("card", JSON.stringify(helper));
+                      setTotalPrice((val) => {
+                        return setSubTotal(helper);
+                      });
+                      return helper;
+                    });
+                  }}
+                >
+                  <VscChevronUp
+                    className="h-5 w-5 text-white"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </>
+    );
   };
   useEffect(() => {
     const localCard = localStorage.getItem("card");
@@ -35,8 +200,9 @@ function Basket({ lng }) {
     setProdcts((val) => {
       return helper;
     });
+
     setTotalPrice((val) => {
-      return setSubTotal(products);
+      return setSubTotal(helper);
     });
   }, [openBasket]);
 
@@ -96,155 +262,23 @@ function Basket({ lng }) {
                           >
                             {Object.keys(products).map((key) => {
                               const product = products[key];
-                              return (
-                                <li key={product.id} className="flex py-6">
-                                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                    <img
-                                      src={mediaDomain + product.image_path}
-                                      alt={product.name}
-                                      className="h-full w-full object-cover object-center"
-                                    />
-                                  </div>
-
-                                  <div className="ml-4 flex flex-1 flex-col">
-                                    <div>
-                                      <div className="flex justify-between text-base font-medium text-black-800">
-                                        <h3>
-                                          <Link
-                                            href={`/${lng}/shop/product/${product.type_id}`}
-                                          >
-                                            {product.name}
-                                          </Link>
-                                        </h3>
-                                        <div className="ml-4">
-                                          <VscChromeClose
-                                            className="h-5 w-5 cursor-pointer"
-                                            aria-hidden="true"
-                                            onClick={() => {
-                                              if (confirm(t("delete_item"))) {
-                                                setProdcts((val) => {
-                                                  const localCard =
-                                                    localStorage.getItem(
-                                                      "card"
-                                                    );
-                                                  let helper = localCard
-                                                    ? JSON.parse(localCard)
-                                                    : val;
-                                                  delete helper[product.id];
-                                                  localStorage.setItem(
-                                                    "card",
-                                                    JSON.stringify(helper)
-                                                  );
-                                                  setTotalPrice((val) => {
-                                                    return setSubTotal(helper);
-                                                  });
-                                                  return helper;
-                                                });
-                                              }
-                                            }}
-                                          />
-                                        </div>
-                                      </div>
-                                      {/* <p className="mt-1 text-sm text-gray-500">
-                                        {product.color}
-                                      </p> */}
-                                    </div>
-                                    <p className="text-black-600">үрээрээ</p>
-                                    <div className="flex   justify-between text-base font-light text-black-700">
-                                      <p className="text-lg">
-                                        {product.price?.toLocaleString(
-                                          "en-US",
-                                          {
-                                            style: "decimal",
-                                          }
-                                        )}
-                                        {"₮"}
-                                      </p>
-                                      <div className="font-thin text-lg text-white bg-black flex content-center items-center py-1">
-                                        <div
-                                          className="border border-r-white border-y-0 border-l-0 px-1 cursor-pointer"
-                                          onClick={() => {
-                                            setProdcts((val) => {
-                                              const localCard =
-                                                localStorage.getItem("card");
-                                              let helper = localCard
-                                                ? JSON.parse(localCard)
-                                                : val;
-                                              if (!helper[product.id])
-                                                helper[product.id] = {
-                                                  ...product,
-                                                  ["quantity"]: 1,
-                                                };
-                                              else {
-                                                helper[
-                                                  product.id
-                                                ].quantity -= 1;
-                                              }
-                                              if (
-                                                helper[product.id].quantity < 1
-                                              ) {
-                                                helper[product.id].quantity = 1;
-                                              }
-                                              localStorage.setItem(
-                                                "card",
-                                                JSON.stringify(helper)
-                                              );
-
-                                              setTotalPrice((val) => {
-                                                return setSubTotal(helper);
-                                              });
-                                              return helper;
-                                            });
-                                          }}
-                                        >
-                                          <VscChevronDown
-                                            className="h-5 w-5  text-white"
-                                            aria-hidden="true"
-                                          />
-                                        </div>
-                                        <span className=" px-2 min-w-[35px] text-center">
-                                          {product.quantity}
-                                        </span>
-                                        <div
-                                          className="border border-l-white border-y-0 border-r-0 px-1 cursor-pointer"
-                                          onClick={() => {
-                                            setProdcts((val) => {
-                                              const localCard =
-                                                localStorage.getItem("card");
-                                              let helper = localCard
-                                                ? JSON.parse(localCard)
-                                                : val;
-                                              if (!helper[product.id])
-                                                helper[product.id] = {
-                                                  ...product,
-                                                  ["quantity"]: 1,
-                                                };
-                                              else {
-                                                helper[
-                                                  product.id
-                                                ].quantity += 1;
-                                              }
-                                              localStorage.setItem(
-                                                "card",
-                                                JSON.stringify(helper)
-                                              );
-                                              setTotalPrice((val) => {
-                                                return setSubTotal(helper);
-                                              });
-                                              return helper;
-                                            });
-                                          }}
-                                        >
-                                          <VscChevronUp
-                                            className="h-5 w-5 text-white"
-                                            aria-hidden="true"
-                                          />
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </li>
-                              );
+                              if (product.grinders)
+                                return Object.keys(product.grinders).map(
+                                  (g_key) => {
+                                    return (
+                                      <ProductItem
+                                        key={key + "-" + g_key}
+                                        product={product}
+                                        grinder={product.grinders[g_key]}
+                                      />
+                                    );
+                                  }
+                                );
+                              else {
+                                return (
+                                  <ProductItem key={key} product={product} />
+                                );
+                              }
                             })}
                           </ul>
                           {(!products ||

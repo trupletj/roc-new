@@ -39,7 +39,6 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
       });
     });
 
-    console.log("mounted bla", params);
   }, []);
   React.useEffect(() => {
     if (

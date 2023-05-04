@@ -13,7 +13,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
   const { t } = useTranslation();
 
   const [selectedItem, setSelectedItem] = useState(false);
-  const [selectedGrind, setSelectedGrind] = useState(3);
+  const [selectedGrind, setSelectedGrind] = useState(false);
   const [productType, setProductType] = useState(false);
   const [itemsCount, setItemsCount] = useState({});
   const [minPrice, setMinPrice] = useState(0);
@@ -21,6 +21,22 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
 
   const { setOpenBasket, mediaDomain, setCard } = useContext(GlobalContext);
 
+  useEffect(() => {
+    if (
+      !grinderLoading &&
+      !selectedGrind &&
+      grinders.record[0] &&
+      productType?.category_id == 2
+    ) {
+      setSelectedGrind((val) => {
+        return {
+          id: grinders.record[0].id,
+          name: grinders.record[0].name,
+          mn_name: grinders.record[0].mn_name,
+        };
+      });
+    }
+  }, [grinderLoading]);
   useEffect(() => {
     if (types?.record[0]) {
       setProductType(types?.record[0]);
@@ -156,15 +172,19 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                               htmlFor={1}
                               onClick={() => {
                                 setSelectedGrind((val) => {
-                                  return grinder.id;
+                                  return {
+                                    id: grinder.id,
+                                    name: grinder.name,
+                                    mn_name: grinder.mn_name,
+                                  };
                                 });
                               }}
                               className={`col-span-1 cursor-pointer select-none grid grid-cols-2 grid-rows-2 border ${
-                                selectedGrind === grinder.id
+                                selectedGrind.id === grinder.id
                                   ? "border-[#F0B450]"
                                   : "border-black"
                               }   bg-white text-center  text-[${
-                                selectedGrind === grinder.id
+                                selectedGrind.id === grinder.id
                                   ? "#F0B450"
                                   : "black"
                               }]`}
@@ -317,8 +337,26 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                           helper[selectedItem.id].quantity +=
                             itemsCount[selectedItem.id];
                         }
+
                         if (helper[selectedItem.id].quantity === NaN) {
                           helper[selectedItem.id].quantity = 1;
+                        }
+
+                        if (!helper[selectedItem.id]?.grinders) {
+                          helper[selectedItem.id].grinders = {};
+                        }
+
+                        if (
+                          !helper[selectedItem.id].grinders[selectedGrind.id]
+                        ) {
+                          helper[selectedItem.id].grinders[selectedGrind.id] = {
+                            ...selectedGrind,
+                            quantity: itemsCount[selectedItem.id],
+                          };
+                        } else {
+                          helper[selectedItem.id].grinders[
+                            selectedGrind.id
+                          ].quantity += itemsCount[selectedItem.id];
                         }
                         localStorage.setItem("card", JSON.stringify(helper));
                         return helper;

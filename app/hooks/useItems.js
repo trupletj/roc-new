@@ -43,7 +43,6 @@ export function useItems(req) {
       })
   );
 
-  console.log(url);
   return {
     items: data,
     isLoading: !data,
