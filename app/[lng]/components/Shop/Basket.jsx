@@ -40,7 +40,7 @@ function Basket({ lng }) {
     const { t } = useTranslation(lng, "header");
     return (
       <>
-        <li key={product.id} className="flex py-6">
+        <li key={"basket-product-item-"+product.id} className="flex py-6">
           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
             <img
               src={mediaDomain + product.image_path}
@@ -276,7 +276,7 @@ function Basket({ lng }) {
                                 );
                               else {
                                 return (
-                                  <ProductItem key={key} product={product} />
+                                  <ProductItem key={"basktet-product-real-"+key} product={product} />
                                 );
                               }
                             })}

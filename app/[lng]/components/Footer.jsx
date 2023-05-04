@@ -78,12 +78,16 @@ async function Footer({ lng }) {
           <section className="flex justify-between my-10">
             <div className="flex flex-col lg:flex-row justify-between items-start w-1/2">
               {data.map((item, i) => (
-                <div className="flex flex-col " key={i}>
+                <div className="flex flex-col " key={`footer-item-div-${i}`}>
                   <h1 className="text-[#F0B450] uppercase mb-5">
                     {t(item.title)}
                   </h1>
                   {item.links.map((link, i) => (
-                    <Link href={link.link} key={i} className="mb-5">
+                    <Link
+                      href={link.link}
+                      key={`footer-item-link-${i}`}
+                      className="mb-5"
+                    >
                       {t(link.name)}
                     </Link>
                   ))}
@@ -169,9 +173,13 @@ export function MobileFooterTop({ lng }) {
   return (
     <div className="flex flex-row justify-between items-start w-full px-10">
       {mobileViewData.map((item, i) => (
-        <div className="flex flex-col " key={i}>
+        <div className="flex flex-col " key={`mobile-footer-item-div-${i}`}>
           {item.links.map((link, i) => (
-            <Link href={link.link} key={i} className="mb-5">
+            <Link
+              href={link.link}
+              key={`footer-item-link-${i}`}
+              className="mb-5"
+            >
               {link.name}
             </Link>
           ))}

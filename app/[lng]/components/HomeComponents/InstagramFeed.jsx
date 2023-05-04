@@ -34,7 +34,7 @@ function InstagramFeed() {
       <div>
         <ul className="grid grid-cols-4 gap-4">
           {data.map((item) => (
-            <li key={item.name}>
+            <li key={`insta-feed-item-${item.name}`}>
               <div className="w-full aspect-square relative">
                 <Image
                   src={item.img}

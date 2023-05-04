@@ -225,7 +225,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 {items?.record.map((item, i) => {
                   return (
                     <label
-                      key={i}
+                      key={"detail-item-size-item-"+i}
                       htmlFor={1}
                       className={`col-span-1 cursor-pointer select-none px-9 border border-[#080505] bg-[${
                         selectedItem && selectedItem.id === item.id

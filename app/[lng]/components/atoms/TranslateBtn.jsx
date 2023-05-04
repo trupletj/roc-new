@@ -24,7 +24,10 @@ export const TranslateBtn = ({ lng }) => {
             {languages.map((language) => {
               if (language === lng) {
                 return (
-                  <span key={language} className="uppercase">
+                  <span
+                    key={`language-changer-${language}`}
+                    className="uppercase"
+                  >
                     {language}
                   </span>
                 );

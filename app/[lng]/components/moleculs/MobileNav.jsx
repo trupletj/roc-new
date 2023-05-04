@@ -100,7 +100,7 @@ function MobileNav({ lng, DataNav }) {
           <ul className="px-10 w-full flex flex-col  items-center mb-10">
             {DataNav.map((item, index) => (
               <Subnav
-                key={index}
+                key={"mobile-nav-" + index}
                 currentIndex={index}
                 childOpenIndex={childOpenIndex}
                 setChildOpenIndex={setChildOpenIndex}
@@ -140,7 +140,7 @@ const Subnav = ({
     <li className="flex flex-col items-center  w-full ">
       {item.sub ? (
         <div
-          key={item.name}
+          key={"mobile-sub-nav-" + item.name}
           onClick={() => {
             setChildOpenIndex((val) => {
               if (currentIndex == val) return -1;
@@ -157,7 +157,7 @@ const Subnav = ({
         </div>
       ) : (
         <div
-          key={item.name}
+          key={"mobile-sub-second-" + item.name}
           className="w-full flex flex-row items-center justify-between py-5"
         >
           <Link
@@ -182,7 +182,10 @@ const Subnav = ({
                 )}
                 <ul className="flex flex-col">
                   {sub.links.map((link) => (
-                    <li key={link.name} className="flex py-3">
+                    <li
+                      key={"mobile-nav-link-" + link.name}
+                      className="flex py-3"
+                    >
                       <Link
                         href={`/${lng}${link.link}`}
                         onClick={() => setOpen(false)}

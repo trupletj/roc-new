@@ -29,7 +29,7 @@ function DetailsAdditional({ lng, productType }) {
       {productType?.type_details &&
         productType.type_details.map((type_detail, index) => {
           return (
-            <li key={index} className=" border-t first:border-none ">
+            <li key={"additional-li-item-"+index} className=" border-t first:border-none ">
               <div>
                 <div
                   onClick={() => {
@@ -97,7 +97,7 @@ function DetailsAdditional({ lng, productType }) {
                           .map((item) => {
                             return (
                               <li
-                                key={item.id}
+                                key={"additional-li-item-child-"+item.id}
                                 className={`w-full ${
                                   class_name[type_detail.type]
                                 }`}
