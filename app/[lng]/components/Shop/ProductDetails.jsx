@@ -88,7 +88,10 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               {!isLoading &&
                 items?.record?.map((product, i) => {
                   return (
-                    <div className="relative aspect-square w-full" key={"additional-image-changer-item-"+i}>
+                    <div
+                      className="relative aspect-square w-full"
+                      key={"additional-image-changer-item-" + i}
+                    >
                       <Image
                         src={mediaDomain + product.image_path}
                         alt={product.name || "About Picture"}
@@ -152,15 +155,15 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
           </p> */}
               <p className="pb-5">
                 {lng === "en"
-                  ? productType.description || "-"
-                  : productType.mn_description || "-"}
+                  ? productType.description || " "
+                  : productType.mn_description || " "}
               </p>
               {productType?.category_id == 2 && (
                 <>
                   <h1 className="font-normal">{t("grinder_type")}</h1>
 
                   {!grinderLoading && (
-                    <div className="grid  grid-cols-4  ">
+                    <div className="grid  grid-cols-4 ">
                       <div
                         className={` col-span-4 md:col-span-3  grid  grid-cols-4  w-full gap-2`}
                       >
@@ -202,7 +205,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                                   />
                                 </div>
                               </div>
-                              <p className="col-span-2 row-span-1 flex items-center justify-center text-sm">
+                              <p className="col-span-2 row-span-1 flex items-center justify-center text-sm uppercase font-medium px-2">
                                 {lng === "en" ? grinder.name : grinder.mn_name}
                               </p>
                             </div>
@@ -225,7 +228,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 {items?.record.map((item, i) => {
                   return (
                     <label
-                      key={"detail-item-size-item-"+i}
+                      key={"detail-item-size-item-" + i}
                       htmlFor={1}
                       className={`col-span-1 cursor-pointer select-none px-9 border border-[#080505] bg-[${
                         selectedItem && selectedItem.id === item.id
@@ -324,9 +327,14 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                   <button
                     className="bg-[#080505] text-white py-2 px-3 col-span-2 min-h-[25px]"
                     onClick={() => {
+                      if (productType?.category_id == 2 && !selectedGrind) {
+                        alert(t("choose_grinder_type"));
+                        return false;
+                      }
                       setCard((val) => {
                         const localCard = localStorage.getItem("card");
                         let helper = localCard ? JSON.parse(localCard) : val;
+                        console.log(selectedGrind);
 
                         if (!helper[selectedItem.id])
                           helper[selectedItem.id] = {

@@ -5,7 +5,8 @@ import image from "@/public/assets/coffee1.png";
 
 import { useForm } from "react-hook-form";
 import ConfirmModal from "../moleculs/ConfirmModal";
-function DeliveryForm() {
+import BasketItem from "../Shop/BasketItems";
+function DeliveryForm({ lng }) {
   const [isRegisterOn, setIsRegisterOn] = useState(false);
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
   const {
@@ -568,79 +569,7 @@ function DeliveryForm() {
                         Бүтээгдэхүүн
                       </h2>
                     </div>
-                    <div className="mt-8">
-                      <div className="flow-root">
-                        <ul
-                          role="list"
-                          className="-my-6 divide-y divide-gray-200"
-                        >
-                          <li className="flex py-6">
-                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden ">
-                              <Image
-                                src={image}
-                                alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                                style={{
-                                  height: "100%",
-                                  width: "100%",
-                                  objectFit: "cover",
-                                  objectPosition: "center",
-                                }}
-                              />
-                            </div>
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3 className="">
-                                    <a href="#">Brazil Mogiana</a>
-                                  </h3>
-                                  <p className="ml-4">32,000₮</p>
-                                </div>
-                                <p className="mt-1 text-sm text-gray-500">
-                                  250г
-                                </p>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-base">
-                                <p className="text-gray-500">x2</p>
-                              </div>
-                            </div>
-                          </li>
-                          <li className="flex py-6">
-                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden ">
-                              <Image
-                                src={image}
-                                alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                                style={{
-                                  height: "100%",
-                                  width: "100%",
-                                  objectFit: "cover",
-                                  objectPosition: "center",
-                                }}
-                              />
-                            </div>
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3 className="">
-                                    <a href="#">Brazil Mogiana</a>
-                                  </h3>
-                                  <p className="ml-4">32,000₮</p>
-                                </div>
-                                <p className="mt-1 text-sm text-gray-500">
-                                  250г
-                                </p>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-base">
-                                <p className="text-gray-500">x1</p>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="flex justify-between text-base font-medium text-gray-900 mt-10">
-                      <p>Нийт төлөх дүн:</p>
-                      <p>96,000 ₮</p>
-                    </div>
+                    <BasketItem lng={lng} hideTitle={true} />
                   </div>
                 </div>
               </div>

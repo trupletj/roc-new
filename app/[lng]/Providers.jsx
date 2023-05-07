@@ -7,6 +7,7 @@ function Providers({ children }) {
   const [openLogin, setOpenLogin] = useState(false);
   const [card, setCard] = useState({});
   const mediaDomain = "https://www.api.roc.mn";
+  // const mediaDomain = "http://192.168.10.188:8000";
   // const mediaDomain = "http://192.168.0.68:8000";
 
   return (
