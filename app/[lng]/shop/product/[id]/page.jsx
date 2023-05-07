@@ -27,7 +27,7 @@ function ShopPage({ params }) {
     data: {
       select: "*",
       id: id,
-      relations: ["category:id,name","type_details","type_detail_columns"],
+      relations: ["category:id,name", "type_details", "type_detail_columns"],
     },
   });
   const {
@@ -43,7 +43,7 @@ function ShopPage({ params }) {
     },
   });
   return (
-    <div className="w-full bg-white">
+    <div className="w-full " style={{ backgroundColor: `#eceae6;` }}>
       <div className="container py-12">
         <ProductDetail
           ItemData={{ items, isLoading, isError }}

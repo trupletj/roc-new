@@ -31,6 +31,9 @@
   "location": "Location",
   "branches": "Branches",
   "working_hours": "Working hours",
-  "fixe": "",
-  "choose_grinder_type":"Please choose grinder type"
+
+  "choose_grinder_type": "Please choose grinder type",
+  "shop": "Shop",
+  "size": "Size",
+  "fixe": ""
 }

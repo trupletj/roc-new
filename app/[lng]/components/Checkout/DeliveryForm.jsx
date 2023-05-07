@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import image from "@/public/assets/coffee1.png";
 
+import { useTranslation } from "@/app/i18n/client";
 import { useForm } from "react-hook-form";
 import ConfirmModal from "../moleculs/ConfirmModal";
 import BasketItem from "../Shop/BasketItems";
+
 function DeliveryForm({ lng }) {
+  const { t } = useTranslation(lng, "client");
   const [isRegisterOn, setIsRegisterOn] = useState(false);
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
   const {
@@ -26,7 +29,7 @@ function DeliveryForm({ lng }) {
           <div className="col-span-12 lg:col-span-7">
             <div className="w-full">
               <h2 className="text-2xl text-gray-900 uppercase font-normal">
-                Захиалагчын мэдээлэл
+                {t("information")}
               </h2>
 
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">

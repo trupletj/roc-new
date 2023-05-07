@@ -119,7 +119,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
 
           <div className="lg:col-span-3">
             <div className="flex flex-row items-start text-sm text-gray-500  ">
-              <span>Шоп</span>
+              <span>{t("shop")}</span>
               <span className="mx-1">-</span>
               <span>{productType?.category?.name}</span>
               <span className="mx-1">-</span>
@@ -127,7 +127,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               <span className="text-[#F0B450]">{productType?.name} </span>
             </div>
             <div className="space-y-2 flex flex-col items-start">
-              <p className="text-2xl font-normal mt-2">
+              <p className="text-3xl font-medium mt-2">
                 {lng === "en" ? productType.name : productType.mn_name}
               </p>
               {!selectedItem && (
@@ -160,41 +160,41 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               </p>
               {productType?.category_id == 2 && (
                 <>
-                  <h1 className="font-normal">{t("grinder_type")}</h1>
+                  <h1 className="font-normal uppercase">{t("grinder_type")}</h1>
 
                   {!grinderLoading && (
-                    <div className="grid  grid-cols-4 ">
-                      <div
-                        className={` col-span-4 md:col-span-3  grid  grid-cols-4  w-full gap-2`}
-                      >
-                        {grinders?.record
-                          .sort((a, b) => a.level - b.level)
-                          .map((grinder) => (
-                            <div
-                              key={`grinder-key-${grinder.id}`}
-                              htmlFor={1}
-                              onClick={() => {
-                                setSelectedGrind((val) => {
-                                  return {
-                                    id: grinder.id,
-                                    name: grinder.name,
-                                    mn_name: grinder.mn_name,
-                                  };
-                                });
-                              }}
-                              className={`col-span-1 cursor-pointer select-none grid grid-cols-2 grid-rows-2 border ${
-                                selectedGrind.id === grinder.id
-                                  ? "border-[#F0B450]"
-                                  : "border-black"
-                              }   bg-white text-center  text-[${
-                                selectedGrind.id === grinder.id
-                                  ? "#F0B450"
-                                  : "black"
-                              }]`}
-                            >
-                              <div className="col-span-2 row-span-2  p-2">
-                                <div className=" aspect-square w-full relative">
-                                  <Image
+                    <div
+                      className={` col-span-4  grid  grid-cols-7  w-full gap-2`}
+                    >
+                      {grinders?.record
+                        .sort((a, b) => a.level - b.level)
+                        .map((grinder) => (
+                          <div
+                            key={`grinder-key-${grinder.id}`}
+                            htmlFor={1}
+                            onClick={() => {
+                              setSelectedGrind((val) => {
+                                return {
+                                  id: grinder.id,
+                                  name: grinder.name,
+                                  mn_name: grinder.mn_name,
+                                };
+                              });
+                            }}
+                            className={`col-span-1 cursor-pointer select-none grid grid-cols-2 grid-rows-2  ${
+                              selectedGrind.id === grinder.id
+                                ? "border-[#F0B450]"
+                                : "border-black"
+                            }   bg-white text-center  text-[${
+                              selectedGrind.id === grinder.id
+                                ? "#F0B450"
+                                : "black"
+                            }]`}
+                            style={{ background: "#eceae6" }}
+                          >
+                            <div className="col-span-2 row-span-2  p-2 ">
+                              <div className=" aspect-square w-full relative">
+                                {/* <Image
                                     src={mediaDomain + grinder.image_path}
                                     alt={grinder.name || "About Picture"}
                                     fill
@@ -202,17 +202,26 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
               (max-width: 1200px) 50vw,
               33vw"
                                     style={{ objectFit: "contain" }}
-                                  />
-                                </div>
+                                  /> */}
+
+                                <Image
+                                  src={mediaDomain + grinder.image_path}
+                                  alt={grinder.name || "About Picture"}
+                                  fill
+                                  style={{ objectFit: "contain" }}
+                                />
                               </div>
-                              <p className="col-span-2 row-span-1 flex items-center justify-center text-sm uppercase font-medium px-2">
-                                {lng === "en" ? grinder.name : grinder.mn_name}
-                              </p>
                             </div>
-                          ))}
-                      </div>
+                            <p className="col-span-2 row-span-1 flex items-center justify-center text-sm uppercase font-medium ">
+                              {lng === "en" ? grinder.name : grinder.mn_name}
+                            </p>
+                          </div>
+                        ))}
                     </div>
                   )}
+                  {/* <div className="grid  grid-cols-4 ">
+                     
+                    </div> */}
                 </>
               )}
               {/* <label
@@ -223,8 +232,12 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
             >
               Нунтаг - Эспрессо
             </label> */}
-              <h1 className="font-normal">Хэмжээ</h1>
-              <div className="grid-cols-4 grid gap-1">
+              <h1 className="font-normal uppercase">{t("size")}</h1>
+              <div
+                className={`grid grid-cols-${
+                  items?.record.length > 12 ? 12 : items?.record.length
+                }  gap-1 w-full`}
+              >
                 {items?.record.map((item, i) => {
                   return (
                     <label
@@ -251,7 +264,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 })}
               </div>
               {selectedItem && (
-                <div className="grid grid-cols-5 gap-5 w-full pt-10">
+                <div className="grid grid-cols-4 gap-5 w-full pt-10">
                   <div className="flex items-center justify-between ">
                     <span
                       className="flex items-center justify-center cursor-pointer"
@@ -325,7 +338,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 {t("buy_now")}
               </button> */}
                   <button
-                    className="bg-[#080505] text-white py-2 px-3 col-span-2 min-h-[25px]"
+                    className="bg-[#080505] text-white py-2 px-3 col-span-3 border min-h-[25px]"
                     onClick={() => {
                       if (productType?.category_id == 2 && !selectedGrind) {
                         alert(t("choose_grinder_type"));
