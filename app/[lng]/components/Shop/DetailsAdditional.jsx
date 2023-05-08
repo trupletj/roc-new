@@ -23,7 +23,7 @@ function DetailsAdditional({ lng, productType }) {
           .filter((type_detail) => type_detail.type == "image")
           .map((type_detail, index) => {
             return (
-              <li>
+              <li key={index * 0.3}>
                 <div className="relative   aspect-[16/7]">
                   <Image
                     src={mediaDomain + type_detail.image_name}
