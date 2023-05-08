@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import LogoWithText from "./atoms/LogoWithText";
@@ -6,7 +7,7 @@ import FB from "./atoms/icons/FB";
 import Insta from "./atoms/icons/Insta";
 import LinkedIn from "./atoms/icons/LinkedIn";
 import TW from "./atoms/icons/TW";
-import { useTranslation } from "@/app/i18n";
+import { useTranslation } from "@/app/i18n/client.js";
 
 const data = [
   {
@@ -43,26 +44,26 @@ const data = [
 const mobileViewData = [
   {
     links: [
-      { name: "Бидний Тухай", link: "/" },
-      { name: "Бидний Түүх", link: "/" },
-      { name: "Бүтээгдэхүүн", link: "/" },
-      { name: "Үйлчилгээ", link: "/" },
+      { name: "about_us", link: "/" },
+      { name: "our_story", link: "/about?page=our_story" },
+      { name: "products", link: "/" },
+      { name: "service", link: "/" },
     ],
   },
 
   {
     links: [
       {
-        name: "Roc-д ажиллах",
-        link: "/",
+        name: "work_at_roc",
+        link: "/anket",
       },
-      { name: "Хаяг, Байршил", link: "/" },
-      { name: "Блог", link: "/" },
+      { name: "address_and_location", link: "/" },
+      { name: "blog", link: "/" },
     ],
   },
 ];
-async function Footer({ lng }) {
-  const { t } = await useTranslation(lng, "header");
+function Footer({ lng }) {
+  const { t } = useTranslation(lng, "header");
   return (
     <>
       <footer className="w-full hidden lg:block bg-[#080505] text-white">
@@ -122,7 +123,7 @@ async function Footer({ lng }) {
       <footer className="lg:hidden bg-[#080505] text-white">
         <div className=" max-w-[500px] mx-auto">
           <section className="flex flex-col justify-between pt-10">
-            <MobileFooterTop />
+            <MobileFooterTop t={t} />
           </section>
         </div>
         <MobileFooterBottom lng={lng} />
@@ -170,6 +171,7 @@ export function MobileFooterBottom({ lng }) {
 }
 
 export function MobileFooterTop({ lng }) {
+  const { t } = useTranslation(lng, "header");
   return (
     <div className="flex flex-row justify-between items-start w-full px-10">
       {mobileViewData.map((item, i) => (
@@ -180,7 +182,7 @@ export function MobileFooterTop({ lng }) {
               key={`footer-item-link-${i}`}
               className="mb-5"
             >
-              {link.name}
+              {t(link.name)}
             </Link>
           ))}
         </div>

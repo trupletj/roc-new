@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply dark:bg-[#191919] bg-white;
-  }
-}
 .swiper-pagination {
   width: 100% !important;
   margin: 0 !important;

@@ -1,4 +1,26 @@
 {
   "information": "Roasting to a Taste ",
-  "btn_name": "Request for information"
+  "btn_name": "Request for information",
+  "first_name": "Нэр",
+  "last_name": "Овог",
+  "email": "Имэйл хая",
+  "phone": "Утасны дугаар",
+  "address": "Address",
+  "delivery_address": "ХҮРГЭЛТИЙН ХАЯГ",
+  "choose_address": "Хаягын нэр сонгох",
+  "work": "Ажил",
+  "home": "Гэр",
+  "pickup": "Очиж авах",
+  "city": "Хот",
+  "district": "Дүүрэг",
+  "full_address": "Дэлгэрэнгүй хаяг",
+  "map": "Газрын зураг",
+  "additional_info": "Нэмэлт мэдээлэл",
+  "payment_method": "ТӨЛБӨРИЙН МЭДЭЭЛЭЛ",
+  "products": "Бүтээгдэхүүн",
+  "checkout": "Төлбөр төлөх",
+  "birth_date": "Төрсөн огноо",
+  "gender": "Хүйс",
+  "male": "Эрэгтэй",
+  "female": "Эмэгтэй"
 }

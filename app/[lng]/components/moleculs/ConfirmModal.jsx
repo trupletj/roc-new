@@ -3,8 +3,10 @@ import { Fragment, useRef, useState, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import GlobalContext from "../../context/GlobalContext";
 import Cross from "../atoms/icons/Cross";
+import { useTranslation } from "@/app/i18n/client";
 
-const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal }) => {
+const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
+  const { t } = useTranslation(lng, "client");
   const [email, setEmail] = useState("");
   const [code, setCode] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
@@ -67,7 +69,7 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal }) => {
                         className=" font-semibold leading-6 text-gray-900 flex items-center justify-between uppercase font-normal text-2xl py-3 px-5 bg-[#F2F2F2]"
                       >
                         <div className="my-5">
-                          <h1>ДАНС эсвэл QR код</h1>
+                          <h1 className="text-left">ДАНС эсвэл QR код</h1>
                           <p className="text-xs font-light">
                             Аль ч банкны аппликейшн ашиглан уншуулж болно.
                           </p>
@@ -81,8 +83,8 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal }) => {
                         </button>
                       </Dialog.Title>
                       <div className="flex flex-wrap">
-                        <div className="md:w-1/3">qr</div>
-                        <div className="md:w-2/3 flex flex-col p-5">
+                        <div className="w-full md:w-1/3 ">qr</div>
+                        <div className="w-full md:w-2/3 flex flex-col p-5">
                           <h1 className="mb-2">Дансаар шилжүүлэх</h1>
                           <div className="grid grid-cols-2 gap-2 w-full text-xs my-3">
                             <button className="flex items-center px-2 py-2 border bg-[#080505] text-white">

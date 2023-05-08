@@ -1,4 +1,26 @@
 {
   "information": "Roasting to a Taste ",
-  "btn_name": "Request for information"
+  "btn_name": "Request for information",
+  "first_name": "First Name",
+  "last_name": "Last Name",
+  "email": "Email",
+  "phone": "Phone Number",
+  "address": "Address",
+  "delivery_address": "Delivery Address",
+  "choose_address": "Choose Address",
+  "work": "Work",
+  "home": "Home",
+  "pickup": "Pickup",
+  "city": "City",
+  "district": "District",
+  "full_address": "Full Address",
+  "map": "Map",
+  "additional_info": "Additional Information",
+  "payment_method": "Payment Method",
+  "products": "Products",
+  "checkout": "Check Out",
+  "birth_date": "Birth date",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female"
 }

@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import image from "@/public/assets/coffee1.png";
+import { useTranslation } from "@/app/i18n/client";
 
-function NewAnket() {
+function NewAnket({ lng }) {
+  const { t } = useTranslation(lng, "client");
   const {
     register,
     handleSubmit,
@@ -18,7 +20,7 @@ function NewAnket() {
   return (
     <div className="max-w-[900px] mx-auto py-10">
       <h1 className="uppercase text-3xl font-medium mb-10">HEAD TO COFFEE</h1>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4">
         <div
           onClick={() => setSelectIndex(0)}
           className={`col-span-1 py-2 text-center border border-[#080505] cursor-pointer ${
@@ -55,7 +57,7 @@ function NewAnket() {
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Нэр
+                      {t("first_name")}
                     </label>
                     <div className="mt-2">
                       <input
@@ -81,7 +83,7 @@ function NewAnket() {
                       htmlFor="lastName "
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Овог
+                      {t("last_name")}
                     </label>
                     <div className="mt-2">
                       <input
@@ -127,9 +129,7 @@ function NewAnket() {
                     </div>
                     {errors.registerNumber && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">
-                          Утансны дугаараа оруулна уу
-                        </h1>
+                        <h1 className="text-white text-sm">{t("phone")}</h1>
                       </div>
                     )}
                   </div>
@@ -138,7 +138,7 @@ function NewAnket() {
                       htmlFor="registerNumber"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Төрсөн огноо
+                      {t("birth_date")}
                     </label>
                     <div className="mt-2">
                       <input
@@ -164,7 +164,7 @@ function NewAnket() {
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Хүйс
+                      {t("gender")}
                     </label>
                     <div className="grid  grid-cols-3 gap-2 mt-2">
                       <div>
@@ -181,7 +181,7 @@ function NewAnket() {
                           htmlFor={1}
                           className="block cursor-pointer select-none  bg-[#080505] p-2 text-center peer-checked:bg-[#F0B450]  text-white"
                         >
-                          Эрэгтэй
+                          {t("male")}
                         </label>
                       </div>
                       <div>
@@ -198,7 +198,7 @@ function NewAnket() {
                           htmlFor={2}
                           className="block cursor-pointer select-none  bg-[#080505] p-2 text-center peer-checked:bg-[#F0B450]  text-white"
                         >
-                          Эмэгтэй
+                          {t("female")}
                         </label>
                       </div>
                     </div>
@@ -216,7 +216,7 @@ function NewAnket() {
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Утасны дугаар
+                      {t("phone")}
                     </label>
                     <div className="mt-2">
                       <input
@@ -244,7 +244,7 @@ function NewAnket() {
                       htmlFor="lastName "
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      И-мэйл хаяг
+                      {t("email")}
                     </label>
                     <div className="mt-2">
                       <input

@@ -18,6 +18,8 @@ function DeliveryForm({ lng }) {
     watch,
     formState: { errors },
   } = useForm();
+
+  //End form confirm nemev
   const onSubmit = (data) => console.log(data);
   return (
     <>
@@ -32,14 +34,14 @@ function DeliveryForm({ lng }) {
                 {t("information")}
               </h2>
 
-              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
-                <div className="sm:col-span-3">
+              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-6 bg-white p-10">
+                <div className="md:col-span-3 col-span-1">
                   <label
                     htmlFor="first-name"
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Нэр
+                    {t("first_name")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -60,13 +62,13 @@ function DeliveryForm({ lng }) {
                     </div>
                   )}
                 </div>
-                <div className="sm:col-span-3">
+                <div className="md:col-span-3 col-span-1">
                   <label
                     htmlFor="lastName "
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Овог
+                    {t("last_name")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -88,13 +90,13 @@ function DeliveryForm({ lng }) {
                   )}
                 </div>
 
-                <div className="sm:col-span-3">
+                <div className="md:col-span-3 col-span-1">
                   <label
                     htmlFor="first-name"
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Утасны дугаар
+                    {t("phone")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -114,13 +116,13 @@ function DeliveryForm({ lng }) {
                     </div>
                   )}
                 </div>
-                <div className="sm:col-span-3">
+                <div className="md:col-span-3 col-span-1">
                   <label
-                    htmlFor="first-name"
+                    htmlFor="email"
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Имэйл хаяг
+                    {t("email")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -140,7 +142,7 @@ function DeliveryForm({ lng }) {
                     </div>
                   )}
                 </div>
-                <div className="col-span-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-gray-200 p-5">
+                <div className="md:col-span-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-gray-200 p-5">
                   <div
                     onClick={() => setIsRegisterOn(!isRegisterOn)}
                     className="flex justify-between items-center col-span-6 text-gray-900 cursor-pointer"
@@ -208,78 +210,82 @@ function DeliveryForm({ lng }) {
                     )}
                   </div>
                   {isRegisterOn && (
-                    <div className="sm:col-span-3">
-                      <label
-                        htmlFor="first-name"
-                        className="block text-base font-light leading-6 text-gray-900"
-                      >
-                        <span className="text-red-500 mr-2">*</span>
-                        Байгууллагын регистрийн дугаар
-                      </label>
-                      <div className="mt-2">
-                        <input
-                          placeholder="text"
-                          {...register("organizaionRegister", {
-                            required: true,
-                          })}
-                          type="text"
-                          name="first-name"
-                          id="first-name"
-                          className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
-                        />
-                      </div>
-                      {errors.organizaionRegister && (
-                        <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                          <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                    <div className="grid grid-cols-6 col-span-6 gap-4">
+                      <div className="col-span-6 md:col-span-3">
+                        <label
+                          htmlFor="first-name"
+                          className="block text-base font-light leading-6 text-gray-900"
+                        >
+                          <span className="text-red-500 mr-2">*</span>
+                          Байгууллагын регистрийн дугаар
+                        </label>
+                        <div className="mt-2">
+                          <input
+                            placeholder="text"
+                            {...register("organizaionRegister", {
+                              required: true,
+                            })}
+                            type="text"
+                            name="first-name"
+                            id="first-name"
+                            className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                          />
                         </div>
-                      )}
-                    </div>
-                  )}
-                  {isRegisterOn && (
-                    <div className="sm:col-span-3">
-                      <label
-                        htmlFor="first-name"
-                        className="block text-base font-light leading-6 text-gray-900"
-                      >
-                        <span className="text-red-500 mr-2">*</span>
-                        Байгууллагын нэр
-                      </label>
-                      <div className="mt-2">
-                        <input
-                          placeholder="text"
-                          {...register("organizaionName", { required: true })}
-                          type="text"
-                          name="first-name"
-                          id="first-name"
-                          className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
-                        />
+                        {errors.organizaionRegister && (
+                          <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                            <h1 className="text-white text-sm">
+                              Заавал бөглөх
+                            </h1>
+                          </div>
+                        )}
                       </div>
-                      {errors.organizaionName && (
-                        <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                          <h1 className="text-white text-sm">Заавал бөглөх</h1>
+
+                      <div className="col-span-6 md:col-span-3">
+                        <label
+                          htmlFor="first-name"
+                          className="block text-base font-light leading-6 text-gray-900"
+                        >
+                          <span className="text-red-500 mr-2">*</span>
+                          Байгууллагын нэр
+                        </label>
+                        <div className="mt-2">
+                          <input
+                            placeholder="text"
+                            {...register("organizaionName", { required: true })}
+                            type="text"
+                            name="first-name"
+                            id="first-name"
+                            className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                          />
                         </div>
-                      )}
+                        {errors.organizaionName && (
+                          <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                            <h1 className="text-white text-sm">
+                              Заавал бөглөх
+                            </h1>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
               </div>
             </div>
-            <div className="w-full">
+            <div className="w-full pt-10">
               <h2 className="text-2xl  text-gray-900 uppercase font-normal">
-                Хүргэлтийн хаяг
+                {t("delivery_address")}
               </h2>
-
-              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
-                <div className="sm:col-span-6">
+              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-6 bg-white p-10">
+                <div className="md:col-span-6">
                   <label
                     htmlFor="first-name"
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Хаягын нэр сонгох
+                    {t("choose_address")}
                   </label>
                   <div className="grid  grid-cols-3 gap-2 mt-2">
-                    <div>
+                    <div className="col-span-3 md:col-span-1">
                       <input
                         placeholder="text"
                         {...register("addressType", { required: true })}
@@ -293,10 +299,10 @@ function DeliveryForm({ lng }) {
                         htmlFor={1}
                         className="block cursor-pointer select-none  bg-[#080505] p-2 text-center peer-checked:bg-[#F0B450]  text-white"
                       >
-                        Ажил
+                        {t("work")}
                       </label>
                     </div>
-                    <div>
+                    <div className="col-span-3 md:col-span-1">
                       <input
                         placeholder="text"
                         {...register("addressType", { required: true })}
@@ -309,10 +315,10 @@ function DeliveryForm({ lng }) {
                         htmlFor={2}
                         className="block cursor-pointer select-none  bg-[#080505] p-2 text-center peer-checked:bg-[#F0B450]  text-white"
                       >
-                        Гэр
+                        {t("home")}
                       </label>
                     </div>
-                    <div>
+                    <div className="col-span-3 md:col-span-1">
                       <input
                         placeholder="text"
                         {...register("addressType", { required: true })}
@@ -325,11 +331,11 @@ function DeliveryForm({ lng }) {
                         htmlFor={3}
                         className="block cursor-pointer select-none  bg-[#080505] p-2 text-center peer-checked:bg-[#F0B450]  text-white"
                       >
-                        Салбараас авах
+                        {t("pickup")}
                       </label>
                     </div>
                     {errors.addressType && (
-                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                      <div className="mt-4 col-span-3 bg-red-500 py-2 px-5">
                         <h1 className="text-white text-sm">Заавал сонгох</h1>
                       </div>
                     )}
@@ -341,7 +347,7 @@ function DeliveryForm({ lng }) {
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Нэр
+                    {t("first_name")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -365,7 +371,7 @@ function DeliveryForm({ lng }) {
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Овог
+                    {t("last_name")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -389,7 +395,7 @@ function DeliveryForm({ lng }) {
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Утасны дугаар
+                    {t("phone")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -413,7 +419,7 @@ function DeliveryForm({ lng }) {
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Хот
+                    {t("city")}
                   </label>
                   <div className="mt-2">
                     <select
@@ -440,7 +446,7 @@ function DeliveryForm({ lng }) {
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Дүүрэг
+                    {t("district")}
                   </label>
                   <div className="mt-2">
                     <select
@@ -467,7 +473,7 @@ function DeliveryForm({ lng }) {
                     htmlFor="first-name"
                     className="block text-base font-normal leading-6 text-gray-900"
                   >
-                    Дэлгэрэнгүй хаяг
+                    {t("full_address")}
                   </label>
                   <div className="mt-2">
                     <textarea
@@ -486,7 +492,7 @@ function DeliveryForm({ lng }) {
                     htmlFor="first-name"
                     className="block text-base  leading-6 text-gray-900 font-normal"
                   >
-                    Газрын зураг
+                    {t("map")}
                   </label>
                   <div className="mt-2">
                     <div className="block w-full bg-gray-500  border border-[#707070] px-2  aspect-square py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm " />
@@ -494,9 +500,9 @@ function DeliveryForm({ lng }) {
                 </div>
               </div>
             </div>
-            <div className="w-full">
+            <div className="w-full pt-10">
               <h2 className="text-2xl  text-gray-900 uppercase font-normal">
-                Нэмэлт анхааруулга
+                {t("additional_info")}
               </h2>
               <div className="sm:col-span-6 mt-5">
                 <div className="grid  grid-cols-2 gap-2 " x-data="app">
@@ -557,9 +563,9 @@ function DeliveryForm({ lng }) {
           </div>
 
           <div className="col-span-12 lg:col-span-5">
-            <div className="max-w-full ">
+            <div className="max-w-full pt-10 md:pt-0">
               <h2 className="text-2xl text-gray-900 uppercase font-normal">
-                Төлбөрийн мэдээлэл
+                {t("payment_method")}
               </h2>
               <div className="pointer-events-auto mt-10">
                 <div className="flex flex-col bg-white ">
@@ -569,7 +575,7 @@ function DeliveryForm({ lng }) {
                         className="text-lg font-medium text-gray-900"
                         id="slide-over-title"
                       >
-                        Бүтээгдэхүүн
+                        {t("products")}
                       </h2>
                     </div>
                     <BasketItem lng={lng} hideTitle={true} />
@@ -582,7 +588,7 @@ function DeliveryForm({ lng }) {
               onClick={() => setOpenConfirmModal(!openConfirmModal)}
               className="w-full bg-[#F0B450] py-2 my-4 "
             >
-              Төлбөр төлөх
+              {t("checkout")}
             </button>
             <button className="w-full bg-[#080505] text-white py-2">
               Сагс-руу буцах
@@ -593,6 +599,7 @@ function DeliveryForm({ lng }) {
       <ConfirmModal
         openConfirmModal={openConfirmModal}
         setOpenConfirmModal={setOpenConfirmModal}
+        lng={lng}
       />
     </>
   );

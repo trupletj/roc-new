@@ -212,7 +212,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                                 />
                               </div>
                             </div>
-                            <p className="col-span-2 row-span-1 flex items-center justify-center text-sm uppercase font-medium ">
+                            <p className="col-span-2 row-span-1 flex items-center justify-center text-xs uppercase font-medium ">
                               {lng === "en" ? grinder.name : grinder.mn_name}
                             </p>
                           </div>

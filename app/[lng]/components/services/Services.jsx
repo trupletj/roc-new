@@ -67,8 +67,8 @@ function Services({ lng }) {
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-7/12 relative aspect-square">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-10">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="roasting"
                       src={roasting_image}
@@ -76,8 +76,8 @@ function Services({ lng }) {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="w-5/12">
-                    <div className="text-xl font-semibold">
+                  <div className="w-full md:w-5/12">
+                    <div className="text-xl text-center md:text-left font-semibold">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_roast("main_text"),
@@ -151,8 +151,8 @@ function Services({ lng }) {
           <div className={openIndex === 1 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-7/12 relative aspect-square">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-10">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="whole sale"
                       src={whole_sale_image}
@@ -160,8 +160,8 @@ function Services({ lng }) {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="w-5/12">
-                    <div className="text-xl font-semibold">
+                  <div className="w-full md:w-5/12">
+                    <div className="text-xl text-center md:text-left font-semibold">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_whole_sale("main_text"),
@@ -235,8 +235,8 @@ function Services({ lng }) {
           <div className={openIndex === 2 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-7/12 relative aspect-square">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-10">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="sds"
                       src={catering_image}
@@ -244,15 +244,15 @@ function Services({ lng }) {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="w-5/12">
-                    <div className="text-xl font-semibold">
+                  <div className="w-full md:w-5/12">
+                    <div className="text-xl text-center md:text-left font-semibold">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_catering("main_text"),
                         }}
                       ></p>
                     </div>
-                    <div className="flex">
+                    <div className="flex mt-5 ">
                       <Link
                         className="px-5 py-3 my-1 mx-auto bg-black text-white text-sm uppercase"
                         href="#"
@@ -315,8 +315,8 @@ function Services({ lng }) {
           <div className={openIndex === 3 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-row items-center space-x-16">
-                  <div className="w-7/12 relative aspect-square">
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-10">
+                  <div className="w-full md:w-7/12 relative aspect-square">
                     <Image
                       alt="sds"
                       src={distributioin_image}
@@ -324,8 +324,8 @@ function Services({ lng }) {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="w-5/12">
-                    <div className="text-xl font-semibold">
+                  <div className="w-full md:w-5/12">
+                    <div className="text-xl text-center md:text-left font-semibold">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_distribution("main_text"),
@@ -333,7 +333,7 @@ function Services({ lng }) {
                       ></p>
                     </div>
 
-                    <div className="flex">
+                    <div className="flex mt-5">
                       <Link
                         className="px-8 py-3  mt-3 mx-auto bg-black text-white text-sm uppercase"
                         href={`/${lng}/shop`}
