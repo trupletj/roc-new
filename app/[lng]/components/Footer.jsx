@@ -96,7 +96,7 @@ function Footer({ lng }) {
               ))}
             </div>
             <div className="flex flex-col w-1/2 items-end">
-              <h1 className="text-[#F0B450] mb-5">Холбогдох</h1>
+              <h1 className="text-[#F0B450] mb-5">{t("contact_us")}</h1>
               <ul className="flex mb-5">
                 <li className="ml-7">
                   <FB />
@@ -111,9 +111,7 @@ function Footer({ lng }) {
                   <TW />
                 </li>
               </ul>
-              <p className="mb-5">
-                Будда Виста, Хан-Уул Дүүрэг, Улаанбтар, Монгол
-              </p>
+              <p className="mb-5">{t("address_value")}</p>
               <p className="mb-5">+ 976 7721 3333</p>
               <p className="mb-5">info@roc.mn</p>
             </div>

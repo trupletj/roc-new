@@ -38,7 +38,6 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
         return helper;
       });
     });
-
   }, []);
   React.useEffect(() => {
     if (
@@ -174,7 +173,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                         href={`/${lng}/shop/product/${product.type_id}`}
                         className="absolute w-full left-0 bottom-0 p-2 bg-black  group-hover:block hidden text-center text-white"
                       >
-                        Дэлгэрэнгүй
+                        {headerT("view")}
                       </Link>
                     </div>
                   </div>

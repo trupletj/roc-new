@@ -7,6 +7,7 @@ import { useTranslation } from "@/app/i18n/client";
 import { useForm } from "react-hook-form";
 import ConfirmModal from "../moleculs/ConfirmModal";
 import BasketItem from "../Shop/BasketItems";
+import Link from "next/link";
 
 function DeliveryForm({ lng }) {
   const { t } = useTranslation(lng, "client");
@@ -45,7 +46,7 @@ function DeliveryForm({ lng }) {
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
+                      placeholder={t("first_name")}
                       type="text"
                       {...register("firstName", {
                         required: true,
@@ -58,7 +59,7 @@ function DeliveryForm({ lng }) {
                   </div>
                   {errors.firstName && (
                     <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                      <h1 className="text-white text-sm">Нэр оруулна уу</h1>
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
                     </div>
                   )}
                 </div>
@@ -72,7 +73,7 @@ function DeliveryForm({ lng }) {
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
+                      placeholder={t("last_name")}
                       type="text"
                       {...register("lastName", {
                         required: true,
@@ -85,7 +86,7 @@ function DeliveryForm({ lng }) {
                   </div>
                   {errors.lastName && (
                     <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                      <h1 className="text-white text-sm">Овог оо оруулна уу</h1>
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
                     </div>
                   )}
                 </div>
@@ -100,7 +101,7 @@ function DeliveryForm({ lng }) {
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
+                      placeholder={t("phone")}
                       {...register("phone", { required: true, maxLength: 20 })}
                       type="text"
                       name="phone"
@@ -110,9 +111,7 @@ function DeliveryForm({ lng }) {
                   </div>
                   {errors.phone && (
                     <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                      <h1 className="text-white text-sm">
-                        Утансны дугаараа оруулна уу
-                      </h1>
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
                     </div>
                   )}
                 </div>
@@ -126,7 +125,7 @@ function DeliveryForm({ lng }) {
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
+                      placeholder={t("email")}
                       type="text"
                       {...register("email", { required: true })}
                       name="email"
@@ -136,9 +135,7 @@ function DeliveryForm({ lng }) {
                   </div>
                   {errors.email && (
                     <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                      <h1 className="text-white text-sm">
-                        Утансны дугаараа оруулна уу
-                      </h1>
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
                     </div>
                   )}
                 </div>
@@ -234,7 +231,7 @@ function DeliveryForm({ lng }) {
                         {errors.organizaionRegister && (
                           <div className="mt-4 w-full bg-red-500 py-2 px-5">
                             <h1 className="text-white text-sm">
-                              Заавал бөглөх
+                              {t("please_fill")}
                             </h1>
                           </div>
                         )}
@@ -261,7 +258,7 @@ function DeliveryForm({ lng }) {
                         {errors.organizaionName && (
                           <div className="mt-4 w-full bg-red-500 py-2 px-5">
                             <h1 className="text-white text-sm">
-                              Заавал бөглөх
+                              {t("please_fill")}
                             </h1>
                           </div>
                         )}
@@ -287,7 +284,7 @@ function DeliveryForm({ lng }) {
                   <div className="grid  grid-cols-3 gap-2 mt-2">
                     <div className="col-span-3 md:col-span-1">
                       <input
-                        placeholder="text"
+                        placeholder={t("choose_address")}
                         {...register("addressType", { required: true })}
                         value={"Ажил"}
                         type="radio"
@@ -304,7 +301,7 @@ function DeliveryForm({ lng }) {
                     </div>
                     <div className="col-span-3 md:col-span-1">
                       <input
-                        placeholder="text"
+                        placeholder={t("choose_address")}
                         {...register("addressType", { required: true })}
                         type="radio"
                         name="option"
@@ -320,7 +317,7 @@ function DeliveryForm({ lng }) {
                     </div>
                     <div className="col-span-3 md:col-span-1">
                       <input
-                        placeholder="text"
+                        placeholder={t("choose_address")}
                         {...register("addressType", { required: true })}
                         type="radio"
                         name="option"
@@ -336,7 +333,9 @@ function DeliveryForm({ lng }) {
                     </div>
                     {errors.addressType && (
                       <div className="mt-4 col-span-3 bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">Заавал сонгох</h1>
+                        <h1 className="text-white text-sm">
+                          {t("please_select")}
+                        </h1>
                       </div>
                     )}
                   </div>
@@ -351,7 +350,7 @@ function DeliveryForm({ lng }) {
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
+                      placeholder={t("first_name")}
                       {...register("deliveryFirstName", { required: true })}
                       type="text"
                       name="deliveryFirstName"
@@ -361,7 +360,7 @@ function DeliveryForm({ lng }) {
                   </div>
                   {errors.deliveryFirstName && (
                     <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                      <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
                     </div>
                   )}
                 </div>
@@ -375,7 +374,7 @@ function DeliveryForm({ lng }) {
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
+                      placeholder={t("last_name")}
                       {...register("deliveryLasttName", { required: true })}
                       type="text"
                       name="deliveryLasttName"
@@ -385,7 +384,7 @@ function DeliveryForm({ lng }) {
                   </div>
                   {errors.deliveryLasttName && (
                     <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                      <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
                     </div>
                   )}
                 </div>
@@ -399,7 +398,7 @@ function DeliveryForm({ lng }) {
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
+                      placeholder={t("phone")}
                       {...register("deliveryPhone", { required: true })}
                       type="text"
                       name="deliveryPhone"
@@ -409,7 +408,7 @@ function DeliveryForm({ lng }) {
                   </div>
                   {errors.deliveryPhone && (
                     <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                      <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
                     </div>
                   )}
                 </div>
@@ -428,7 +427,7 @@ function DeliveryForm({ lng }) {
                       className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
                     >
                       <option disabled selected hidden>
-                        Хот/аймаг сонгоно уу
+                        {t("please_select_city")}
                       </option>
                       <option value={1}>Сонгох 1</option>
                       <option value={2}>Сонгох 2</option>
@@ -455,7 +454,7 @@ function DeliveryForm({ lng }) {
                       className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
                     >
                       <option disabled selected hidden>
-                        сонгоно уу
+                        {t("please_select_district")}
                       </option>
                       <option value={1}>Сонгох 1</option>
                       <option value={2}>Сонгох 2</option>
@@ -482,7 +481,7 @@ function DeliveryForm({ lng }) {
                       type="text"
                       name="first-name"
                       id="first-name"
-                      placeholder="Та хаягаа зөв дэлгэрэнгүй, тодорхой оруулна уу"
+                      placeholder={t("placeholder_full_address")}
                       className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
                     />
                   </div>
@@ -508,7 +507,7 @@ function DeliveryForm({ lng }) {
                 <div className="grid  grid-cols-2 gap-2 " x-data="app">
                   <div>
                     <input
-                      placeholder="text"
+                      placeholder={t("additional_info")}
                       {...register("additionalInfo")}
                       value={"Хүргэлтийн өмнө залгах"}
                       type="checkbox"
@@ -520,12 +519,12 @@ function DeliveryForm({ lng }) {
                       htmlFor={11}
                       className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
                     >
-                      Хүргэлтийн өмнө залгах
+                      {t("call_before_delivery")}
                     </label>
                   </div>
                   <div>
                     <input
-                      placeholder="text"
+                      placeholder={t("call_before_delivery")}
                       value={"Оройн цагаар хүргэх"}
                       {...register("additionalInfo")}
                       type="checkbox"
@@ -537,12 +536,12 @@ function DeliveryForm({ lng }) {
                       htmlFor={21}
                       className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
                     >
-                      Оройн цагаар хүргэх
+                      {t("deliver_in_the_evening")}
                     </label>
                   </div>
                   <div>
                     <input
-                      placeholder="text"
+                      placeholder={t("deliver_in_the_evening")}
                       value={"Нялх хүүхэдтэй"}
                       {...register("additionalInfo")}
                       type="checkbox"
@@ -591,7 +590,7 @@ function DeliveryForm({ lng }) {
               {t("checkout")}
             </button>
             <button className="w-full bg-[#080505] text-white py-2">
-              Сагс-руу буцах
+              {t("continue_shopping")}
             </button>
           </div>
         </div>

@@ -22,5 +22,13 @@
   "birth_date": "Төрсөн огноо",
   "gender": "Хүйс",
   "male": "Эрэгтэй",
-  "female": "Эмэгтэй"
+  "female": "Эмэгтэй",
+  "please_fill": "Энэ талбарыг заавал бөглөнө үү",
+  "please_select": "Сонгоно уу",
+  "please_select_city": "Хот/Аймаг сонгоно уу",
+  "please_select_district": "Дүүрэг/Сум сонгоно уу",
+  "call_before_delivery": "Хүргэлтийн өмнө залгах",
+  "deliver_in_the_evening": "Оройн цагаар хүргэх",
+  "placeholder_full_address": "Хаягаа зөв, дэлгэрэнгүй бичнэ үү",
+  "continue_shopping": "Худалдан авалт хийх"
 }
