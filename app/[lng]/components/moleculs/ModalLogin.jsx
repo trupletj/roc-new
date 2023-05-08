@@ -3,8 +3,10 @@ import { Fragment, useRef, useState, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import GlobalContext from "../../context/GlobalContext";
 import Cross from "../atoms/icons/Cross";
+import { useTranslation } from "@/app/i18n/client";
 
-const ModalLogin = () => {
+const ModalLogin = ({ lng }) => {
+  const { t } = useTranslation(lng, "header");
   const { openLogin, setOpenLogin } = useContext(GlobalContext);
   const [email, setEmail] = useState("");
   const [code, setCode] = useState(null);
@@ -67,7 +69,7 @@ const ModalLogin = () => {
                         as="h3"
                         className=" font-semibold leading-6 text-gray-900 flex items-center justify-between uppercase font-normal text-2xl"
                       >
-                        {isLogin ? "Нэвтрэх" : "Бүртгүүлэх"}
+                        {isLogin ? t("login") : t("register")}
                         <button
                           type="button"
                           className=" px-3 py-2 text-sm  text-white shadow-sm bg-[#080505] sm:ml-3 sm:w-auto"
@@ -80,28 +82,29 @@ const ModalLogin = () => {
                         <div className="mt-2 text-[#080505]">
                           <div className="flex flex-col">
                             <label className="text-[#080505] mb-5">
-                              Имайл хаяг эсвэл гар утасны дугаараа орууна уу
+                              {t("email_or_phone")}
                             </label>
                             <input
                               onChange={(e) => setEmail(e.target.value)}
                               className="py-3 px-4 outline-none border border-[#080505] text-[#080505] bg-transparent mb-10"
-                              placeholder="Имайл хаяг эсвэл гар утасны дугаар"
+                              placeholder={t("email_or_phone")}
                             />
                           </div>
                           <button
                             onClick={() => handleLogin()}
                             className="text-white py-3 text-center w-full bg-[#080505]"
                           >
-                            Нэвтрэх
+                            {t("login")}
                           </button>
 
                           <div className="my-5 text-center">
-                            Хэрвээ шинэ хэрэглэгч бол{" "}
+                            {t("new_customer")}
+                            {"? "}
                             <span
                               className="text-[#F0B450] underline cursor-pointer"
                               onClick={() => setIsLogin(!isLogin)}
                             >
-                              Бүртгүүлэх
+                              {t("register")}
                             </span>
                           </div>
                         </div>
@@ -110,34 +113,31 @@ const ModalLogin = () => {
                         <div className="mt-2 text-[#080505]">
                           <div className="flex flex-col">
                             <label className="text-[#080505] mb-5">
-                              Имайл хаяг эсвэл гар утасны дугаараа орууна уу
+                              {t("email_or_phone")}
                             </label>
                             <input
                               onChange={(e) => setEmail(e.target.value)}
                               className="py-3 px-4 outline-none border border-[#080505] text-[#080505] bg-transparent mb-5"
-                              placeholder="Имайл хаяг эсвэл гар утасны дугаар"
+                              placeholder={t("email_or_phone")}
                             />
                           </div>
                           <p className="mb-5 text-center">
-                            Хэрвээ бүртгэлтэй бол{" "}
+                            {t("already_registered")}{" "}
                             <span
                               className="text-[#F0B450] underline cursor-pointer"
                               onClick={() => setIsLogin(!isLogin)}
                             >
-                              Нэвтрэх
+                              {t("login")}
                             </span>
                           </p>
                           <button
                             onClick={() => handleContinue()}
                             className="text-white py-3 text-center w-full bg-[#080505]"
                           >
-                            Үргэлжлүүлэх
+                            {t("continue")}
                           </button>
                           <p className="text-center mt-5 text-[#6B6969] text-sm">
-                            И-мэйл хаяг, утасны дугаараа оруулан үргэлжлүүлэх
-                            товчийг дарснаар таныг тус вебсайтын Үйлчилгээний
-                            нөхцөл болон Нууцлалын бодлогыг хүлээн зөвшөөрсөнд
-                            тооцно.
+                            {t("agree_text")}
                           </p>
                         </div>
                       )}
@@ -150,7 +150,7 @@ const ModalLogin = () => {
                               </span>
                             </div>
                             <label className="text-[#080505] mb-3">
-                              Танд ирсэн кодыг орууна уу
+                              {t("recieve_code")}
                             </label>
                             <input
                               onChange={(e) => setCode(e.target.value)}
@@ -163,7 +163,7 @@ const ModalLogin = () => {
                             onClick={() => handleSubmit()}
                             className="text-white py-3 my-5 text-center w-full bg-[#080505]"
                           >
-                             Нэвтрэх
+                            {t("login")}
                           </button>
                         </div>
                       )}

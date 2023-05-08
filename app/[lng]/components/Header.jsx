@@ -111,7 +111,7 @@ async function Header({ lng }) {
         <Navigations DataNav={DataNav} lng={lng} />
       </div>
       <MobileNav DataNav={DataNav} lng={lng} />
-      <ModalLogin />
+      <ModalLogin lng={lng} />
       <Basket lng={lng} />
     </>
   );
