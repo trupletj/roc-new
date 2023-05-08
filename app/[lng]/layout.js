@@ -4,6 +4,9 @@ import localFont from "next/font/local";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 
+import { Suspense } from "react";
+import Loading from "./loading";
+
 import Providers from "./Providers";
 import Header from "@/app/[lng]/components/Header";
 import Footer from "./components/Footer";
@@ -55,12 +58,14 @@ export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
       <body
-        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable}`}
+        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} relative`}
       >
         <Providers>
-          <Header lng={lng} />
-          {children}
-          <Footer lng={lng} />
+          <Suspense fallback={<Loading />}>
+            <Header lng={lng} />
+            {children}
+            <Footer lng={lng} />
+          </Suspense>
         </Providers>
       </body>
     </html>
