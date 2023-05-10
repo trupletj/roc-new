@@ -35,5 +35,7 @@
   "choose_grinder_type": "Please choose grinder type",
   "shop": "Shop",
   "size": "Size",
+  "auth_wrong": "Wrong email or password",
+  "back": "Back",
   "fixe": ""
 }

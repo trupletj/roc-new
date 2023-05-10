@@ -13,6 +13,10 @@ import ModalLogin from "./moleculs/ModalLogin";
 import Link from "next/link";
 const DataNav = [
   {
+    name: "shop",
+    link: "/shop",
+  },
+  {
     name: "about_us",
     sub: [
       {
@@ -25,10 +29,7 @@ const DataNav = [
       },
     ],
   },
-  {
-    name: "shop",
-    link: "/shop",
-  },
+ 
 
   {
     name: "service",

@@ -17,7 +17,12 @@ function Navigations({ lng, DataNav }) {
         <div className="container  mx-auto flex flex-row justify-between items-center">
           <ul className="flex flex-row">
             {DataNav.map((item, i) => (
-              <Subnav key={"navigation-nav-"+i} item={item} lng={lng} pathName={pathName} />
+              <Subnav
+                key={"navigation-nav-" + i}
+                item={item}
+                lng={lng}
+                pathName={pathName}
+              />
             ))}
           </ul>
           <div className="uppercase">
@@ -34,7 +39,7 @@ const Subnav = ({ item, lng, pathName }) => {
   return (
     <li className="group h-[60px] flex items-center">
       <div
-        key={"mobile-nav-subnav"+item.name}
+        key={"mobile-nav-subnav" + item.name}
         className={
           pathName === `/${lng}${item.link}`
             ? "text-[#F0B450] flex flex-row items-center justify-center mr-[50px] cursor-pointer "
@@ -61,13 +66,19 @@ const Subnav = ({ item, lng, pathName }) => {
           <ul className="flex flex-cols container mx-auto pt-[20px] pb-[80px]">
             {item.sub &&
               item.sub.map((sub, i) => (
-                <li className="mr-[80px]" key={"navigation-item-sub-nav-item"+i}>
+                <li
+                  className=" w-full mr-[80px]"
+                  key={"navigation-item-sub-nav-item" + i}
+                >
                   {sub.title && (
                     <h1 className="text-[#F0B450] uppercase mb-[15px] text-2xl">
                       {sub.title}
                     </h1>
                   )}
-                  <ul key={"navigation-ul-nav-"+sub.title} className="flex flex-col">
+                  <ul
+                    key={"navigation-ul-nav-" + sub.title}
+                    className="flex flex-col"
+                  >
                     {sub.links.map((link) => (
                       <li
                         key={link.name}

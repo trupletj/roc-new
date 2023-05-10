@@ -2,28 +2,77 @@
 import { Fragment, useRef, useState, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import GlobalContext from "../../context/GlobalContext";
-import Cross from "../atoms/icons/Cross";
 import { useTranslation } from "@/app/i18n/client";
+import Loading from "../atoms/Loading";
 
 const ModalLogin = ({ lng }) => {
   const { t } = useTranslation(lng, "header");
-  const { openLogin, setOpenLogin } = useContext(GlobalContext);
+  const { openLogin, setOpenLogin, mediaDomain } = useContext(GlobalContext);
   const [email, setEmail] = useState("");
+  const [showValid, setShowValid] = useState(false);
   const [code, setCode] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
   const [codeSent, setCodeSent] = useState(false);
 
+  const [isLoading, setLoading] = useState(false);
+  const isValid = (value) => {
+    const regex = /^\d{8}$|^[\w.%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    return regex.test(value);
+  };
+  const isPhone = (value) => {
+    const regex = /^\d{8}$/;
+    return regex.test(value);
+  };
   const cancelButtonRef = useRef(null);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(email);
   };
-  const handleContinue = (e) => {
+  const sendCode = async () => {
+    setLoading((val) => {
+      return true;
+    });
+
+    let data = {};
+
+    if (isPhone(email)) {
+      data = { phone: email };
+    } else {
+      data = { email: email };
+    }
+    const JSONdata = JSON.stringify(data);
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
+
+    const endpoint = `${mediaDomain}/client/profile/login`;
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
+    
     setCodeSent(true);
+    setLoading((val) => {
+      return false;
+    });
+    debugger;
   };
+
   const handleLogin = (e) => {
-    setCodeSent(true);
+    if (!email) {
+      setShowValid(true);
+    }
+    if (!showValid && email) {
+      sendCode();
+    }
   };
+  const handleContinue = (e) => {
+    handleLogin(e);
+  };
+
   const handleClose = (e) => {
     setOpenLogin(false);
     setEmail("");
@@ -78,69 +127,83 @@ const ModalLogin = ({ lng }) => {
                           X
                         </button>
                       </Dialog.Title>
-                      {isLogin && !codeSent && (
+                      {!codeSent && (
                         <div className="mt-2 text-[#080505]">
                           <div className="flex flex-col">
                             <label className="text-[#080505] mb-5">
                               {t("email_or_phone")}
                             </label>
                             <input
-                              onChange={(e) => setEmail(e.target.value)}
-                              className="py-3 px-4 outline-none border border-[#080505] text-[#080505] bg-transparent mb-10"
+                              value={email}
+                              onChange={(e) =>
+                                setEmail((val) => {
+                                  setShowValid((val) => {
+                                    return !isValid(e.target.value);
+                                  });
+                                  return e.target.value;
+                                })
+                              }
+                              className={`py-3 px-4 outline-none border ${
+                                showValid
+                                  ? "border-red-500"
+                                  : "border-[#080505]"
+                              } text-[#080505] bg-transparent mb-3 `}
                               placeholder={t("email_or_phone")}
                             />
                           </div>
-                          <button
-                            onClick={() => handleLogin()}
-                            className="text-white py-3 text-center w-full bg-[#080505]"
-                          >
-                            {t("login")}
-                          </button>
+                          {!isLogin && (
+                            <>
+                              <div className="mb-5 text-center">
+                                {t("already_registered")}{" "}
+                                <span
+                                  className="text-[#F0B450] underline cursor-pointer"
+                                  onClick={() => setIsLogin(!isLogin)}
+                                >
+                                  {t("login")}
+                                </span>
+                              </div>
+                              <p className="text-center my-5 text-[#6B6969] text-sm">
+                                {t("agree_text")}
+                              </p>
+                              {!isLoading && (
+                                <button
+                                  onClick={() => handleContinue()}
+                                  className="text-white py-3 text-center w-full bg-[#080505]"
+                                >
+                                  {t("continue")}
+                                </button>
+                              )}
+                              {isLoading && <Loading />}
+                            </>
+                          )}
+                          {isLogin && (
+                            <>
+                              <div className="mb-5 text-center">
+                                {t("new_customer")}
+                                {"? "}
+                                <span
+                                  className="text-[#F0B450] underline cursor-pointer"
+                                  onClick={() => setIsLogin(!isLogin)}
+                                >
+                                  {t("register")}
+                                </span>
+                              </div>
 
-                          <div className="my-5 text-center">
-                            {t("new_customer")}
-                            {"? "}
-                            <span
-                              className="text-[#F0B450] underline cursor-pointer"
-                              onClick={() => setIsLogin(!isLogin)}
-                            >
-                              {t("register")}
-                            </span>
-                          </div>
+                              {!isLoading && (
+                                <button
+                                  onClick={() => handleLogin()}
+                                  className="text-white py-3 text-center w-full bg-[#080505]"
+                                >
+                                  {t("login")}
+                                </button>
+                              )}
+
+                              {isLoading && <Loading />}
+                            </>
+                          )}
                         </div>
                       )}
-                      {!isLogin && !codeSent && (
-                        <div className="mt-2 text-[#080505]">
-                          <div className="flex flex-col">
-                            <label className="text-[#080505] mb-5">
-                              {t("email_or_phone")}
-                            </label>
-                            <input
-                              onChange={(e) => setEmail(e.target.value)}
-                              className="py-3 px-4 outline-none border border-[#080505] text-[#080505] bg-transparent mb-5"
-                              placeholder={t("email_or_phone")}
-                            />
-                          </div>
-                          <p className="mb-5 text-center">
-                            {t("already_registered")}{" "}
-                            <span
-                              className="text-[#F0B450] underline cursor-pointer"
-                              onClick={() => setIsLogin(!isLogin)}
-                            >
-                              {t("login")}
-                            </span>
-                          </p>
-                          <button
-                            onClick={() => handleContinue()}
-                            className="text-white py-3 text-center w-full bg-[#080505]"
-                          >
-                            {t("continue")}
-                          </button>
-                          <p className="text-center mt-5 text-[#6B6969] text-sm">
-                            {t("agree_text")}
-                          </p>
-                        </div>
-                      )}
+
                       {codeSent && (
                         <div className="mt-10 text-[#080505]">
                           <div className="flex flex-col">
@@ -159,12 +222,26 @@ const ModalLogin = ({ lng }) => {
                             />
                           </div>
 
-                          <button
-                            onClick={() => handleSubmit()}
-                            className="text-white py-3 my-5 text-center w-full bg-[#080505]"
-                          >
-                            {t("login")}
-                          </button>
+                          <div className="mb-5 text-center">
+                            {t("auth_wrong")}
+                            {"? "}
+                            <span
+                              className="text-[#F0B450] underline cursor-pointer"
+                              onClick={() => setCodeSent(false)}
+                            >
+                              {t("back")}
+                            </span>
+                          </div>
+                          {!isLoading && (
+                            <button
+                              onClick={() => handleSubmit()}
+                              className="text-white py-3 my-5 text-center w-full bg-[#080505]"
+                            >
+                              {t("login")}
+                            </button>
+                          )}
+
+                          {isLoading && <Loading />}
                         </div>
                       )}
                     </div>
