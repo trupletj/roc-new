@@ -31,7 +31,7 @@
   "location": "Location",
   "branches": "Branches",
   "working_hours": "Working hours",
-
+  "recieve_code_not_valid": "Code is not valid",
   "choose_grinder_type": "Please choose grinder type",
   "shop": "Shop",
   "size": "Size",

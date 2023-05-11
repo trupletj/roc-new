@@ -20,8 +20,8 @@ const objectToQueryString = (obj) => {
 
 export const apiDomain = "https://www.api.roc.mn/";
 export const mediaDomain = "https://www.api.roc.mn";
-// export const apiDomain = 'http://192.168.10.188:8000/'
-// export const mediaDomain = 'http://192.168.10.188:8000'
+// export const apiDomain = "http://192.168.10.188:8000/";
+// export const mediaDomain = "http://192.168.10.188:8000";
 export function useItems(req) {
   let str = objectToQueryString(req.data);
   let url = req.url;
@@ -51,3 +51,20 @@ export function useItems(req) {
     isError: error,
   };
 }
+
+export const fetcher = async (endpoint, body) => {
+  const JSONdata = JSON.stringify(body);
+  // Authorization: "Bearer " + token,
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSONdata,
+  };
+  const url = `${apiDomain}${endpoint}`;
+  const response = await fetch(url, options);
+
+  return await response.json();
+};

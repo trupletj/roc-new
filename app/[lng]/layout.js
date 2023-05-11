@@ -5,7 +5,6 @@ import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 
 import { Suspense } from "react";
-import Loading from "./loading";
 
 import Providers from "./Providers";
 import Header from "@/app/[lng]/components/Header";
@@ -61,11 +60,9 @@ export default function RootLayout({ children, params: { lng } }) {
         className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} relative`}
       >
         <Providers>
-          <Suspense fallback={<Loading />}>
             <Header lng={lng} />
             {children}
             <Footer lng={lng} />
-          </Suspense>
         </Providers>
       </body>
     </html>
