@@ -13,6 +13,7 @@ function Providers({ children }) {
   // const mediaDomain = "http://192.168.0.68:8000";
   const [token, setToken] = useState("");
   const [user, setUser] = useState(false);
+  const googleMapsApiKey = "AIzaSyAAQwcxH6QcZ-qIYEzOc657nuM01glAxAU";
 
   useEffect(() => {
     let token = Cookies.get("token");
@@ -38,6 +39,10 @@ function Providers({ children }) {
       if (response.status === 200) {
         const result = await response.json();
         setUser(result.user);
+      } else {
+        Cookies.remove("token");
+        setToken("");
+        setUser(false);
       }
     }
   };
@@ -60,7 +65,8 @@ function Providers({ children }) {
         token,
         setToken,
         openProfile,
-        setOpenProfile
+        setOpenProfile,
+        googleMapsApiKey
       }}
     >
       {children}

@@ -52,10 +52,10 @@ export function useItems(req) {
   };
 }
 
-export const fetcher = async (endpoint, body) => {
+export const fetcher = async (endpoint, body, token) => {
   const JSONdata = JSON.stringify(body);
   // Authorization: "Bearer " + token,
-  const options = {
+  let options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -63,8 +63,19 @@ export const fetcher = async (endpoint, body) => {
     },
     body: JSONdata,
   };
+  if (token) {
+    options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSONdata,
+    };
+  }
   const url = `${apiDomain}${endpoint}`;
   const response = await fetch(url, options);
 
-  return await response.json();
+  return response;
 };

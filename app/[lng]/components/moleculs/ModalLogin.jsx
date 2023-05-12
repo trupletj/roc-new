@@ -9,7 +9,7 @@ import { useTranslation } from "@/app/i18n/client";
 import Cookies from "js-cookie";
 
 const ModalLogin = ({ lng }) => {
-  const { openLogin, setOpenLogin, user, setUser ,token} = useContext(GlobalContext);
+  const { openLogin, setOpenLogin, user, setUser ,token, setToken} = useContext(GlobalContext);
   const { t } = useTranslation();
   const cancelButtonRef = useRef(null);
 
@@ -130,6 +130,7 @@ const ModalLogin = ({ lng }) => {
                                 Cookies.remove("token");
                                 setUser(false);
                                 setOpenLogin(false);
+                                setToken("");
                               }}
                             >
                               {t("logout")}

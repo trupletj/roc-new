@@ -1,5 +1,6 @@
 {
   "information": "Захиалагчийн мэдээлэл",
+  "basket_information": "Сагсны мэдээлэл",
   "btn_name": "Request for information",
   "first_name": "Нэр",
   "last_name": "Овог",
@@ -7,7 +8,7 @@
   "phone": "Утасны дугаар",
   "address": "Address",
   "delivery_address": "ХҮРГЭЛТИЙН ХАЯГ",
-  "choose_address": "Хаягын нэр сонгох",
+  "choose_address": "Хаяг сонгох",
   "work": "Ажил",
   "home": "Гэр",
   "pickup": "Очиж авах",
@@ -30,5 +31,12 @@
   "call_before_delivery": "Хүргэлтийн өмнө залгах",
   "deliver_in_the_evening": "Оройн цагаар хүргэх",
   "placeholder_full_address": "Хаягаа зөв, дэлгэрэнгүй бичнэ үү",
-  "continue_shopping": "Худалдан авалт хийх"
+  "new": "Шинээр нэмэх",
+  "address_name": "Хаягийн нэр",
+  "receiver_name": "Хүлээн авагчийн нэр",
+  "receiver_phone": "Хүлээн авагчийн утасны дугаар",
+  "continue_shopping": "Худалдан авалт хийх",
+  "delete": "Хаяг устгах",
+  "delete_address": "Сонгосон хаяг устгах гэж байна",
+  "save": "Хадгалах"
 }
