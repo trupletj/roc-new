@@ -1,8 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "@/app/i18n/client";
 
 function UserInformation({ lng }) {
   const [openIndex, setOpenIndex] = useState(-1);
+  const { t } = useTranslation();
+
   return (
     <ul className="font-light">
       <li className="border-b border-b-gray-900 last:border-none">
@@ -56,7 +59,14 @@ function UserInformation({ lng }) {
           </div>
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
-              <div className="flex flex-col">as;fkl;sdk</div>
+              <div className="flex flex-col">
+                <a
+                  href={`#`}
+                  className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
+                >
+                  {t("register_info")}
+                </a>
+              </div>
             </div>
           </div>
         </div>
