@@ -1,11 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import GlobalContext from "@/app/[lng]/context/GlobalContext";
 
 function UserInformation({ lng }) {
   const [openIndex, setOpenIndex] = useState(-1);
   const { t } = useTranslation(lng, "client");
-
+  const { user } = useContext(GlobalContext);
   return (
     <ul className="font-light">
       <li className="border-b border-b-gray-900 last:border-none">
@@ -61,9 +62,11 @@ function UserInformation({ lng }) {
             <div className="w-full  mb-10">
               <div className="flex flex-col">
                 <ul>
-                  <li className="mb-5">hayag</li>
-                  <li className="mb-5">hayag</li>
-                  <li className="mb-5">hayag</li>
+                  {user?.addresses?.map((address, index) => (
+                    <li className="" key={`address-${index}`}>
+                      {address.name}
+                    </li>
+                  ))}
                 </ul>
                 <a
                   href={`#`}
