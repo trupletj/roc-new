@@ -20,7 +20,7 @@ function AboutPage() {
   const { t } = useTranslation();
   const [cindex, setCindex] = useState(0);
   const [openIndex, setOpenIndex] = useState(prefix);
-
+  console.log(openIndex);
   const isBrowser = () => typeof window !== "undefined";
   const scrollToTop = () => {
     if (!isBrowser()) return;

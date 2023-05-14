@@ -13,10 +13,10 @@ const data = [
   {
     title: "ROC",
     links: [
-      { name: "our_story", link: "/about?page=our_story" },
-      { name: "who_we_are", link: "/about?page=who_we_are" },
-      { name: "how_we_roast", link: "/about?page=how_we_roast" },
-      { name: "partners_sourcing", link: "/about?page=partners_sourcing" },
+      { name: "our_story", link: "/about?prefix=0" },
+      { name: "who_we_are", link: "/about?prefix=1" },
+      { name: "how_we_roast", link: "/about?prefix=2" },
+      { name: "partners_sourcing", link: "/about?prefix=3" },
     ],
   },
 
@@ -34,20 +34,20 @@ const data = [
   {
     title: "services",
     links: [
-      { name: "roasting", link: "/" },
-      { name: "whole_sale", link: "/" },
-      { name: "catering", link: "/" },
-      { name: "distrubution", link: "/" },
+      { name: "roasting", link: "/services?prefix=0" },
+      { name: "whole_sale", link: "/services?prefix=1" },
+      { name: "catering", link: "/services?prefix=2" },
+      { name: "distrubution", link: "/services?prefix=3" },
     ],
   },
 ];
 const mobileViewData = [
   {
     links: [
-      { name: "about_us", link: "/" },
-      { name: "our_story", link: "/about?page=our_story" },
-      { name: "products", link: "/" },
-      { name: "service", link: "/" },
+      { name: "about_us", link: "/about" },
+      { name: "our_story", link: "/about?prefix=0" },
+      { name: "products", link: "/shop" },
+      { name: "service", link: "/services" },
     ],
   },
 
@@ -85,7 +85,7 @@ function Footer({ lng }) {
                   </h1>
                   {item.links.map((link, i) => (
                     <Link
-                      href={link.link}
+                      href={`/${lng}${link.link}`}
                       key={`footer-item-link-${i}`}
                       className="mb-5"
                     >
