@@ -9,11 +9,18 @@ import { useTranslation } from "@/app/i18n/client";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-function Services({ lng }) {
+function Services({ lng, slug }) {
+  const slug_helper = {
+    "roasting-to-a-taste": 0,
+    "whole-sale": 1,
+    "catering-and-coffee-truck": 2,
+    "distribution-and-maintenance": 3,
+  };
   const searchParams = useSearchParams();
-  const prefix = parseInt(searchParams.get("prefix")) || 0;
   const [cindex, setCindex] = useState(0);
-  const [openIndex, setOpenIndex] = useState(prefix);
+  const [openIndex, setOpenIndex] = useState(
+    slug_helper[slug] !== undefined ? slug_helper[slug.toLowerCase()] : 0
+  );
   const { t: service_catering } = useTranslation(lng, "service_catering");
   const { t: service_distribution } = useTranslation(
     lng,

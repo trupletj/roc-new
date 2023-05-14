@@ -21,12 +21,12 @@ const DataNav = [
     sub: [
       {
         links: [
-          { name: "our_story", link: "/about?prefix=0" },
-          { name: "who_we_are", link: "/about?prefix=1" },
-          { name: "how_we_roast", link: "/about?prefix=2" },
+          { name: "our_story", link: "/about/our-history" },
+          { name: "who_we_are", link: "/about/who-we-are" },
+          { name: "how_we_roast", link: "/about/how-we-roast" },
           {
             name: "partners_sourcing",
-            link: "/about?prefix=3",
+            link: "/about/partners-and-sourcing",
           },
         ],
       },
@@ -38,10 +38,19 @@ const DataNav = [
     sub: [
       {
         links: [
-          { name: "ROASTING TO A TASTE", link: "/services?prefix=0" },
-          { name: "WHOLESALE", link: "/services?prefix=1" },
-          { name: "CATERING & COFFEE TRUCK", link: "/services?prefix=2" },
-          { name: "DISTRIBUTION & MAINTANENCE", link: "/services?prefix=3" },
+          {
+            name: "ROASTING TO A TASTE",
+            link: "/services/roasting-to-a-taste",
+          },
+          { name: "WHOLESALE", link: "/services/whole-sale" },
+          {
+            name: "CATERING & COFFEE TRUCK",
+            link: "/services/catering-and-coffee-truck",
+          },
+          {
+            name: "DISTRIBUTION & MAINTANENCE",
+            link: "/services/distribution-and-maintenance",
+          },
         ],
       },
     ],
@@ -73,7 +82,7 @@ async function Header({ lng }) {
           className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
         >
           <div className="container mx-auto  flex flex-row justify-between  text-[#080505]">
-            <Welcome lng={lng}/>
+            <Welcome lng={lng} />
             <ul className="flex flex-row">
               {/* <li className="ml-10">
                 <DarkModeBtn />
