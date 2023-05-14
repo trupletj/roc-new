@@ -21,10 +21,13 @@ const DataNav = [
     sub: [
       {
         links: [
-          { name: "our_story", link: "/about?page=our_story" },
-          { name: "who_we_are", link: "/about?page=who_we_are" },
-          { name: "how_we_roast", link: "/about?page=how_we_roast" },
-          { name: "partners_sourcing", link: "/about?page=partners_sourcing" },
+          { name: "our_story", link: "/about?prefix=0" },
+          { name: "who_we_are", link: "/about?prefix=1" },
+          { name: "how_we_roast", link: "/about?prefix=2" },
+          {
+            name: "partners_sourcing",
+            link: "/about?prefix=3",
+          },
         ],
       },
     ],
@@ -35,10 +38,10 @@ const DataNav = [
     sub: [
       {
         links: [
-          { name: "ROASTING TO A TASTE", link: "/services" },
-          { name: "WHOLESALE", link: "/services" },
-          { name: "CATERING & COFFEE TRUCK", link: "/services" },
-          { name: "DISTRIBUTION & MAINTANENCE", link: "/services" },
+          { name: "ROASTING TO A TASTE", link: "/services?prefix=0" },
+          { name: "WHOLESALE", link: "/services?prefix=1" },
+          { name: "CATERING & COFFEE TRUCK", link: "/services?prefix=2" },
+          { name: "DISTRIBUTION & MAINTANENCE", link: "/services?prefix=3" },
         ],
       },
     ],
