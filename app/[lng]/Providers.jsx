@@ -8,8 +8,8 @@ function Providers({ children }) {
   const [openProfile, setOpenProfile] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [card, setCard] = useState({});
-  const mediaDomain = "https://www.api.roc.mn";
-  // const mediaDomain = "http://192.168.10.217:8000";
+  // const mediaDomain = "https://www.api.roc.mn";
+  const mediaDomain = "http://192.168.10.217:8000";
   const [token, setToken] = useState("");
   const [user, setUser] = useState(false);
   const googleMapsApiKey = "AIzaSyAAQwcxH6QcZ-qIYEzOc657nuM01glAxAU";

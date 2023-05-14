@@ -38,5 +38,7 @@
   "continue_shopping": "Continue Shopping",
   "delete": "Delete address",
   "delete_address": "You are deleting address",
+  "confirm_email": "Get Confirm email",
+  "confirm_phone": "Get Confirm phone",
   "save": "Save"
 }

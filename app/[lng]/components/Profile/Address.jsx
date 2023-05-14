@@ -56,8 +56,8 @@ function Address({ lng }) {
   } = useForm({
     defaultValues: {
       name: currentAddress?.name || null,
-      receiver_name: currentAddress?.receiver_name || null,
-      receiver_phone: currentAddress?.receiver_phone || null,
+      receiver_name: currentAddress?.receiver_name || user.first_name,
+      receiver_phone: currentAddress?.receiver_phone || user.phone,
       district: currentAddress?.district || null,
       address_information: currentAddress?.address_information || null,
       lat_lng: currentAddress?.lat_lng || null,
@@ -220,20 +220,32 @@ function Address({ lng }) {
                           registerReset({
                             addressType: address?.id || 0,
                             name: address?.name || null,
-                            receiver_name: address?.receiver_name || null,
-                            receiver_phone: address?.receiver_phone || null,
+                            receiver_name:
+                              address?.receiver_name || user.first_name,
+                            receiver_phone:
+                              address?.receiver_phone || user.phone,
                             district: address?.district || null,
                             address_information:
                               address?.address_information || null,
                             lat_lng: address?.lat_lng || null,
                           });
 
+                          console.log(address);
                           if (address?.lat_lng) {
                             console.log(address?.lat_lng);
 
-                            setCenter(JSON.parse(address.lat_lng));
-                            setMain(JSON.parse(address.lat_lng));
-                            setShowMarker(true);
+                            try {
+                              let l_lng = JSON.parse(address.lat_lng);
+                              if (l_lng.lat && l_lng.lng) {
+                                setCenter(l_lng);
+                                setMain(l_lng);
+                                setShowMarker(true);
+                              } else {
+                                setShowMarker(false);
+                              }
+                            } catch (e) {
+                              setShowMarker(false);
+                            }
                           } else {
                             setShowMarker(false);
                           }
@@ -395,7 +407,7 @@ function Address({ lng }) {
                 <div className="mt-2">
                   {!isLoaded && <Loading />}
                   {isLoaded && (
-                    <div className="block w-full  px-2  aspect-square py-1.5  sm:text-sm ">
+                    <div className="block w-full  px-2  aspect-video py-1.5  sm:text-sm ">
                       <GoogleMap
                         center={main}
                         zoom={zoom}
@@ -453,68 +465,6 @@ function Address({ lng }) {
           )}
         </div>
       </form>
-      {false && (
-        <div className="w-full pt-10">
-          <h2 className="text-2xl  text-gray-900 uppercase font-normal">
-            {t("additional_info")}
-          </h2>
-          <div className="sm:col-span-6 mt-5">
-            <div className="grid  grid-cols-2 gap-2 " x-data="app">
-              <div>
-                <input
-                  placeholder={t("additional_info")}
-                  {...register("additionalInfo")}
-                  value={"Хүргэлтийн өмнө залгах"}
-                  type="checkbox"
-                  name="option"
-                  id={11}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor={11}
-                  className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
-                >
-                  {t("call_before_delivery")}
-                </label>
-              </div>
-              <div>
-                <input
-                  placeholder={t("call_before_delivery")}
-                  value={"Оройн цагаар хүргэх"}
-                  {...register("additionalInfo")}
-                  type="checkbox"
-                  name="option"
-                  id={21}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor={21}
-                  className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
-                >
-                  {t("deliver_in_the_evening")}
-                </label>
-              </div>
-              <div>
-                <input
-                  placeholder={t("deliver_in_the_evening")}
-                  value={"Нялх хүүхэдтэй"}
-                  {...register("additionalInfo")}
-                  type="checkbox"
-                  name="option"
-                  id={31}
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor={31}
-                  className="block cursor-pointer select-none  bg-white border border-[#080505] text-[#080505]  p-2 text-center peer-checked:bg-[#080505]  peer-checked:text-white"
-                >
-                  Нялх хүүхэдтэй
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

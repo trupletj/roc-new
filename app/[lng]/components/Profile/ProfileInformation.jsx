@@ -9,19 +9,12 @@ import { fetcher } from "@/app/hooks/useItems";
 
 function ProfileInformation({ lng }) {
   const { user, setUser, token, googleMapsApiKey } = useContext(GlobalContext);
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: googleMapsApiKey,
-  });
 
-  const [main, setMain] = useState({ lat: 47.920934, lng: 106.917695 });
-  const [center, setCenter] = useState({ lat: 47.920934, lng: 106.917695 });
   const [isRegisterOn, setIsRegisterOn] = useState(false);
-  const [map, setMap] = useState(false);
-  const [zoom, setZoom] = useState(14);
   const { t } = useTranslation(lng, "client");
 
-  const [showMarker, setShowMarker] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [isConfirming, setIsConfirm] = useState(false);
   const {
     register,
     handleSubmit,
@@ -31,16 +24,33 @@ function ProfileInformation({ lng }) {
     defaultValues: {
       first_name: user.first_name,
       last_name: user.last_name,
-      phone: user.phone,
-      email: user.email,
       company_register: user.company_register,
       company_name: user.company_name,
-      addressType: null,
+    },
+  });
+
+  const {
+    register: confirmation_register,
+    handleSubmit: confirmation_submit,
+    formState: { errors: confirmation_errors },
+  } = useForm({
+    defaultValues: {
+      phone: user.phone,
+      email: user.email,
     },
   });
 
   //End form confirm nemev
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    setIsSaving(true);
+    const response = await fetcher("client/profile/update", data, token);
+    if (response.status == 200) {
+      const result = await response.json();
+      setUser(result.user);
+      setIsSaving(false);
+    }
+  };
+  const onConfirmSubmit = (data) => console.log(data);
   return (
     <>
       <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
@@ -104,61 +114,6 @@ function ProfileInformation({ lng }) {
             )}
           </div>
 
-          <div className="md:col-span-3 col-span-1">
-            <label
-              htmlFor="phone"
-              className="block text-base font-light leading-6 text-gray-900"
-            >
-              <span className="text-red-500 mr-2">*</span>
-              {t("phone")}
-            </label>
-            <div className="mt-2">
-              <input
-                disabled={true}
-                placeholder={t("phone")}
-                {...register("phone", { required: true, maxLength: 8 })}
-                type="text"
-                name="phone"
-                id="phone"
-                className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
-              />
-            </div>
-            {errors.phone && (
-              <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                <h1 className="text-white text-sm">{t("please_fill")}</h1>
-              </div>
-            )}
-          </div>
-          <div className="md:col-span-3 col-span-1">
-            <label
-              htmlFor="email"
-              className="block text-base font-light leading-6 text-gray-900"
-            >
-              <span className="text-red-500 mr-2">*</span>
-              {t("email")}
-            </label>
-            <div className="mt-2">
-              <input
-                placeholder={t("email")}
-                type="text"
-                {...register("email", {
-                  required: true,
-                  pattern: {
-                    value: /\S+@\S+\.\S+/,
-                    message: "Entered value does not match email format",
-                  },
-                })}
-                name="email"
-                id="email"
-                className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
-              />
-            </div>
-            {errors.email && (
-              <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                <h1 className="text-white text-sm">{t("please_fill")}</h1>
-              </div>
-            )}
-          </div>
           <div className="md:col-span-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-gray-200 p-5">
             <div
               onClick={() => setIsRegisterOn(!isRegisterOn)}
@@ -243,8 +198,8 @@ function ProfileInformation({ lng }) {
                         required: true,
                       })}
                       type="text"
-                      name="first-name"
-                      id="first-name"
+                      name="company_register"
+                      id="company_register"
                       className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
                     />
                   </div>
@@ -268,8 +223,8 @@ function ProfileInformation({ lng }) {
                       placeholder="text"
                       {...register("company_name", { required: true })}
                       type="text"
-                      name="first-name"
-                      id="first-name"
+                      name="company_name"
+                      id="company_name"
                       className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
                     />
                   </div>
@@ -289,6 +244,84 @@ function ProfileInformation({ lng }) {
               className="block cursor-pointer select-none  bg-[#080505] p-2 text-center   text-white w-full"
             >
               {t("save")}
+            </button>
+            {isSaving && <Loading />}
+          </div>
+        </div>
+      </form>
+
+      <form className="w-full" onSubmit={confirmation_submit(onConfirmSubmit)}>
+        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-6 bg-white p-10">
+          <div className="md:col-span-3 col-span-1">
+            <label
+              htmlFor="phone"
+              className="block text-base font-light leading-6 text-gray-900"
+            >
+              <span className="text-red-500 mr-2">*</span>
+              {t("phone")}
+            </label>
+            <div className="mt-2">
+              <input
+                disabled={user.phone ? true : false}
+                placeholder={t("phone")}
+                {...confirmation_register("phone", {
+                  required: true,
+                  maxLength: 8,
+                })}
+                type="text"
+                name="phone"
+                id="phone"
+                className={`block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 ${
+                  user.phone ? "bg-gray-400" : "bg-white"
+                }`}
+              />
+            </div>
+            {confirmation_errors.phone && (
+              <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                <h1 className="text-white text-sm">{t("please_fill")}</h1>
+              </div>
+            )}
+          </div>
+          <div className="md:col-span-3 col-span-1">
+            <label
+              htmlFor="email"
+              className="block text-base font-light leading-6 text-gray-900"
+            >
+              <span className="text-red-500 mr-2">*</span>
+              {t("email")}
+            </label>
+            <div className="mt-2">
+              <input
+                disabled={user.email ? true : false}
+                placeholder={t("email")}
+                type="text"
+                {...confirmation_register("email", {
+                  required: true,
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Entered value does not match email format",
+                  },
+                })}
+                name="email"
+                id="email"
+                className={`block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 ${
+                  user.email ? "bg-gray-400" : "bg-white"
+                }`}
+              />
+            </div>
+            {confirmation_errors.email && (
+              <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                <h1 className="text-white text-sm">{t("please_fill")}</h1>
+              </div>
+            )}
+          </div>
+          <div className="sm:col-span-6">
+            <button
+              htmlFor={2}
+              type="submit"
+              className="block cursor-pointer select-none  bg-[#080505] p-2 text-center   text-white w-full"
+            >
+              {user.phone ? t("confirm_email") : t("confirm_phone")}
             </button>
             {isSaving && <Loading />}
           </div>
