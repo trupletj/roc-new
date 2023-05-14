@@ -8,13 +8,14 @@ import { useTranslation } from "@/app/i18n/client";
 // import { cookies } from "next/dist/client/components/headers";
 import Cookies from "js-cookie";
 import UserInformation from "../UserInformation";
+import { useRouter } from "next/navigation";
 
 const ModalLogin = ({ lng }) => {
   const { openLogin, setOpenLogin, user, setUser, token, setToken } =
     useContext(GlobalContext);
   const { t } = useTranslation();
   const cancelButtonRef = useRef(null);
-
+  const router = useRouter();
   return (
     <>
       {!user && !token && (
@@ -111,7 +112,7 @@ const ModalLogin = ({ lng }) => {
                           <div className="mt-8">
                             <div className="flow-root">
                               <a
-                                href={`#`}
+                                href={`/${lng}/profile/my-profile`}
                                 className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
                               >
                                 {t("register_info")}

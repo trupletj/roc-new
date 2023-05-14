@@ -2,11 +2,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
+import { useRouter } from "next/navigation";
 
 function UserInformation({ lng }) {
   const [openIndex, setOpenIndex] = useState(-1);
   const { t } = useTranslation(lng, "client");
   const { user } = useContext(GlobalContext);
+  const router = useRouter();
   return (
     <ul className="font-light">
       <li className="border-b border-b-gray-900 last:border-none">
@@ -61,15 +63,28 @@ function UserInformation({ lng }) {
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <ul>
-                  {user?.addresses?.map((address, index) => (
-                    <li className="" key={`address-${index}`}>
-                      {address.name}
-                    </li>
-                  ))}
-                </ul>
+                {user?.addresses.length > 0 ? (
+                  <ul className="mb-5">
+                    {user?.addresses?.map((address, index) => (
+                      <li
+                        className="py-3 border-b last:border-none cursor-pointer"
+                        key={`address-${index}`}
+                        onClick={() =>
+                          router.push(
+                            `/${lng}/profile/my-addresses?id=${address.id}`
+                          )
+                        }
+                      >
+                        <span>{address.name}</span>,{" "}
+                        <span>{address.receiver_name}</span>,
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-xs mb-5">{t("empty_address_text")}</p>
+                )}
                 <a
-                  href={`#`}
+                  href={`/${lng}/profile/my-addresses?id=0`}
                   className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
                 >
                   {t("new")}

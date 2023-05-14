@@ -7,8 +7,12 @@ import { useJsApiLoader, GoogleMap, Marker } from "@react-google-maps/api";
 import Loading from "../atoms/Loading";
 import { fetcher } from "@/app/hooks/useItems";
 
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+
 function Address({ lng }) {
   const { user, setUser, token, googleMapsApiKey } = useContext(GlobalContext);
+  const searchParams = useSearchParams();
+  const id = parseInt(searchParams.get("id")) || 0;
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: googleMapsApiKey,
   });
