@@ -37,7 +37,7 @@ function AboutPage() {
           >
             <h1>{t("our_story")}</h1>
             <div>
-              {openIndex === 0 ? (
+              {openIndex !== 0 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.061"
@@ -193,7 +193,7 @@ function AboutPage() {
           >
             <h1>{t("who_we_are")}</h1>
             <div>
-              {openIndex === 1 ? (
+              {openIndex !== 1 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.061"
@@ -283,7 +283,7 @@ function AboutPage() {
           >
             <h1>HOW WE ROAST</h1>
             <div>
-              {openIndex === 2 ? (
+              {openIndex !== 2 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.061"
@@ -406,7 +406,7 @@ function AboutPage() {
           >
             <h1>PARTNERS & SOURCING</h1>
             <div>
-              {openIndex === 3 ? (
+              {openIndex !== 3 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17.061"
