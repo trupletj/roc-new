@@ -2,7 +2,7 @@
 import { useTranslation } from "@/app/i18n/client";
 import React, { useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
-function welcome({ lng }) {
+function Welcome({ lng }) {
   const { t } = useTranslation(lng, "header");
 
   const { user } = useContext(GlobalContext);
@@ -16,4 +16,4 @@ function welcome({ lng }) {
   );
 }
 
-export default welcome;
+export default Welcome;
