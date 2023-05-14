@@ -18,10 +18,10 @@ const objectToQueryString = (obj) => {
   return str.join("&");
 };
 
-// export const apiDomain = "https://www.api.roc.mn/";
-// export const mediaDomain = "https://www.api.roc.mn";
-export const apiDomain = "http://192.168.10.217:8000/";
-export const mediaDomain = "http://192.168.10.217:8000";
+export const apiDomain = "https://www.api.roc.mn/";
+export const mediaDomain = "https://www.api.roc.mn";
+// export const apiDomain = "http://192.168.10.217:8000/";
+// export const mediaDomain = "http://192.168.10.217:8000";
 export function useItems(req) {
   let str = objectToQueryString(req.data);
   let url = req.url;
@@ -87,7 +87,7 @@ export const fetcherForSwrGet = async (url, body) => {
     newurl = newurl + "?" + str;
   }
 
-  console.log("swr",newurl);
+  console.log("swr", newurl);
   const res = await fetch(newurl);
   if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
