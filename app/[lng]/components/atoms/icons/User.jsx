@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 
 function User() {
-  const { openLogin, setOpenLogin } = useContext(GlobalContext);
+  const { openLogin, setOpenLogin, user } = useContext(GlobalContext);
   return (
     <div className=" cursor-pointer " onClick={() => setOpenLogin(true)}>
       <svg
@@ -14,6 +14,7 @@ function User() {
         width="25.752"
         height={25}
         viewBox="0 0 25.752 25"
+        color={user ? "#F0B450" : "white"}
       >
         <defs>
           <clipPath id="clip-path">

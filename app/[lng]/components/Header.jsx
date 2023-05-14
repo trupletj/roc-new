@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "@/app/i18n";
 import { TranslateBtn } from "@/app/[lng]/components/atoms/TranslateBtn";
 import Logo from "./atoms/Logo";
 import Search from "./atoms/icons/Search";
@@ -11,6 +10,7 @@ import Burger from "./atoms/icons/Burger";
 import Basket from "./Shop/Basket";
 import ModalLogin from "./moleculs/ModalLogin";
 import Link from "next/link";
+import Welcome from "./atoms/Welcome";
 const DataNav = [
   {
     name: "shop",
@@ -29,7 +29,6 @@ const DataNav = [
       },
     ],
   },
- 
 
   {
     name: "service",
@@ -62,8 +61,6 @@ const DataNav = [
 ];
 
 async function Header({ lng }) {
-  const { t } = await useTranslation(lng, "header");
-
   return (
     <>
       <div
@@ -73,7 +70,7 @@ async function Header({ lng }) {
           className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
         >
           <div className="container mx-auto  flex flex-row justify-between  text-[#080505]">
-            <p>{t("hello")} </p>
+            <Welcome lng={lng}/>
             <ul className="flex flex-row">
               {/* <li className="ml-10">
                 <DarkModeBtn />
