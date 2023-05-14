@@ -5,8 +5,7 @@ import Profile from "../components/Profile/Profile";
 function page({ params: { lng } }) {
   return (
     <div className="w-full bg-[#f2f2f2]">
-      <Paths />
-      <Profile lng={lng} />
+      <Profile lng={lng} slug="tester" />
     </div>
   );
 }
