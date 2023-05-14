@@ -6,24 +6,29 @@ import BasketItem from "../Shop/BasketItems";
 import GlobalContext from "../../context/GlobalContext";
 import Login from "../moleculs/Items/Login";
 import ProfileInformation from "./ProfileInformation";
+import Address from "./Address";
 function Profile({ lng, slug }) {
   const { t } = useTranslation(lng, "client");
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
 
   const slug_helper = {
+    "my-profile": true,
     "my-addresses": true,
     "order-histories": true,
   };
 
-  const current_page =
-    slug_helper[slug] != undefined ? slug_helper[slug] : "my-addresses";
+  const current_page = slug_helper[slug] != undefined ? slug : "my-addresses";
   const { user, setUser, token } = useContext(GlobalContext);
   return (
     <>
       <div className="container  items-start space-x-4 py-10 ">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 order-2 lg:order-1 sm:items-end lg:col-span-8">
-            {user && current_page === "my-addresses" && <ProfileInformation />}
+            {user && current_page === "my-profile" && <ProfileInformation />}
+            {user && current_page === "my-addresses" && <Address />}
+            {user && current_page === "order-histories" && (
+              <ProfileInformation />
+            )}
 
             {!user && !token && (
               <>
