@@ -38,7 +38,7 @@ function UserOrderInformation({ lng }) {
       addressType: null,
     },
   });
-
+  console.log(errors);
   const [addresses, setAddresses] = useState(
     user?.addresses
       ? [
@@ -464,19 +464,15 @@ function UserOrderInformation({ lng }) {
                           required: true,
                         })}
                         type="radio"
-                        name="addressType"
+                        id={`address-${address.id}`}
                         value={address.id}
                         className="peer hidden"
                       />
                       <label
                         htmlFor={`address-${address.id}`}
-                        className={`block cursor-pointer select-none   p-2 text-center   text-white ${
-                          currentAddress?.id == address.id
-                            ? "bg-[#F0B450]"
-                            : "bg-[#080505]"
-                        }`}
+                        className={`block cursor-pointer select-none   p-2 text-center   text-white  peer-checked:bg-[#F0B450] bg-[#080505]`}
                       >
-                        {address.id === 0 ? t("new") : address.name}
+                        {address.name}
                       </label>
                     </div>
                   );

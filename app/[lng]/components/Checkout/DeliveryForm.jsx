@@ -16,7 +16,7 @@ function DeliveryForm({ lng }) {
     <>
       <div className="container  items-start space-x-4 py-10 ">
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-12 sm:items-end lg:col-span-7">
+          <div className="col-span-12 order-2 lg:order-1 sm:items-end lg:col-span-7">
             {user && <UserOrderInformation />}
 
             {!user && !token && (
@@ -30,7 +30,7 @@ function DeliveryForm({ lng }) {
               </>
             )}
           </div>
-          <div className="col-span-12 lg:col-span-5">
+          <div className="col-span-12 order-1 lg:oder-2 lg:col-span-5 pb-10">
             <div className="max-w-full pt-10 md:pt-0">
               <h2 className="text-2xl text-gray-900 uppercase font-normal ">
                 {t("basket_information")}
