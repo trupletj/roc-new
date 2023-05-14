@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import image1 from "@/public/assets/hero1.png";
 import story1 from "@/public/assets/about/story_1.png";
 import story2 from "@/public/assets/about/story_2.png";
@@ -12,11 +12,15 @@ import story4 from "@/public/assets/about/story_4.png";
 import weare from "@/public/assets/about/weare.jpg";
 import man from "@/public/assets/about/man.jpg";
 import { useTranslation } from "@/app/i18n/client";
+import { useSearchParams } from "next/navigation";
 
 function AboutPage() {
+  const searchParams = useSearchParams();
+  const prefix = parseInt(searchParams.get("prefix")) || 0;
   const { t } = useTranslation();
   const [cindex, setCindex] = useState(0);
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(prefix);
+
   const isBrowser = () => typeof window !== "undefined";
   const scrollToTop = () => {
     if (!isBrowser()) return;

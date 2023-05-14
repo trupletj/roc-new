@@ -7,9 +7,13 @@ import distributioin_image from "@/public/assets/services/maintainces.jpg";
 import roasting_image from "@/public/assets/services/roasting_to_taste.jpg";
 import { useTranslation } from "@/app/i18n/client";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
 function Services({ lng }) {
+  const searchParams = useSearchParams();
+  const prefix = parseInt(searchParams.get("prefix")) || 0;
   const [cindex, setCindex] = useState(0);
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(prefix);
   const { t: service_catering } = useTranslation(lng, "service_catering");
   const { t: service_distribution } = useTranslation(
     lng,
