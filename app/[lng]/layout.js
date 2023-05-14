@@ -9,7 +9,7 @@ import { Suspense } from "react";
 import Providers from "./Providers";
 import Header from "@/app/[lng]/components/Header";
 import Footer from "./components/Footer";
-
+import PreLoader from "./components/PreLoader";
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
@@ -53,6 +53,7 @@ const noirmedium = localFont({
   ],
   variable: "--font-noir-medium",
 });
+
 export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
@@ -60,9 +61,9 @@ export default function RootLayout({ children, params: { lng } }) {
         className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} relative`}
       >
         <Providers>
-            <Header lng={lng} />
-            {children}
-            <Footer lng={lng} />
+          <Header lng={lng} />
+          {children}
+          <Footer lng={lng} />
         </Providers>
       </body>
     </html>

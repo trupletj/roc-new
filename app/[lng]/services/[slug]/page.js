@@ -1,11 +1,11 @@
 import React from "react";
-import Services from "../components/services/Services";
+import Services from "../../components/services/Services";
 
-function page({ params: { lng } }) {
+function page({ params: { lng, slug } }) {
   return (
     <div className="w-full bg-white">
       <div className="container">
-        <Services slug={"ROASTING-TO-A-TASTE"} />
+        <Services slug={slug} />
       </div>
     </div>
   );
