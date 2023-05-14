@@ -4,7 +4,7 @@ import { useTranslation } from "@/app/i18n/client";
 
 function UserInformation({ lng }) {
   const [openIndex, setOpenIndex] = useState(-1);
-  const { t } = useTranslation();
+  const { t } = useTranslation(lng, "client");
 
   return (
     <ul className="font-light">
@@ -60,11 +60,16 @@ function UserInformation({ lng }) {
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
+                <ul>
+                  <li className="mb-5">hayag</li>
+                  <li className="mb-5">hayag</li>
+                  <li className="mb-5">hayag</li>
+                </ul>
                 <a
                   href={`#`}
                   className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
                 >
-                  {t("register_info")}
+                  {t("new")}
                 </a>
               </div>
             </div>
