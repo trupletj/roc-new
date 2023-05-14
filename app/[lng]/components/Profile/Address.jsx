@@ -185,7 +185,7 @@ function Address({ lng }) {
   return (
     <>
       <form
-        className="w-full pt-10"
+        className="w-full "
         onSubmit={handdleAddressSubmit(onSubmitAddress)}
       >
         <h2 className="text-2xl  text-gray-900 uppercase font-normal">
