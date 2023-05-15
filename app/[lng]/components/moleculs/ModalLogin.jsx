@@ -94,7 +94,7 @@ const ModalLogin = ({ lng }) => {
                         <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                           <div className="flex items-start justify-between border-b border-gray-700 border-x-0 border-t-0 pb-3">
                             <Dialog.Title className="text-lg font-medium text-gray-900">
-                              {user.phone}
+                              {user.phone || user.email}
                             </Dialog.Title>
                             <div className="flex items-center">
                               <button
