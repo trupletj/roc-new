@@ -87,7 +87,7 @@ export const fetcherForSwrGet = async (url, body) => {
     newurl = newurl + "?" + str;
   }
 
-  console.log("swr", newurl);
+  console.log("swr",newurl);
   const res = await fetch(newurl);
   if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();

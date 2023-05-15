@@ -213,7 +213,9 @@ const Login = ({ lng, isDialog }) => {
                 {email}
               </span>
             </div>
-            <label className="text-[#080505] mb-3">{t("recieve_code")}</label>
+            <label className="text-[#080505] mb-3">
+              {!isPhone(email) ? t("recieve_code_email") : t("recieve_code")}
+            </label>
             <input
               type="number"
               maxLength={6}

@@ -7,6 +7,7 @@
   "continue": "Continue",
   "register": "Register",
   "recieve_code": "Please enter last received verification code",
+  "recieve_code_email": "Please check your email and  enter last received verification code",
   "agree_text": "By creating an account, you agree to ROC's Conditions of Use and Privacy Notice.",
   "already_registered": "Already have account?",
   "email_or_phone": "Please fill Email or Phone",

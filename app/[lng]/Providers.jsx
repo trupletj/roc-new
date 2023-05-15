@@ -65,7 +65,7 @@ function Providers({ children }) {
         setToken,
         openProfile,
         setOpenProfile,
-        googleMapsApiKey,
+        googleMapsApiKey
       }}
     >
       {children}
