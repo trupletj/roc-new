@@ -10,15 +10,90 @@ import Login from "../moleculs/Items/Login";
 function DeliveryForm({ lng }) {
   const { t } = useTranslation(lng, "client");
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
+  const [openAlertModal, setOpenAlertModal] = useState(false);
 
-  const { user, setUser, token } = useContext(GlobalContext);
+  const { user, setUser, token, setAlerts, card } = useContext(GlobalContext);
+  const [isRegisterOn, setIsRegisterOn] = useState(false);
+  const [currentAddress, setCurrentAddress] = useState(false);
+
+  const onOrderSubmit = () => {
+    // setAlerts((val) => {
+    //   return [
+    //     ...val,
+    //     {
+    //       title: "r u sure",
+    //       description: "qweqwe",
+    //     },
+    //   ];
+    // });
+    if (!currentAddress) {
+      setAlerts((val) => {
+        return [
+          ...val,
+          {
+            title: "Warning",
+            description: t("choose address"),
+          },
+        ];
+      });
+      return false;
+    }
+    if (isRegisterOn && (!user.company_name || !user.company_register)) {
+      setAlerts((val) => {
+        return [
+          ...val,
+          {
+            title: "Warning",
+            description: t(
+              "Please add your company information on your profile"
+            ),
+          },
+        ];
+      });
+      return false;
+    }
+    const localCard = localStorage.getItem("card");
+    let helper = localCard ? JSON.parse(localCard) : {};
+
+    let products = Object.keys(helper).map((key) => {
+      return {
+        grinders: helper[key].grinders,
+        id: helper[key].id,
+        quantity: helper[key].quantity,
+      };
+    });
+
+    console.log({
+      address_id: currentAddress.id,
+      is_company: isRegisterOn,
+      products,
+    });
+    setAlerts((val) => {
+      return [
+        ...val,
+        {
+          title: "Success",
+          description: t(
+            "Your order submited successfuly, Please check invoice on order detail page"
+          ),
+        },
+      ];
+    });
+    localStorage.setItem("card", "{}");
+  };
   return (
     <>
       <div className="container  items-start space-x-4 py-10 ">
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-12 order-2 lg:order-1 sm:items-end lg:col-span-7">
-            {user && <UserOrderInformation />}
-
+          <div className="col-span-12 order-1 lg:order-1 sm:items-end lg:col-span-7">
+            {user && (
+              <UserOrderInformation
+                currentAddress={currentAddress}
+                setCurrentAddress={setCurrentAddress}
+                isRegisterOn={isRegisterOn}
+                setIsRegisterOn={setIsRegisterOn}
+              />
+            )}
             {!user && !token && (
               <>
                 <h2 className="text-2xl text-gray-900 uppercase font-normal">
@@ -30,7 +105,7 @@ function DeliveryForm({ lng }) {
               </>
             )}
           </div>
-          <div className="col-span-12 order-1 lg:oder-2 lg:col-span-5 pb-10">
+          <div className="col-span-12 order-2 lg:oder-2 lg:col-span-5 pb-10">
             <div className="max-w-full pt-10 md:pt-0">
               <h2 className="text-2xl text-gray-900 uppercase font-normal ">
                 {t("basket_information")}
@@ -54,12 +129,15 @@ function DeliveryForm({ lng }) {
 
             <button
               onClick={() => setOpenConfirmModal(!openConfirmModal)}
-              className="w-full bg-[#F0B450] py-2 my-4 "
+              className="w-full bg-[#F0B450] py-2 mt-4   "
             >
               {t("checkout")}
             </button>
-            <button className="w-full bg-[#080505] text-white py-2">
-              {t("continue_shopping")}
+            <button
+              onClick={onOrderSubmit}
+              className="w-full bg-[#080505] text-white py-2 mt-4"
+            >
+              {t("make_order")}
             </button>
           </div>
         </div>

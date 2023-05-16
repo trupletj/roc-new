@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import GlobalContext from "./context/GlobalContext";
 import Cookies from "js-cookie";
+import AlertModal from "./components/moleculs/AlertModal";
+import GlobalLoader from "./components/moleculs/GlobalLoader";
 
 function Providers({ children }) {
   const [openBasket, setOpenBasket] = useState(false);
@@ -13,7 +15,8 @@ function Providers({ children }) {
   const [token, setToken] = useState("");
   const [user, setUser] = useState(false);
   const googleMapsApiKey = "AIzaSyAAQwcxH6QcZ-qIYEzOc657nuM01glAxAU";
-
+  const [alerts, setAlerts] = useState([]);
+  const [globalLoader, setGlobalLoader] = useState(false);
   useEffect(() => {
     let token = Cookies.get("token");
     setToken(token);
@@ -65,9 +68,20 @@ function Providers({ children }) {
         setToken,
         openProfile,
         setOpenProfile,
-        googleMapsApiKey
+        googleMapsApiKey,
+        setAlerts,
+        globalLoader,
+        setGlobalLoader,
       }}
     >
+      {alerts.map((item, key) => (
+        <AlertModal key={`current-alert-${key}`} alert={item} />
+      ))}
+
+      <GlobalLoader
+        globalLoader={globalLoader}
+        setGlobalLoader={setGlobalLoader}
+      />
       {children}
     </GlobalContext.Provider>
   );
