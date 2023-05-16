@@ -63,7 +63,7 @@ function UserInformation({ lng }) {
           <div className={openIndex === 0 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                {user?.addresses.length > 0 ? (
+                {user?.addresses?.length > 0 ? (
                   <ul className="mb-5">
                     {user?.addresses?.map((address, index) => (
                       <li

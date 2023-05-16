@@ -19,7 +19,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
-  const { setOpenBasket, mediaDomain, setCard } = useContext(GlobalContext);
+  const { setOpenBasket, mediaDomain, setCard, setAlerts } =
+    useContext(GlobalContext);
 
   useEffect(() => {
     if (
@@ -341,7 +342,15 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                     className="bg-[#080505] text-white py-2 px-3 col-span-3 border min-h-[25px]"
                     onClick={() => {
                       if (productType?.category_id == 2 && !selectedGrind) {
-                        alert(t("choose_grinder_type"));
+                        setAlerts((val) => {
+                          return [
+                            ...val,
+                            {
+                              title: "Warning",
+                              description: t("choose_grinder_type"),
+                            },
+                          ];
+                        });
                         return false;
                       }
                       setCard((val) => {
