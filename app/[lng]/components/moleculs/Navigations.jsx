@@ -26,7 +26,7 @@ function Navigations({ lng, DataNav }) {
             ))}
           </ul>
           <div className="uppercase">
-            <Link href={`/${lng}`}>{t("contact_us")}</Link>
+            <a href={`/${lng}`}>{t("contact_us")}</a>
           </div>
         </div>
       </section>
@@ -47,9 +47,9 @@ const Subnav = ({ item, lng, pathName }) => {
         }
       >
         {item.link && (
-          <Link href={`/${lng}${item.link}`}>
+          <a href={`/${lng}${item.link}`}>
             <span className="uppercase">{t(item.name)}</span>
-          </Link>
+          </a>
         )}
         {!item.link && <span className="uppercase">{t(item.name)}</span>}
 
@@ -84,7 +84,7 @@ const Subnav = ({ item, lng, pathName }) => {
                         key={link.name}
                         className="flex flex-row uppercase text-2xl my-2.5"
                       >
-                        <Link href={`/${lng}${link.link}`}>{t(link.name)}</Link>
+                        <a href={`/${lng}${link.link}`}>{t(link.name)}</a>
                       </li>
                     ))}
                   </ul>

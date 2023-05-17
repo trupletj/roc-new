@@ -10,6 +10,14 @@ function Providers({ children }) {
   const [openProfile, setOpenProfile] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [card, setCard] = useState({});
+  const district = {
+    BGD: "Баянгол",
+    BZD: "Баянзүрх",
+    SBD: "Сүхбаатар",
+    SHD: "Сонгинохайрхан",
+    CHD: "Чингэлтэй",
+    HUD: "Хан-Уул",
+  };
   const mediaDomain = "https://www.api.roc.mn";
   // const mediaDomain = "http://192.168.10.217:8000";
   const [token, setToken] = useState("");
@@ -72,6 +80,7 @@ function Providers({ children }) {
         setAlerts,
         globalLoader,
         setGlobalLoader,
+        district,
       }}
     >
       {alerts.map((item, key) => (

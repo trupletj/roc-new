@@ -14,7 +14,8 @@ function UserOrderInformation({
   isRegisterOn,
   setIsRegisterOn,
 }) {
-  const { user, setUser, token, googleMapsApiKey } = useContext(GlobalContext);
+  const { user, setUser, token, googleMapsApiKey, district } =
+    useContext(GlobalContext);
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: googleMapsApiKey,
   });
@@ -45,14 +46,6 @@ function UserOrderInformation({
     },
   });
 
-  const district = {
-    BGD: "Баянгол",
-    BZD: "Баянзүрх",
-    SBD: "Сүхбаатар",
-    SHD: "Сонгинохайрхан",
-    CHD: "Чингэлтэй",
-    HUD: "Хан-Уул",
-  };
   const [addresses, setAddresses] = useState(
     user?.addresses
       ? [

@@ -8,6 +8,7 @@ import Login from "../moleculs/Items/Login";
 import ProfileInformation from "./ProfileInformation";
 import Address from "./Address";
 import SideBar from "./SideBar";
+import OrderHistory from "./OrderHistory";
 function Profile({ lng, slug }) {
   const { t } = useTranslation(lng, "client");
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
@@ -25,7 +26,7 @@ function Profile({ lng, slug }) {
       <div className="col-span-12 order-2 lg:order-1 sm:items-end lg:col-span-8">
         {user && current_page === "my-profile" && <ProfileInformation />}
         {user && current_page === "my-addresses" && <Address />}
-        {user && current_page === "order-histories" && <ProfileInformation />}
+        {user && current_page === "order-histories" && <OrderHistory lng={lng} />}
 
         {!user && !token && (
           <>
@@ -47,7 +48,7 @@ function Profile({ lng, slug }) {
           <div className="pointer-events-auto mt-10">
             <div className="flex flex-col bg-white ">
               <div className="flex-1 overflow-y-auto  p-6 ">
-                <SideBar lng={lng} />
+                <SideBar lng={lng} slug={slug} />
               </div>
             </div>
           </div>

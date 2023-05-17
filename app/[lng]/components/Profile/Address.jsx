@@ -69,6 +69,23 @@ function Address({ lng }) {
   });
 
   useEffect(() => {
+    if (id > 0) {
+      setCurrentAddress(user.addresses.find((item) => item.id == id) || false);
+    } else {
+      setCurrentAddress(
+        {
+          id: 0,
+          name: "",
+          receiver_name: "",
+          receiver_phone: "",
+          district: "",
+          address_information: "",
+          lat_lng: "",
+        } || false
+      );
+    }
+  }, []);
+  useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {

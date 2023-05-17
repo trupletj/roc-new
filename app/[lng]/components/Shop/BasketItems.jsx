@@ -270,13 +270,28 @@ function BasketItem({ lng, hideTitle }) {
         </div>
       </div>
 
-      <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-        <div className="flex justify-between text-base font-medium text-black-800 border-b pb-3">
+      <div className="border-t border-gray-200 px-4 py-3 sm:px-6">
+        {totalPrice < 100000 && (
+          <div className="flex justify-between text-base font-medium text-black-800 border-b py-3">
+            <p>{t("delivery")}</p>
+            <p>
+              {parseInt(4000)?.toLocaleString("en-US", {
+                style: "decimal",
+              })}
+              {"₮"}
+            </p>
+          </div>
+        )}
+        <div className="flex justify-between text-base font-medium text-black-800 border-b py-3">
           <p>{t("subtotal")}</p>
           <p>
-            {totalPrice?.toLocaleString("en-US", {
-              style: "decimal",
-            })}
+            {totalPrice < 100000
+              ? parseInt(totalPrice + 4000)?.toLocaleString("en-US", {
+                  style: "decimal",
+                })
+              : totalPrice?.toLocaleString("en-US", {
+                  style: "decimal",
+                })}
             {"₮"}
           </p>
         </div>
@@ -352,7 +367,11 @@ function BasketItem({ lng, hideTitle }) {
               </div>
             )}
           </div>
-          {openInformation && <div className="sm:col-span-3">asdasd</div>}
+          {openInformation && (
+            <div className="sm:col-span-3">
+              asd asio naoisd naois noiaoisdn oiasnd
+            </div>
+          )}
         </div>
         {isShowTitle && (
           <>

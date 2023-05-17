@@ -93,7 +93,7 @@ export const fetcherForSwrGet = async (url, body) => {
   return res.json();
 };
 
-export const fetcherForSwrPost = async (endpoint, body, token) => {
+export const fetcherForSwrPost = async (fulllink, body, token) => {
   const JSONdata = JSON.stringify(body);
   // Authorization: "Bearer " + token,
   let options = {
@@ -115,7 +115,7 @@ export const fetcherForSwrPost = async (endpoint, body, token) => {
       body: JSONdata,
     };
   }
-  const url = `${apiDomain}${endpoint}`;
+  const url = `${fulllink}`;
   const response = await fetch(url, options);
 
   if (!response.ok) throw new Error("Failed to fetch data");

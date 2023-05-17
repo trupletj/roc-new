@@ -6,26 +6,21 @@ import BasketItem from "../Shop/BasketItems";
 import UserOrderInformation from "./UserOrderInformation";
 import GlobalContext from "../../context/GlobalContext";
 import Login from "../moleculs/Items/Login";
+import { fetcher } from "@/app/hooks/useItems";
+import { useRouter } from "next/navigation";
 
 function DeliveryForm({ lng }) {
   const { t } = useTranslation(lng, "client");
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
   const [openAlertModal, setOpenAlertModal] = useState(false);
 
-  const { user, setUser, token, setAlerts, card } = useContext(GlobalContext);
+  const router = useRouter();
+  const { user, setUser, token, setAlerts, card, setGlobalLoader } =
+    useContext(GlobalContext);
   const [isRegisterOn, setIsRegisterOn] = useState(false);
   const [currentAddress, setCurrentAddress] = useState(false);
 
-  const onOrderSubmit = () => {
-    // setAlerts((val) => {
-    //   return [
-    //     ...val,
-    //     {
-    //       title: "r u sure",
-    //       description: "qweqwe",
-    //     },
-    //   ];
-    // });
+  const onOrderSubmit = async () => {
     if (!currentAddress) {
       setAlerts((val) => {
         return [
@@ -63,23 +58,56 @@ function DeliveryForm({ lng }) {
       };
     });
 
+    setGlobalLoader(true);
+    const response = await fetcher(
+      "client/order/create",
+      {
+        address_id: currentAddress.id,
+        is_company: isRegisterOn,
+        products,
+      },
+      token
+    );
+    if (response.status == 200) {
+      const result = await response.json();
+      console.log(result);
+      setAlerts((val) => {
+        setGlobalLoader(false);
+        return [
+          ...val,
+          {
+            title: "Success",
+            description: t(
+              "Your order submited successfuly, Please check invoice on order detail page"
+            ),
+          },
+        ];
+      });
+      router.push(
+        `/${lng}/order/${result?.record?.order?.id}`,
+        { query: { id: result?.record?.order?.id } },
+        { shallow: true }
+      );
+      localStorage.setItem("card", "{}");
+      // result.record.order
+    } else {
+      setGlobalLoader(false);
+      setAlerts((val) => {
+        return [
+          ...val,
+          {
+            title: "Warning",
+            description: t("some error"),
+          },
+        ];
+      });
+    }
+
     console.log({
       address_id: currentAddress.id,
       is_company: isRegisterOn,
       products,
     });
-    setAlerts((val) => {
-      return [
-        ...val,
-        {
-          title: "Success",
-          description: t(
-            "Your order submited successfuly, Please check invoice on order detail page"
-          ),
-        },
-      ];
-    });
-    localStorage.setItem("card", "{}");
   };
   return (
     <>
