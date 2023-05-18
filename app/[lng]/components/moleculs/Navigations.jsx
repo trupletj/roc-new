@@ -16,7 +16,7 @@ function Navigations({ lng, DataNav }) {
         <div className="w-full max-w-[1640px] mx-auto h-px border-t-0 bg-white opacity-100 " />
         <div className="container  mx-auto flex flex-row justify-between items-center">
           <ul className="flex flex-row">
-            {DataNav.map((item, i) => (
+            {DataNav.filter((item) => !item.right).map((item, i) => (
               <Subnav
                 key={"navigation-nav-" + i}
                 item={item}
@@ -26,7 +26,15 @@ function Navigations({ lng, DataNav }) {
             ))}
           </ul>
           <div className="uppercase">
-            <a href={`/${lng}`}>{t("contact_us")}</a>
+            {DataNav.filter((item) => item.right).map((item, i) => (
+              <Subnav
+                key={"navigation-nav-" + i}
+                item={item}
+                lng={lng}
+                pathName={pathName}
+              />
+            ))}
+            {/* <a href={`/${lng}`}>{t("contact_us")}</a> */}
           </div>
         </div>
       </section>
@@ -67,7 +75,7 @@ const Subnav = ({ item, lng, pathName }) => {
             {item.sub &&
               item.sub.map((sub, i) => (
                 <li
-                  className=" w-full mr-[80px]"
+                  className={` w-full mr-[${item.right ? "50px" : "80px"}]`}
                   key={"navigation-item-sub-nav-item" + i}
                 >
                   {sub.title && (
@@ -82,7 +90,9 @@ const Subnav = ({ item, lng, pathName }) => {
                     {sub.links.map((link) => (
                       <li
                         key={link.name}
-                        className="flex flex-row uppercase text-2xl my-2.5"
+                        className={`flex ${
+                          item.right ? "flex-row-reverse" : "flex-row"
+                        } uppercase text-2xl my-2.5`}
                       >
                         <a href={`/${lng}${link.link}`}>{t(link.name)}</a>
                       </li>

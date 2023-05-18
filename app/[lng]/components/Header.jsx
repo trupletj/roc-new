@@ -70,6 +70,19 @@ const DataNav = [
       },
     ],
   },
+  {
+    name: "contact-us",
+    right: true,
+    sub: [
+      {
+        links: [
+          { name: "work at roc", link: "/branches/roastery" },
+          { name: "Privacy Policy", link: "/branches/buddha" },
+          { name: "terms and conditions", link: "/branches/buddha" },
+        ],
+      },
+    ],
+  },
 ];
 
 async function Header({ lng }) {

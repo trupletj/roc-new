@@ -1,33 +1,27 @@
 "use client";
-import { Fragment, useRef, useState, useContext } from "react";
+import { Fragment, useRef, useState, useContext, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import GlobalContext from "../../context/GlobalContext";
-import Cross from "../atoms/icons/Cross";
 import { useTranslation } from "@/app/i18n/client";
 
-const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
+const ConfirmModal = ({
+  invoice,
+  qpay,
+  openConfirmModal,
+  setOpenConfirmModal,
+  lng,
+}) => {
   const { t } = useTranslation(lng, "client");
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState(null);
-  const [isLogin, setIsLogin] = useState(true);
-  const [codeSent, setCodeSent] = useState(false);
 
   const cancelButtonRef = useRef(null);
 
-  const handleSubmit = (e) => {
-    console.log(email);
-  };
-  const handleContinue = (e) => {
-    setCodeSent(true);
-  };
-  const handleLogin = (e) => {
-    setCodeSent(true);
-  };
+  // const [qpay, setQpay] = useState(false);
+
+  // useEffect(() => {
+  //   if (invoice) setQpay(JSON.parse(invoice.qpay_json));
+  // }, openConfirmModal);
+
   const handleClose = (e) => {
     setOpenConfirmModal(false);
-    setEmail("");
-    setCode(null);
-    setCodeSent(false);
   };
   return (
     <Transition.Root show={openConfirmModal} as={Fragment}>
@@ -61,7 +55,7 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative transform overflow-hidden bg-white text-left  transition-all  sm:w-full sm:max-w-2xl">
-                <div className="bg-white pb-4  w-full">
+                <div className="bg-white   w-full">
                   <div className="sm:flex sm:items-start">
                     <div className="mt-3 w-full text-center sm:mt-0 sm:text-left">
                       <Dialog.Title
@@ -83,11 +77,22 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
                         </button>
                       </Dialog.Title>
                       <div className="flex flex-wrap">
-                        <div className="w-full md:w-1/3 ">qr</div>
+                        <div className="w-full md:w-1/3 items-center  text-center content-center flex-row ">
+                          <h3>{t("qpay_payment")}</h3>
+                          {invoice && (
+                            <img
+                              src={"data:image/png;base64," + qpay?.qr_image}
+                              className="w-full  max-w-[300px] mx-auto object-center object-cover align-middle group-hover:opacity-75 my-2"
+                            />
+                          )}
+                          <a target="_blank" href={`${qpay?.qPay_shortUrl}`}>
+                            {t("open_qpay")}
+                          </a>
+                        </div>
                         <div className="w-full md:w-2/3 flex flex-col p-5">
-                          <h1 className="mb-2">Дансаар шилжүүлэх</h1>
+                          {/* <h1 className="mb-2">Дансаар шилжүүлэх</h1> */}
                           <div className="grid grid-cols-2 gap-2 w-full text-xs my-3">
-                            <button className="flex items-center px-2 py-2 border bg-[#080505] text-white">
+                            <button className="flex hide  hidden items-center px-2 py-2 border bg-[#080505] text-white">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -119,7 +124,7 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
                               </svg>
                               <p className="ml-2">Голомт банк</p>
                             </button>
-                            <button className="flex items-center justify-start px-2 py-2 border">
+                            <button className="flex  hide  hidden  items-center justify-start px-2 py-2 border">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -194,7 +199,12 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
                                   2015102259
                                 </p>
                               </div>
-                              <div>
+                              <div
+                                className="cursor-pointer"
+                                onClick={() => {
+                                  navigator.clipboard.writeText("2015102259");
+                                }}
+                              >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -270,7 +280,12 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
                                   Юнайтед ресурсес
                                 </p>
                               </div>
-                              <div>
+                              <div
+                                className="cursor-pointer"
+                                onClick={() => {
+                                  navigator.clipboard.writeText("qweqwe");
+                                }}
+                              >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -342,9 +357,24 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
                                 <h1 className="text-xs font-light text-[#6B6969]">
                                   Захиалын дүн
                                 </h1>
-                                <p className="text-sm font-normal">100,000₮</p>
+                                <p className="text-sm font-normal">
+                                  {invoice?.grand_total?.toLocaleString(
+                                    "en-US",
+                                    {
+                                      style: "decimal",
+                                    }
+                                  )}
+                                  ₮
+                                </p>
                               </div>
-                              <div>
+                              <div
+                                className="cursor-pointer"
+                                onClick={() => {
+                                  navigator.clipboard.writeText(
+                                    invoice?.grand_total
+                                  );
+                                }}
+                              >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -416,9 +446,18 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
                                 <h1 className="text-xs font-light text-[#6B6969]">
                                   Гүйлгээний утга
                                 </h1>
-                                <p className="text-sm font-normal">I-O230427</p>
+                                <p className="text-sm font-normal">
+                                  {invoice?.number}
+                                </p>
                               </div>
-                              <div>
+                              <div
+                                className="cursor-pointer"
+                                onClick={() => {
+                                  navigator.clipboard.writeText(
+                                    invoice?.number
+                                  );
+                                }}
+                              >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -492,7 +531,7 @@ const ConfirmModal = ({ openConfirmModal, setOpenConfirmModal, lng }) => {
                             <p className="text-xs text-center">
                               Төлбөр төлөгдсөний дараа таны захиалга идэвхэждэг
                               болохыг анхаараарай! Төлбөрийг дээрх дансанд
-                              шилжүүлэх ба захиалгын I-O230427 дугаарыг
+                              шилжүүлэх ба захиалгын {invoice?.number} дугаарыг
                               гүйлгээний утга дээр бичнэ үү. Мөн та өөрийн
                               банкны аппликейшныг ашиглан QR кодыг уншуулж
                               төлбөр төлөх боломжтой.
