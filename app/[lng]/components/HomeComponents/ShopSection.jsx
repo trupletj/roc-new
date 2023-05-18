@@ -33,7 +33,7 @@ function ShopSection({ lng }) {
       {data?.record && (
         <>
           <SectionHeader
-            title={t("coffee_list")}
+            title={t("recomended_products")}
             buttonTitle={t("read_more")}
             href={`/${lng}/shop`}
           />
@@ -57,22 +57,24 @@ function ShopSection({ lng }) {
                       style={{ objectFit: "cover" }}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300">
-                      <Link
+                      <a
                         href={`/${lng}/shop/product/${item.good.type_id}`}
                         className="absolute right-0 top-0 p-2 bg-black  group-hover:block hidden text-white"
                       >
                         <ShopBagOnly />
-                      </Link>
-                      <Link
+                      </a>
+                      <a
                         href={`/${lng}/shop/product/${item.good.type_id}`}
                         className="absolute w-full left-0 bottom-0 p-2 bg-black  group-hover:block hidden text-center text-white"
                       >
                         {t("view")}
-                      </Link>
+                      </a>
                     </div>
                   </div>
                   <h1 className="w-full text-center py-3 text-white">
-                    {item.name}
+                    <a href={`/${lng}/shop/product/${item.good.type_id}`}>
+                      {item.name}
+                    </a>
                   </h1>
                 </li>
               ))}
