@@ -8,8 +8,8 @@ import ConfirmModal from "../moleculs/ConfirmModal";
 import GlobalContext from "../../context/GlobalContext";
 
 import { useJsApiLoader, GoogleMap, Marker } from "@react-google-maps/api";
-import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
 import Link from "next/link";
+import Loading from "../atoms/Loading";
 function OrderDetails({ lng, id }) {
   const { t } = useTranslation(lng, "client");
   const [openConfirmModal, setOpenConfirmModal] = useState(false);

@@ -2,14 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import Loading from "../atoms/Loading";
-import {
-  apiDomain,
-  mediaDomain,
-  fetcherForSwrGet,
-  fetcherForSwrPost,
-} from "@/app/hooks/useItems";
-
-import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
+import { apiDomain, fetcherForSwrPost } from "@/app/hooks/useItems";
 import { useTranslation } from "@/app/i18n/client";
 import { useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
