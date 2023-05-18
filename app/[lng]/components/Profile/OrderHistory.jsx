@@ -63,7 +63,7 @@ function OrderHistory({ lng }) {
                         </p>
                         <p>{item?.current_status?.name}</p>
 
-                        <div className="flex-1 w-full flex flex-row flex justify-between ">
+                        <div className="flex-1 w-full flex flex-row  justify-between ">
                           <p>
                             {" "}
                             {item?.total_good} {t("types")}{" "}
