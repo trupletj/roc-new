@@ -43,7 +43,7 @@ function ShopPage({ params }) {
     },
   });
   return (
-    <div className="w-full " style={{ backgroundColor: `#eceae6;` }}>
+    <div className="w-full " style={{ backgroundColor: `#eceae6` }}>
       <div className="container py-12">
         <ProductDetail
           ItemData={{ items, isLoading, isError }}

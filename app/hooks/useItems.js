@@ -18,6 +18,7 @@ const objectToQueryString = (obj) => {
   return str.join("&");
 };
 
+
 export const apiDomain = "https://www.api.roc.mn/";
 export const mediaDomain = "https://www.api.roc.mn";
 // export const apiDomain = "http://192.168.10.217:8000/";
