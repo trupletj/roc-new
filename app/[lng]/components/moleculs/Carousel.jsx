@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import hero1 from "@/public/assets/home/slide.png";
+import hero1 from "@/public/assets/home/slide_1.png";
 
 import "swiper/swiper.min.css";
 
@@ -23,7 +23,7 @@ function Carousel() {
       slidesPerView={1}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
-      className="max-w-[1920px] max-h-[80vh] w-full aspect-square lg:aspect-[2/1] flex items-center justify-center mx-auto mb-10"
+      className="max-w-[1920px] max-h-[80vh] w-full aspect-square lg:aspect-[3/1] flex items-center justify-center mx-auto mb-10"
     >
       {images.map((image) => (
         <SwiperSlide key={image.key}>
@@ -31,7 +31,7 @@ function Carousel() {
             fill
             src={image.src}
             alt="About Picture"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "fill" }}
             priority
           />
         </SwiperSlide>
