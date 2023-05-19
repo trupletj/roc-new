@@ -3,10 +3,14 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import hero1 from "@/public/assets/home/slide_1.png";
+import hero2 from "@/public/assets/home/slide_2.png";
 
 import "swiper/swiper.min.css";
 
-const images = [{ src: hero1, key: 1 }];
+const images = [
+  { src: hero1, key: 1 },
+  { src: hero2, key: 2 },
+];
 
 function Carousel() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -23,17 +27,23 @@ function Carousel() {
       slidesPerView={1}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
-      className="max-w-[1920px] max-h-[80vh] w-full aspect-square lg:aspect-[3/1] flex items-center justify-center mx-auto mb-10"
+      className="max-w-[1920px] max-h-[80vh] w-full aspect-[5/3] lg:aspect-[5/2] flex items-center justify-center mx-auto mb-10 "
     >
       {images.map((image) => (
         <SwiperSlide key={image.key}>
           <Image
-            fill
+            width={2500}
             src={image.src}
             alt="About Picture"
-            style={{ objectFit: "fill" }}
+            style={{ objectFit: "cover" }}
             priority
+            quality={100}
           />
+          {/* <img
+            src='/assets/home/slide_1.png'
+            alt="About Picture"
+            priority
+          /> */}
         </SwiperSlide>
       ))}
     </Swiper>
