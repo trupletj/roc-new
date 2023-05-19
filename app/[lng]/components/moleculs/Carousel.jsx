@@ -27,7 +27,7 @@ function Carousel() {
       slidesPerView={1}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
-      className="max-w-[1920px] max-h-[80vh] w-full aspect-[5/3] lg:aspect-[5/2] flex items-center justify-center mx-auto mb-10 "
+      className="max-w-[1920px] max-h-[80vh] w-full aspect-video lg:aspect-[5/2] flex items-center justify-center mx-auto mb-10 "
     >
       {images.map((image) => (
         <SwiperSlide key={image.key}>
