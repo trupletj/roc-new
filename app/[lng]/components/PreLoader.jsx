@@ -9,11 +9,9 @@ function PreLoader() {
   const current_color = "black";
   useEffect(() => {
     const handleRouteChange = (url) => {
-      console.log("route changed to", url);
     };
     // router.events.on("routeChangeStart", handleRouteChange);
 
-    console.log(router);
     return () => {
       // router.events.off("routeChangeStart", handleRouteChange);
     };
@@ -23,7 +21,6 @@ function PreLoader() {
   const searchParams = useSearchParams();
   useEffect(() => {
     const url = pathname + searchParams.toString();
-    console.log(url);
   }, [pathname, searchParams]);
   return (
     <div className="container flex items-center justify-center fixed">

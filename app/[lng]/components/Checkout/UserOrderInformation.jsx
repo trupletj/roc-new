@@ -79,7 +79,6 @@ function UserOrderInformation({
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           setCenter((val) => {
-            console.log(val);
             return { lat: latitude, lng: longitude };
           });
         },
@@ -108,7 +107,6 @@ function UserOrderInformation({
         className="w-full"
         onSubmit={handleSubmit(onSubmit)}
         onChange={(data) => {
-          console.log("qwe", data);
         }}
       >
         <h2 className="text-2xl text-gray-900 uppercase font-normal">

@@ -59,7 +59,6 @@ function OrderDetails({ lng, id }) {
         },
       });
 
-      console.log(directionResult);
       setDirectionResponse(directionResult);
       setDistance(directionResult.routes[0].legs[0].distance.text);
       setDuration(directionResult.routes[0].legs[0].duration.text);
@@ -81,7 +80,6 @@ function OrderDetails({ lng, id }) {
 
       if (grinder_response.status === 200) {
         const grinder_result = await grinder_response.json();
-        console.log(grinder_result.record);
         let current_grinders = {};
         grinder_result.record.map((item) => {
           current_grinders[item.id] = item;
@@ -186,7 +184,6 @@ function OrderDetails({ lng, id }) {
     );
     if (response.status == 200) {
       const result = await response.json();
-      console.log(result);
       setAlerts((val) => {
         setGlobalLoader(false);
         return [
@@ -219,11 +216,7 @@ function OrderDetails({ lng, id }) {
       });
     }
 
-    console.log({
-      address_id: currentAddress.id,
-      is_company: isRegisterOn,
-      products,
-    });
+ 
   };
 
   const ProductItem = ({ product, grinder }) => {

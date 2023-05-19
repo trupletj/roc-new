@@ -251,10 +251,7 @@ function Address({ lng }) {
                             lat_lng: address?.lat_lng || null,
                           });
 
-                          console.log(address);
                           if (address?.lat_lng) {
-                            console.log(address?.lat_lng);
-
                             try {
                               let l_lng = JSON.parse(address.lat_lng);
                               if (l_lng.lat && l_lng.lng) {

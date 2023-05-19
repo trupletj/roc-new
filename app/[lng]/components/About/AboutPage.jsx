@@ -27,7 +27,6 @@ function AboutPage({ lng, slug }) {
     slug_helper[slug] !== undefined ? slug_helper[slug] : 0
   );
 
-  console.log(openIndex);
   const isBrowser = () => typeof window !== "undefined";
   const scrollToTop = () => {
     if (!isBrowser()) return;

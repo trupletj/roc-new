@@ -33,7 +33,6 @@ function MobileNav({ lng, DataNav }) {
               className=" lg:hidden cursor-pointer"
               onClick={(val) => {
                 setOpen(true);
-                console.log(val);
               }}
             >
               <Burger />

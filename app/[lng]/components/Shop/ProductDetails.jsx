@@ -359,7 +359,6 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                       setCard((val) => {
                         const localCard = localStorage.getItem("card");
                         let helper = localCard ? JSON.parse(localCard) : val;
-                        console.log(selectedGrind);
 
                         if (!helper[selectedItem.id])
                           helper[selectedItem.id] = {

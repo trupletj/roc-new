@@ -15,7 +15,6 @@ function NewAnket({ lng }) {
   } = useForm();
   const [selectIndex, setSelectIndex] = useState(0);
   const onSubmit = (data) => {
-    console.log(data);
   };
   return (
     <div className="max-w-[900px] mx-auto py-10">

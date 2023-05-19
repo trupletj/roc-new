@@ -84,6 +84,10 @@ function Services({ lng, slug }) {
                       alt="roasting"
                       src={roasting_image}
                       fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -168,6 +172,10 @@ function Services({ lng, slug }) {
                       alt="whole sale"
                       src={whole_sale_image}
                       fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -252,6 +260,10 @@ function Services({ lng, slug }) {
                       alt="sds"
                       src={catering_image}
                       fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -332,6 +344,10 @@ function Services({ lng, slug }) {
                       alt="sds"
                       src={distributioin_image}
                       fill
+                      sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>

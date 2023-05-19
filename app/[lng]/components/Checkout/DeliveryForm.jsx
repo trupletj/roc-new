@@ -70,7 +70,6 @@ function DeliveryForm({ lng }) {
     );
     if (response.status == 200) {
       const result = await response.json();
-      console.log(result);
       setAlerts((val) => {
         setGlobalLoader(false);
         return [
@@ -103,11 +102,7 @@ function DeliveryForm({ lng }) {
       });
     }
 
-    console.log({
-      address_id: currentAddress.id,
-      is_company: isRegisterOn,
-      products,
-    });
+   
   };
   return (
     <>
