@@ -79,7 +79,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                   fill
                   sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                  quality={100}
                   style={{ objectFit: "cover" }}
                   className="self-center mx-auto"
                 />
@@ -99,7 +100,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                         fill
                         sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                        quality={100}
                         style={{ objectFit: "cover" }}
                         className={`cursor-pointer border  ${
                           selectedItem.id === product.id
@@ -201,7 +203,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                                     fill
                                     sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                                     style={{ objectFit: "contain" }}
                                   /> */}
 
@@ -412,7 +415,11 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 src={mediaDomain + productType.session_image}
                 alt={selectedItem.name || "About Picture"}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 60vw,
+              60vw"
                 style={{ objectFit: "contain" }}
+                quality={100}
               />
             )}
           </div>

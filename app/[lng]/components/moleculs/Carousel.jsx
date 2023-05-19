@@ -32,11 +32,13 @@ function Carousel() {
       {images.map((image) => (
         <SwiperSlide key={image.key}>
           <Image
-            width={2500}
             src={image.src}
             alt="About Picture"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "contain" }}
             priority
+            sizes="(max-width: 768px) 110vw,
+              (max-width: 1200px) 110vw,
+              110vw"
             quality={100}
           />
           {/* <img

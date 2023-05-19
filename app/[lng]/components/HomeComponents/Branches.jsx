@@ -22,6 +22,10 @@ async function Branches({ lng }) {
               src={branch1}
               alt="About Picture"
               fill
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 75vw,
+              75vw"
+              quality={100}
               style={{ objectFit: "cover" }}
             />
           </div>
@@ -89,6 +93,10 @@ async function Branches({ lng }) {
               src={branch2}
               alt="About Picture"
               fill
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 75vw,
+              75vw"
+              quality={100}
               style={{ objectFit: "cover" }}
             />
           </div>

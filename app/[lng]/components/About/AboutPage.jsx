@@ -112,7 +112,8 @@ function AboutPage({ lng, slug }) {
                         fill
                         sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                        quality={100}
                         style={{ objectFit: "cover" }}
                       />
                     </div>
@@ -129,7 +130,8 @@ function AboutPage({ lng, slug }) {
                         fill
                         sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                        quality={100}
                         style={{ objectFit: "cover" }}
                       />
                     </div>
@@ -162,7 +164,8 @@ function AboutPage({ lng, slug }) {
                           fill
                           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                          quality={100}
                           style={{ objectFit: "cover" }}
                         />
                       </div>
@@ -178,7 +181,8 @@ function AboutPage({ lng, slug }) {
                           fill
                           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                          quality={100}
                           style={{ objectFit: "cover" }}
                         />
                       </div>
@@ -259,7 +263,8 @@ function AboutPage({ lng, slug }) {
                         fill
                         sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                        quality={100}
                         style={{ objectFit: "contain" }}
                       />
                     </div>
@@ -356,10 +361,9 @@ function AboutPage({ lng, slug }) {
                         alt="roast"
                         src={roast1}
                         fill
-                        sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                         style={{ objectFit: "cover" }}
+                        quality={100}
                       />
                     </div>
                   </div>
@@ -369,15 +373,14 @@ function AboutPage({ lng, slug }) {
                 <div className="flex flex-col">
                   <div className="flex flex-row items-center space-x-5">
                     <div className="w-1/2 ">
-                      <div className="relative aspect-square w-full">
+                      <div className="relative aspect-square w-full overflow-hidden">
                         <Image
                           alt="roast"
                           src={roast2}
                           fill
-                          sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                           style={{ objectFit: "cover" }}
+                          quality={100}
                         />
                       </div>
                       {/* <h1 className="text-center mt-2">
@@ -385,15 +388,15 @@ function AboutPage({ lng, slug }) {
                     </h1> */}
                     </div>
                     <div className="w-1/2 ">
-                      <div className="relative aspect-square w-full">
+                      <div className="relative aspect-square w-full overflow-hidden">
                         <Image
                           alt="roast"
                           src={roast3}
                           fill
-                          sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                           style={{ objectFit: "cover" }}
+                          quality={100}
+                          priority
                         />
                       </div>
                       {/* <h1 className="text-center mt-2">
@@ -485,7 +488,8 @@ function AboutPage({ lng, slug }) {
                         fill
                         sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                        quality={100}
                         style={{ objectFit: "contain" }}
                       />
                     </div>
