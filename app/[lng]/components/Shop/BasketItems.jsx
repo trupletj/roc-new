@@ -285,7 +285,7 @@ function BasketItem({ lng, hideTitle }) {
         <div className="flex justify-between text-base font-medium text-black-800 border-b py-3">
           <p>{t("subtotal")}</p>
           <p>
-            {totalPrice > 0 &&  totalPrice < 100000
+            {totalPrice > 0 && totalPrice < 100000
               ? parseInt(totalPrice + 5000)?.toLocaleString("en-US", {
                   style: "decimal",
                 })
@@ -369,7 +369,7 @@ function BasketItem({ lng, hideTitle }) {
           </div>
           {openInformation && (
             <div className="sm:col-span-3">
-              asd asio naoisd naois noiaoisdn oiasnd
+              {t("order_additional_information")}
             </div>
           )}
         </div>

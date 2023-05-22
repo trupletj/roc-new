@@ -47,7 +47,7 @@ function OrderDetails({ lng, id }) {
   const [duration, setDuration] = useState("");
 
   const calculateDirection = async (l_lng) => {
-    if (l_lng) {
+    if (l_lng && order?.status_id == 6) {
       const directionsService = new google.maps.DirectionsService();
       const directionResult = await directionsService.route({
         origin: { lat: main.lat, lng: main.lng },
@@ -486,7 +486,7 @@ function OrderDetails({ lng, id }) {
                           </span>
                         </label>
                       </div>
-                      {distance && (
+                      {order.status_id === 6 && distance && (
                         <div className="sm:col-span-3">
                           <label
                             htmlFor="district"
@@ -499,7 +499,7 @@ function OrderDetails({ lng, id }) {
                           </label>
                         </div>
                       )}
-                      {duration && (
+                      {order.status_id === 6 && duration && (
                         <div className="sm:col-span-3">
                           <label
                             htmlFor="district"
@@ -513,7 +513,7 @@ function OrderDetails({ lng, id }) {
                         </div>
                       )}
 
-                      {showMarker && (
+                      {showMarker && order.status_id === 6 && (
                         <div className="sm:col-span-6">
                           <div className="mt-2">
                             {!isLoaded && <Loading />}
