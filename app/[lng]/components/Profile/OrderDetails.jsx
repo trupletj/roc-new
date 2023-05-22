@@ -215,8 +215,6 @@ function OrderDetails({ lng, id }) {
         ];
       });
     }
-
- 
   };
 
   const ProductItem = ({ product, grinder }) => {
@@ -603,7 +601,7 @@ function OrderDetails({ lng, id }) {
                               className="-my-6 divide-y divide-gray-200  px-3 sm:px-6"
                             >
                               {order.items
-                                .filter((item) => item?.good?.id != 56)
+                                .filter((item) => item?.good?.id != 57)
                                 .map((product) => {
                                   return (
                                     <ProductItem
@@ -622,13 +620,13 @@ function OrderDetails({ lng, id }) {
                           </div>
 
                           <hr className="my-3" />
-                          {order?.items.find((item) => item.good_id === 56) && (
+                          {order?.items.find((item) => item.good_id === 57) && (
                             <div className="flex justify-between text-base  text-black-800  py-3  px-3 sm:px-6">
                               <p className="text-base font-normal">
                                 {t("delivery")}
                               </p>
                               <p className="text-lg  text-[#F0B450] ">
-                                {parseInt(4000)?.toLocaleString("en-US", {
+                                {parseInt(5000)?.toLocaleString("en-US", {
                                   style: "decimal",
                                 })}
                                 {"₮"}
@@ -641,7 +639,7 @@ function OrderDetails({ lng, id }) {
                             </p>
                             <p className="text-lg font-normal  text-[#F0B450] ">
                               {parseInt(
-                                order.total_price + 4000
+                                order.total_price + 5000
                               )?.toLocaleString("en-US", {
                                 style: "decimal",
                               })}
