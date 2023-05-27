@@ -45,7 +45,7 @@ function Navigations({ lng, DataNav }) {
 const Subnav = ({ item, lng, pathName }) => {
   const { t } = useTranslation(lng, "header");
   return (
-    <li className="group h-[60px] flex items-center">
+    <li className="group h-[60px] flex items-center group">
       <div
         key={"mobile-nav-subnav" + item.name}
         className={
@@ -56,10 +56,16 @@ const Subnav = ({ item, lng, pathName }) => {
       >
         {item.link && (
           <a href={`/${lng}${item.link}`}>
-            <span className="uppercase">{t(item.name)}</span>
+            <span className="uppercase group-hover:text-[#F0B450]">
+              {t(item.name)}
+            </span>
           </a>
         )}
-        {!item.link && <span className="uppercase">{t(item.name)}</span>}
+        {!item.link && (
+          <span className="uppercase group-hover:text-[#F0B450]">
+            {t(item.name)}
+          </span>
+        )}
 
         {item.sub && (
           <span className="ml-[5px]">
@@ -75,7 +81,7 @@ const Subnav = ({ item, lng, pathName }) => {
             {item.sub &&
               item.sub.map((sub, i) => (
                 <li
-                  className={` w-full mr-[${item.right ? "50px" : "80px"}]`}
+                  className={` w-full mr-[${item.right ? "50px" : "80px"}] `}
                   key={"navigation-item-sub-nav-item" + i}
                 >
                   {sub.title && (
@@ -90,7 +96,7 @@ const Subnav = ({ item, lng, pathName }) => {
                     {sub.links.map((link) => (
                       <li
                         key={link.name}
-                        className={`flex ${
+                        className={`flex hover:text-[#F0B450] ${
                           item.right ? "flex-row-reverse" : "flex-row"
                         } uppercase text-2xl my-2.5`}
                       >

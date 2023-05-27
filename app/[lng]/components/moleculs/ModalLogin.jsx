@@ -113,7 +113,7 @@ const ModalLogin = ({ lng }) => {
                             <div className="flow-root">
                               <a
                                 href={`/${lng}/profile/my-profile`}
-                                className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
+                                className="flex items-center justify-center  border  bg-[#E5E5E5]  px-6 py-2 text-base font-light "
                               >
                                 {t("register_info")}
                               </a>
@@ -121,7 +121,7 @@ const ModalLogin = ({ lng }) => {
                             </div>
                           </div>
                         </div>
-                        <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+                        <div className=" px-4 py-6 sm:px-6">
                           {/* <div className="flex justify-between text-base font-medium text-black-800 border-b pb-3">
                             <p>{t("subtotal")}</p>
                             <p>{"₮"}</p>

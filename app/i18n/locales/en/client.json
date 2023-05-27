@@ -41,5 +41,7 @@
   "confirm_email": "Get Confirm email",
   "confirm_phone": "Get Confirm phone",
   "save": "Save",
-  "empty_address_text": "You don't have any address yet"
+  "empty_address_text": "You don't have any address yet",
+  "my_orders": "Orders",
+  "delivery_addresses": "Delivery addresses"
 }

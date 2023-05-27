@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 function UserInformation({ lng }) {
   const [openIndex, setOpenIndex] = useState(-1);
   const { t } = useTranslation(lng, "client");
-  const { user } = useContext(GlobalContext);
+  const { user, openLogin, setOpenLogin } = useContext(GlobalContext);
   const router = useRouter();
   return (
     <ul className="font-light">
@@ -21,7 +21,7 @@ function UserInformation({ lng }) {
             }}
             className="flex justify-between text-lg py-5 items-center cursor-pointer"
           >
-            <h1>Миний хаягууд</h1>
+            <h1>{t("delivery_addresses")}</h1>
             <div>
               {openIndex !== 0 ? (
                 <svg
@@ -64,19 +64,20 @@ function UserInformation({ lng }) {
             <div className="w-full  mb-10">
               <div className="flex flex-col">
                 {user?.addresses?.length > 0 ? (
-                  <ul className="mb-5">
+                  <ul className="mb-5 space-y-2">
                     {user?.addresses?.map((address, index) => (
                       <li
-                        className="py-3 border-b last:border-none cursor-pointer"
+                        className="py-3 bg-[#E5E5E5] cursor-pointer flex flex-col space-y-2 px-4 text-sm"
                         key={`address-${index}`}
-                        onClick={() =>
+                        onClick={() => {
+                          setOpenLogin(false);
                           router.push(
                             `/${lng}/profile/my-addresses?id=${address.id}`
-                          )
-                        }
+                          );
+                        }}
                       >
-                        <span>{address.name}</span>,{" "}
-                        <span>{address.receiver_name}</span>,
+                        <span className="font-normal">{address.name}</span>
+                        <span>{address.address_information}</span>
                       </li>
                     ))}
                   </ul>
@@ -85,9 +86,39 @@ function UserInformation({ lng }) {
                 )}
                 <a
                   href={`/${lng}/profile/my-addresses?id=0`}
-                  className="flex items-center justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
+                  className="flex space-between w-full justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
                 >
-                  {t("new")}
+                  <span className="w-1/6"></span>
+                  <p className="w-4/6 text-center ">{t("new")}</p>
+                  <span className="w-1/6 flex items-center justify-end">
+                    <svg
+                      id="Group_815"
+                      data-name="Group 815"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={18}
+                      height={18}
+                      viewBox="0 0 18 18"
+                    >
+                      <path
+                        id="Path_148"
+                        data-name="Path 148"
+                        d="M0,0V18"
+                        transform="translate(18 9) rotate(90)"
+                        fill="none"
+                        stroke="#fff"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        id="Path_149"
+                        data-name="Path 149"
+                        d="M0,0V18"
+                        transform="translate(9 18) rotate(180)"
+                        fill="none"
+                        stroke="#fff"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </span>
                 </a>
               </div>
             </div>
@@ -104,7 +135,7 @@ function UserInformation({ lng }) {
             }}
             className="flex justify-between text-lg py-5 items-center  cursor-pointer"
           >
-            <h1>Захиалгууд</h1>
+            <h1>{t("my_orders")}</h1>
             <div>
               {openIndex !== 1 ? (
                 <svg

@@ -38,5 +38,6 @@
   "auth_wrong": "Wrong email or password",
   "back": "Back",
   "fixe": "",
-  "register_info": "Registration Information"
+  "register_info": "Registration Information",
+  "logout": "Log Out"
 }
