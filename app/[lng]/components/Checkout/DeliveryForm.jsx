@@ -22,14 +22,6 @@ function DeliveryForm({ lng }) {
   const [openAlertModal, setOpenAlertModal] = useState(false);
 
   const router = useRouter();
-<<<<<<< HEAD
-
-  //End form confirm nemev
-  const onSubmit = (data) => console.log(data);
-
-  const handleContinue = () => {
-    router.push(`/${lng}/shop);`);
-=======
   const { user, setUser, token, setAlerts, card, setGlobalLoader } =
     useContext(GlobalContext);
   const [isRegisterOn, setIsRegisterOn] = useState(false);
@@ -118,7 +110,6 @@ function DeliveryForm({ lng }) {
     }
 
    
->>>>>>> 7954e749f332754afd8f6bae0e3001b971570e27
   };
   return (
     <>
