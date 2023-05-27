@@ -5,12 +5,11 @@ import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 
 import { Suspense } from "react";
-import Loading from "./loading";
 
 import Providers from "./Providers";
 import Header from "@/app/[lng]/components/Header";
 import Footer from "./components/Footer";
-
+import PreLoader from "./components/PreLoader";
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
@@ -54,18 +53,18 @@ const noirmedium = localFont({
   ],
   variable: "--font-noir-medium",
 });
+export const revalidate = 60
+
 export default function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
       <body
-        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} relative`}
+        className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} relative bg-[#f2f2f2]`}
       >
         <Providers>
-          <Suspense fallback={<Loading />}>
-            <Header lng={lng} />
-            {children}
-            <Footer lng={lng} />
-          </Suspense>
+          <Header lng={lng} />
+          {children}
+          <Footer lng={lng} />
         </Providers>
       </body>
     </html>

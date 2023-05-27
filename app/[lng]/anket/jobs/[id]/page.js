@@ -6,7 +6,8 @@ import Link from "next/link";
 
 function WorkAtRock() {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full ">
+    {/* <div className="w-full bg-white"> */}
       <div className="container py-10">
         <div className="max-w-[900px] w-full mx-auto space-y-6 text-xl">
           <span className="text-sm text-[#6B6969]"> April 23,2023</span>

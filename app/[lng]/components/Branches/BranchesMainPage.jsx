@@ -51,7 +51,8 @@ async function BranchesMainPage({ lng }) {
                 fill
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -67,7 +68,8 @@ async function BranchesMainPage({ lng }) {
                 fill
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -85,7 +87,8 @@ async function BranchesMainPage({ lng }) {
                 fill
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -101,7 +104,8 @@ async function BranchesMainPage({ lng }) {
                 fill
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -119,7 +123,8 @@ async function BranchesMainPage({ lng }) {
                 fill
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -135,7 +140,8 @@ async function BranchesMainPage({ lng }) {
                 fill
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>

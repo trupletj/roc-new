@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "@/app/i18n";
 import { TranslateBtn } from "@/app/[lng]/components/atoms/TranslateBtn";
 import Logo from "./atoms/Logo";
 import Search from "./atoms/icons/Search";
@@ -11,23 +10,27 @@ import Burger from "./atoms/icons/Burger";
 import Basket from "./Shop/Basket";
 import ModalLogin from "./moleculs/ModalLogin";
 import Link from "next/link";
+import Welcome from "./atoms/Welcome";
 const DataNav = [
+  {
+    name: "shop",
+    link: "/shop",
+  },
   {
     name: "about_us",
     sub: [
       {
         links: [
-          { name: "our_story", link: "/about?page=our_story" },
-          { name: "who_we_are", link: "/about?page=who_we_are" },
-          { name: "how_we_roast", link: "/about?page=how_we_roast" },
-          { name: "partners_sourcing", link: "/about?page=partners_sourcing" },
+          { name: "our_story", link: "/about/our-history" },
+          { name: "who_we_are", link: "/about/who-we-are" },
+          { name: "how_we_roast", link: "/about/how-we-roast" },
+          {
+            name: "partners_sourcing",
+            link: "/about/partners-and-sourcing",
+          },
         ],
       },
     ],
-  },
-  {
-    name: "shop",
-    link: "/shop",
   },
 
   {
@@ -35,10 +38,19 @@ const DataNav = [
     sub: [
       {
         links: [
-          { name: "ROASTING TO A TASTE", link: "/services" },
-          { name: "WHOLESALE", link: "/services" },
-          { name: "CATERING & COFFEE TRUCK", link: "/services" },
-          { name: "DISTRIBUTION & MAINTANENCE", link: "/services" },
+          {
+            name: "ROASTING TO A TASTE",
+            link: "/services/roasting-to-a-taste",
+          },
+          { name: "WHOLESALE", link: "/services/whole-sale" },
+          {
+            name: "CATERING & COFFEE TRUCK",
+            link: "/services/catering-and-coffee-truck",
+          },
+          {
+            name: "DISTRIBUTION & MAINTANENCE",
+            link: "/services/distribution-and-maintenance",
+          },
         ],
       },
     ],
@@ -58,11 +70,22 @@ const DataNav = [
       },
     ],
   },
+  {
+    name: "contact-us",
+    right: true,
+    sub: [
+      {
+        links: [
+          { name: "work at roc", link: "/branches/roastery" },
+          { name: "Privacy Policy", link: "/branches/buddha" },
+          { name: "terms and conditions", link: "/branches/buddha" },
+        ],
+      },
+    ],
+  },
 ];
 
 async function Header({ lng }) {
-  const { t } = await useTranslation(lng, "header");
-
   return (
     <>
       <div
@@ -72,7 +95,7 @@ async function Header({ lng }) {
           className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
         >
           <div className="container mx-auto  flex flex-row justify-between  text-[#080505]">
-            <p>{t("hello")} </p>
+            <Welcome lng={lng} />
             <ul className="flex flex-row">
               {/* <li className="ml-10">
                 <DarkModeBtn />
@@ -91,9 +114,9 @@ async function Header({ lng }) {
               </div>
             </div>
             <div className="dark:text-white my-2 w-1/2 flex justify-center">
-              <Link href={`/${lng}`}>
+              <a href={`/${lng}`}>
                 <Logo />
-              </Link>
+              </a>
             </div>
             <ul className="w-1/4 flex flex-row justify-end items-center">
               {/* <li className="mr-[30px] hidden lg:block">

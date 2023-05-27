@@ -26,7 +26,8 @@ function Main({ lng }) {
               style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
             />
           </div>
           <p>

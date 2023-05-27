@@ -68,10 +68,8 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
               {({ open }) => (
                 <>
                   <h3 className="-my-3 flow-root">
-                    <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                      <span className="font-medium text-gray-900">
-                        {category.name}
-                      </span>
+                    <Disclosure.Button className="flex w-full items-center justify-between bg-transparent  py-3 text-normal uppercase font-normal text-gray-400 hover:text-gray-500">
+                      <span className=" text-gray-900">{category.name}</span>
                       <div className="ml-6 flex items-center">
                         {open ? (
                           <VscChevronDown
@@ -87,8 +85,8 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                       </div>
                     </Disclosure.Button>
                   </h3>
-                  <Disclosure.Panel className="pt-6">
-                    <div className="space-y-4">
+                  <Disclosure.Panel className="pt-3">
+                    <div className="space-y-3">
                       {types?.record
                         .filter((item) => item.category_id === category.id)
                         .map((current) => {
@@ -98,34 +96,92 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                                 className="flex items-center"
                                 key={`category-type-${current.id}`}
                               >
-                                <input
-                                  id={`filter-${current.id}-${category.id}`}
-                                  name={`value-${current.id}-${category.id}`}
-                                  defaultValue={current.id}
-                                  type="checkbox"
-                                  onClick={(e) => {
-                                    setSelectedTypes((val) => {
+                                <label
+                                  htmlFor={`filter-${current.id}-${category.id}`}
+                                  className={`text-sm  cursor-pointer ${
+                                    !selectedCategories[category.id]
+                                      ? selectedTypes[current.id]
+                                        ? "text-[#F0B450]"
+                                        : "text-gray-600"
+                                      : "text-gray-600"
+                                  }`}
+                                  // className={`text-sm  cursor-pointer ${
+                                  //   selectedTypes[current.id]
+                                  //     ? "text-[#F0B450]"
+                                  //     : "text-gray-600"
+                                  // }`}
+                                  onClick={() => {
+                                    setSelectedCategories((val) => {
                                       const helper = val;
-                                      helper[e.target.value] = e.target.checked;
-                                      setSelectedTypeHelper(
-                                        JSON.stringify(helper)
-                                      );
+                                      if (helper[category.id] == true) {
+                                        helper[category.id] = false;
+                                        types.record.map((item) => {
+                                          if (item.category_id == category.id)
+                                            setSelectedTypes((val) => {
+                                              const ne_helper = val;
+                                              ne_helper[item.id] =
+                                                helper[category.id];
+                                              setSelectedTypeHelper(
+                                                JSON.stringify(ne_helper)
+                                              );
+                                              return ne_helper;
+                                            });
+                                        });
+                                      }
+                                      setSelectedTypes((val) => {
+                                        const helper = val;
+                                        helper[current.id] =
+                                          !helper[current.id];
+                                        setSelectedTypeHelper((val) =>
+                                          JSON.stringify(helper)
+                                        );
+                                        return helper;
+                                      });
                                       return helper;
                                     });
                                   }}
-                                  defaultChecked={selectedTypes[current.id]}
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-${current.id}-${category.id}`}
-                                  className="ml-3 text-sm text-gray-600 cursor-pointer"
                                 >
-                                  {current.name}
+                                  {current.name} {current.category_id}
                                 </label>
                               </div>
                             );
                           }
                         })}
+                      <div
+                        className="flex items-center"
+                        key={`category-type-${category.id}-all}`}
+                      >
+                        <label
+                          htmlFor={`filter-all-${category.id}`}
+                          className={`text-sm  cursor-pointer ${
+                            selectedCategories[category.id]
+                              ? "text-[#F0B450]"
+                              : "text-gray-600"
+                          }`}
+                          onClick={(e) => {
+                            setSelectedCategories((val) => {
+                              const helper = val;
+                              helper[category.id] = !helper[category.id];
+
+                              types.record.map((item) => {
+                                if (item.category_id == category.id)
+                                  setSelectedTypes((val) => {
+                                    const ne_helper = val;
+                                    ne_helper[item.id] = helper[category.id];
+                                    setSelectedTypeHelper(
+                                      JSON.stringify(ne_helper)
+                                    );
+                                    return ne_helper;
+                                  });
+                              });
+                              setSelectedTypeHelper(JSON.stringify(helper));
+                              return helper;
+                            });
+                          }}
+                        >
+                          {headerT("all")}
+                        </label>
+                      </div>
                     </div>
                   </Disclosure.Panel>
                 </>
@@ -145,7 +201,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
         {!isLoading && items?.record.length > 1 && (
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 py-3">
             {filteredItems.map((product) => {
-              if (product.id === 56) {
+              if (product.id === 57) {
                 return null;
               }
               return (
@@ -163,28 +219,31 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                       className="self-center mx-auto"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300">
-                      <Link
-                        href={`/${lng}/shop`}
+                      <a
+                        // href={`/${lng}/shop`}
+                        href={`/${lng}/shop/product/${product.type_id}`}
                         className="absolute right-0 top-0 p-2 bg-black  group-hover:block hidden"
                       >
                         <ShopBag color={"#fff"} />
-                      </Link>
-                      <Link
+                      </a>
+                      <a
                         href={`/${lng}/shop/product/${product.type_id}`}
                         className="absolute w-full left-0 bottom-0 p-2 bg-black  group-hover:block hidden text-center text-white"
                       >
                         {headerT("view")}
-                      </Link>
+                      </a>
                     </div>
                   </div>
-                  <h3 className="mt-4 text-sm text-center text-gray-700">
-                    {product.name}
-                  </h3>
-                  <p className="mt-1 text-lg text-center font-medium text-gray-900">
-                    {product?.price?.toLocaleString("en-US", {
-                      style: "decimal",
-                    }) + "₮"}
-                  </p>
+                  <a href={`/${lng}/shop/product/${product.type_id}`}>
+                    <h3 className="mt-4 text-sm text-center text-gray-700">
+                      {product.name}
+                    </h3>
+                    <p className="mt-1 text-lg text-center font-medium text-gray-900">
+                      {product?.price?.toLocaleString("en-US", {
+                        style: "decimal",
+                      }) + "₮"}
+                    </p>
+                  </a>
                 </div>
               );
             })}

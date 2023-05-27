@@ -7,9 +7,20 @@ import distributioin_image from "@/public/assets/services/maintainces.jpg";
 import roasting_image from "@/public/assets/services/roasting_to_taste.jpg";
 import { useTranslation } from "@/app/i18n/client";
 import Link from "next/link";
-function Services({ lng }) {
+import { useSearchParams } from "next/navigation";
+
+function Services({ lng, slug }) {
+  const slug_helper = {
+    "roasting-to-a-taste": 0,
+    "whole-sale": 1,
+    "catering-and-coffee-truck": 2,
+    "distribution-and-maintenance": 3,
+  };
+  const searchParams = useSearchParams();
   const [cindex, setCindex] = useState(0);
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(
+    slug_helper[slug] !== undefined ? slug_helper[slug.toLowerCase()] : 0
+  );
   const { t: service_catering } = useTranslation(lng, "service_catering");
   const { t: service_distribution } = useTranslation(
     lng,
@@ -73,6 +84,10 @@ function Services({ lng }) {
                       alt="roasting"
                       src={roasting_image}
                       fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -157,6 +172,10 @@ function Services({ lng }) {
                       alt="whole sale"
                       src={whole_sale_image}
                       fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -241,6 +260,10 @@ function Services({ lng }) {
                       alt="sds"
                       src={catering_image}
                       fill
+                        sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -321,6 +344,10 @@ function Services({ lng }) {
                       alt="sds"
                       src={distributioin_image}
                       fill
+                      sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 65vw,
+              55vw"
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>

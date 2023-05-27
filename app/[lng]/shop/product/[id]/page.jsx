@@ -6,14 +6,16 @@ export const metadata = {
   title: "Product detail",
 };
 
+export const revalidate = 10;
+
 function ShopPage({ params }) {
-  const { id } = params;
+  const id = parseInt(params.id) || 8;
   const { items, isLoading, isError } = useItems({
     url: `${apiDomain}client/good/list`,
     data: {
       select:
         "id,name,sort_order,is_active,type_id,parent_good_id,price,size_id,image_path",
-      type_id: id,
+      type_id: id || 0,
       relations: ["size:id,name"],
     },
   });
@@ -43,7 +45,7 @@ function ShopPage({ params }) {
     },
   });
   return (
-    <div className="w-full " style={{ backgroundColor: `#eceae6;` }}>
+    <div className="w-full " style={{ backgroundColor: `#eceae6` }}>
       <div className="container py-12">
         <ProductDetail
           ItemData={{ items, isLoading, isError }}

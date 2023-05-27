@@ -4,17 +4,12 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  generateEtags: false,
   images: {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "192.168.10.214",
-        port: "8000",
-        pathname: "/storage/**",
-      },
-      {
-        protocol: "http",
-        hostname: "192.168.0.68",
+        hostname: "192.168.10.217",
         port: "8000",
         pathname: "/storage/**",
       },

@@ -11,7 +11,7 @@
   "empty_cart": "Your cart is empty",
   "additional_information": "Additional information",
   "grind": "Grind",
-  "coffee_list": "Beans",
+  "coffee_list": "Recomended beans",
   "recomended_products": "Recomended products",
   "view": "View",
   "read_more": "Read more",
@@ -31,9 +31,14 @@
   "location": "Location",
   "branches": "Branches",
   "working_hours": "Working hours",
-
+  "recieve_code_not_valid": "Code is not valid",
   "choose_grinder_type": "Please choose grinder type",
   "shop": "Shop",
   "size": "Size",
-  "fixe": ""
+  "auth_wrong": "Wrong email or password",
+  "back": "Back",
+  "fixe": "",
+  "register_info": "Registration Information",
+  "logout": "Log Out",
+  "order_additional_information": "Кофены захиалга 12 цагаас өмнө хийгдсэн тохиолдолд тухайн өдөртөө ажилын цагаар хүргэгдэж очино. 12 оос хойш баталгаажсан захиалга дараа өдрийн ажилын цагт багтаж хүргэгдэж очихыг анхаарна уу. Бүтэнсайн өдөр хүргэлт хийгддэггүй тул захиалга 1 дэх өдөр ажилын цагаар хүргэгдэхийг анхаарна уу."
 }

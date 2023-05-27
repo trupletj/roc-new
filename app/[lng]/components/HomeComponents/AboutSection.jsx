@@ -43,8 +43,8 @@ async function AboutSection({ lng }) {
               fill
               style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+              (max-width: 1200px) 100vw,
+              100vw"
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5 ">
               <h1 className="font-bold text-xl">{t("how_we_roast")}</h1>
@@ -63,8 +63,9 @@ async function AboutSection({ lng }) {
               alt="About Picture"
               fill
               sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+              (max-width: 1200px) 75vw,
+              75vw"
+              quality={100}
               style={{ objectFit: "cover" }}
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5">

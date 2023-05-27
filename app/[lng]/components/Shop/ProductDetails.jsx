@@ -19,7 +19,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
-  const { setOpenBasket, mediaDomain, setCard } = useContext(GlobalContext);
+  const { setOpenBasket, mediaDomain, setCard, setAlerts } =
+    useContext(GlobalContext);
 
   useEffect(() => {
     if (
@@ -78,7 +79,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                   fill
                   sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                  quality={100}
                   style={{ objectFit: "cover" }}
                   className="self-center mx-auto"
                 />
@@ -98,7 +100,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                         fill
                         sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+                        quality={100}
                         style={{ objectFit: "cover" }}
                         className={`cursor-pointer border  ${
                           selectedItem.id === product.id
@@ -200,7 +203,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                                     fill
                                     sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              50vw"
+              quality={100}
                                     style={{ objectFit: "contain" }}
                                   /> */}
 
@@ -341,13 +345,20 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                     className="bg-[#080505] text-white py-2 px-3 col-span-3 border min-h-[25px]"
                     onClick={() => {
                       if (productType?.category_id == 2 && !selectedGrind) {
-                        alert(t("choose_grinder_type"));
+                        setAlerts((val) => {
+                          return [
+                            ...val,
+                            {
+                              title: "Warning",
+                              description: t("choose_grinder_type"),
+                            },
+                          ];
+                        });
                         return false;
                       }
                       setCard((val) => {
                         const localCard = localStorage.getItem("card");
                         let helper = localCard ? JSON.parse(localCard) : val;
-                        console.log(selectedGrind);
 
                         if (!helper[selectedItem.id])
                           helper[selectedItem.id] = {
@@ -403,7 +414,11 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 src={mediaDomain + productType.session_image}
                 alt={selectedItem.name || "About Picture"}
                 fill
+                sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 60vw,
+              60vw"
                 style={{ objectFit: "contain" }}
+                quality={100}
               />
             )}
           </div>

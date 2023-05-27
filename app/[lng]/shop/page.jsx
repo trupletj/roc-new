@@ -6,6 +6,8 @@ export const metadata = {
   title: "Shop Products",
 };
 
+export const revalidate  = 10;
+
 function ShopPage({ params }) {
   const { items, isLoading, isError } = useItems({
     url: `${apiDomain}client/good/list`,

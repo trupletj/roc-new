@@ -1,5 +1,6 @@
 {
-  "information": "Roasting to a Taste ",
+  "information": "Profile information",
+  "basket_information": "Basket information",
   "btn_name": "Request for information",
   "first_name": "First Name",
   "last_name": "Last Name",
@@ -30,5 +31,17 @@
   "call_before_delivery": "Call before delivery",
   "deliver_in_the_evening": "Deliver in the evening",
   "placeholder_full_address": "Please enter your full address",
-  "continue_shopping": "Continue Shopping"
+  "new": "Add new address",
+  "address_name": "Address name",
+  "receiver_name": "Receiver name",
+  "receiver_phone": "Receiver phone",
+  "continue_shopping": "Continue Shopping",
+  "delete": "Delete address",
+  "delete_address": "You are deleting address",
+  "confirm_email": "Get Confirm email",
+  "confirm_phone": "Get Confirm phone",
+  "save": "Save",
+  "empty_address_text": "You don't have any address yet",
+  "my_orders": "Orders",
+  "delivery_addresses": "Delivery addresses"
 }
