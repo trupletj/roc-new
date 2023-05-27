@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import image from "@/public/assets/coffee1.png";
-
+import { useRouter } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 import { useForm } from "react-hook-form";
 import ConfirmModal from "../moleculs/ConfirmModal";
@@ -20,8 +20,14 @@ function DeliveryForm({ lng }) {
     formState: { errors },
   } = useForm();
 
+  const router = useRouter();
+
   //End form confirm nemev
   const onSubmit = (data) => console.log(data);
+
+  const handleContinue = () => {
+    router.push(`/${lng}/shop);`);
+  };
   return (
     <>
       <form
@@ -589,7 +595,10 @@ function DeliveryForm({ lng }) {
             >
               {t("checkout")}
             </button>
-            <button className="w-full bg-[#080505] text-white py-2">
+            <button
+              className="w-full bg-[#080505] text-white py-2"
+              onClick={() => handleContinue()}
+            >
               {t("continue_shopping")}
             </button>
           </div>

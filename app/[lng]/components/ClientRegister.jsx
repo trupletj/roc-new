@@ -1,8 +1,12 @@
-import { useTranslation } from "@/app/i18n";
+"use client";
+import { useTranslation } from "@/app/i18n/client.js";
 import React from "react";
 
-async function ClientRegister({ lng }) {
-  const { t } = await useTranslation(lng, "header");
+function ClientRegister({ lng }) {
+  const { t } = useTranslation(lng, "header");
+  const handleRegister = () => {
+    console.log("register");
+  };
   return (
     <div className="w-full bg-[#ECEBE7] text-[#080505]">
       <div className="container mx-auto flex flex-col lg:flex-row py-10 px-5">
@@ -18,7 +22,10 @@ async function ClientRegister({ lng }) {
                 type="text"
                 placeholder="И-мэйл хаяг"
               />
-              <button className="bg-black text-white py-3 px-5">
+              <button
+                className="bg-black text-white py-3 px-5"
+                onClick={() => handleRegister()}
+              >
                 {t("sign_up")}
               </button>
             </div>
