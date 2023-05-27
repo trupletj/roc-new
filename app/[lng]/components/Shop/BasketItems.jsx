@@ -271,11 +271,11 @@ function BasketItem({ lng, hideTitle }) {
       </div>
 
       <div className="border-t border-gray-200 px-4 py-3 sm:px-6">
-        {totalPrice < 100000 && (
+        {totalPrice > 0 && totalPrice < 100000 && (
           <div className="flex justify-between text-base font-medium text-black-800 border-b py-3">
             <p>{t("delivery")}</p>
             <p>
-              {parseInt(4000)?.toLocaleString("en-US", {
+              {parseInt(5000)?.toLocaleString("en-US", {
                 style: "decimal",
               })}
               {"₮"}
@@ -285,8 +285,8 @@ function BasketItem({ lng, hideTitle }) {
         <div className="flex justify-between text-base font-medium text-black-800 border-b py-3">
           <p>{t("subtotal")}</p>
           <p>
-            {totalPrice < 100000
-              ? parseInt(totalPrice + 4000)?.toLocaleString("en-US", {
+            {totalPrice > 0 && totalPrice < 100000
+              ? parseInt(totalPrice + 5000)?.toLocaleString("en-US", {
                   style: "decimal",
                 })
               : totalPrice?.toLocaleString("en-US", {
@@ -369,7 +369,7 @@ function BasketItem({ lng, hideTitle }) {
           </div>
           {openInformation && (
             <div className="sm:col-span-3">
-              asd asio naoisd naois noiaoisdn oiasnd
+              {t("order_additional_information")}
             </div>
           )}
         </div>
