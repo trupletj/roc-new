@@ -1,12 +1,5 @@
 "use client";
-<<<<<<< HEAD
-import React, { useState } from "react";
-import Image from "next/image";
-import image from "@/public/assets/coffee1.png";
-import { useRouter } from "next/navigation";
-=======
 import React, { useContext, useState } from "react";
->>>>>>> 7954e749f332754afd8f6bae0e3001b971570e27
 import { useTranslation } from "@/app/i18n/client";
 import ConfirmModal from "../moleculs/ConfirmModal";
 import BasketItem from "../Shop/BasketItems";
@@ -108,8 +101,6 @@ function DeliveryForm({ lng }) {
         ];
       });
     }
-
-   
   };
   return (
     <>
