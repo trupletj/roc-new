@@ -49,29 +49,8 @@ function SideBar({ lng, slug }) {
                 "text-[#F0B450] "
               }  cursor-pointer text-lg last:border-none py-5 flex justify-between text-center`}
             >
-              <span>{t("my_orders")}</span> <VscChevronDown />
+              <span>{t("my_orders")}</span>
             </p>
-            <ul>
-              <li
-                className={`cursor-pointer text-lg flex justify-between text-center`}
-                onClick={() => router.push(`/${lng}/profile/order-histories`)}
-              >
-                <span>{t("all")}</span> <span>15</span>
-              </li>
-              <li
-                className={`cursor-pointer text-lg flex justify-between text-center`}
-                onClick={() =>
-                  router.push(`/${lng}/profile/order-histories?status=created`)
-                }
-              >
-                <span>{t("invoice_created")}</span> <span>3</span>
-              </li>
-              <li>paid</li>
-              <li>approved</li>
-              <li>on way</li>
-              <li>done</li>
-              <li>canceled</li>
-            </ul>
           </>
         )}
       </li>

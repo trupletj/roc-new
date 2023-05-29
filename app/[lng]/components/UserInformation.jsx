@@ -177,9 +177,39 @@ function UserInformation({ lng }) {
           <div className={openIndex === 1 ? "block" : "hidden"}>
             <div className="w-full  mb-10">
               <div className="flex flex-col">
-                <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
-                  klfahjdlkfj
+                <div className="flex flex-col md:flex-row items-center md:space-x-16 ">
+                  <ul className="w-full space-y-4">
+                    <li className="flex flex-row w-full justify-between space-y-2 space-x-4">
+                      <div className="h-20 w-16 flex-shrink-0 overflow-hidden ">
+                        <img
+                          src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                          alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                      <div className="w-full flex flex-col space-y-1">
+                        <h1 className="font-normal text-lg">R885497629</h1>
+                        <p className="text-sm">2023/04/22 00:17</p>
+                        <p className="text-sm font-normal text-[#6B6969]">
+                          Захиалга амжилттай хүргэгдсэн
+                        </p>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <span>Дүн:</span>
+                        <span className="font-normal text-lg">45,000₮</span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
+                <button
+                  className="w-full bg-black text-white py-2 my-4"
+                  onClick={() => {
+                    router.push(`/${lng}/profile/order-histories`);
+                    setOpenLogin(false);
+                  }}
+                >
+                  Бүгдийг харах
+                </button>
               </div>
             </div>
           </div>

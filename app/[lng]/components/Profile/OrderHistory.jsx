@@ -27,113 +27,96 @@ function OrderHistory({ lng }) {
           <br />
         </h2>
         <div className="pointer-events-auto mt-10">
-          <div className="flex flex-col bg-white ">
-            <div className="flex-1 p-6  grid grid-cols-1 gap-1">
-              {!data && <Loading></Loading>}
-              {data && (
-                <>
-                  {data?.record?.data?.map((item) => (
-                    <div
-                      className="col-span-1"
-                      key={`order-list-item-${item.id}`}
-                    >
-                      <div className="space-y-2 flex flex-col items-start bg-gray-300  p-2 ">
-                        <p className="text-xl font-normal mt-2 w-full">
-                          {item.number}
-                          <span className="text-base font-normal self-end float-right">
-                            {" "}
-                            {item?.created_at
-                              ?.replace("T", " ")
-                              .replace(".000000Z", "")}
-                          </span>
-                          {/* {lng === "en" ? productType.name : productType.mn_name} */}
-                        </p>
-                        <p className="text-[#F0B450] text-xl font-normal">
-                          {item?.total_price?.toLocaleString("en-US", {
-                            style: "decimal",
-                          })}
-                          {"₮"}
-                        </p>
-                        <p>{item?.current_status?.name}</p>
+          <div className="flex flex-col ">
+            {!data && <Loading></Loading>}
+            {data && (
+              <>
+                {data?.record?.data?.map((item) => (
+                  <div className="space-y-2 flex flex-col items-start bg-white  py-5 px-10 border-l-5 border-green-600">
+                    <p className="text-xl font-normal mt-2 w-full">
+                      {item.number}
+                      <span className="text-base font-normal self-end float-right">
+                        {" "}
+                        {item?.created_at
+                          ?.replace("T", " ")
+                          .replace(".000000Z", "")}
+                      </span>
+                      {/* {lng === "en" ? productType.name : productType.mn_name} */}
+                    </p>
+                    <p className="text-[#F0B450] text-xl font-normal">
+                      {item?.total_price?.toLocaleString("en-US", {
+                        style: "decimal",
+                      })}
+                      {"₮"}
+                    </p>
+                    <p>{item?.current_status?.name}</p>
 
-                        <div className="flex-1 w-full flex flex-row  justify-between ">
-                          <p>
-                            {" "}
-                            {item?.total_good} {t("types")}{" "}
-                            {item?.total_quantity} {t("products")}
-                          </p>
-                          <Link
-                            href={`/${lng}/order/${item?.id}`}
-                            shallow={true}
-                            className="text-white flex items-center bg-[#080505] py-1 px-2  float-right self-end"
-                          >
-                            <span className="mr-4"> {t("read_more")}</span>{" "}
-                            <ArrowR />
-                          </Link>
-                        </div>
-                      </div>
+                    <div className="flex-1 w-full flex flex-row  justify-between ">
+                      <p>
+                        {" "}
+                        {item?.total_good} {t("types")} {item?.total_quantity}{" "}
+                        {t("products")}
+                      </p>
+                      <Link
+                        href={`/${lng}/order/${item?.id}`}
+                        shallow={true}
+                        className="text-white flex items-center bg-[#080505] py-1 px-2  float-right self-end"
+                      >
+                        <span className="mr-4"> {t("read_more")}</span>{" "}
+                        <ArrowR />
+                      </Link>
                     </div>
-                  ))}
-                  {data?.record?.last_page > 0 && (
-                    <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-                      <div>
-                        <p className="text-sm text-gray-700">
-                          Showing{" "}
-                          <span className="font-medium">
-                            {data?.record?.from}
-                          </span>{" "}
-                          to{" "}
-                          <span className="font-medium">
-                            {" "}
-                            {data?.record?.to}
-                          </span>{" "}
-                          of{" "}
-                          <span className="font-medium">
-                            {" "}
-                            {data?.record?.total}
-                          </span>{" "}
-                          results
-                        </p>
-                      </div>
-                      <div>
-                        <nav
-                          className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-                          aria-label="Pagination"
-                        >
-                          {data?.record?.links
-                            ?.filter((item) => item.url)
-                            .map((link) => {
-                              if (link?.active) {
-                                return (
-                                  <a
-                                    key={link}
-                                    href="#"
-                                    aria-current="page"
-                                    className="relative z-10 inline-flex items-center bg-gray-400 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                  >
-                                    1
-                                  </a>
-                                );
-                              } else {
-                                return (
-                                  <a
-                                    key={link}
-                                    href="#"
-                                    className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                                  >
-                                    2
-                                  </a>
-                                );
-                              }
-                            })}
-                          {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-                        </nav>
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
+                  </div>
+                ))}
+              </>
+            )}
+            {data?.record?.last_page > 0 && (
+              <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm text-gray-700">
+                    Showing{" "}
+                    <span className="font-medium">{data?.record?.from}</span> to{" "}
+                    <span className="font-medium"> {data?.record?.to}</span> of{" "}
+                    <span className="font-medium"> {data?.record?.total}</span>{" "}
+                    results
+                  </p>
+                </div>
+                <div>
+                  <nav
+                    className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                    aria-label="Pagination"
+                  >
+                    {data?.record?.links
+                      ?.filter((item) => item.url)
+                      .map((link) => {
+                        if (link?.active) {
+                          return (
+                            <a
+                              key={link}
+                              href="#"
+                              aria-current="page"
+                              className="relative z-10 inline-flex items-center bg-gray-400 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                              1
+                            </a>
+                          );
+                        } else {
+                          return (
+                            <a
+                              key={link}
+                              href="#"
+                              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+                            >
+                              2
+                            </a>
+                          );
+                        }
+                      })}
+                    {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+                  </nav>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
