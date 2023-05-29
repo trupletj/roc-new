@@ -24,15 +24,21 @@ function DetailsAdditional({ lng, productType }) {
           .map((type_detail, index) => {
             return (
               <li key={index * 0.3}>
-                <div className="relative   aspect-[16/7]">
+                <picture>
+                  <img src={mediaDomain + type_detail.image_name} alt="" />
+                </picture>
+                {/* <div className="relative   aspect-square">
                   <Image
-                    src={mediaDomain + type_detail.image_name}
                     alt={productType.name || "About Picture"}
                     fill
-                    style={{ objectFit: "contain" }}
+                    style={{ objectFit: "none" }}
                     className="self-center mx-auto"
-                  />
-                </div>
+                    sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 60vw,
+                  60vw"
+                    quality={100}
+                  /> */}
+                {/* </div> */}
               </li>
             );
           })}
