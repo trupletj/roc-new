@@ -10,7 +10,7 @@ import Link from "next/link";
 import ArrowR from "../atoms/ArrowR";
 
 const status_list = {
-  0: { color: "gray-100", name: "all" },
+  0: { color: "red-100", name: "all" },
   1: { color: "#00B47D", name: "order_created" },
   2: { color: "#00B47D", name: "invoice_created" },
   3: { color: "#00B47D", name: "paid" },
@@ -60,9 +60,9 @@ function OrderHistory({ lng }) {
         <div className="flex flex-wrap w-full mt-8">
           {Object.keys(status_list).map((key, i) => (
             <p
-              key={`order-status-list-${i}`}
+              key={status_list[key].name}
               className={` px-4 py-2 mr-2 mt-2 ${
-                key === selectedId ? "bg-[#F0B450] text-white" : "bg-white"
+                key == selectedId ? "bg-[#F0B450] text-white" : "bg-white"
               } `}
               onClick={() => handleFilter(key)}
             >
@@ -75,8 +75,9 @@ function OrderHistory({ lng }) {
             {!data && <Loading></Loading>}
             {filteredData && (
               <>
-                {filteredData.map((item) => (
+                {filteredData.map((item, i) => (
                   <div
+                    key={item.name}
                     className={`space-y-2 flex  bg-white  py-5 px-10 border-l-8 ${
                       "border-[" +
                       (status_list[item.current_status.id].color ||
@@ -84,6 +85,7 @@ function OrderHistory({ lng }) {
                       "]"
                     } `}
                   >
+                    {status_list[item.current_status.id].color}
                     <div className="w-2/5 flex flex-col space-y-1">
                       <h1 className="font-medium text-lg">{item.number}</h1>
                       <p className="text-sm font-light">
