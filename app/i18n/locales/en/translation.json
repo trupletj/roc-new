@@ -38,7 +38,6 @@
   "auth_wrong": "Wrong email or password",
   "back": "Back",
   "fixe": "",
-  "register_info": "Registration Information",
-  "logout": "Log Out",
-  "order_additional_information": "Кофены захиалга 12 цагаас өмнө хийгдсэн тохиолдолд тухайн өдөртөө ажилын цагаар хүргэгдэж очино. 12 оос хойш баталгаажсан захиалга дараа өдрийн ажилын цагт багтаж хүргэгдэж очихыг анхаарна уу. Бүтэнсайн өдөр хүргэлт хийгддэггүй тул захиалга 1 дэх өдөр ажилын цагаар хүргэгдэхийг анхаарна уу."
+  "order_additional_information": "If the coffee order is placed before 12:00, it will be delivered on the same day during working hours. Please note that orders confirmed after 12 will be delivered within the next working day. Please note that if you order Sunday orders will be delivered on the 1st working day as deliveries are not made on a full day basis.",
+  "register_info": "Registration Information"
 }
