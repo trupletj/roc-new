@@ -43,5 +43,19 @@
   "save": "Хадгалах",
   "empty_address_text": "Та хүргэлтийн хаягаа оруулснаар захиалга хийхдээ тухайн хаягийг хялбар ашиглах боломжтой",
   "my_orders": "Миний захиалгууд",
-  "delivery_addresses": "Хүргэлтийн хаягууд"
+  "delivery_addresses": "Хүргэлтийн хаягууд",
+  "subtotal": "Дүн",
+  "order_created": "Захиалга үүссэн",
+  "invoice_created": "Нэхэмжлэх үүссэн",
+  "paid": "Төлөгдсөн",
+  "approved": "Баталгаажсан",
+  "ready_to_delivery": "Үйлдвэр дээр бэлтгэгдсэн",
+  "out_for_delivery": "Хүргэлтэнд гарсан",
+  "delivered": "Хэрэглэгч хүлээж авсан",
+  "cancelled": "Цуцлагдсан",
+  "order_history": "Миний захиалгууд",
+  "my_addresses": "Миний хаягууд",
+  "personal_information": "Хувийн мэдээлэл",
+  "view_all": "Бүгдийг харах",
+  "all": "Бүгд"
 }

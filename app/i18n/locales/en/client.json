@@ -43,5 +43,19 @@
   "save": "Save",
   "empty_address_text": "You don't have any address yet",
   "my_orders": "My orders",
-  "delivery_addresses": "Delivery addresses"
+  "delivery_addresses": "Delivery addresses",
+  "subtotal": "Subtotal",
+  "order_created": "Order created",
+  "invoice_created": "Invoice created",
+  "paid": "Paid",
+  "approved": "Approved",
+  "ready_to_delivery": "Ready to delivery",
+  "out_for_delivery": "Out for delivery",
+  "delivered": "Delivered",
+  "cancelled": "Cancelled",
+  "order_history": "Order history",
+  "my_addresses": "My addresses",
+  "personal_information": "Personal information",
+  "view_all": "View all",
+  "all": "All"
 }

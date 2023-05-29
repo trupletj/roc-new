@@ -4,21 +4,51 @@ import useSWR from "swr";
 import Loading from "../atoms/Loading";
 import { apiDomain, fetcherForSwrPost } from "@/app/hooks/useItems";
 import { useTranslation } from "@/app/i18n/client";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import Link from "next/link";
 import ArrowR from "../atoms/ArrowR";
 
+const status_list = {
+  0: { color: "gray-100", name: "all" },
+  1: { color: "#00B47D", name: "order_created" },
+  2: { color: "#00B47D", name: "invoice_created" },
+  3: { color: "#00B47D", name: "paid" },
+  4: { color: "#00B47D", name: "approved" },
+  5: { color: "#F0B450", name: "ready_to_delivery" },
+  6: { color: "#F0B450", name: "out_for_delivery" },
+  7: { color: "#00B47D", name: "delivered" },
+  8: { color: "#CA2E27", name: "cancelled" },
+};
+
 function OrderHistory({ lng }) {
   const { t } = useTranslation(lng, "client");
-
   const { token } = useContext(GlobalContext);
   const { data, error } = useSWR(
     [`${apiDomain}client/profile/myOrders`, {}, token],
     ([url, data, token]) => fetcherForSwrPost(url, data, token)
   );
+  const [filteredData, setFilteredData] = useState(data);
+  const [selectedId, setSelectedId] = useState(0);
+
   const searchParams = useSearchParams();
   const prefix = parseInt(searchParams.get("prefix")) || 0;
+
+  const handleFilter = (key) => {
+    if (key == 0) {
+      setFilteredData(data?.record.data);
+      setSelectedId(0);
+    } else {
+      const result = data?.record.data.filter((obj) => obj.status_id == key);
+      setFilteredData(result);
+      setSelectedId(key);
+    }
+  };
+
+  useEffect(() => {
+    setFilteredData(data?.record?.data);
+  }, [data]);
+
   return (
     <>
       <div className="max-w-full pt-10 md:pt-0">
@@ -26,14 +56,58 @@ function OrderHistory({ lng }) {
           {t("order_history")}
           <br />
         </h2>
-        <div className="pointer-events-auto mt-10">
-          <div className="flex flex-col ">
+        <div className="flex flex-wrap w-full mt-8">
+          {Object.keys(status_list).map((key, i) => (
+            <p
+              key={`order-status-list-${i}`}
+              className={` px-4 py-2 mr-2 mt-2 ${
+                key === selectedId ? "bg-[#F0B450] text-white" : "bg-white"
+              } `}
+              onClick={() => handleFilter(key)}
+            >
+              {t(status_list[key].name)}
+              {key}
+              {selectedId}
+            </p>
+          ))}
+        </div>
+        <div className="pointer-events-auto mt-5">
+          <div className="flex flex-col space-y-4">
             {!data && <Loading></Loading>}
-            {data && (
+            {filteredData && (
               <>
-                {data?.record?.data?.map((item) => (
-                  <div className="space-y-2 flex flex-col items-start bg-white  py-5 px-10 border-l-5 border-green-600">
-                    <p className="text-xl font-normal mt-2 w-full">
+                {filteredData.map((item) => (
+                  <div
+                    className={`space-y-2 flex  bg-white  py-5 px-10 border-l-8 ${
+                      "border-[" +
+                      (status_list[item.current_status.id].color ||
+                        "gray-100") +
+                      "]"
+                    } `}
+                  >
+                    <div className="w-2/5 flex flex-col space-y-1">
+                      <h1 className="font-medium text-lg">{item.number}</h1>
+                      <p className="text-sm font-light">
+                        {item?.created_at
+                          ?.replace("T", " ")
+                          .replace(".000000Z", "")
+                          .replaceAll("-", "/")}
+                      </p>
+                      <p className="text-sm ">
+                        {t(status_list[item?.current_status?.id].name)}
+                      </p>
+                    </div>
+                    <div className="w-2/5"></div>
+                    <div className="w-1/5 flex flex-col items-end justify-center space-y-1">
+                      <p className="text-sm">{t("subtotal")}</p>
+                      <p className="font-normal text-lg">
+                        {item?.total_price?.toLocaleString("en-US", {
+                          style: "decimal",
+                        })}
+                        {"₮"}
+                      </p>
+                    </div>
+                    {/* <p className="text-xl font-normal mt-2 w-full">
                       {item.number}
                       <span className="text-base font-normal self-end float-right">
                         {" "}
@@ -41,7 +115,7 @@ function OrderHistory({ lng }) {
                           ?.replace("T", " ")
                           .replace(".000000Z", "")}
                       </span>
-                      {/* {lng === "en" ? productType.name : productType.mn_name} */}
+                     
                     </p>
                     <p className="text-[#F0B450] text-xl font-normal">
                       {item?.total_price?.toLocaleString("en-US", {
@@ -49,9 +123,9 @@ function OrderHistory({ lng }) {
                       })}
                       {"₮"}
                     </p>
-                    <p>{item?.current_status?.name}</p>
+                    <p>{item?.current_status?.name}</p> */}
 
-                    <div className="flex-1 w-full flex flex-row  justify-between ">
+                    {/* <div className="flex-1 w-full flex flex-row  justify-between ">
                       <p>
                         {" "}
                         {item?.total_good} {t("types")} {item?.total_quantity}{" "}
@@ -65,7 +139,7 @@ function OrderHistory({ lng }) {
                         <span className="mr-4"> {t("read_more")}</span>{" "}
                         <ArrowR />
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </>

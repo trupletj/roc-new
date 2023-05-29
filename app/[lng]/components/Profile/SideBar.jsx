@@ -16,7 +16,7 @@ function SideBar({ lng, slug }) {
         }  cursor-pointer text-lg border-b last:border-none py-5`}
         onClick={() => router.push(`/${lng}/profile/my-profile`)}
       >
-         Хувийн мэдээлэл
+         {t("personal_information")}
       </li>
       <li
         className={`${
@@ -24,7 +24,7 @@ function SideBar({ lng, slug }) {
         } cursor-pointer text-lg border-b last:border-none py-5`}
         onClick={() => router.push(`/${lng}/profile/my-addresses`)}
       >
-        Миний хаягууд
+        {t("my_addresses")}
       </li>
       <li className={` text-lg border-b last:border-none py-5`}>
         {slug != "order-histories" && (
@@ -37,7 +37,7 @@ function SideBar({ lng, slug }) {
               router.push(`/${lng}/profile/order-histories?status=created`)
             }
           >
-            <span>{t("my_orders")}</span> <VscChevronDown />
+            <span>{t("my_orders")}</span>
           </p>
         )}
 

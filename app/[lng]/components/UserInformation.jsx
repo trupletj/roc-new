@@ -208,7 +208,7 @@ function UserInformation({ lng }) {
                     setOpenLogin(false);
                   }}
                 >
-                  Бүгдийг харах
+                  {t("view_all")}
                 </button>
               </div>
             </div>
