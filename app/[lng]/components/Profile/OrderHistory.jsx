@@ -47,6 +47,7 @@ function OrderHistory({ lng }) {
 
   useEffect(() => {
     setFilteredData(data?.record?.data);
+    setSelectedId(0);
   }, [data]);
 
   return (
@@ -66,8 +67,6 @@ function OrderHistory({ lng }) {
               onClick={() => handleFilter(key)}
             >
               {t(status_list[key].name)}
-              {key}
-              {selectedId}
             </p>
           ))}
         </div>
