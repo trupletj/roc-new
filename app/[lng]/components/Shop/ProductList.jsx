@@ -141,7 +141,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                                     });
                                   }}
                                 >
-                                  {current.name} {current.category_id}
+                                  {current.name}
                                 </label>
                               </div>
                             );

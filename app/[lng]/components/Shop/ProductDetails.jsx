@@ -410,16 +410,21 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
             }`}
           >
             {productType.session_image && (
-              <Image
-                src={mediaDomain + productType.session_image}
-                alt={selectedItem.name || "About Picture"}
-                fill
-                sizes="(max-width: 768px) 100vw,
+              <>
+                <picture>
+                  <img src={mediaDomain + productType.session_image} alt="" />
+                </picture>
+                {/* <Image
+                  src={mediaDomain + productType.session_image}
+                  alt={selectedItem.name || "About Picture"}
+                  fill
+                  sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 60vw,
               60vw"
-                style={{ objectFit: "contain" }}
-                quality={100}
-              />
+                  style={{ objectFit: "contain" }}
+                  quality={100}
+                /> */}
+              </>
             )}
           </div>
           <div className="lg:col-span-3">
