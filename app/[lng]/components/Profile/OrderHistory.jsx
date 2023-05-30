@@ -12,7 +12,7 @@ import ArrowR from "../atoms/ArrowR";
 const status_list = {
   0: { color: "red-100", name: "all" },
   1: { color: "#00B47D", name: "order_created" },
-  2: { color: "#00B47D", name: "invoice_created" },
+  2: { color: "#F0B450", name: "invoice_created" },
   3: { color: "#00B47D", name: "paid" },
   4: { color: "#00B47D", name: "approved" },
   5: { color: "#F0B450", name: "ready_to_delivery" },
@@ -61,7 +61,7 @@ function OrderHistory({ lng }) {
           {Object.keys(status_list).map((key, i) => (
             <p
               key={status_list[key].name}
-              className={` px-4 py-2 mr-2 mt-2 ${
+              className={` px-4 py-2 mr-2 mt-2  ${
                 key == selectedId ? "bg-[#F0B450] text-white" : "bg-white"
               } `}
               onClick={() => handleFilter(key)}
@@ -79,13 +79,11 @@ function OrderHistory({ lng }) {
                   <div
                     key={item.name}
                     className={`space-y-2 flex  bg-white  py-5 px-10 border-l-8 ${
-                      "border-[" +
-                      (status_list[item.current_status.id].color ||
-                        "gray-100") +
-                      "]"
+                      `border-[` +
+                      status_list[item.current_status.id].color +
+                      `]`
                     } `}
                   >
-                    {status_list[item.current_status.id].color}
                     <div className="w-2/5 flex flex-col space-y-1">
                       <h1 className="font-medium text-lg">{item.number}</h1>
                       <p className="text-sm font-light">
