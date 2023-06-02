@@ -57,5 +57,8 @@
   "my_addresses": "Миний хаягууд",
   "personal_information": "Хувийн мэдээлэл",
   "view_all": "Бүгдийг харах",
-  "all": "Бүгд"
+  "all": "Бүгд",
+  "reg_number_organization": "Байгууллагын регистерийн дугаар",
+  "name_organiztion": "Байгууллагын нэр",
+  "ebarimt": "И Баримт байгууллагаар авах"
 }

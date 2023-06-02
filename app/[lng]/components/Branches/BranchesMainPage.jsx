@@ -20,7 +20,7 @@ async function BranchesMainPage({ lng }) {
   const { t: un } = await useTranslation(lng, "un");
   return (
     <div className="container flex flex-col items-center py-10 pb-20 space-y-10">
-      <h1 className="text-5xl font-medium ">ROC CAFFEINE BAR</h1>
+      <h1 className="md:text-5xl text-xl font-medium ">ROC CAFFEINE BAR</h1>
       <ul className="grid grid-cols-1 md:grid-cols-6 max-w-[1024px] mx-auto gap-4 text-xs w-full text-center">
         <li className="bg-[#F2F2F2] p-2">
           <Link href={`/${lng}/branches/roastery`}>{roastery("name")}</Link>
@@ -52,11 +52,11 @@ async function BranchesMainPage({ lng }) {
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               50vw"
-              quality={100}
+                quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full   flex items-center">
               {roastery("name")}
             </div>
           </div>
@@ -69,7 +69,7 @@ async function BranchesMainPage({ lng }) {
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               50vw"
-              quality={100}
+                quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -88,7 +88,7 @@ async function BranchesMainPage({ lng }) {
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               50vw"
-              quality={100}
+                quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -105,11 +105,11 @@ async function BranchesMainPage({ lng }) {
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               50vw"
-              quality={100}
+                quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full   flex items-center">
               {un("name")}
             </div>
           </div>
@@ -124,11 +124,11 @@ async function BranchesMainPage({ lng }) {
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               50vw"
-              quality={100}
+                quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="absolute -bottom-12 left-0 h-12 w-full bg-white flex items-center">
+            <div className="absolute -bottom-12 left-0 h-12 w-full   flex items-center">
               {mpm("name")}
             </div>
           </div>
@@ -141,7 +141,7 @@ async function BranchesMainPage({ lng }) {
                 sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               50vw"
-              quality={100}
+                quality={100}
                 style={{ objectFit: "cover" }}
               />
             </div>

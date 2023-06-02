@@ -41,7 +41,7 @@ async function Branch({ lng, slug }) {
         </div>
         <h1 className="text-3xl">{t("name")}</h1>
         {t("phone") != "phone" && (
-          <ul className="flex flex-col md:flex-row space-y-5  md:space-x-5 text-base font-light justify-center">
+          <ul className="flex flex-col md:flex-row space-y-5  md:space-x-5 text-sm md:text-base font-light justify-center">
             <li>
               <p dangerouslySetInnerHTML={{ __html: t("phone") }} />
             </li>
@@ -54,11 +54,14 @@ async function Branch({ lng, slug }) {
           </ul>
         )}
         {t("map") != "map" && (
-          <Link href="/" className="bg-[#F2F2F2] text-[#080505] px-16 py-1">
+          <Link
+            href="/"
+            className="bg-[#F2F2F2] text-[#080505] px-16 py-1 text-sm md:text-base"
+          >
             View Google map
           </Link>
         )}
-        <div className="max-w-[900px] mx-auto space-y-5 text-xl text-center md-t">
+        <div className="max-w-[900px] mx-auto space-y-5 md:text-xl text-left md-t">
           <p dangerouslySetInnerHTML={{ __html: t("main_text") }} />
         </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">

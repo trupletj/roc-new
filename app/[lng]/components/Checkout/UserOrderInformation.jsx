@@ -106,8 +106,7 @@ function UserOrderInformation({
       <form
         className="w-full"
         onSubmit={handleSubmit(onSubmit)}
-        onChange={(data) => {
-        }}
+        onChange={(data) => {}}
       >
         <h2 className="text-2xl text-gray-900 uppercase font-normal">
           {t("information")}
@@ -234,7 +233,7 @@ function UserOrderInformation({
                     htmlFor="company_register"
                     className="block text-base font-light leading-6 text-gray-900"
                   >
-                    Байгууллагын регистрийн дугаар:
+                    {t("reg_number_organization")}:
                   </label>
                   <div className="mt-2">
                     <input
@@ -256,7 +255,7 @@ function UserOrderInformation({
                     htmlFor="company_name"
                     className="block text-base font-light leading-6 text-gray-900"
                   >
-                    Байгууллагын нэр
+                    {t("name_organiztion")}:
                   </label>
                   <div className="mt-2">
                     <input

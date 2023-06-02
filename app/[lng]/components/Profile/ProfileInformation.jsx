@@ -43,7 +43,7 @@ function ProfileInformation({ lng }) {
   //End form confirm nemev
   const onSubmit = async (data) => {
     setIsSaving(true);
-    debugger
+    debugger;
     const response = await fetcher("client/profile/update", data, token);
     if (response.status == 200) {
       const result = await response.json();
@@ -120,7 +120,7 @@ function ProfileInformation({ lng }) {
               onClick={() => setIsRegisterOn(!isRegisterOn)}
               className="flex justify-between items-center col-span-6 text-gray-900 cursor-pointer"
             >
-              <h1>И-Баримт албан байгууллагаар авах</h1>
+              <h1>{t("ebarimt")}</h1>
               {isRegisterOn ? (
                 <div>
                   <svg
@@ -190,7 +190,7 @@ function ProfileInformation({ lng }) {
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Байгууллагын регистрийн дугаар
+                    {t("reg_number_organization")}
                   </label>
                   <div className="mt-2">
                     <input
@@ -217,7 +217,7 @@ function ProfileInformation({ lng }) {
                     className="block text-base font-light leading-6 text-gray-900"
                   >
                     <span className="text-red-500 mr-2">*</span>
-                    Байгууллагын нэр
+                    {t("name_organiztion")}:
                   </label>
                   <div className="mt-2">
                     <input

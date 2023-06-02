@@ -71,7 +71,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
       {!isLoading && !grinderLoading && (
         <>
           <div className="lg:col-span-3  grid grid-rows-3 md:gap-x-2 md:grid-rows-1 md:grid-cols-6 md:aspect-[6/5]">
-            <div className="md:col-span-5 row-span-5 aspect-square relative  md:order-2">
+            <div className="md:col-span-5 row-span-5 aspect-square relative  md:order-2 md:mb-0 mb-2">
               {!isLoading && selectedItem?.image_path && (
                 <Image
                   src={mediaDomain + selectedItem.image_path}
@@ -86,7 +86,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 />
               )}
             </div>
-            <div className="col-span-1 row-span-1 flex md:block md:overflow-y-auto  md:overflow-x-hidden overflow-y-hidden md:order-1  md:space-y-2 space-x-2 md:space-x-0 px-2 pb-2 ">
+            <div className="col-span-1 row-span-1 flex md:block md:overflow-y-auto  md:overflow-x-hidden overflow-y-hidden md:order-1  md:space-y-2 space-x-2 md:space-x-0 md:px-2 pb-2 ">
               {!isLoading &&
                 items?.record?.map((product, i) => {
                   return (
@@ -121,7 +121,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="flex flex-row items-start text-sm text-gray-500  ">
+            <div className="flex flex-row items-start text-sm text-gray-500">
               <span>{t("shop")}</span>
               <span className="mx-1">-</span>
               <span>{productType?.category?.name}</span>

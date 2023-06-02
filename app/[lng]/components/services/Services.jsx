@@ -29,12 +29,12 @@ function Services({ lng, slug }) {
   const { t: service_roast } = useTranslation(lng, "service_roast");
   const { t: service_whole_sale } = useTranslation(lng, "service_whole_sale");
   return (
-    <ul className="mb-10 pb-20">
+    <ul className="mb-10 pb-20 text-sm font-light">
       <li className="border-b border-b-gray-900 last:border-none">
         <div>
           <div
             onClick={() => setOpenIndex((val) => (val == 0 ? -1 : 0))}
-            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
+            className="flex justify-between text-lg md:text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_roast("name")}</h1>
             <div>
@@ -84,7 +84,7 @@ function Services({ lng, slug }) {
                       alt="roasting"
                       src={roasting_image}
                       fill
-                        sizes="(max-width: 768px) 100vw,
+                      sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 65vw,
               55vw"
                       quality={100}
@@ -92,7 +92,7 @@ function Services({ lng, slug }) {
                     />
                   </div>
                   <div className="w-full md:w-5/12">
-                    <div className="text-xl text-center md:text-left font-semibold">
+                    <div className="md:text-xl  md:text-left ">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_roast("main_text"),
@@ -102,7 +102,7 @@ function Services({ lng, slug }) {
                     <form className="w-full mt-6 max-w-[560px]">
                       <div className="flex flex-row bg-white items-center  w-full border border-black justify-between">
                         <input
-                          className="text-black bg-white border-none px-[20px] outline-0"
+                          className="text-black bg-white border-none px-[10px] outline-0"
                           type="text"
                           placeholder="Email"
                         />
@@ -122,7 +122,7 @@ function Services({ lng, slug }) {
         <div>
           <div
             onClick={() => setOpenIndex((val) => (val == 1 ? -1 : 1))}
-            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
+            className="flex justify-between text-lg md:text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_whole_sale("name")}</h1>
             <div>
@@ -172,7 +172,7 @@ function Services({ lng, slug }) {
                       alt="whole sale"
                       src={whole_sale_image}
                       fill
-                        sizes="(max-width: 768px) 100vw,
+                      sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 65vw,
               55vw"
                       quality={100}
@@ -180,7 +180,7 @@ function Services({ lng, slug }) {
                     />
                   </div>
                   <div className="w-full md:w-5/12">
-                    <div className="text-xl text-center md:text-left font-semibold">
+                    <div className="md:text-xl  md:text-left ">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_whole_sale("main_text"),
@@ -210,7 +210,7 @@ function Services({ lng, slug }) {
         <div>
           <div
             onClick={() => setOpenIndex((val) => (val === 2 ? -1 : 2))}
-            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
+            className="flex justify-between text-lg md:text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_catering("name")}</h1>
             <div>
@@ -260,7 +260,7 @@ function Services({ lng, slug }) {
                       alt="sds"
                       src={catering_image}
                       fill
-                        sizes="(max-width: 768px) 100vw,
+                      sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 65vw,
               55vw"
                       quality={100}
@@ -268,7 +268,7 @@ function Services({ lng, slug }) {
                     />
                   </div>
                   <div className="w-full md:w-5/12">
-                    <div className="text-xl text-center md:text-left font-semibold">
+                    <div className="md:text-xl  md:text-left ">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_catering("main_text"),
@@ -294,7 +294,7 @@ function Services({ lng, slug }) {
         <div>
           <div
             onClick={() => setOpenIndex((val) => (val === 3 ? -1 : 3))}
-            className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
+            className="flex justify-between text-lg md:text-2xl py-5 items-center uppercase cursor-pointer"
           >
             <h1>{service_distribution("name")}</h1>
             <div>
@@ -352,7 +352,7 @@ function Services({ lng, slug }) {
                     />
                   </div>
                   <div className="w-full md:w-5/12">
-                    <div className="text-xl text-center md:text-left font-semibold">
+                    <div className="md:text-xl  md:text-left ">
                       <p
                         dangerouslySetInnerHTML={{
                           __html: service_distribution("main_text"),

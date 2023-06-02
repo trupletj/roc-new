@@ -6,7 +6,7 @@ function page({ params: { lng, slug } }) {
     <div className="w-full ">
       {/* <div className="w-full bg-white"> */}
       <div className="container">
-        <Services slug={slug} />
+        <Services lng={lng} slug={slug} />
       </div>
     </div>
   );
