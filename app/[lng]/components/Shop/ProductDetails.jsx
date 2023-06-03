@@ -1,9 +1,12 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 import { useTranslation } from "@/app/i18n/client";
 import DetailsAdditional from "./DetailsAdditional";
+
+import "swiper/swiper.min.css";
 
 function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
   const { lng } = params;
@@ -21,6 +24,16 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
 
   const { setOpenBasket, mediaDomain, setCard, setAlerts } =
     useContext(GlobalContext);
+
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
+  if (!domLoaded) {
+    null;
+  }
 
   useEffect(() => {
     if (
@@ -70,8 +83,8 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
     <div className="grid grid-cols-1 gap-8  lg:grid-cols-6 text-gray-900 ">
       {!isLoading && !grinderLoading && (
         <>
-          <div className="lg:col-span-3  grid grid-rows-3 md:gap-x-2 md:grid-rows-1 md:grid-cols-6 md:aspect-[6/5]">
-            <div className="md:col-span-5 row-span-5 aspect-square relative  md:order-2 md:mb-0 mb-2">
+          <div className="lg:col-span-3 md:grid grid-rows-3 md:gap-x-2 md:grid-rows-1 md:grid-cols-6 md:aspect-[6/5] hidden">
+            <div className="md:col-span-5 hidden md:block row-span-5 aspect-square relative  md:order-2 md:mb-0 mb-2">
               {!isLoading && selectedItem?.image_path && (
                 <Image
                   src={mediaDomain + selectedItem.image_path}
@@ -86,7 +99,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 />
               )}
             </div>
-            <div className="col-span-1 row-span-1 flex md:block md:overflow-y-auto  md:overflow-x-hidden overflow-y-hidden md:order-1  md:space-y-2 space-x-2 md:space-x-0 md:px-2 pb-2 ">
+            <div className="col-span-1 row-span-3 hidden   md:block md:overflow-y-auto overflow-x-scroll  md:overflow-x-hidden md:order-1  md:space-y-2 space-x-2 md:space-x-0 md:px-2 pb-2 ">
               {!isLoading &&
                 items?.record?.map((product, i) => {
                   return (
@@ -119,7 +132,37 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                 })}
             </div>
           </div>
+          <div className="w-full md:hidden">
+            {!isLoading && !grinderLoading && (
+              <Swiper
+                slidesPerView={1}
+                className="w-full relative aspect-square"
+              >
+                {items?.record?.map((product, key) => (
+                  <SwiperSlide key={key}>
+                    <Image
+                      src={mediaDomain + product.image_path}
+                      alt={product.name || "About Picture"}
+                      quality={100}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      className={`cursor-pointer border  ${
+                        selectedItem.id === product.id
+                          ? "border-[#F0B450]"
+                          : "border-gray-500"
+                      }`}
+                    />
 
+                    {/* <img
+                    src='/assets/home/slide_1.png'
+                    alt="About Picture"
+                    priority
+                  /> */}
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+          </div>
           <div className="lg:col-span-3">
             <div className="flex flex-row items-start text-sm text-gray-500">
               <span>{t("shop")}</span>
@@ -405,7 +448,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
           </div>
 
           <div
-            className={`lg:col-span-3 hidden md:block relative ${
+            className={`lg:col-span-3 order-last md:order-none relative ${
               productType.session_image ? "aspect-square" : ""
             }`}
           >

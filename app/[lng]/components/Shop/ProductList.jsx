@@ -407,10 +407,10 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
             )}
 
             <button
-              className="w-full bg-[#E5E5E5] my-2 py-2 text-center]"
+              className="w-full bg-[#E5E5E5] my-2 py-2 text-center md:hidden"
               onClick={() => setOpenModal(true)}
             >
-              Filter
+              {other("filter")}
             </button>
             <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 py-3">
               {filteredItems.map((product) => {
