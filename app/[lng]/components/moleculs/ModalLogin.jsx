@@ -16,6 +16,7 @@ const ModalLogin = ({ lng }) => {
   const { t } = useTranslation();
   const cancelButtonRef = useRef(null);
   const router = useRouter();
+
   return (
     <>
       {!user && !token && (
