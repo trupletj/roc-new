@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import GlobalContext from "@/app/[lng]/context/GlobalContext";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function UserInformation({ lng }) {
   const [openIndex, setOpenIndex] = useState(-1);
@@ -84,7 +85,7 @@ function UserInformation({ lng }) {
                 ) : (
                   <p className="text-xs mb-5">{t("empty_address_text")}</p>
                 )}
-                <a
+                <Link
                   href={`/${lng}/profile/my-addresses?id=0`}
                   className="flex space-between w-full justify-center  border  bg-black  px-6 py-2 text-base font-light text-white"
                 >
@@ -119,7 +120,7 @@ function UserInformation({ lng }) {
                       />
                     </svg>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -34,7 +34,7 @@ function Navigations({ lng, DataNav }) {
                 pathName={pathName}
               />
             ))}
-            {/* <a href={`/${lng}`}>{t("contact_us")}</a> */}
+            {/* <Link href={`/${lng}`}>{t("contact_us")}</Link> */}
           </div>
         </div>
       </section>
@@ -55,11 +55,11 @@ const Subnav = ({ item, lng, pathName }) => {
         }
       >
         {item.link && (
-          <a href={`/${lng}${item.link}`}>
+          <Link href={`/${lng}${item.link}`}>
             <span className="uppercase group-hover:text-[#F0B450]">
               {t(item.name)}
             </span>
-          </a>
+          </Link>
         )}
         {!item.link && (
           <span className="uppercase group-hover:text-[#F0B450]">
@@ -100,7 +100,7 @@ const Subnav = ({ item, lng, pathName }) => {
                           item.right ? "flex-row-reverse" : "flex-row"
                         } uppercase text-2xl my-2.5`}
                       >
-                        <a href={`/${lng}${link.link}`}>{t(link.name)}</a>
+                        <Link href={`/${lng}${link.link}`}>{t(link.name)}</Link>
                       </li>
                     ))}
                   </ul>

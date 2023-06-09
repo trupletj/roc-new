@@ -53,7 +53,7 @@ const noirmedium = localFont({
   ],
   variable: "--font-noir-medium",
 });
-export const revalidate = 60
+export const revalidate = 60;
 
 export default function RootLayout({ children, params: { lng } }) {
   return (

@@ -16,6 +16,7 @@ function DetailsAdditional({ lng, productType }) {
     list: "",
     desc: "",
   };
+  console.log(JSON.stringify(productType, 0, 2));
   return (
     <ul>
       {productType?.type_details &&
@@ -67,7 +68,7 @@ function DetailsAdditional({ lng, productType }) {
                     <h1>
                       {lng === "en" ? type_detail.name : type_detail.mn_name}
                     </h1>
-                    <div>
+                    {/* <div>
                       {openIndex === type_detail.id ? (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -107,11 +108,12 @@ function DetailsAdditional({ lng, productType }) {
                           ></path>
                         </svg>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                   <div
                     className={
-                      openIndex === type_detail.id ? "block" : "hidden"
+                      // openIndex === type_detail.id ? "block" : "hidden"
+                      "block"
                     }
                   >
                     <div className="w-full pb-4">

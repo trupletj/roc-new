@@ -57,24 +57,24 @@ function ShopSection({ lng }) {
                       style={{ objectFit: "cover" }}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition duration-300">
-                      <a
+                      <Link
                         href={`/${lng}/shop/product/${item.good.type_id}`}
                         className="absolute right-0 top-0 p-2 bg-black  group-hover:block hidden text-white"
                       >
                         <ShopBagOnly />
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href={`/${lng}/shop/product/${item.good.type_id}`}
                         className="absolute w-full left-0 bottom-0 p-2 bg-black  group-hover:block hidden text-center text-white"
                       >
                         {t("view")}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <h1 className="w-full text-center py-3 text-white">
-                    <a href={`/${lng}/shop/product/${item.good.type_id}`}>
+                    <Link href={`/${lng}/shop/product/${item.good.type_id}`}>
                       {item.name}
-                    </a>
+                    </Link>
                   </h1>
                 </li>
               ))}

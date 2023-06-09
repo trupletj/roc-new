@@ -9,6 +9,7 @@ import { useTranslation } from "@/app/i18n/client";
 import Cookies from "js-cookie";
 import UserInformation from "../UserInformation";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const ModalLogin = ({ lng }) => {
   const { openLogin, setOpenLogin, user, setUser, token, setToken } =
@@ -112,12 +113,12 @@ const ModalLogin = ({ lng }) => {
                           </div>
                           <div className="mt-8">
                             <div className="flow-root">
-                              <a
+                              <Link
                                 href={`/${lng}/profile/my-profile`}
                                 className="flex items-center justify-center  border  bg-[#E5E5E5]  px-6 py-2 text-base font-light "
                               >
                                 {t("register_info")}
-                              </a>
+                              </Link>
                               <UserInformation lng={lng} />
                             </div>
                           </div>

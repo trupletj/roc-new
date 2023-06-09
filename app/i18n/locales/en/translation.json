@@ -41,5 +41,6 @@
   "order_additional_information": "If the coffee order is placed before 12:00, it will be delivered on the same day during working hours. Please note that orders confirmed after 12 will be delivered within the next working day. Please note that if you order Sunday orders will be delivered on the 1st working day as deliveries are not made on a full day basis.",
   "register_info": "Registration Information",
   "close": "Close",
-  "filter": "Filter"
+  "filter": "Filter",
+  "recomend_products": "Recomended Products"
 }

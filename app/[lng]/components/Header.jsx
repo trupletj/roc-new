@@ -114,9 +114,9 @@ async function Header({ lng }) {
               </div>
             </div>
             <div className="dark:text-white my-2 w-1/2 flex justify-center">
-              <a href={`/${lng}`}>
+              <Link href={`/${lng}`}>
                 <Logo />
-              </a>
+              </Link>
             </div>
             <ul className="w-1/4 flex flex-row justify-end items-center">
               {/* <li className="mr-[30px] hidden lg:block">

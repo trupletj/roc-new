@@ -66,7 +66,7 @@ function Footer({ lng }) {
   const { t } = useTranslation(lng, "header");
   return (
     <>
-      <footer className="w-full hidden lg:block bg-[#080505] text-white">
+      <footer className="w-full hidden lg:block bg-[#080505] text-white uppercase">
         <div className="container mx-auto">
           <div className="lg:flex justify-center hidden">
             <div className="w-[150px] h-[150px]">

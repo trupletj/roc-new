@@ -41,7 +41,7 @@ async function Branch({ lng, slug }) {
         </div>
         <h1 className="text-3xl">{t("name")}</h1>
         {t("phone") != "phone" && (
-          <ul className="flex flex-col md:flex-row space-y-5  md:space-x-5 text-sm md:text-base font-light justify-center">
+          <ul className="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 text-sm md:text-base font-light justify-center">
             <li>
               <p dangerouslySetInnerHTML={{ __html: t("phone") }} />
             </li>

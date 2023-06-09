@@ -34,7 +34,7 @@ function AboutPage({ lng, slug }) {
   };
   return (
     <>
-      <ul>
+      <ul className="font-light text-sm">
         <li className="border-b border-b-gray-900 last:border-none">
           <div>
             <div
@@ -46,7 +46,7 @@ function AboutPage({ lng, slug }) {
               }}
               className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
             >
-              <h1>{t("our_story")}</h1>
+              <h1 className="">{t("our_story")}</h1>
               <div>
                 {openIndex !== 0 ? (
                   <svg
@@ -90,10 +90,10 @@ function AboutPage({ lng, slug }) {
                 <div className="flex flex-col">
                   <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
                     <div className=" w-full md:w-5/12">
-                      <h1 className="text-6xl font-medium mb-5 text-center md:text-left">
+                      <h1 className="md:text-6xl text-2xl mb-5 text-left">
                         True to each and every bean since 2016
                       </h1>
-                      <p className="text-2xl font-semibold text-center md:text-left">
+                      <p className="md:text-2xl  text-left">
                         Six years ago we started as a local coffee shop and
                         coffee roaster with a Probatone 5. Our mission is to
                         build a cozy coffee community. We focused on practicing
@@ -134,7 +134,7 @@ function AboutPage({ lng, slug }) {
                         style={{ objectFit: "cover" }}
                       />
                     </div>
-                    <div className="w-full md:w-5/12  text-2xl font-semibold">
+                    <div className="w-full md:w-5/12  md:text-2xl ">
                       <p className="mb-5 ">
                         After three years of firm focus, we had created and
                         developed our second branch in 2019. The vision remained
@@ -250,7 +250,7 @@ function AboutPage({ lng, slug }) {
                 <div className="flex flex-col">
                   <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
                     <div className="w-full md:w-5/12">
-                      <h1 className="text-6xl font-medium mb-5">
+                      <h1 className="md:text-6xl text-2xl mb-5">
                         As the leading specialty coffee producing company in
                         Mongolia, our key members are baristas and roasters.
                       </h1>
@@ -269,7 +269,7 @@ function AboutPage({ lng, slug }) {
                     </div>
                   </div>
                   <div className="flex flex-row items-center space-x-16">
-                    <p className="text-xl font-semibold">
+                    <p className="md:text-xl  ">
                       Within the service industry there is the added demand of
                       food, and we are able to cater to these demands that our
                       customers place upon us as, today, we are manned with 70+
@@ -341,10 +341,10 @@ function AboutPage({ lng, slug }) {
                 <div className="flex flex-col">
                   <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
                     <div className="w-full md:w-5/12">
-                      <h1 className="text-6xl font-medium mb-5">
+                      <h1 className="md:text-6xl text-2xl mb-5">
                         We only use world-class professional coffee equipment
                       </h1>
-                      <p className="text-xl font-semibold">
+                      <p className="md:text-xl ">
                         Our roastery is exclusively equipped with Probat
                         roasting machineries. Our espresso bars use La Marzocco
                         and Bezzera espresso machines, along with Mazzer and
@@ -463,10 +463,10 @@ function AboutPage({ lng, slug }) {
                 <div className="flex flex-col">
                   <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
                     <div className="w-full md:w-5/12">
-                      <h1 className="text-6xl font-medium mb-5">
+                      <h1 className="md:text-6xl text-2xl mb-5">
                         Bean roadmap to Mongolia
                       </h1>
-                      <p className="text-xl font-semibold">
+                      <p className="md:text-xl  ">
                         As a country that doesn’t produce green coffee beans,
                         maintaining our fresh “crop-to-cup” principle comes with
                         a certain set of challenges. To overcome these
