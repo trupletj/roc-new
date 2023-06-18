@@ -80,7 +80,7 @@ function Footer({ lng }) {
             <div className="flex flex-col lg:flex-row justify-between items-start w-1/2">
               {data.map((item, i) => (
                 <div className="flex flex-col " key={`footer-item-div-${i}`}>
-                  <h1 className="text-[#F0B450] uppercase mb-5">
+                  <h1 className="text-[#F0B450]  mb-5">
                     {t(item.title)}
                   </h1>
                   {item.links.map((link, i) => (

@@ -15,7 +15,7 @@ function Navigations({ lng, DataNav }) {
       <section className={`w-full text-base  relative hidden lg:block`}>
         <div className="w-full max-w-[1640px] mx-auto h-px border-t-0 bg-white opacity-100 " />
         <div className="container  mx-auto flex flex-row justify-between items-center">
-          <ul className="flex flex-row">
+          <ul className="flex flex-row gap-6">
             {DataNav.filter((item) => !item.right).map((item, i) => (
               <Subnav
                 key={"navigation-nav-" + i}
@@ -45,13 +45,13 @@ function Navigations({ lng, DataNav }) {
 const Subnav = ({ item, lng, pathName }) => {
   const { t } = useTranslation(lng, "header");
   return (
-    <li className="group h-[60px] flex items-center group">
+    <li className="group h-[60px] flex items-center group gap-4 ">
       <div
         key={"mobile-nav-subnav" + item.name}
         className={
           pathName === `/${lng}${item.link}`
-            ? "text-[#F0B450] flex flex-row items-center justify-center mr-[50px] cursor-pointer "
-            : "flex flex-row items-center justify-center mr-[50px] cursor-pointer  "
+            ? "text-[#F0B450] flex flex-row items-center justify-center  cursor-pointer "
+            : "flex flex-row items-center justify-center  cursor-pointer  "
         }
       >
         {item.link && (
@@ -69,7 +69,7 @@ const Subnav = ({ item, lng, pathName }) => {
 
         {item.sub && (
           <span className="ml-[5px]">
-            <Arrow />
+            {/* <Arrow /> */}
           </span>
         )}
       </div>
@@ -81,7 +81,7 @@ const Subnav = ({ item, lng, pathName }) => {
             {item.sub &&
               item.sub.map((sub, i) => (
                 <li
-                  className={` w-full mr-[${item.right ? "50px" : "80px"}] `}
+                  className={` w-full  `}
                   key={"navigation-item-sub-nav-item" + i}
                 >
                   {sub.title && (

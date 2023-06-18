@@ -155,7 +155,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                       >
                         <label
                           htmlFor={`filter-all-${category.id}`}
-                          className={`text-sm  cursor-pointer ${
+                          className={`text-sm  cursor-pointer uppercase ${
                             selectedCategories[category.id]
                               ? "text-[#F0B450]"
                               : "text-gray-600"
@@ -181,7 +181,7 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                             });
                           }}
                         >
-                          {headerT("all")}
+                          {headerT("all")} {category.name}
                         </label>
                       </div>
                     </div>

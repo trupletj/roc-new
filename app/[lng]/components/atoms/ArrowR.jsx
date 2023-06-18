@@ -4,9 +4,10 @@ function ArrowR() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="25.078"
-      height="17.077"
+      width="22"
+      height="15"
       viewBox="0 0 25.078 17.077"
+      className="ml-2"
     >
       <g
         id="Group_158"

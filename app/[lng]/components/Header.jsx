@@ -71,17 +71,18 @@ const DataNav = [
     ],
   },
   {
-    name: "contact-us",
+    name: "Work at roc",
+    link: "/anket",
     right: true,
-    sub: [
-      {
-        links: [
-          { name: "work at roc", link: "/branches/roastery" },
-          { name: "Privacy Policy", link: "/branches/buddha" },
-          { name: "terms and conditions", link: "/branches/buddha" },
-        ],
-      },
-    ],
+    // sub: [
+    //   {
+    //     links: [
+    //       { name: "work at roc", link: "/branches/roastery" },
+    //       { name: "Privacy Policy", link: "/branches/buddha" },
+    //       { name: "terms and conditions", link: "/branches/buddha" },
+    //     ],
+    //   },
+    // ],
   },
 ];
 
@@ -91,21 +92,21 @@ async function Header({ lng }) {
       <div
         className={`font-sans text-base leading-5 w-full lg:flex flex-col items-center hidden bg-[#080505] text-white`}
       >
-        <section
+        {/* <section
           className={`h-[40px] w-full pt-[10px] bg-[#DFDDD7] hidden lg:block `}
         >
           <div className="container mx-auto  flex flex-row justify-between  text-[#080505]">
             <Welcome lng={lng} />
-            <ul className="flex flex-row">
-              {/* <li className="ml-10">
+            <ul className="flex flex-row"> */}
+        {/* <li className="ml-10">
                 <DarkModeBtn />
               </li> */}
-              <li className="ml-[30px]">
+        {/* <li className="ml-[30px]">
                 <TranslateBtn lng={lng} />
               </li>
             </ul>
           </div>
-        </section>
+        </section> */}
         <section className="w-full relative">
           <div className="container mx-auto flex flex-row items-center px-10  h-[80px]">
             <div className="w-1/4">
@@ -125,8 +126,11 @@ async function Header({ lng }) {
               <li className="mr-[30px]">
                 <User />
               </li>
-              <li>
+              <li className="mr-[30px]">
                 <ShopBag />
+              </li>
+              <li>
+                <TranslateBtn lng={lng} />
               </li>
             </ul>
           </div>

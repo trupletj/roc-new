@@ -34,7 +34,7 @@ export const TranslateBtn = ({ lng }) => {
               }
             })}
           </button>
-          <Arrow />
+          {/* <Arrow /> */}
         </div>
         {/*
                         Dropdown menu, show/hide based on menu state.

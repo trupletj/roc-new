@@ -25,7 +25,7 @@ async function AboutSection({ lng }) {
               style={{ objectFit: "cover" }}
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5">
-              <h1 className="font-bold text-xl">{t("our_story")}</h1>
+              <h1 className="font-semibold text-xl">{t("our_story")}</h1>
               <p className="my-4">{t("our_story_description")}</p>
               <Link
                 className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
@@ -47,7 +47,7 @@ async function AboutSection({ lng }) {
               100vw"
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5 ">
-              <h1 className="font-bold text-xl">{t("how_we_roast")}</h1>
+              <h1 className="font-semibold text-xl">{t("how_we_roast")}</h1>
               <p className="my-4">{t("how_we_roast_description")}</p>
               <Link
                 className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
@@ -69,7 +69,7 @@ async function AboutSection({ lng }) {
               style={{ objectFit: "cover" }}
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5">
-              <h1 className="font-bold text-xl">{t("partners_sourcing")}</h1>
+              <h1 className="font-semibold text-xl">{t("partners_sourcing")}</h1>
               <p className="my-4">{t("partners_sourcing_description")}</p>
               <Link
                 className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "

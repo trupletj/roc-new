@@ -85,7 +85,11 @@ function OrderHistory({ lng }) {
                     } `}
                   >
                     <div className="w-2/5 flex flex-col space-y-1">
-                      <h1 className="font-medium text-lg">{item.number}</h1>
+                      <h1 className="font-medium text-lg">
+                        <Link href={`/${lng}/order/${item.id}`}>
+                          {item.number}
+                        </Link>
+                      </h1>
                       <p className="text-sm font-light">
                         {item?.created_at
                           ?.replace("T", " ")

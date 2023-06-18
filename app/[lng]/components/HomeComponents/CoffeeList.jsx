@@ -84,7 +84,7 @@ function CoffeeList({ lng }) {
             href={`/${lng}/shop`}
             className="text-white flex items-center my-5 md:hidden"
           >
-            <span className="mr-4"> {t("read_more")}</span> <ArrowR />
+            <span className="mr-4"> {t("read_more")}</span>
           </Link>
         </>
       )}

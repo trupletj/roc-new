@@ -13,13 +13,12 @@ function NewAnket({ lng }) {
     watch,
     formState: { errors },
   } = useForm();
-  const [selectIndex, setSelectIndex] = useState(0);
-  const onSubmit = (data) => {
-  };
+  const [selectIndex, setSelectIndex] = useState(1);
+  const onSubmit = (data) => {};
   return (
     <div className="max-w-[900px] mx-auto py-10">
       <h1 className="uppercase text-3xl font-medium mb-10">HEAD TO COFFEE</h1>
-      <div className="grid md:grid-cols-2 gap-4">
+      {/* <div className="grid md:grid-cols-2 gap-4">
         <div
           onClick={() => setSelectIndex(0)}
           className={`col-span-1 py-2 text-center border border-[#080505] cursor-pointer ${
@@ -36,7 +35,7 @@ function NewAnket({ lng }) {
         >
           Анкет бөглөх
         </div>
-      </div>
+      </div> */}
       {selectIndex === 0 && <div className="">text</div>}
       {selectIndex === 1 && (
         <div className="w-full my-10">
@@ -248,7 +247,7 @@ function NewAnket({ lng }) {
                     <div className="mt-2">
                       <input
                         placeholder="text"
-                        type="text"
+                        type="email"
                         {...register("email", {
                           required: true,
                           maxLength: 20,
@@ -299,7 +298,19 @@ function NewAnket({ lng }) {
                       Ажлын байр
                     </label>
                     <div className="mt-2">
-                      <select
+                      <input
+                        placeholder="text"
+                        type="text"
+                        {...register("jobPosition", {
+                          required: true,
+                          maxLength: 20,
+                        })}
+                        name="jobPosition"
+                        id="jobPosition"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                      />
+
+                      {/* <select
                         {...register("jobPosition", { required: true })}
                         type="select"
                         className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
@@ -307,9 +318,12 @@ function NewAnket({ lng }) {
                         <option disabled selected hidden>
                           сонгоно уу
                         </option>
-                        <option value={1}>Сонгох 1</option>
-                        <option value={2}>Сонгох 2</option>
-                      </select>
+                        <option value={1}>Бүрэн дунд</option>
+                        <option value={2}>Дээд</option>
+                        <option value={3}>Бакалавр</option>
+                        <option value={4}>Магистр</option>
+                        <option value={5}>Доктор</option>
+                      </select> */}
                       {errors.deliveryDistrict && (
                         <div className="mt-4 w-full bg-red-500 py-2 px-5">
                           <h1 className="text-white text-sm">Заавал бөглөх</h1>
@@ -360,8 +374,8 @@ function NewAnket({ lng }) {
                         <option disabled selected hidden>
                           сонгоно уу
                         </option>
-                        <option value={1}>Сонгох 1</option>
-                        <option value={2}>Сонгох 2</option>
+                        <option value={1}>Бүтэн цаг</option>
+                        <option value={2}>Хагас цаг</option>
                       </select>
                       {errors.deliveryDistrict && (
                         <div className="mt-4 w-full bg-red-500 py-2 px-5">
@@ -392,8 +406,11 @@ function NewAnket({ lng }) {
                         <option disabled selected hidden>
                           сонгоно уу
                         </option>
-                        <option value={1}>Сонгох 1</option>
-                        <option value={2}>Сонгох 2</option>
+                        <option value={1}>Бүрэн дунд</option>
+                        <option value={2}>Дээд</option>
+                        <option value={3}>Бакалавр</option>
+                        <option value={4}>Магистр</option>
+                        <option value={5}>Доктор</option>
                       </select>
                       {errors.deliveryDistrict && (
                         <div className="mt-4 w-full bg-red-500 py-2 px-5">
@@ -482,7 +499,7 @@ function NewAnket({ lng }) {
                   </div>
                 </div>
               </div>
-              <div className="w-full">
+              {/* <div className="w-full">
                 <h2 className="text-xl text-gray-900 uppercase ">
                   CV, Resume хавсаргах
                 </h2>
@@ -527,7 +544,7 @@ function NewAnket({ lng }) {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="w-full">
                 <h2 className="text-xl text-gray-900 uppercase ">
                   Cover letter

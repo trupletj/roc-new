@@ -9,9 +9,11 @@ function SectionHeader({ title, buttonTitle, href }) {
       {buttonTitle && href && (
         <Link
           href={href}
-          className="py-3 px-6 bg-[#ECEBE7] lg:flex flex-row w-fit items-center  hidden md:block"
+          className="py-3 px-6 text-white lg:flex flex-row w-fit items-center  hidden md:block"
         >
-          <span className="mr-1 text-3.5 text-[#080505] ">{buttonTitle}</span>
+          <span className="mr-1 text-3.5 text-white text-uppercase  uppercase ">
+            {buttonTitle}
+          </span>
           <ArrowR />
         </Link>
       )}
