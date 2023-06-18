@@ -9,7 +9,7 @@ import "swiper/swiper.min.css";
 
 const images = [
   { src: hero1, key: 1 },
-  { src: hero2, key: 2 },
+  // { src: hero2, key: 2 },
 ];
 
 function Carousel() {

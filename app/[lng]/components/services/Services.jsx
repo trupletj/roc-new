@@ -99,7 +99,7 @@ function Services({ lng, slug }) {
                         }}
                       ></p>
                     </div>
-                    <form className="w-full mt-6 max-w-[560px]">
+                    {/* <form className="w-full mt-6 max-w-[560px]">
                       <div className="flex flex-row bg-white items-center  w-full border border-black justify-between">
                         <input
                           className="text-black bg-white border-none px-[10px] outline-0"
@@ -110,7 +110,7 @@ function Services({ lng, slug }) {
                           {service_roast("btn_name")}
                         </button>
                       </div>
-                    </form>
+                    </form> */}
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@ function Services({ lng, slug }) {
                         }}
                       ></p>
                     </div>
-                    <form className="w-full mt-6 max-w-[560px]">
+                    {/* <form className="w-full mt-6 max-w-[560px]">
                       <div className="flex flex-row bg-white items-center  w-full border border-black justify-between">
                         <input
                           className="text-black bg-white border-none px-[20px] outline-0"
@@ -198,7 +198,7 @@ function Services({ lng, slug }) {
                           {service_whole_sale("btn_name")}
                         </button>
                       </div>
-                    </form>
+                    </form> */}
                   </div>
                 </div>
               </div>
@@ -275,14 +275,14 @@ function Services({ lng, slug }) {
                         }}
                       ></p>
                     </div>
-                    <div className="flex mt-5 ">
+                    {/* <div className="flex mt-5 ">
                       <Link
                         className="px-5 py-3 my-1 mx-auto bg-black text-white text-sm uppercase"
                         href="#"
                       >
                         {service_catering("btn_name")}
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
