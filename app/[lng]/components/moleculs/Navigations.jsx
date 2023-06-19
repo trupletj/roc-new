@@ -96,7 +96,7 @@ const Subnav = ({ item, lng, pathName }) => {
                           item.right ? "flex-row-reverse" : "flex-row"
                         } uppercase text-2xl my-2.5`}
                       >
-                        <Link href={`/${lng}${link.link}`} shallow={false}>
+                        <Link href={`/${lng}${link.link}`} shallow={true}>
                           {t(link.name)}
                         </Link>
                       </li>
