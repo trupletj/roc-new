@@ -23,7 +23,7 @@ const DataNav = [
         links: [
           { name: "our_story", link: "/about/our-history" },
           { name: "who_we_are", link: "/about/who-we-are" },
-          { name: "how_we_roast", link: "/about/how-we-roast" },
+          { name: "how_we_roast", link: "/about/how-we-brew" },
           {
             name: "partners_sourcing",
             link: "/about/partners-and-sourcing",
@@ -71,7 +71,7 @@ const DataNav = [
     ],
   },
   {
-    name: "Work at roc",
+    name: "work_at_roc",
     link: "/anket",
     right: true,
     // sub: [

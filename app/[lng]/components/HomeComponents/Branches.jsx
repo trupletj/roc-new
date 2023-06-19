@@ -45,7 +45,7 @@ async function Branches({ lng }) {
                 className="px-16 py-2 my-1 bg-[#ECEBE7] text-[#080505] text-sm"
                 href={"https://roc.mn/img/branches/choijin.pdf"}
               >
-                Menu
+                {t("menu")}
               </a>
               <a
                 className="px-4 py-2 my-1 bg-[#ECEBE7] text-[#080505] text-sm"
@@ -53,7 +53,7 @@ async function Branches({ lng }) {
                   "https://www.google.com/maps/dir//Choijin+Suites+Jamyan+Gun+Street+22+%D0%A3%D0%BB%D0%B0%D0%B0%D0%BD%D0%B1%D0%B0%D0%B0%D1%82%D0%B0%D1%80/@47.9158926,106.919168,16z/data=!4m8!4m7!1m0!1m5!1m1!1s0x5d969246313b247d:0xd09c82e3ffbc4294!2m2!1d106.919168!2d47.9158926"
                 }
               >
-                View on Google Map
+                {t("google_map")}
               </a>
             </div>
           </div>
@@ -76,7 +76,7 @@ async function Branches({ lng }) {
                 className="px-16 py-2 my-1 bg-[#ECEBE7] text-[#080505] text-sm"
                 href={"https://roc.mn/img/branches/fountain.pdf"}
               >
-                Menu
+                {t("menu")}
               </a>
               <a
                 className="px-4 py-2 my-1 bg-[#ECEBE7] text-[#080505] text-sm"
@@ -84,7 +84,7 @@ async function Branches({ lng }) {
                   "https://www.google.com/maps/dir//R.O.C,+%D0%A5%D0%B8%D1%87%D1%8D%D1%8D%D0%BD%D0%B3%D2%AF%D0%B9+%D0%A1%D0%B0%D0%B9%D0%B4+%D0%A6%D1%8D%D1%80%D1%8D%D0%BD%D0%B4%D0%BE%D1%80%D0%B6%D0%B8%D0%B9%D0%BD+%D0%93%D1%83%D0%B4%D0%B0%D0%BC%D0%B6,+%D0%A3%D0%BB%D0%B0%D0%B0%D0%BD%D0%B1%D0%B0%D0%B0%D1%82%D0%B0%D1%80/@47.9146571,106.9063011,18.72z/data=!4m8!4m7!1m0!1m5!1m1!1s0x5d96937b3d438a1f:0xdbefbde08884470f!2m2!1d106.9062558!2d47.9147877"
                 }
               >
-                View on Google Map
+                {t("google_map")}
               </a>
             </div>
           </div>

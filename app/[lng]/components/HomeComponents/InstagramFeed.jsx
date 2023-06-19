@@ -26,7 +26,7 @@ const data = [
 
 function InstagramFeed() {
   return (
-    <div className="container mx-auto mb-10 hidden lg:block my-10 text-white">
+    <div className="container mx-auto mb-10 hidden lg:block my-6 pb-10 text-white">
       <h1 className="w-full text-center lg:text-3xl font-light text-base mb-5">
         Our Instagram
       </h1>
@@ -43,7 +43,7 @@ function InstagramFeed() {
                   sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               50vw"
-              quality={100}
+                  quality={100}
                   style={{ objectFit: "cover" }}
                 />
               </div>

@@ -8,15 +8,20 @@ import Insta from "./atoms/icons/Insta";
 import LinkedIn from "./atoms/icons/LinkedIn";
 import TW from "./atoms/icons/TW";
 import { useTranslation } from "@/app/i18n/client.js";
+import Logo from "./atoms/Logo";
+import LogoClear from "./atoms/LogoClear";
 
 const data = [
   {
     title: "ROC",
     links: [
-      { name: "our_story", link: "/about?prefix=0" },
-      { name: "who_we_are", link: "/about?prefix=1" },
-      { name: "how_we_roast", link: "/about?prefix=2" },
-      { name: "partners_sourcing", link: "/about?prefix=3" },
+      { name: "our_story", link: "/about/our-history" },
+      { name: "who_we_are", link: "/about/who-we-are" },
+      { name: "how_we_roast", link: "/about/how-we-brew" },
+      {
+        name: "partners_sourcing",
+        link: "/about/partners-and-sourcing",
+      },
     ],
   },
 
@@ -34,10 +39,19 @@ const data = [
   {
     title: "services",
     links: [
-      { name: "roasting", link: "/services?prefix=0" },
-      { name: "whole_sale", link: "/services?prefix=1" },
-      { name: "catering", link: "/services?prefix=2" },
-      { name: "distrubution", link: "/services?prefix=3" },
+      {
+        name: "ROASTING TO A TASTE",
+        link: "/services/roasting-to-a-taste",
+      },
+      { name: "WHOLESALE", link: "/services/whole-sale" },
+      {
+        name: "CATERING & COFFEE TRUCK",
+        link: "/services/catering-and-coffee-truck",
+      },
+      {
+        name: "DISTRIBUTION & MAINTANENCE",
+        link: "/services/distribution-and-maintenance",
+      },
     ],
   },
 ];
@@ -66,21 +80,21 @@ function Footer({ lng }) {
   const { t } = useTranslation(lng, "header");
   return (
     <>
-      <footer className="w-full hidden lg:block bg-[#080505] text-white uppercase">
+      <footer className="w-full hidden lg:block bg-[#080505] text-white ">
         <div className="container mx-auto">
           <div className="lg:flex justify-center hidden">
-            <div className="w-[150px] h-[150px]">
-              <LogoWithText />
+            <div className="w-[150px] h-[150px] ">
+              <LogoClear />
             </div>
           </div>
           <div
             className={`my-[10px] w-full max-w-[1640px] mx-auto h-[1px] border-t-0 bg-black  dark:bg-white opacity-100 `}
           />
           <section className="flex justify-between my-10">
-            <div className="flex flex-col lg:flex-row justify-between items-start w-1/2">
+            <div className="flex flex-col lg:flex-row justify-between items-start w-2/3">
               {data.map((item, i) => (
                 <div className="flex flex-col " key={`footer-item-div-${i}`}>
-                  <h1 className="text-[#F0B450]  mb-5">
+                  <h1 className="text-[#F0B450]  uppercase  mb-5">
                     {t(item.title)}
                   </h1>
                   {item.links.map((link, i) => (
@@ -95,7 +109,7 @@ function Footer({ lng }) {
                 </div>
               ))}
             </div>
-            <div className="flex flex-col w-1/2 items-end">
+            <div className="flex flex-col w-1/3 items-end">
               <h1 className="text-[#F0B450] mb-5">{t("contact_us")}</h1>
               <ul className="flex mb-5">
                 <li className="ml-7">

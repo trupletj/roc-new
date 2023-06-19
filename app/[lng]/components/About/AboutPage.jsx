@@ -17,7 +17,7 @@ function AboutPage({ lng, slug }) {
   const slug_helper = {
     "our-history": 0,
     "who-we-are": 1,
-    "how-we-roast": 2,
+    "how-we-brew": 2,
     "partners-and-sourcing": 3,
   };
   const searchParams = useSearchParams();
@@ -371,7 +371,10 @@ function AboutPage({ lng, slug }) {
               }}
               className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
             >
-              <h1>HOW WE ROAST</h1>
+              <h1>
+                {lng == "en" && <>HOW WE BREW</>}
+                {lng == "mn" && <>Бид хэрхэн кофе хийдэг вэ?</>}
+              </h1>
               <div>
                 {openIndex !== 2 ? (
                   <svg
@@ -523,7 +526,10 @@ function AboutPage({ lng, slug }) {
               }}
               className="flex justify-between text-2xl py-5 items-center uppercase cursor-pointer"
             >
-              <h1>PARTNERS & SOURCING</h1>
+              <h1>
+                {lng == "en" && <>PARTNERS AND SOURCING</>}
+                {lng == "mn" && <>Хамтын ажиллагаа ба Түүхий эд</>}
+              </h1>
               <div>
                 {openIndex !== 3 ? (
                   <svg

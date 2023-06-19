@@ -7,6 +7,7 @@ import image3 from "@/public/assets/home/partners_and_sources.png";
 import Link from "next/link";
 
 import { useTranslation } from "@/app/i18n";
+import ArrowR from "../atoms/ArrowR";
 // import { useTranslation } from "../i18n";
 
 async function AboutSection({ lng }) {
@@ -25,14 +26,20 @@ async function AboutSection({ lng }) {
               style={{ objectFit: "cover" }}
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5">
-              <h1 className="font-semibold text-xl">{t("our_story")}</h1>
-              <p className="my-4">{t("our_story_description")}</p>
-              <Link
-                className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
-                href={`/${lng}/about?page=our_story`}
+              <h1 className="font-semibold text-xl">
+                <Link href={`/${lng}/about/our_story`}>{t("our_story")} </Link>
+              </h1>
+
+              <p
+                className="my-4"
+                dangerouslySetInnerHTML={{ __html: t("our_story_description") }}
+              />
+              {/* <Link
+                className=" lg:inline-block hidden text-white uppercase flex-row  items-center "
+                href={`/${lng}/about/our_story`}
               >
                 {t("read_more")}
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -47,14 +54,20 @@ async function AboutSection({ lng }) {
               100vw"
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5 ">
-              <h1 className="font-semibold text-xl">{t("how_we_roast")}</h1>
-              <p className="my-4">{t("how_we_roast_description")}</p>
-              <Link
-                className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
-                href={`/${lng}/about?page=how_we_roast`}
-              >
+              <h1 className="font-semibold text-xl">
+                <Link href={`/${lng}/about/how-we-brew`}>
+                  {t("how_we_roast")}
+                </Link>
+              </h1>
+              <p
+                className="my-4"
+                dangerouslySetInnerHTML={{
+                  __html: t("how_we_roast_description"),
+                }}
+              />
+              {/* <Link className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] ">
                 {t("read_more")}
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="col-span-1 aspect-square lg:aspect-auto relative">
@@ -69,14 +82,21 @@ async function AboutSection({ lng }) {
               style={{ objectFit: "cover" }}
             />
             <div className="absolute bottom-0 left-0 p-3 w-full bg-gradient-to-t from-[#000000d1] to-transparent  from-1%  bg-opacity-5">
-              <h1 className="font-semibold text-xl">{t("partners_sourcing")}</h1>
-              <p className="my-4">{t("partners_sourcing_description")}</p>
-              <Link
-                className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] "
-                href={`/${lng}/about?page=partners_sourcing`}
-              >
+              <h1 className="font-semibold text-xl">
+                <Link href={`/${lng}/about/partners-and-sourcing`}>
+                  {t("partners_sourcing")}
+                </Link>
+              </h1>
+
+              <p
+                className="my-4"
+                dangerouslySetInnerHTML={{
+                  __html: t("partners_sourcing_description"),
+                }}
+              />
+              {/* <Link className="py-2 px-3 lg:inline-block hidden bg-white text-[#080505] ">
                 {t("read_more")}
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
