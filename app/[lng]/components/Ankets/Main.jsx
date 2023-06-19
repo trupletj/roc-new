@@ -45,23 +45,23 @@ function Main({ lng }) {
           <p>
             {lng == "en" && (
               <>
-                We're not just looking for baristas; we need people with various
+                {`We're not just looking for baristas; we need people with various
                 skills and talents to join our team. Whether you're a talented
                 barista, skilled chef, friendly server, or creative marketer, we
                 value what you bring to the table. If you're passionate,
                 motivated, and ready to be part of a dynamic team, we want to
                 hear from you. Join us in creating amazing experiences for our
                 customers and shaping the future of ROC. Apply now and start
-                your rewarding career with us!
+                your rewarding career with us!`}
               </>
             )}
             {lng == "mn" && (
               <>
-                Дан ганц бариста биш өөрийн ур чадвараа ашиглах хэн бүхэнд
+                {`Дан ганц бариста биш өөрийн ур чадвараа ашиглах хэн бүхэнд
                 нээлттэй. Та туршлагатай бариста, тогооч, найрсаг харилцаатай,
                 бүтээлч багийн гишүүний аль ч бай бид үнэлэн ажиллах болно.
                 Хэрэв та хүсэл тэмүүлэлтэй, урам зоригтой, эрч хүчтэй багийн нэг
-                хэсэг болхийг хүсч байгаа бол бидэнд мэдээллээ явуулна уу.
+                хэсэг болхийг хүсч байгаа бол бидэнд мэдээллээ явуулна уу.`}
               </>
             )}
           </p>
