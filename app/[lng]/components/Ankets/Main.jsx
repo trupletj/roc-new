@@ -12,11 +12,23 @@ function Main({ lng }) {
     <>
       <div className="container py-10">
         <div className="max-w-[900px] w-full mx-auto space-y-6 text-xl">
-          <h1 className="text-6xl font-medium ">WORK AT ROC</h1>
+          <h1 className="text-3xl font-medium ">
+            {lng == "en" && <>Welcome to ROC!</>}
+            {lng == "mn" && <>ROC-д тавтай морил!</>}
+          </h1>
           <p>
-            One likes what one likes, therefore it is important for us to find
-            out what our customers prefer. We try our best to roast our coffee
-            according to our clients taste.
+            {lng == "en" && (
+              <>
+                We have exciting job opportunities available in our coffee shops
+                and restaurants.
+              </>
+            )}
+            {lng == "mn" && (
+              <>
+                Кофе болон хоол үйлдвэрлэлийн салбарт ажиллах боломжийг санал
+                болгож байна.
+              </>
+            )}
           </p>
           <div className="w-full aspect-video relative">
             <Image
@@ -31,34 +43,39 @@ function Main({ lng }) {
             />
           </div>
           <p>
-            For your application for listed jobs to be considered, you must
-            include the job title in the subject line of your email. Due to the
-            volume of applications, please do make sure you go into detail as to
-            why working for ROC will make a difference, not just to your life,
-            but ours too.
+            {lng == "en" && (
+              <>
+                We're not just looking for baristas; we need people with various
+                skills and talents to join our team. Whether you're a talented
+                barista, skilled chef, friendly server, or creative marketer, we
+                value what you bring to the table. If you're passionate,
+                motivated, and ready to be part of a dynamic team, we want to
+                hear from you. Join us in creating amazing experiences for our
+                customers and shaping the future of ROC. Apply now and start
+                your rewarding career with us!
+              </>
+            )}
+            {lng == "mn" && (
+              <>
+                Дан ганц бариста биш өөрийн ур чадвараа ашиглах хэн бүхэнд
+                нээлттэй. Та туршлагатай бариста, тогооч, найрсаг харилцаатай,
+                бүтээлч багийн гишүүний аль ч бай бид үнэлэн ажиллах болно.
+                Хэрэв та хүсэл тэмүүлэлтэй, урам зоригтой, эрч хүчтэй багийн нэг
+                хэсэг болхийг хүсч байгаа бол бидэнд мэдээллээ явуулна уу.
+              </>
+            )}
           </p>
-          <p>
-            Were an ambitious company with an incredible team of people so we
-            need to know if you are going to join us, what you are going to
-            bring to the team, more than just
-          </p>
-          <div>
-            If youre interested in a role at ROC, please email your CV and
-            covering letter to
-            <Link href="/" className="text-[#6B6969]">
-              info@roc.mn
-            </Link>
-          </div>
+          <p></p>
         </div>
       </div>
       {availablePositions?.length > 0 && <WorkAtRock />}
       <div className="container flex flex-col items-center justify-center py-10 pb-20">
-        <p className="my-4">Одоогоор нээлттэй ажлын байр зарлагдаагүй байна</p>
         <Link
           href={`/${lng}/anket/newanket`}
           className="w-full max-w-[400px] border py-2 text-center text-white bg-[#080505]"
         >
-          Юу ч гэсэн анкет илгээе
+          {lng == "en" && <>Apply now</>}
+          {lng == "mn" && <>Анкет илгээх</>}
         </Link>
       </div>
       <ClientRegister />
