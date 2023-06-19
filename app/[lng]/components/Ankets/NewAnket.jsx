@@ -17,7 +17,7 @@ function NewAnket({ lng }) {
   const onSubmit = (data) => {};
   return (
     <div className="max-w-[900px] mx-auto py-10">
-      <h1 className="uppercase text-3xl font-medium mb-10">HEAD TO COFFEE</h1>
+      {/* <h1 className="uppercase text-3xl font-medium mb-10">HEAD TO COFFEE</h1> */}
       {/* <div className="grid md:grid-cols-2 gap-4">
         <div
           onClick={() => setSelectIndex(0)}
@@ -46,7 +46,7 @@ function NewAnket({ lng }) {
             <div className="space-y-12 w-full">
               <div className="w-full">
                 <h2 className="text-xl text-gray-900 uppercase ">
-                  Ерөнхий мэдээлэл
+                  {t("main_information")}
                 </h2>
 
                 <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
@@ -59,7 +59,7 @@ function NewAnket({ lng }) {
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="text"
+                        placeholder=""
                         type="text"
                         {...register("firstName", {
                           required: true,
@@ -72,7 +72,7 @@ function NewAnket({ lng }) {
                     </div>
                     {errors.firstName && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">Нэр оруулна уу</h1>
+                        <h1 className="text-white text-sm">{t("required")}</h1>
                       </div>
                     )}
                   </div>
@@ -85,7 +85,7 @@ function NewAnket({ lng }) {
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="text"
+                        placeholder=""
                         type="text"
                         {...register("lastName", {
                           required: true,
@@ -98,9 +98,7 @@ function NewAnket({ lng }) {
                     </div>
                     {errors.lastName && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">
-                          Овог оо оруулна уу
-                        </h1>
+                        <h1 className="text-white text-sm">{t("required")}</h1>
                       </div>
                     )}
                   </div>
@@ -110,11 +108,11 @@ function NewAnket({ lng }) {
                       htmlFor="registerNumber"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Регистрийн дугаар
+                      {t("register_number")}
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="text"
+                        placeholder=""
                         {...register("phone", {
                           required: true,
                           maxLength: 20,
@@ -140,7 +138,7 @@ function NewAnket({ lng }) {
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="text"
+                        placeholder=""
                         type="text"
                         {...register("birthDate", { required: true })}
                         name="birthDate"
@@ -150,9 +148,7 @@ function NewAnket({ lng }) {
                     </div>
                     {errors.birthDate && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">
-                          Төрсөн огноо оруулна уу
-                        </h1>
+                        <h1 className="text-white text-sm">{t("required")}</h1>
                       </div>
                     )}
                   </div>
@@ -167,7 +163,7 @@ function NewAnket({ lng }) {
                     <div className="grid  grid-cols-3 gap-2 mt-2">
                       <div>
                         <input
-                          placeholder="text"
+                          placeholder=""
                           {...register("sex", { required: true })}
                           value={"Эрэгтэй"}
                           type="radio"
@@ -184,7 +180,7 @@ function NewAnket({ lng }) {
                       </div>
                       <div>
                         <input
-                          placeholder="text"
+                          placeholder=""
                           {...register("sex", { required: true })}
                           type="radio"
                           name="option"
@@ -205,7 +201,7 @@ function NewAnket({ lng }) {
               </div>
               <div className="w-full">
                 <h2 className="text-xl text-gray-900 uppercase ">
-                  холбоо барих мэдээлэл
+                  {t("contact_information")}
                 </h2>
 
                 <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
@@ -218,7 +214,7 @@ function NewAnket({ lng }) {
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="text"
+                        placeholder=""
                         type="text"
                         {...register("phonteNumber", {
                           required: true,
@@ -231,9 +227,7 @@ function NewAnket({ lng }) {
                     </div>
                     {errors.phonteNumber && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">
-                          Утасны дугаар оруулна уу
-                        </h1>
+                        <h1 className="text-white text-sm">{t("required")}</h1>
                       </div>
                     )}
                   </div>
@@ -246,7 +240,7 @@ function NewAnket({ lng }) {
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="text"
+                        placeholder=""
                         type="email"
                         {...register("email", {
                           required: true,
@@ -259,16 +253,16 @@ function NewAnket({ lng }) {
                     </div>
                     {errors.email && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                        <h1 className="text-white text-sm">{t("required")}</h1>
                       </div>
                     )}
                   </div>
                   <div className="sm:col-span-6">
                     <label
                       htmlFor="first-name"
-                      className="block text-base font-normal leading-6 text-gray-900"
+                      className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Оршин суугаа хаяг
+                      {t("living_address")}
                     </label>
                     <div className="mt-2">
                       <textarea
@@ -286,7 +280,7 @@ function NewAnket({ lng }) {
               </div>
               <div className="w-full">
                 <h2 className="text-xl text-gray-900 uppercase ">
-                  Ажиллахаар төлөвлөж бүй ажлын байр
+                  {t("position_information")}
                 </h2>
 
                 <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
@@ -295,11 +289,11 @@ function NewAnket({ lng }) {
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Ажлын байр
+                      {t("position_name")}
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="text"
+                        placeholder=""
                         type="text"
                         {...register("jobPosition", {
                           required: true,
@@ -326,34 +320,36 @@ function NewAnket({ lng }) {
                       </select> */}
                       {errors.deliveryDistrict && (
                         <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                          <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                          <h1 className="text-white text-sm">
+                            {t("required")}
+                          </h1>
                         </div>
                       )}
                     </div>
                   </div>
                   <div className="sm:col-span-3">
                     <label
-                      htmlFor="lastName "
+                      htmlFor="wanted_salary "
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Цалингийн хүлээлт
+                      {t("wanted_salary")}
                     </label>
                     <div className="mt-2">
                       <input
                         placeholder="000,000,000₮"
                         type="number"
-                        {...register("email", {
+                        {...register("wanted_salary", {
                           required: true,
                           maxLength: 20,
                         })}
-                        name="email"
-                        id="email"
+                        name="wanted_salary"
+                        id="wanted_salary"
                         className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
                       />
                     </div>
                     {errors.email && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                        <h1 className="text-white text-sm">{t("required")}</h1>
                       </div>
                     )}
                   </div>
@@ -363,7 +359,7 @@ function NewAnket({ lng }) {
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Ажиллах төрөл
+                      {t("work_type")}
                     </label>
                     <div className="mt-2">
                       <select
@@ -372,14 +368,20 @@ function NewAnket({ lng }) {
                         className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
                       >
                         <option disabled selected hidden>
-                          сонгоно уу
+                          {t("required")}
                         </option>
-                        <option value={1}>Бүтэн цаг</option>
-                        <option value={2}>Хагас цаг</option>
+                        <option value={1}>
+                          {lng == "mn" ? "Бүтэн цаг" : "Full time"}
+                        </option>
+                        <option value={2}>
+                          {lng == "mn" ? "Хагас цаг" : "Part time"}
+                        </option>
                       </select>
                       {errors.deliveryDistrict && (
                         <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                          <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                          <h1 className="text-white text-sm">
+                            {t("required")}
+                          </h1>
                         </div>
                       )}
                     </div>
@@ -387,7 +389,9 @@ function NewAnket({ lng }) {
                 </div>
               </div>
               <div className="w-full">
-                <h2 className="text-xl text-gray-900 uppercase ">Боловсрол</h2>
+                <h2 className="text-xl text-gray-900 uppercase ">
+                  {t("degree_information")}
+                </h2>
 
                 <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
                   <div className="sm:col-span-3">
@@ -395,7 +399,7 @@ function NewAnket({ lng }) {
                       htmlFor="first-name"
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Боловсролын зэрэг
+                      {t("degree_information")}
                     </label>
                     <div className="mt-2">
                       <select
@@ -414,7 +418,9 @@ function NewAnket({ lng }) {
                       </select>
                       {errors.deliveryDistrict && (
                         <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                          <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                          <h1 className="text-white text-sm">
+                            {t("required")}
+                          </h1>
                         </div>
                       )}
                     </div>
@@ -424,24 +430,48 @@ function NewAnket({ lng }) {
                       htmlFor="lastName "
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Эзэмшсэн мэргэжил
+                      {t("major")}
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="Эзэмшсэн мэргэжил"
                         type="text"
-                        {...register("email", {
+                        {...register("major", {
                           required: true,
                           maxLength: 20,
                         })}
-                        name="email"
-                        id="email"
+                        name="major"
+                        id="major"
                         className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
                       />
                     </div>
                     {errors.email && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                        <h1 className="text-white text-sm">{t("major")}</h1>
+                      </div>
+                    )}
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label
+                      htmlFor="school_name"
+                      className="block text-base font-light leading-6 text-gray-900"
+                    >
+                      {t("school_name")}
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        {...register("school_name", {
+                          required: true,
+                          maxLength: 20,
+                        })}
+                        name="school_name"
+                        id="school_name"
+                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
+                      />
+                    </div>
+                    {errors.email && (
+                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                        <h1 className="text-white text-sm">{t("required")}</h1>
                       </div>
                     )}
                   </div>
@@ -450,50 +480,23 @@ function NewAnket({ lng }) {
                       htmlFor="lastName "
                       className="block text-base font-light leading-6 text-gray-900"
                     >
-                      Сургуулийн нэр
+                      {t("country")}
                     </label>
                     <div className="mt-2">
                       <input
-                        placeholder="Эзэмшсэн мэргэжил"
                         type="text"
-                        {...register("email", {
+                        {...register("country", {
                           required: true,
                           maxLength: 20,
                         })}
-                        name="email"
-                        id="email"
+                        name="country"
+                        id="country"
                         className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
                       />
                     </div>
                     {errors.email && (
                       <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">email оруулна уу</h1>
-                      </div>
-                    )}
-                  </div>
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="lastName "
-                      className="block text-base font-light leading-6 text-gray-900"
-                    >
-                      Улс
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        placeholder="Эзэмшсэн мэргэжил"
-                        type="text"
-                        {...register("email", {
-                          required: true,
-                          maxLength: 20,
-                        })}
-                        name="email"
-                        id="email"
-                        className="block w-full  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm px-3 bg-white"
-                      />
-                    </div>
-                    {errors.email && (
-                      <div className="mt-4 w-full bg-red-500 py-2 px-5">
-                        <h1 className="text-white text-sm">email оруулна уу</h1>
+                        <h1 className="text-white text-sm">{t("country")}</h1>
                       </div>
                     )}
                   </div>
@@ -547,26 +550,21 @@ function NewAnket({ lng }) {
               </div> */}
               <div className="w-full">
                 <h2 className="text-xl text-gray-900 uppercase ">
-                  Cover letter
+                  {t("additional_information")}
                 </h2>
 
                 <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 bg-white p-10">
                   <div className="full col-span-6">
-                    <textarea
-                      rows={20}
-                      type="text"
-                      className="w-full"
-                      placeholder="text here"
-                    />
+                    <textarea rows={10} type="text" className="w-full" />
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              {/* <div className="grid grid-cols-2 gap-4">
                 <div
                   onClick={() => setSelectIndex(1)}
                   className="col-span-1 py-2 text-center border border-[#080505] bg-white cursor-pointer"
                 >
-                  Буцах
+                  {}
                 </div>
                 <div
                   onClick={() => setSelectIndex(0)}
@@ -574,7 +572,7 @@ function NewAnket({ lng }) {
                 >
                   Анкет илгээх
                 </div>
-              </div>
+              </div> */}
             </div>
           </form>
         </div>
