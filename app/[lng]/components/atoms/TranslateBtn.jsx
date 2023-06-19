@@ -3,10 +3,11 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { languages } from "../../../i18n/settings";
 import Arrow from "@/app/[lng]/components/atoms/icons/Arrow";
+import { useRouter } from "next/navigation";
 
 export const TranslateBtn = ({ lng }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const router = useRouter();
   return (
     <>
       <div className="relative inline-block text-left">
@@ -62,7 +63,7 @@ export const TranslateBtn = ({ lng }) => {
                 role="menuitem"
                 tabIndex={-1}
                 id="menu-item-0"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {setIsOpen(false); router.refresh();}}
               >
                 MN
               </Link>
@@ -72,7 +73,7 @@ export const TranslateBtn = ({ lng }) => {
                 role="menuitem"
                 tabIndex={-1}
                 id="menu-item-1"
-                onClick={() => setIsOpen(false)}
+                onClick={() => {setIsOpen(false); router.refresh();}}
               >
                 EN
               </Link>
