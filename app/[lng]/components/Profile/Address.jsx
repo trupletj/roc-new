@@ -92,7 +92,6 @@ function Address({ lng }) {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           setCenter((val) => {
-            console.log(val);
             return { lat: latitude, lng: longitude };
           });
         },

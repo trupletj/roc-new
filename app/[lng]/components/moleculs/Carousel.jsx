@@ -25,7 +25,7 @@ function Carousel() {
   return (
     <Swiper
       slidesPerView={1}
-      onSlideChange={() => console.log("slide change")}
+      onSlideChange={() => {}}
       onSwiper={(swiper) => console.log(swiper)}
       className="max-w-[1920px] max-h-[80vh] w-full aspect-video lg:aspect-[5/2] flex items-center justify-center mx-auto mb-10 "
     >

@@ -5,7 +5,6 @@ import React from "react";
 function ClientRegister({ lng }) {
   const { t } = useTranslation(lng, "header");
   const handleRegister = () => {
-    console.log("register");
   };
   return (
     <div className="w-full bg-[#ECEBE7] text-[#080505]">

@@ -148,12 +148,12 @@ function DeliveryForm({ lng }) {
               </div>
             </div>
 
-            <button
+            {/* <button
               onClick={() => setOpenConfirmModal(!openConfirmModal)}
               className="w-full bg-[#F0B450] py-2 mt-4   "
             >
               {t("checkout")}
-            </button>
+            </button> */}
             <button
               onClick={onOrderSubmit}
               className="w-full bg-[#080505] text-white py-2 mt-4"

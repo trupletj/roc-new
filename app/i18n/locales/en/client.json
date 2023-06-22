@@ -76,5 +76,7 @@
   "country": "Country",
   "required": "Required",
   "cover_letter": "Additional information",
-  "ebarimt": "И Баримт байгууллагаар авах"
+  "qpay_payment": "Qpay",
+  "open_qpay": "Open bank applications",
+  "ebarimt": "Obtain documents by organization"
 }

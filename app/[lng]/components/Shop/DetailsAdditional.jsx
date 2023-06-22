@@ -16,7 +16,6 @@ function DetailsAdditional({ lng, productType }) {
     list: "",
     desc: "",
   };
-  console.log(JSON.stringify(productType, 0, 2));
   return (
     <ul>
       {productType?.type_details &&

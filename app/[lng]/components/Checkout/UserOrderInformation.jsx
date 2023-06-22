@@ -92,7 +92,6 @@ function UserOrderInformation({
         }
       );
     } else {
-      console.log("Geolocation is not supported by this browser.");
     }
   }, [isLoaded]);
   //End form confirm nemev
