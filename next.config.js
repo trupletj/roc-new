@@ -4,7 +4,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  generateEtags: false,
+  // generateEtags: false,
   images: {
     remotePatterns: [
       {

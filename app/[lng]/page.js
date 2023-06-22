@@ -18,8 +18,8 @@ export default async function Home({ params: { lng } }) {
       <CoffeeList lng={lng} />
       <Divider />
       <AboutSection lng={lng} />
-      <Divider />
-      <ShopSection lng={lng} />
+      {/* <Divider />
+      <ShopSection lng={lng} /> */}
       <Divider />
       <Branches lng={lng} />
       <Divider />

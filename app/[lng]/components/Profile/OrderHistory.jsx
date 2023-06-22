@@ -73,7 +73,7 @@ function OrderHistory({ lng }) {
         <div className="pointer-events-auto mt-5">
           <div className="flex flex-col space-y-4">
             {!data && <Loading></Loading>}
-            {filteredData && (
+            {filteredData && filteredData.length > 0 && (
               <>
                 {filteredData.map((item, i) => (
                   <div
