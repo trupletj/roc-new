@@ -409,7 +409,7 @@ function OrderDetails({ lng, id }) {
                     </div>
                   )}
 
-                  <div className="md:col-span-6 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6 bg-gray-100 p-5">
+                  <div className="md:col-span-6 grid grid-cols-1 gap-x-6 gap-y-2  bg-gray-100 p-5">
                     <h3 className="uppercase text-lg">
                       {t("order_status_history")}
                     </h3>

@@ -67,7 +67,7 @@ const Subnav = ({ item, lng, pathName }) => {
           </span>
         )}
 
-        {item.sub && <span className="ml-[5px]">{/* <Arrow /> */}</span>}
+        {/* {item.sub && <span className="ml-[5px]"><Arrow /></span>} */}
       </div>
       {item.sub && (
         <div className="absolute right-0 z-10 top-[60px] w-full origin-top-right  focus:outline-none bg-[#080505] hidden group-hover:block transition transform duration-300 ease-in-out">
@@ -96,7 +96,10 @@ const Subnav = ({ item, lng, pathName }) => {
                           item.right ? "flex-row-reverse" : "flex-row"
                         } uppercase text-2xl my-2.5`}
                       >
-                        <Link href={`/${lng}${link.link}`} shallow={true}>
+                        <Link
+                          href={`/${lng}${link.link}`}
+                          as={`/${lng}${link.link}`}
+                        >
                           {t(link.name)}
                         </Link>
                       </li>

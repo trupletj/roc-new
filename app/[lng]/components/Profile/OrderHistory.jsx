@@ -61,7 +61,7 @@ function OrderHistory({ lng }) {
           {Object.keys(status_list).map((key, i) => (
             <p
               key={status_list[key].name}
-              className={` px-4 py-2 mr-2 mt-2  ${
+              className={` px-4 py-2 mr-2 mt-2 cursor-pointer  ${
                 key == selectedId ? "bg-[#F0B450] text-white" : "bg-white"
               } `}
               onClick={() => handleFilter(key)}

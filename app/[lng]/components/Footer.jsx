@@ -33,7 +33,7 @@ const data = [
         link: `/shop`,
       },
       { name: "espresso_machines", link: `/shop` },
-      { name: "merchendies", link: `/shop` },
+      { name: "merchendises", link: `/shop` },
     ],
   },
   {

@@ -77,7 +77,10 @@
   "cover_letter": "Нэмэлт мэдээлэл",
   "required": "Заавал оруулах",
   "qpay_payment": "Qpay",
-  
+  "order_number": "Захиалгын дугаар",
+  "created_at": "Захиалга үүссн огноо",
   "open_qpay": "Банкны програм нээх",
+  "order_status_history": "Төлвийн түүх",
+  "order_information": "Захиалгын дэлгэрэнгүй",
   "ebarimt": "И Баримт байгууллагаар авах"
 }

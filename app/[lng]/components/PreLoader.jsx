@@ -8,8 +8,7 @@ function PreLoader() {
 
   const current_color = "black";
   useEffect(() => {
-    const handleRouteChange = (url) => {
-    };
+    const handleRouteChange = (url) => {};
     // router.events.on("routeChangeStart", handleRouteChange);
 
     return () => {

@@ -1,8 +1,6 @@
 "use client";
 import React, { useContext, useState } from "react";
-import { useTranslation } from "@/app/i18n/client";
 import ConfirmModal from "../moleculs/ConfirmModal";
-import BasketItem from "../Shop/BasketItems";
 import GlobalContext from "../../context/GlobalContext";
 import Login from "../moleculs/Items/Login";
 import ProfileInformation from "./ProfileInformation";
@@ -10,9 +8,7 @@ import Address from "./Address";
 import SideBar from "./SideBar";
 import OrderHistory from "./OrderHistory";
 function Profile({ lng, slug }) {
-  const { t } = useTranslation(lng, "client");
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
-
   const slug_helper = {
     "my-profile": true,
     "my-addresses": true,
@@ -20,7 +16,7 @@ function Profile({ lng, slug }) {
   };
 
   const current_page = slug_helper[slug] != undefined ? slug : "my-addresses";
-  const { user, setUser, token } = useContext(GlobalContext);
+  const { user, token } = useContext(GlobalContext);
   return (
     <>
       <div className="col-span-12 order-2 lg:order-1 sm:items-end lg:col-span-8">
