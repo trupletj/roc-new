@@ -55,7 +55,7 @@ const Subnav = ({ item, lng, pathName }) => {
         }
       >
         {item.link && (
-          <Link href={`/${lng}${item.link}`}>
+          <Link href={`/${lng}${item.link}`} passHref>
             <span className="uppercase group-hover:text-[#F0B450]">
               {t(item.name)}
             </span>
@@ -96,7 +96,9 @@ const Subnav = ({ item, lng, pathName }) => {
                           item.right ? "flex-row-reverse" : "flex-row"
                         } uppercase text-2xl my-2.5`}
                       >
-                        <Link href={`/${lng}${link.link}`}>{t(link.name)}</Link>
+                        <Link href={`/${lng}${link.link}`} passHref>
+                          {t(link.name)}
+                        </Link>
                       </li>
                     ))}
                   </ul>

@@ -435,19 +435,25 @@ function ProductList({ params, ItemData, TypeData, CategoryData }) {
                         <Link
                           // href={`/${lng}/shop`}
                           href={`/${lng}/shop/product/${product.type_id}`}
+                          passHref
                           className="absolute right-0 top-0 p-2 bg-black  group-hover:block hidden"
                         >
                           <ShopBag color={"#fff"} />
                         </Link>
                         <Link
                           href={`/${lng}/shop/product/${product.type_id}`}
+                          passHref
+                          
                           className="absolute w-full left-0 bottom-0 p-2 bg-black  group-hover:block hidden text-center text-white"
                         >
                           {headerT("view")}
                         </Link>
                       </div>
                     </div>
-                    <Link href={`/${lng}/shop/product/${product.type_id}`}>
+                    <Link
+                      href={`/${lng}/shop/product/${product.type_id}`}
+                      passHref
+                    >
                       <h3 className="mt-4 text-sm text-center text-gray-700">
                         {product.name}
                       </h3>
