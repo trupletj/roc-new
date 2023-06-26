@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 function PreLoader() {
   const router = useRouter();
@@ -9,20 +8,26 @@ function PreLoader() {
   const current_color = "black";
   useEffect(() => {
     const handleRouteChange = (url) => {};
-    // router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeStart", handleRouteChange);
 
     return () => {
-      // router.events.off("routeChangeStart", handleRouteChange);
+      router.events.off("routeChangeStart", handleRouteChange);
     };
   }, []);
 
+  useEffect(() => {
+    console.log(router.query); // route /notes/1 -> { id: 1 }
+  }, [router.query]);
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
   useEffect(() => {
     const url = pathname + searchParams.toString();
+    console.log(url);
   }, [pathname, searchParams]);
   return (
-    <div className="container flex items-center justify-center fixed">
+    <div className="flex items-center justify-center fixed w-full h-full hide hidden">
       <div className="relative">
         <div className="lds-ellipsis">
           <div style={{ backgroundColor: `${current_color} !important` }} />

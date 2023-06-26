@@ -96,12 +96,7 @@ const Subnav = ({ item, lng, pathName }) => {
                           item.right ? "flex-row-reverse" : "flex-row"
                         } uppercase text-2xl my-2.5`}
                       >
-                        <Link
-                          href={`/${lng}${link.link}`}
-                          as={`/${lng}${link.link}`}
-                        >
-                          {t(link.name)}
-                        </Link>
+                        <Link href={`/${lng}${link.link}`}>{t(link.name)}</Link>
                       </li>
                     ))}
                   </ul>

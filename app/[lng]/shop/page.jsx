@@ -6,7 +6,7 @@ export const metadata = {
   title: "Shop Products",
 };
 
-export const revalidate = 10;
+// export const revalidate = 10;
 
 function ShopPage({ params }) {
   const { items, isLoading, isError } = useItems({

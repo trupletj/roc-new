@@ -61,6 +61,7 @@ export default function RootLayout({ children, params: { lng } }) {
       <body
         className={`${noirnormal.variable} ${noirbold.variable} ${noirlight.variable} ${noirmedium.variable} relative bg-[#f2f2f2]`}
       >
+        <PreLoader></PreLoader>
         <Providers>
           <Header lng={lng} />
           {children}
