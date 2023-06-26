@@ -128,6 +128,7 @@ function AboutPage({ lng, slug }) {
                     </div>
                     <div className="w-full md:w-7/12 relative aspect-square">
                       <Image
+                        loading="lazy"
                         alt="story"
                         src={story1}
                         fill
