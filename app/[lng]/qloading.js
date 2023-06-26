@@ -2,17 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 function loading() {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const current_color = "black";
-
-  useEffect(() => {
-    console.log(router.query); // route /notes/1 -> { id: 1 }
-  }, [router.query]);
-  useEffect(() => {
-    console.log(router.events); // route /notes/1 -> { id: 1 }
-  }, [router.events]);
 
   const pathname = usePathname();
   const searchParams = useSearchParams();

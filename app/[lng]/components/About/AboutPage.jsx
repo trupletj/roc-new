@@ -127,11 +127,9 @@ function AboutPage({ lng, slug }) {
                       </p>
                     </div>
                     <div className="w-full md:w-7/12 relative aspect-square">
-                    
                       <Image
                         alt="story"
                         src={story1}
-                      
                         fill
                         sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
@@ -148,7 +146,6 @@ function AboutPage({ lng, slug }) {
                   <div className="flex flex-col md:flex-row items-center md:space-x-16 space-y-5">
                     <div className=" w-full md:w-7/12 relative aspect-square">
                       <Image
-
                         alt="story"
                         src={story2}
                         fill
@@ -156,7 +153,7 @@ function AboutPage({ lng, slug }) {
               (max-width: 1200px) 50vw,
               50vw"
                         quality={100}
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "contain" }}
                       />
                     </div>
                     <div className="w-full md:w-5/12  md:text-2xl ">
