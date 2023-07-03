@@ -396,7 +396,7 @@ function ProductDetail({ params, ItemData, TypeData, GrinderData }) {
                             return [
                               ...val,
                               {
-                                title: "Warning",
+                                title: t("Warning"),
                                 description: t("choose_grinder_type"),
                               },
                             ];

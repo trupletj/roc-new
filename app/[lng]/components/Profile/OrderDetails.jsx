@@ -119,7 +119,7 @@ function OrderDetails({ lng, id }) {
           return [
             ...val,
             {
-              title: "Warning",
+              title: t("Warning"),
               description: t("not found"),
             },
           ];
@@ -140,8 +140,8 @@ function OrderDetails({ lng, id }) {
         return [
           ...val,
           {
-            title: "Warning",
-            description: t("choose address"),
+            title: t("Warning"),
+            description: t("choose_address"),
           },
         ];
       });
@@ -152,7 +152,7 @@ function OrderDetails({ lng, id }) {
         return [
           ...val,
           {
-            title: "Warning",
+            title: t("Warning"),
             description: t(
               "Please add your company information on your profile"
             ),
@@ -209,7 +209,7 @@ function OrderDetails({ lng, id }) {
         return [
           ...val,
           {
-            title: "Warning",
+            title: t("Warning"),
             description: t("some error"),
           },
         ];

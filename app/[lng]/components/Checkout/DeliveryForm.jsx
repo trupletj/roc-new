@@ -20,14 +20,18 @@ function DeliveryForm({ lng }) {
   const [isRegisterOn, setIsRegisterOn] = useState(false);
   const [currentAddress, setCurrentAddress] = useState(false);
 
+  const [currentUser, setCurrentUser] = useState({});
   const onOrderSubmit = async () => {
+    if (currentUser != user) {
+      console.log(currentUser, user);
+    }
     if (!currentAddress) {
       setAlerts((val) => {
         return [
           ...val,
           {
-            title: "Warning",
-            description: t("choose address"),
+            title: t("Warning"),
+            description: t("choose_address"),
           },
         ];
       });
@@ -38,7 +42,7 @@ function DeliveryForm({ lng }) {
         return [
           ...val,
           {
-            title: "Warning",
+            title: t("Warning"),
             description: t(
               "Please add your company information on your profile"
             ),
@@ -95,7 +99,7 @@ function DeliveryForm({ lng }) {
         return [
           ...val,
           {
-            title: "Warning",
+            title: t("Warning"),
             description: t("some error"),
           },
         ];
@@ -110,6 +114,8 @@ function DeliveryForm({ lng }) {
             {user && (
               <UserOrderInformation
                 currentAddress={currentAddress}
+                user={user}
+                setUser={setCurrentUser}
                 setCurrentAddress={setCurrentAddress}
                 isRegisterOn={isRegisterOn}
                 setIsRegisterOn={setIsRegisterOn}
@@ -148,12 +154,6 @@ function DeliveryForm({ lng }) {
               </div>
             </div>
 
-            {/* <button
-              onClick={() => setOpenConfirmModal(!openConfirmModal)}
-              className="w-full bg-[#F0B450] py-2 mt-4   "
-            >
-              {t("checkout")}
-            </button> */}
             <button
               onClick={onOrderSubmit}
               className="w-full bg-[#080505] text-white py-2 mt-4"

@@ -82,5 +82,8 @@
   "created_at": "Created at",
   "order_status_history": "Order status history",
   "order_information": "Order information",
-  "ebarimt": "Obtain documents by organization"
+  "ebarimt": "Obtain documents by organization",
+  "make_order": "Order",
+  "Warning": "Warning",
+  "delivery": "Delivery"
 }

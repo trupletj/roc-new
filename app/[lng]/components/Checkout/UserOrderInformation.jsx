@@ -13,9 +13,10 @@ function UserOrderInformation({
   setCurrentAddress,
   isRegisterOn,
   setIsRegisterOn,
+  user,
+  setUser,
 }) {
-  const { user, setUser, token, googleMapsApiKey, district } =
-    useContext(GlobalContext);
+  const { token, googleMapsApiKey, district } = useContext(GlobalContext);
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: googleMapsApiKey,
   });
@@ -105,7 +106,13 @@ function UserOrderInformation({
       <form
         className="w-full"
         onSubmit={handleSubmit(onSubmit)}
-        onChange={(data) => {}}
+        onChange={(data) => {
+          setUser((val) => {
+            val[data.target.name] = data.target.value;
+            console.log(val);
+            return val;
+          });
+        }}
       >
         <h2 className="text-2xl text-gray-900 uppercase font-normal">
           {t("information")}
@@ -118,10 +125,21 @@ function UserOrderInformation({
               className="block text-base font-light leading-6 text-gray-900"
             >
               {t("first_name")}:{" "}
-              <span className="text-black font-normal">
+              {/* <span className="text-black font-normal">
                 {user.first_name || "-"}
-              </span>
+              </span> */}
             </label>
+            <div className="mt-2">
+              <input
+                {...register("first_name", {
+                  required: true,
+                })}
+                type="text"
+                name="first_name"
+                id="first_name"
+                className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3  "
+              />
+            </div>
           </div>
           <div className="md:col-span-3 col-span-1">
             <label
@@ -129,10 +147,21 @@ function UserOrderInformation({
               className="block text-base  font-light leading-6 text-gray-900"
             >
               {t("last_name")}:{" "}
-              <span className="text-black font-normal">
+              {/* <span className="text-black font-normal">
                 {user.last_name || "-"}
-              </span>
+              </span> */}
             </label>
+            <div className="mt-2">
+              <input
+                {...register("last_name", {
+                  required: true,
+                })}
+                type="text"
+                name="last_name"
+                id="last_name"
+                className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3  "
+              />
+            </div>
           </div>
 
           <div className="md:col-span-3 col-span-1">
@@ -163,7 +192,7 @@ function UserOrderInformation({
               onClick={() => setIsRegisterOn(!isRegisterOn)}
               className="flex justify-between items-center col-span-6 text-gray-900 cursor-pointer"
             >
-              <h1>И-Баримт албан байгууллагаар авах</h1>
+              <h1>{t("ebarimt")}</h1>
               {!isRegisterOn ? (
                 <div>
                   <svg
@@ -236,15 +265,13 @@ function UserOrderInformation({
                   </label>
                   <div className="mt-2">
                     <input
-                      disabled
-                      placeholder="text"
                       {...register("company_register", {
                         required: true,
                       })}
                       type="text"
-                      name="first-name"
-                      id="first-name"
-                      className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3 bg-gray-300 "
+                      name="company_register"
+                      id="company_register"
+                      className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3  "
                     />
                   </div>
                 </div>
@@ -258,13 +285,11 @@ function UserOrderInformation({
                   </label>
                   <div className="mt-2">
                     <input
-                      placeholder="text"
-                      disabled
                       {...register("company_name", { required: true })}
                       type="text"
-                      name="first-name"
-                      id="first-name"
-                      className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3 bg-gray-300 "
+                      name="company_name"
+                      id="company_name"
+                      className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3"
                     />
                   </div>
                   {errors.company_name && (
