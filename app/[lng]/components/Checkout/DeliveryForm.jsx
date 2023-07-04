@@ -13,18 +13,43 @@ function DeliveryForm({ lng }) {
   const { t } = useTranslation(lng, "client");
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
   const [openAlertModal, setOpenAlertModal] = useState(false);
+  const [validateForms, setValidateForms] = useState({
+    user_error: {},
+    address_error: {},
+  });
 
   const router = useRouter();
-  const { user, setUser, token, setAlerts, card, setGlobalLoader } =
-    useContext(GlobalContext);
+  const {
+    user,
+    setUser,
+    token,
+    setAlerts,
+    card,
+    setGlobalLoader,
+    setAddresses,
+  } = useContext(GlobalContext);
   const [isRegisterOn, setIsRegisterOn] = useState(false);
   const [currentAddress, setCurrentAddress] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
   const onOrderSubmit = async () => {
-    if (currentUser != user) {
-      console.log(currentUser, user);
+    if (
+      Object.keys(validateForms.user_error).length > 0 ||
+      Object.keys(validateForms.address_error).length > 0 ||
+      !currentAddress
+    ) {
+      setAlerts((val) => {
+        return [
+          ...val,
+          {
+            title: t("Warning"),
+            description: t("please_fill_required_fields"),
+          },
+        ];
+      });
+      return false;
     }
+
     if (!currentAddress) {
       setAlerts((val) => {
         return [
@@ -62,13 +87,34 @@ function DeliveryForm({ lng }) {
       };
     });
 
-    setGlobalLoader(true);
+    if (products.length == 0) {
+      setAlerts((val) => {
+        return [
+          ...val,
+          {
+            title: t("Warning"),
+            description: t("empty_cart"),
+          },
+        ];
+      });
+      return false;
+    }
+    // setGlobalLoader(true);
+    // console.log({
+    //   address_id: currentAddress.id,
+    //   is_company: isRegisterOn,
+    //   products,
+    //   currentAddress,
+    //   currentUser,
+    // });
     const response = await fetcher(
       "client/order/create",
       {
         address_id: currentAddress.id,
         is_company: isRegisterOn,
         products,
+        currentAddress,
+        currentUser,
       },
       token
     );
@@ -86,6 +132,39 @@ function DeliveryForm({ lng }) {
           },
         ];
       });
+
+      if (result?.user) {
+        setUser(result?.user);
+      }
+      if (result.user?.addresses) {
+        setAddresses(
+          result.user?.addresses
+            ? [
+                ...result.user.addresses,
+                {
+                  id: 0,
+                  name: "",
+                  receiver_name: "",
+                  receiver_phone: "",
+                  district: "",
+                  address_information: "",
+                  lat_lng: "",
+                },
+              ]
+            : [
+                {
+                  id: 0,
+                  name: "",
+                  receiver_name: "",
+                  receiver_phone: "",
+                  district: "",
+                  address_information: "",
+                  lat_lng: "",
+                },
+              ]
+        );
+      }
+
       router.push(
         `/${lng}/order/${result?.record?.order?.id}`,
         { query: { id: result?.record?.order?.id } },
@@ -119,6 +198,8 @@ function DeliveryForm({ lng }) {
                 setCurrentAddress={setCurrentAddress}
                 isRegisterOn={isRegisterOn}
                 setIsRegisterOn={setIsRegisterOn}
+                validateForms={validateForms}
+                setValidateForms={setValidateForms}
               />
             )}
             {!user && !token && (

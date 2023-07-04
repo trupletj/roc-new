@@ -15,6 +15,8 @@ function UserOrderInformation({
   setIsRegisterOn,
   user,
   setUser,
+  validateForms,
+  setValidateForms,
 }) {
   const { token, googleMapsApiKey, district } = useContext(GlobalContext);
   const { isLoaded } = useJsApiLoader({
@@ -34,6 +36,7 @@ function UserOrderInformation({
     register,
     handleSubmit,
     watch,
+    trigger: triggerUserValidation,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -45,6 +48,26 @@ function UserOrderInformation({
       company_name: user.company_name,
       addressType: null,
     },
+    mode: "all",
+  });
+
+  const {
+    register: address_register,
+    handleSubmit: handdleAddressSubmit,
+    formState: { errors: address_error },
+    reset: registerReset,
+    trigger: triggerValidation,
+  } = useForm({
+    defaultValues: {
+      name: currentAddress?.name || null,
+      receiver_name: currentAddress?.receiver_name || user.first_name,
+      receiver_phone: currentAddress?.receiver_phone || user.phone,
+      district: currentAddress?.district || null,
+      address_information: currentAddress?.address_information || null,
+      lat_lng: currentAddress?.lat_lng || null,
+    },
+    mode: "all",
+    reValidateMode: "onBlur",
   });
 
   const [addresses, setAddresses] = useState(
@@ -53,23 +76,23 @@ function UserOrderInformation({
           ...user.addresses,
           {
             id: 0,
-            name: "",
+            name: null,
             receiver_name: "",
             receiver_phone: "",
-            district: "",
+            district: null,
             address_information: "",
-            lat_lng: "",
+            lat_lng: null,
           },
         ]
       : [
           {
             id: 0,
-            name: "",
+            name: null,
             receiver_name: "",
             receiver_phone: "",
-            district: "",
+            district: null,
             address_information: "",
-            lat_lng: "",
+            lat_lng: null,
           },
         ]
   );
@@ -95,11 +118,36 @@ function UserOrderInformation({
     } else {
     }
   }, [isLoaded]);
+
+  const trigerAddressForm = async () => {
+    // user_error: {},
+    // address_error: {},
+    await triggerValidation();
+    await triggerUserValidation();
+
+    setValidateForms((val) => {
+      return {
+        user_error: errors,
+        address_error,
+      };
+    });
+  };
+  useEffect(() => {
+    trigerAddressForm();
+  }, [currentAddress, user]);
+
   //End form confirm nemev
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {};
   const handleDragEnd = (e) => {
     setZoom(14);
     setCenter({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+    setCurrentAddress((val) => {
+      val.lat_lng = JSON.stringify({
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng(),
+      });
+      return val;
+    });
   };
   return (
     <>
@@ -109,7 +157,6 @@ function UserOrderInformation({
         onChange={(data) => {
           setUser((val) => {
             val[data.target.name] = data.target.value;
-            console.log(val);
             return val;
           });
         }}
@@ -117,7 +164,6 @@ function UserOrderInformation({
         <h2 className="text-2xl text-gray-900 uppercase font-normal">
           {t("information")}
         </h2>
-
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-3 md:grid-cols-6 bg-white p-10">
           <div className="md:col-span-3 col-span-1">
             <label
@@ -140,6 +186,11 @@ function UserOrderInformation({
                 className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3  "
               />
             </div>
+            {errors.first_name && (
+              <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                <h1 className="text-white text-sm">{t("please_fill")}</h1>
+              </div>
+            )}
           </div>
           <div className="md:col-span-3 col-span-1">
             <label
@@ -162,8 +213,12 @@ function UserOrderInformation({
                 className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3  "
               />
             </div>
+            {errors.last_name && (
+              <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                <h1 className="text-white text-sm">{t("please_fill")}</h1>
+              </div>
+            )}
           </div>
-
           <div className="md:col-span-3 col-span-1">
             <label
               htmlFor="phone"
@@ -274,6 +329,11 @@ function UserOrderInformation({
                       className="block w-full  border border-[#707070]  text-black font-normal py-1.5  sm:text-sm px-3  "
                     />
                   </div>
+                  {errors.company_register && (
+                    <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                      <h1 className="text-white text-sm">{t("please_fill")}</h1>
+                    </div>
+                  )}
                 </div>
 
                 <div className="col-span-6 md:col-span-3">
@@ -311,7 +371,7 @@ function UserOrderInformation({
             </label>
             <div className="grid  grid-cols-3 gap-2 mt-2">
               {addresses?.map((address) => {
-                if (address.id > 0)
+                if (address.id > 0 || true)
                   return (
                     <div
                       className="col-span-3 md:col-span-1"
@@ -329,6 +389,18 @@ function UserOrderInformation({
                         onChange={(e) => {
                           if (e.target.checked) {
                             setCurrentAddress(address);
+                            registerReset({
+                              addressType: address?.id || 0,
+                              name: address?.name || null,
+                              receiver_name:
+                                address?.receiver_name || user.first_name,
+                              receiver_phone:
+                                address?.receiver_phone || user.phone,
+                              district: address?.district || null,
+                              address_information:
+                                address?.address_information || null,
+                              lat_lng: address?.lat_lng || null,
+                            });
                             if (address?.lat_lng) {
                               try {
                                 let l_lng = JSON.parse(address.lat_lng);
@@ -356,6 +428,9 @@ function UserOrderInformation({
                             ? "bg-[#F0B450]"
                             : "bg-[#080505]"
                         }`}
+                        onClick={async () => {
+                          await triggerValidation();
+                        }}
                       >
                         {address.id === 0 ? t("new") : address.name}
                       </label>
@@ -370,95 +445,187 @@ function UserOrderInformation({
               )}
             </div>
           </div>
-          {currentAddress && (
-            <div className="md:col-span-6 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6 bg-gray-100 p-5">
-              <div className="sm:col-span-3">
-                <label
-                  htmlFor="first-name"
-                  className="block text-base font-light leading-6 text-gray-900"
-                >
-                  {t("receiver_name")}:{" "}
-                  <span className="text-black font-normal">
-                    {currentAddress.receiver_name || "-"}
-                  </span>
-                </label>
-              </div>
-              <div className="sm:col-span-3">
-                <label
-                  htmlFor="receiver_phone"
-                  className="block text-base font-light leading-6 text-gray-900"
-                >
-                  {t("receiver_phone")}:{" "}
-                  <span className="text-black font-normal">
-                    {currentAddress.receiver_phone || "-"}
-                  </span>
-                </label>
-              </div>
-              <div className="sm:col-span-6">
-                <label
-                  htmlFor="district"
-                  className="block text-base font-light leading-6 text-gray-900"
-                >
-                  {t("district")}:{" "}
-                  <span className="text-black font-normal">
-                    {district[currentAddress.district] || "-"}
-                  </span>
-                </label>
-              </div>
+        </div>
+      </form>
 
-              <div className="sm:col-span-6">
-                <label
-                  htmlFor="first-name"
-                  className="block text-base font-light leading-6 text-gray-900"
-                >
-                  {t("full_address")}:{" "}
-                  <span className="text-black font-normal">
-                    {currentAddress.receiver_name || "-"}
-                  </span>
-                </label>
+      {currentAddress && (
+        <form
+          className="w-full"
+          onSubmit={handdleAddressSubmit(onSubmit)}
+          onChange={(data) => {
+            setCurrentAddress((val) => {
+              val[data.target.name] = data.target.value;
+              return val;
+            });
+          }}
+        >
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-3 md:grid-cols-6 bg-white p-10">
+            <div className="sm:col-span-6">
+              <label
+                htmlFor="address_name"
+                className="block text-base font-light leading-6 text-gray-900"
+              >
+                <span className="text-red-500 mr-2">*</span>
+                {t("address_name")}
+              </label>
+              <div className="mt-2">
+                <input
+                  placeholder={t("address_name")}
+                  {...address_register("name", { required: true })}
+                  type="text"
+                  name="name"
+                  id="address_name"
+                  className="block w-full px-3  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
+                />
               </div>
-              {showMarker && (
-                <div className="sm:col-span-6">
-                  <label
-                    htmlFor="map"
-                    className="block text-base  leading-6 text-gray-900 font-normal"
-                  >
-                    {t("map")}
-                  </label>
-                  <div className="mt-2">
-                    {!isLoaded && <Loading />}
-                    {isLoaded && (
-                      <div className="block w-full  px-2  aspect-video py-1.5  sm:text-sm ">
-                        <GoogleMap
-                          center={main}
-                          zoom={zoom}
-                          mapContainerStyle={{ width: "100%", height: "100%" }}
-                          options={{
-                            streetViewControl: false,
-                            fullscreenControl: false,
-                          }}
-                          onLoad={(map) => setMap(map)}
-                          onClick={(event) => {
-                            if (!showMarker) {
-                              setCenter({
-                                lat: event.latLng.lat(),
-                                lng: event.latLng.lng(),
-                              });
-                              setShowMarker(true);
-                            }
-                          }}
-                        >
-                          {showMarker && <Marker position={center} />}
-                        </GoogleMap>
-                      </div>
-                    )}
-                  </div>
+              {address_error.name && (
+                <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                  <h1 className="text-white text-sm">{t("please_fill")}</h1>
                 </div>
               )}
             </div>
-          )}
-        </div>
-      </form>
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="first-name"
+                className="block text-base font-light leading-6 text-gray-900"
+              >
+                <span className="text-red-500 mr-2">*</span>
+                {t("receiver_name")}
+              </label>
+              <div className="mt-2">
+                <input
+                  placeholder={t("receiver_name")}
+                  {...address_register("receiver_name", { required: true })}
+                  type="text"
+                  name="receiver_name"
+                  id="receiver_name"
+                  className="block w-full px-3  border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
+                />
+              </div>
+              {address_error.receiver_name && (
+                <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                  <h1 className="text-white text-sm">{t("please_fill")}</h1>
+                </div>
+              )}
+            </div>
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="receiver_phone"
+                className="block text-base font-light leading-6 text-gray-900"
+              >
+                <span className="text-red-500 mr-2">*</span>
+                {t("receiver_phone")}
+              </label>
+              <div className="mt-2">
+                <input
+                  placeholder={t("receiver_phone")}
+                  {...address_register("receiver_phone", { required: true })}
+                  type="text"
+                  name="receiver_phone"
+                  id="receiver_phone"
+                  className="block w-full  px-3 border border-[#707070]  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
+                />
+              </div>
+              {address_error.receiver_phone && (
+                <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                  <h1 className="text-white text-sm">{t("please_fill")}</h1>
+                </div>
+              )}
+            </div>
+            <div className="sm:col-span-6">
+              <label
+                htmlFor="district"
+                className="block text-base font-light leading-6 text-gray-900"
+              >
+                <span className="text-red-500 mr-2">*</span>
+                {t("district")}
+              </label>
+              <div className="mt-2">
+                <select
+                  defaultValue={"BZD"}
+                  {...address_register("district", { required: true })}
+                  type="select"
+                  className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
+                >
+                  <option value={"BGD"}>Баянгол</option>
+                  <option value={"BZD"}>Баянзүрх</option>
+                  <option value={"SBD"}>Сүхбаатар</option>
+                  <option value={"SHD"}>Сонгинохайрхан</option>
+                  <option value={"CHD"}>Чингэлтэй</option>
+                  <option value={"HUD"}>Хан-Уул</option>
+                </select>
+                {address_error.district && (
+                  <div className="mt-4 w-full bg-red-500 py-2 px-5">
+                    <h1 className="text-white text-sm">Заавал бөглөх</h1>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="sm:col-span-6">
+              <label
+                htmlFor="first-name"
+                className="block text-base font-normal leading-6 text-gray-900"
+              >
+                {t("full_address")}
+              </label>
+              <div className="mt-2">
+                <textarea
+                  {...address_register("address_information")}
+                  rows={4}
+                  type="text"
+                  name="address_information"
+                  id="address_information"
+                  placeholder={t("full_address")}
+                  className="block w-full  border border-[#707070] px-2  py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm bg-white"
+                />
+              </div>
+            </div>
+            <div className="sm:col-span-6">
+              <label
+                htmlFor="map"
+                className="block text-base  leading-6 text-gray-900 font-normal"
+              >
+                {t("map")}
+              </label>
+              <div className="mt-2">
+                {!isLoaded && <Loading />}
+                {isLoaded && (
+                  <div className="block w-full  px-2  aspect-video py-1.5  sm:text-sm ">
+                    <GoogleMap
+                      center={main}
+                      zoom={zoom}
+                      mapContainerStyle={{ width: "100%", height: "100%" }}
+                      options={{
+                        streetViewControl: false,
+                        fullscreenControl: false,
+                      }}
+                      onLoad={(map) => setMap(map)}
+                      onClick={(event) => {
+                        if (!showMarker) {
+                          setCenter({
+                            lat: event.latLng.lat(),
+                            lng: event.latLng.lng(),
+                          });
+                          setShowMarker(true);
+                        }
+                      }}
+                    >
+                      {showMarker && (
+                        <Marker
+                          position={center}
+                          draggable={true}
+                          onDragEnd={handleDragEnd}
+                        />
+                      )}
+                    </GoogleMap>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </form>
+      )}
 
       {false && (
         <div className="w-full pt-10">

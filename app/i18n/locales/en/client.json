@@ -78,6 +78,8 @@
   "cover_letter": "Additional information",
   "qpay_payment": "Qpay",
   "open_qpay": "Open bank applications",
+  "check_payment": "Check payment",
+  "pay": "Pay now",
   "order_number": "Order number",
   "created_at": "Created at",
   "order_status_history": "Order status history",
@@ -85,5 +87,6 @@
   "ebarimt": "Obtain documents by organization",
   "make_order": "Order",
   "Warning": "Warning",
+  "please_fill_required_fields": "Please fill required fields",
   "delivery": "Delivery"
 }
