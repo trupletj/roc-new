@@ -19,7 +19,7 @@ function Providers({ children }) {
     HUD: "Хан-Уул",
   };
   const mediaDomain = "https://www.api.roc.mn";
-  // const mediaDomain = "http://192.168.10.102:8000";
+  // const mediaDomain = "http://192.168.10.109:8000";
   const [token, setToken] = useState("");
   const [user, setUser] = useState(false);
   const googleMapsApiKey = "AIzaSyAAQwcxH6QcZ-qIYEzOc657nuM01glAxAU";

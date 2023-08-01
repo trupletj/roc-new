@@ -136,34 +136,38 @@ function DeliveryForm({ lng }) {
       if (result?.user) {
         setUser(result?.user);
       }
-      if (result.user?.addresses) {
-        setAddresses(
-          result.user?.addresses
-            ? [
-                ...result.user.addresses,
-                {
-                  id: 0,
-                  name: "",
-                  receiver_name: "",
-                  receiver_phone: "",
-                  district: "",
-                  address_information: "",
-                  lat_lng: "",
-                },
-              ]
-            : [
-                {
-                  id: 0,
-                  name: "",
-                  receiver_name: "",
-                  receiver_phone: "",
-                  district: "",
-                  address_information: "",
-                  lat_lng: "",
-                },
-              ]
-        );
-      }
+      // if (result.user?.addresses) {
+      //   try {
+      //     setAddresses(
+      //       result.user?.addresses
+      //         ? [
+      //             ...result.user.addresses,
+      //             {
+      //               id: 0,
+      //               name: "",
+      //               receiver_name: "",
+      //               receiver_phone: "",
+      //               district: "",
+      //               address_information: "",
+      //               lat_lng: "",
+      //             },
+      //           ]
+      //         : [
+      //             {
+      //               id: 0,
+      //               name: "",
+      //               receiver_name: "",
+      //               receiver_phone: "",
+      //               district: "",
+      //               address_information: "",
+      //               lat_lng: "",
+      //             },
+      //           ]
+      //     );
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // }
 
       router.push(
         `/${lng}/order/${result?.record?.order?.id}`,

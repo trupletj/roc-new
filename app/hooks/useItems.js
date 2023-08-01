@@ -21,8 +21,8 @@ const objectToQueryString = (obj) => {
 
 export const apiDomain = "https://www.api.roc.mn/";
 export const mediaDomain = "https://www.api.roc.mn";
-// export const apiDomain = "http://192.168.10.102:8000/";
-// export const mediaDomain = "http://192.168.10.102:8000";
+// export const apiDomain = "http://192.168.10.109:8000/";
+// export const mediaDomain = "http://192.168.10.109:8000";
 export function useItems(req) {
   let str = objectToQueryString(req.data);
   let url = req.url;

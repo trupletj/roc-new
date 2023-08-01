@@ -43,7 +43,6 @@ function ProfileInformation({ lng }) {
   //End form confirm nemev
   const onSubmit = async (data) => {
     setIsSaving(true);
-    debugger;
     const response = await fetcher("client/profile/update", data, token);
     if (response.status == 200) {
       const result = await response.json();
