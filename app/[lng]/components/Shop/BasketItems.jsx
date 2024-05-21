@@ -14,7 +14,7 @@ function BasketItem({ lng, hideTitle }) {
   const isShowTitle = !hideTitle ? true : false;
   const [products, setProdcts] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
-  const [openInformation, setOpenInformation] = useState(false);
+  const [openInformation, setOpenInformation] = useState(true);
 
   const setSubTotal = (current_products) => {
     let _price = 0;
@@ -368,10 +368,34 @@ function BasketItem({ lng, hideTitle }) {
             )}
           </div>
           {openInformation && (
-            <div className="sm:col-span-3">
+            <div className="sm:col-span-3 mt-3">
               {t("order_additional_information")}
             </div>
           )}
+
+          <h1></h1>
+
+          <div className="sm:col-span-3"></div>
+
+          <div
+            class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 mt-3"
+            role="alert"
+          >
+            <svg
+              class="flex-shrink-0 inline w-4 h-4 me-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Info</span>
+            <div className="text-base">
+              <p class="font-medium w-full ">{t("grinder_info")}</p>{" "}
+              {t("grinder_ingo_full")}
+            </div>
+          </div>
         </div>
         {isShowTitle && (
           <>

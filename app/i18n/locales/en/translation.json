@@ -40,8 +40,12 @@
   "auth_wrong": "Wrong email or password",
   "back": "Back",
   "fixe": "",
-  "order_additional_information": "Please note that orders confirmed after 12 will be delivered within the next working day. Please note that if you order Sunday orders will be delivered on the 1st working day as deliveries are not made on a full day basis.",
+
+  "grinder_info": "Please choose the correct grinder type and submit your order",
+  "grinder_ingo_full": "Please be note that the grinded coffee will not be returned.",
+  "order_additional_information": "Once order is confirmed, the delivery service commenced and to be delivered around 24-48 hours of time. Sunday is off day, therefore we'll deliver it next Monday during the working hours.",
   "register_info": "Registration Information",
+
   "close": "Close",
   "filter": "Filter",
   "recomend_products": "Recomended Products",
